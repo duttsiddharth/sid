@@ -7,70 +7,95 @@
 
 <style>
 body {
-  margin:0;
-  font-family:"Segoe UI", Arial, sans-serif;
-  background:#0f172a;
-  color:#e5e7eb;
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #0f172a;
+  color: #e5e7eb;
 }
+
 .container {
-  max-width:1100px;
-  margin:auto;
-  padding:50px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 50px;
 }
-.hero {
-  background:linear-gradient(rgba(15,23,42,.85),rgba(15,23,42,.85)),
-  url("https://images.unsplash.com/photo-1494526585095-c41746248156");
-  background-size:cover;
-  background-position:center;
-  padding:60px;
-  border-radius:12px;
+
+nav {
+  margin-bottom: 25px;
 }
-h1,h2 { color:#38bdf8; }
-h3 { color:#e5e7eb; }
+
 nav a {
-  margin-right:20px;
-  color:#38bdf8;
-  text-decoration:none;
-  font-weight:600;
+  margin-right: 20px;
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: 600;
 }
+
+.hero {
+  background:
+    linear-gradient(rgba(15,23,42,0.55), rgba(15,23,42,0.55)),
+    url("hero.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 60px;
+  border-radius: 14px;
+}
+
+h1, h2 {
+  color: #38bdf8;
+}
+
+h3 {
+  color: #e5e7eb;
+}
+
 .badge {
-  display:inline-block;
-  background:#1e293b;
-  padding:8px 12px;
-  border-radius:6px;
-  margin:6px 6px 0 0;
+  display: inline-block;
+  background: #1e293b;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin: 6px 6px 0 0;
 }
+
 .btn {
-  background:#38bdf8;
-  color:#0f172a;
-  padding:12px 18px;
-  border-radius:6px;
-  text-decoration:none;
-  font-weight:600;
+  background: #38bdf8;
+  color: #0f172a;
+  padding: 12px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 15px;
 }
+
 hr {
-  border:none;
-  border-top:1px solid #1e293b;
-  margin:35px 0;
+  border: none;
+  border-top: 1px solid #1e293b;
+  margin: 35px 0;
 }
+
 footer {
-  text-align:center;
-  margin-top:40px;
-  color:#94a3b8;
-  font-size:14px;
+  text-align: center;
+  margin-top: 40px;
+  color: #94a3b8;
+  font-size: 14px;
 }
-a { color:#38bdf8; }
+
+a {
+  color: #38bdf8;
+}
 </style>
 </head>
 
 <body>
 <div class="container">
 
+<!-- NAVIGATION -->
 <nav>
   <a href="index.html">Home</a>
   <a href="leadership.html">Leadership & Achievements</a>
 </nav>
 
+<!-- HERO -->
 <div class="hero">
   <h1>Siddharth Dutt</h1>
   <h3>Service Delivery Manager | GCC & Middle East Enterprise Operations</h3>
@@ -82,11 +107,9 @@ a { color:#38bdf8; }
     </a>
   </p>
 
-  <p>
-    <a class="btn" href="Siddharth_Dutt_Resume.pdf" download>
-      ⬇ Download Executive Resume (PDF)
-    </a>
-  </p>
+  <a class="btn" href="Siddharth_Dutt_Resume.pdf" download>
+    ⬇ Download Executive Resume (PDF)
+  </a>
 </div>
 
 <hr>
