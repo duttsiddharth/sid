@@ -7,32 +7,54 @@
 
 <style>
 body {
-  margin:0;
-  font-family:"Segoe UI", Arial;
-  background:#0f172a;
-  color:#e5e7eb;
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #0f172a;
+  color: #e5e7eb;
 }
+
 .container {
-  max-width:1100px;
-  margin:auto;
-  padding:50px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 50px;
 }
-h1,h2 { color:#38bdf8; }
+
+nav {
+  margin-bottom: 25px;
+}
+
 nav a {
-  margin-right:20px;
-  color:#38bdf8;
-  text-decoration:none;
-  font-weight:600;
+  margin-right: 20px;
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: 600;
 }
+
+.hero {
+  background:
+    linear-gradient(rgba(15,23,42,0.55), rgba(15,23,42,0.55)),
+    url("hero.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 50px;
+  border-radius: 14px;
+}
+
+h1, h2 {
+  color: #38bdf8;
+}
+
 hr {
-  border:none;
-  border-top:1px solid #1e293b;
-  margin:35px 0;
+  border: none;
+  border-top: 1px solid #1e293b;
+  margin: 35px 0;
 }
+
 footer {
-  text-align:center;
-  margin-top:40px;
-  color:#94a3b8;
+  text-align: center;
+  margin-top: 40px;
+  color: #94a3b8;
+  font-size: 14px;
 }
 </style>
 </head>
@@ -40,12 +62,20 @@ footer {
 <body>
 <div class="container">
 
+<!-- NAVIGATION -->
 <nav>
   <a href="index.html">Home</a>
   <a href="leadership.html">Leadership & Achievements</a>
 </nav>
 
-<h1>Leadership Impact & GCC Achievements</h1>
+<!-- HERO -->
+<div class="hero">
+  <h1>Leadership Impact & GCC Achievements</h1>
+  <p>
+    Executive leadership across GCC & global enterprise service delivery,
+    driving measurable business, customer, and operational outcomes.
+  </p>
+</div>
 
 <hr>
 
@@ -65,7 +95,7 @@ footer {
 
 <h2>Global & GCC Leadership</h2>
 <ul>
-  <li>Led multi-cultural teams across <strong>UAE, KSA, APAC, EMEA, Africa & North America</strong></li>
+  <li>Led teams across <strong>UAE, KSA, APAC, EMEA, Africa & North America</strong></li>
   <li>Executed zero-defect global & GCC service transitions</li>
   <li>Trusted advisor to CIOs, CXOs, and regional delivery heads</li>
 </ul>
@@ -74,11 +104,11 @@ footer {
 <ul>
   <li>Reduced incident resolution time by <strong>20%</strong></li>
   <li>Implemented ITIL governance, runbooks & QBR frameworks</li>
-  <li>Introduced AI & automation use cases in IT Operations</li>
+  <li>Introduced AI & automation in IT Operations & Service Management</li>
 </ul>
 
 <footer>
-<a href="index.html">← Back to Home</a>
+  <a href="index.html">← Back to Home</a>
 </footer>
 
 </div>
