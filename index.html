@@ -210,6 +210,101 @@
   @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
+  /* AI PROJECTS */
+  .projects-section { background: var(--ink); color: var(--paper); }
+  .projects-section .section-label { color: var(--rust); }
+  .projects-section h2 { color: var(--paper); }
+
+  .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; }
+
+  .project-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    position: relative; overflow: hidden;
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.6s, transform 0.6s, border-color 0.25s, background 0.25s;
+  }
+  .project-card.visible { opacity: 1; transform: translateY(0); }
+  .project-card:hover { background: rgba(255,255,255,0.07); border-color: var(--rust); }
+  .project-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--rust), var(--gold));
+  }
+
+  .project-header { padding: 2rem 2rem 1.2rem; }
+  .project-tag {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-family: 'DM Mono', monospace; font-size: 0.62rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--rust); background: rgba(192,68,10,0.12);
+    padding: 0.3rem 0.75rem; margin-bottom: 1rem;
+  }
+  .project-title {
+    font-family: 'DM Serif Display', serif; font-size: 1.5rem;
+    color: var(--paper); margin-bottom: 0.6rem; line-height: 1.2;
+  }
+  .project-title em { font-style: italic; color: var(--gold); }
+  .project-desc { font-size: 0.85rem; color: rgba(245,240,232,0.65); line-height: 1.75; }
+
+  .project-metrics {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .metric { padding: 1.1rem; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
+  .metric:last-child { border-right: none; }
+  .metric-num { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--gold); line-height: 1; }
+  .metric-label { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,240,232,0.4); margin-top: 0.3rem; }
+
+  .project-body { padding: 1.5rem 2rem; }
+  .project-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+  .stack-tag {
+    padding: 0.25rem 0.65rem;
+    background: rgba(255,255,255,0.06);
+    font-family: 'DM Mono', monospace; font-size: 0.68rem;
+    color: rgba(245,240,232,0.6); letter-spacing: 0.05em;
+  }
+
+  .project-highlights { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+  .project-highlights li { font-size: 0.82rem; color: rgba(245,240,232,0.6); padding-left: 1.2rem; position: relative; line-height: 1.6; }
+  .project-highlights li::before { content: '→'; position: absolute; left: 0; color: var(--rust); font-size: 0.75rem; }
+
+  .project-footer {
+    padding: 1.2rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .project-status {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-family: 'DM Mono', monospace; font-size: 0.65rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(245,240,232,0.4);
+  }
+  .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2s infinite; }
+  .status-dot.live { background: #4caf50; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+  .project-link {
+    font-family: 'DM Mono', monospace; font-size: 0.68rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--rust); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    transition: color 0.2s;
+  }
+  .project-link:hover { color: var(--gold); }
+
+  .projects-note {
+    margin-top: 2.5rem;
+    padding: 1.5rem 2rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-left: 3px solid var(--rust);
+    font-size: 0.85rem;
+    color: rgba(245,240,232,0.5);
+    line-height: 1.7;
+  }
+  .projects-note strong { color: var(--gold); }
+
   /* RESPONSIVE */
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
@@ -234,6 +329,7 @@
     <a href="#experience">Experience</a>
     <a href="#tools">Tools</a>
     <a href="#certifications">Certifications</a>
+    <a href="#ai-projects">AI Projects</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -276,7 +372,7 @@
         <div class="profile-role">Service Delivery Manager · IT Operations<br>Managed Services · Program &amp; Transition Mgmt</div>
         <div class="profile-contacts">
           <div class="contact-item"><div class="contact-icon">📍</div><span>India</span></div>
-          <div class="contact-item"><div class="contact-icon">📧</div><a href="mailto:dutt.siddharth@gmail.com">dutt.siddharth@gmail.com</a></div>
+          <div class="contact-item"><div class="contact-icon">📧</div><a href="/cdn-cgi/l/email-protection#51352425257f22383535393023253911363c30383d7f323e3c"><span class="__cf_email__" data-cfemail="6e0a1b1a1a401d070a0a060f1c1a062e09030f0702400d0103">[email&#160;protected]</span></a></div>
           <div class="contact-item"><div class="contact-icon">📞</div><a href="tel:+919611105276">+91 96111 05276</a></div>
           <div class="contact-item"><div class="contact-icon">🔗</div><a href="https://linkedin.com/in/siddharth-dutt-csm" target="_blank">siddharth-dutt-csm</a></div>
         </div>
@@ -439,6 +535,78 @@
   </div>
 </section>
 
+<!-- AI PROJECTS -->
+<section class="projects-section" id="ai-projects">
+  <div class="section-label">// AI Innovation Lab</div>
+  <h2>AI Projects &<br><em>Prototypes</em></h2>
+
+  <div class="project-grid">
+
+    <!-- PROJECT 1: SmartDesk -->
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-tag">🤖 AI Automation · ITSM</div>
+        <div class="project-title"><em>SmartDesk</em> — AI IT Support Triage</div>
+        <p class="project-desc">
+          An AI-powered IT helpdesk triage system that automatically classifies, prioritises, and routes support tickets — eliminating manual triage and accelerating resolution using Claude AI + n8n workflow automation.
+        </p>
+      </div>
+
+      <div class="project-metrics">
+        <div class="metric">
+          <div class="metric-num">~2.5h</div>
+          <div class="metric-label">Saved/Day</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">42%</div>
+          <div class="metric-label">Auto-Resolved</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">90s</div>
+          <div class="metric-label">AI vs 8min</div>
+        </div>
+      </div>
+
+      <div class="project-body">
+        <div class="project-stack">
+          <span class="stack-tag">Claude API</span>
+          <span class="stack-tag">n8n</span>
+          <span class="stack-tag">ServiceNow</span>
+          <span class="stack-tag">Slack</span>
+          <span class="stack-tag">Email Automation</span>
+          <span class="stack-tag">AI Prompt Engineering</span>
+        </div>
+        <ul class="project-highlights">
+          <li>5-stage pipeline: Ticket Intake → AI Analysis → Smart Routing → Auto Notification → Logging &amp; Dashboard</li>
+          <li>Auto-resolves ~38–42% of tickets; L1/L2/Escalate routing with pre-filled agent briefings</li>
+          <li>Instant AI-drafted email to user with fix or ETA; Slack alerts for critical P1/P0 incidents</li>
+          <li>Built reusable n8n prompt template for ITIL-aligned ticket classification and triage</li>
+          <li>Designed to integrate with existing ITSM tools — zero disruption to current workflows</li>
+        </ul>
+      </div>
+
+      <div class="project-footer">
+        <div class="project-status"><span class="status-dot live"></span> Live Prototype</div>
+        <a href="smartdesk.html" target="_blank" class="project-link">View Demo →</a>
+      </div>
+    </div>
+
+    <!-- PROJECT 2: Coming Soon placeholder -->
+    <div class="project-card" style="display:flex; flex-direction:column; justify-content:center; align-items:center; min-height:320px; border-style:dashed; opacity:0; transform:translateY(20px);">
+      <div style="text-align:center; padding: 3rem 2rem;">
+        <div style="font-size:2.5rem; margin-bottom:1.2rem; opacity:0.3;">⚡</div>
+        <div style="font-family:'DM Serif Display',serif; font-size:1.2rem; color:rgba(245,240,232,0.25); margin-bottom:0.6rem;">Next Project</div>
+        <div style="font-family:'DM Mono',monospace; font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(245,240,232,0.15);">In Development</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="projects-note">
+    <strong>Building in public.</strong> These projects are practical AI implementations developed from real service delivery challenges — exploring how modern AI tools (Claude, n8n, Make, Supabase) can automate ITSM workflows, reduce manual effort, and improve SLA outcomes. More projects shipping soon.
+  </div>
+</section>
+
 <!-- CONTACT -->
 <div class="contact-section" id="contact">
   <div>
@@ -447,7 +615,7 @@
     <p>Open to senior service delivery, IT operations, and consulting engagements globally.</p>
   </div>
   <div class="contact-links">
-    <a href="mailto:dutt.siddharth@gmail.com" class="btn btn-primary">✉ Email Me</a>
+    <a href="/cdn-cgi/l/email-protection#167263626238657f72727e7764627e56717b777f7a3875797b" class="btn btn-primary">✉ Email Me</a>
     <a href="https://linkedin.com/in/siddharth-dutt-csm" target="_blank" class="btn btn-secondary" style="color:var(--paper);border-color:rgba(245,240,232,0.3);">🔗 LinkedIn</a>
     <a href="tel:+919611105276" class="btn btn-secondary" style="color:var(--paper);border-color:rgba(245,240,232,0.3);">📞 Call</a>
   </div>
@@ -461,9 +629,9 @@
 <script>
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.timeline-item, .cert-card').forEach((el, i) => {
-    el.style.transitionDelay = (i % 4) * 0.08 + 's';
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.timeline-item, .cert-card, .project-card').forEach((el, i) => {
+    el.style.transitionDelay = (i % 4) * 0.1 + 's';
     observer.observe(el);
   });
 </script>
