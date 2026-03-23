@@ -1,0 +1,2841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartDesk — AI IT Support Triage</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0d0f12;
+  --bg2: #141720;
+  --bg3: #1c2030;
+  --bg4: #232840;
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.13);
+  --text: #e8eaf0;
+  --text2: #8b90a8;
+  --text3: #555b72;
+  --accent: #4f8aff;
+  --accent2: #7c5cfc;
+  --green: #22d07a;
+  --green-bg: rgba(34,208,122,0.1);
+  --amber: #f5a623;
+  --amber-bg: rgba(245,166,35,0.1);
+  --red: #ff5252;
+  --red-bg: rgba(255,82,82,0.1);
+  --blue-bg: rgba(79,138,255,0.1);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --mono: 'DM Mono', monospace;
+  --sans: 'DM Sans', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Grid background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(79,138,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79,138,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* NAV */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(13,15,18,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: -0.3px;
+}
+
+.nav-logo {
+  width: 30px; height: 30px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700; color: #fff;
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 4px;
+}
+
+.nav-tab {
+  padding: 7px 16px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: transparent;
+  color: var(--text2);
+  font-family: var(--sans);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav-tab:hover { color: var(--text); background: var(--bg3); }
+.nav-tab.active { color: var(--accent); background: var(--blue-bg); }
+
+.nav-badge {
+  background: var(--red);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 20px;
+  margin-left: 6px;
+}
+
+/* PAGES */
+.page { display: none; padding: 32px; max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+.page.active { display: block; }
+
+/* PAGE HEADER */
+.page-header { margin-bottom: 32px; }
+.page-header h1 { font-size: 26px; font-weight: 600; letter-spacing: -0.5px; margin-bottom: 6px; }
+.page-header p { color: var(--text2); font-size: 15px; }
+
+/* CARDS */
+.card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text3);
+  margin-bottom: 16px;
+}
+
+/* FORM */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group { display: flex; flex-direction: column; gap: 7px; }
+.form-group.full { grid-column: 1 / -1; }
+
+label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text2);
+}
+
+input, select, textarea {
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 14px;
+  padding: 10px 14px;
+  transition: border-color 0.2s;
+  outline: none;
+  width: 100%;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(79,138,255,0.12);
+}
+
+select option { background: var(--bg3); }
+textarea { resize: vertical; min-height: 120px; }
+
+/* BUTTONS */
+.btn {
+  padding: 11px 24px;
+  border-radius: var(--radius-sm);
+  border: none;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #fff;
+}
+
+.btn-primary:hover { opacity: 0.9; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(79,138,255,0.3); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+
+.btn-ghost {
+  background: var(--bg3);
+  color: var(--text2);
+  border: 1px solid var(--border2);
+}
+.btn-ghost:hover { background: var(--bg4); color: var(--text); }
+
+/* BADGES */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.badge-critical { background: var(--red-bg); color: var(--red); border: 1px solid rgba(255,82,82,0.2); }
+.badge-high { background: var(--amber-bg); color: var(--amber); border: 1px solid rgba(245,166,35,0.2); }
+.badge-medium { background: var(--blue-bg); color: var(--accent); border: 1px solid rgba(79,138,255,0.2); }
+.badge-low { background: var(--green-bg); color: var(--green); border: 1px solid rgba(34,208,122,0.2); }
+.badge-auto { background: rgba(124,92,252,0.1); color: var(--accent2); border: 1px solid rgba(124,92,252,0.2); }
+.badge-l1 { background: var(--blue-bg); color: var(--accent); border: 1px solid rgba(79,138,255,0.2); }
+.badge-l2 { background: var(--amber-bg); color: var(--amber); border: 1px solid rgba(245,166,35,0.2); }
+.badge-escalated { background: var(--red-bg); color: var(--red); border: 1px solid rgba(255,82,82,0.2); }
+
+/* TICKET LIST */
+.ticket-list { display: flex; flex-direction: column; gap: 12px; }
+
+.ticket-item {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: border-color 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+
+.ticket-item:hover { border-color: var(--border2); transform: translateX(3px); }
+.ticket-item.new-ticket { border-color: var(--accent); animation: slideIn 0.4s ease; }
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ticket-icon {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.ticket-icon.network { background: rgba(79,138,255,0.15); }
+.ticket-icon.access { background: rgba(245,166,35,0.15); }
+.ticket-icon.hardware { background: rgba(255,82,82,0.15); }
+.ticket-icon.software { background: rgba(34,208,122,0.15); }
+.ticket-icon.email { background: rgba(124,92,252,0.15); }
+.ticket-icon.other { background: rgba(139,144,168,0.15); }
+
+.ticket-info { flex: 1; min-width: 0; }
+.ticket-id { font-family: var(--mono); font-size: 11px; color: var(--text3); margin-bottom: 3px; }
+.ticket-title { font-size: 14px; font-weight: 500; margin-bottom: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ticket-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.ticket-time { font-size: 12px; color: var(--text3); }
+.ticket-user { font-size: 12px; color: var(--text2); }
+
+.ticket-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+
+/* AI PROCESSING */
+.ai-panel {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.ai-panel-header {
+  background: linear-gradient(135deg, rgba(79,138,255,0.08), rgba(124,92,252,0.08));
+  border-bottom: 1px solid var(--border);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ai-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+.ai-panel-body { padding: 20px; }
+
+.ai-result-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.ai-result-item {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+}
+
+.ai-result-label { font-size: 11px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 6px; }
+.ai-result-value { font-size: 14px; font-weight: 500; }
+
+.ai-response-box {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text2);
+  font-family: var(--sans);
+}
+
+.ai-thinking {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  color: var(--text2);
+  font-size: 14px;
+}
+
+.spinner {
+  width: 18px; height: 18px;
+  border: 2px solid var(--border2);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* DASHBOARD */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  margin-bottom: 4px;
+}
+
+.stat-label { font-size: 13px; color: var(--text2); margin-bottom: 8px; }
+.stat-trend { font-size: 12px; color: var(--green); }
+.stat-trend.down { color: var(--red); }
+
+.chart-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.chart-bar-label { width: 90px; color: var(--text2); flex-shrink: 0; font-size: 12px; }
+
+.chart-bar-track {
+  flex: 1;
+  height: 8px;
+  background: var(--bg3);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.chart-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 1s ease;
+}
+
+.chart-bar-val { width: 36px; text-align: right; color: var(--text2); font-size: 12px; }
+
+/* MODAL */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+
+.modal {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: 16px;
+  padding: 28px;
+  max-width: 620px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: translateY(20px);
+  transition: transform 0.2s;
+}
+
+.modal-overlay.open .modal { transform: translateY(0); }
+
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.modal-close {
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  color: var(--text2);
+  width: 30px; height: 30px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.modal-section { margin-bottom: 16px; }
+.modal-section-label { font-size: 12px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 6px; }
+.modal-section-value { font-size: 14px; line-height: 1.6; color: var(--text); }
+
+/* WORKFLOW STEPS */
+.workflow-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+.workflow-step {
+  display: flex;
+  gap: 16px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.workflow-step:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: 40px;
+  bottom: 0;
+  width: 1px;
+  background: var(--border2);
+}
+
+.step-circle {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.step-circle.done { background: var(--green-bg); border: 1px solid rgba(34,208,122,0.3); }
+.step-circle.active { background: var(--blue-bg); border: 1px solid rgba(79,138,255,0.3); animation: pulse 2s infinite; }
+.step-circle.pending { background: var(--bg3); border: 1px solid var(--border2); }
+
+.step-content { flex: 1; padding-top: 8px; }
+.step-title { font-size: 14px; font-weight: 500; margin-bottom: 3px; }
+.step-desc { font-size: 13px; color: var(--text2); }
+
+/* TABLE */
+.table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.table th { text-align: left; padding: 10px 12px; color: var(--text3); font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; border-bottom: 1px solid var(--border); }
+.table td { padding: 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+.table tr:last-child td { border-bottom: none; }
+.table tr:hover td { background: rgba(255,255,255,0.02); }
+
+/* NOTIFICATION TOAST */
+.toast-container { position: fixed; top: 80px; right: 24px; z-index: 300; display: flex; flex-direction: column; gap: 10px; }
+
+.toast {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  font-size: 13px;
+  max-width: 320px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  animation: toastIn 0.3s ease;
+}
+
+@keyframes toastIn { from { opacity:0; transform: translateX(20px); } to { opacity:1; transform: translateX(0); } }
+@keyframes toastOut { to { opacity:0; transform: translateX(20px); } }
+
+.toast.out { animation: toastOut 0.3s ease forwards; }
+.toast-icon { font-size: 16px; flex-shrink: 0; }
+.toast-text strong { display: block; font-weight: 500; margin-bottom: 2px; }
+.toast-text span { color: var(--text2); }
+
+/* EMPTY STATE */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text3);
+}
+.empty-icon { font-size: 40px; margin-bottom: 12px; }
+.empty-state p { font-size: 14px; }
+
+/* DIVIDER */
+.divider { height: 1px; background: var(--border); margin: 20px 0; }
+
+/* TWO COLS */
+.two-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--bg4); border-radius: 3px; }
+
+/* TYPING ANIMATION */
+.typing::after {
+  content: '|';
+  animation: blink 0.7s infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+/* Prompt chip */
+.prompt-chip {
+  display: inline-block;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  margin: 2px;
+}
+
+/* Category colors */
+.cat-network { color: var(--accent); }
+.cat-access { color: var(--amber); }
+.cat-hardware { color: var(--red); }
+.cat-software { color: var(--green); }
+.cat-email { color: var(--accent2); }
+
+/* ── EXPLAINER VIDEO ── */
+.video-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+
+/* ── CARTOON CHARACTER PRESENTER ── */
+#characterCanvas {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 180px;
+  height: 320px;
+  z-index: 10;
+  pointer-events: none;
+}
+#speakerBubble {
+  position: absolute;
+  bottom: 230px;
+  right: 172px;
+  background: rgba(10,12,20,0.97);
+  border: 1px solid rgba(79,138,255,0.55);
+  border-radius: 14px 14px 4px 14px;
+  padding: 11px 14px;
+  max-width: 230px;
+  min-width: 150px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #e8eaf0;
+  font-family: 'DM Sans', sans-serif;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.7);
+  z-index: 11;
+  opacity: 0;
+  transform: scale(0.85) translateY(12px);
+  transform-origin: bottom right;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+#speakerBubble.show { opacity:1; transform:scale(1) translateY(0); }
+#speakerBubble::after {
+  content:'';position:absolute;bottom:-9px;right:16px;
+  border-left:9px solid transparent;
+  border-top:9px solid rgba(79,138,255,0.55);
+}
+.bubble-name {
+  font-size:10px;font-weight:600;color:#4f8aff;
+  text-transform:uppercase;letter-spacing:0.7px;
+  margin-bottom:5px;display:flex;align-items:center;gap:5px;
+}
+.bubble-live-dot {
+  width:6px;height:6px;border-radius:50%;background:#22d07a;
+  animation:livePulse 1.2s ease-in-out infinite;display:inline-block;
+}
+@keyframes livePulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.7)}}
+#bubbleSubtitle{font-size:10px;color:#555b72;margin-top:4px;font-style:italic;}
+
+.video-chrome {
+  background: var(--bg3);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.chrome-dots { display:flex; gap:6px; }
+.chrome-dot { width:10px;height:10px;border-radius:50%; }
+.chrome-title { font-size:12px; color:var(--text3); margin-left:4px; font-family:var(--mono); }
+.video-stage {
+  position: relative;
+  width: 100%;
+  height: 460px;
+  background: #080a0f;
+  overflow: hidden;
+  cursor: pointer;
+}
+.video-stage canvas { position:absolute;inset:0;width:100%;height:100%; }
+
+.video-controls {
+  background: var(--bg3);
+  border-top: 1px solid var(--border);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.vc-btn {
+  background: none;
+  border: none;
+  color: var(--text2);
+  cursor: pointer;
+  font-size: 18px;
+  padding: 4px;
+  transition: color 0.2s;
+  line-height: 1;
+}
+.vc-btn:hover { color: var(--text); }
+.vc-progress-track {
+  flex: 1;
+  height: 4px;
+  background: var(--bg4);
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+}
+.vc-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  border-radius: 2px;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+.vc-time { font-family:var(--mono); font-size:12px; color:var(--text3); white-space:nowrap; }
+.vc-chapter-dots { display:flex; gap:6px; }
+.vc-dot {
+  width:8px;height:8px;border-radius:50%;
+  background:var(--bg4);border:1px solid var(--border2);
+  cursor:pointer; transition:all 0.2s;
+}
+.vc-dot.active { background:var(--accent); border-color:var(--accent); }
+
+/* Scene chapters strip */
+.chapter-strip {
+  display: flex;
+  border-top: 1px solid var(--border);
+}
+.chapter-item {
+  flex: 1;
+  padding: 10px 14px;
+  font-size: 11px;
+  color: var(--text3);
+  border-right: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+  line-height: 1.4;
+}
+.chapter-item:last-child { border-right: none; }
+.chapter-item:hover { background: var(--bg3); color: var(--text2); }
+.chapter-item.active { background: var(--blue-bg); color: var(--accent); }
+.chapter-num { font-weight:600; display:block; margin-bottom:2px; }
+
+</style>
+</head>
+<body>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modalContent"></div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-logo">SD</div>
+    SmartDesk
+  </div>
+  <div class="nav-tabs">
+    <button class="nav-tab active" onclick="showPage('submit')">Submit Ticket</button>
+    <button class="nav-tab" onclick="showPage('queue')">
+      Ticket Queue <span class="nav-badge" id="queueCount">0</span>
+    </button>
+    <button class="nav-tab" onclick="showPage('dashboard')">Dashboard</button>
+    <button class="nav-tab" onclick="showPage('workflow')">How It Works</button>
+  </div>
+</nav>
+
+<!-- PAGE: SUBMIT TICKET -->
+<div class="page active" id="page-submit">
+  <div class="page-header">
+    <h1>Submit Support Ticket</h1>
+    <p>Describe your issue and our AI will triage, prioritise and route it instantly.</p>
+  </div>
+
+  <div class="two-cols">
+    <div>
+      <div class="card">
+        <div class="card-title">Ticket Details</div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" id="userName" placeholder="e.g. Rahul Mehta" value="Rahul Mehta">
+          </div>
+          <div class="form-group">
+            <label>Department</label>
+            <select id="userDept">
+              <option>Engineering</option>
+              <option>Sales</option>
+              <option>Finance</option>
+              <option>HR</option>
+              <option>Operations</option>
+              <option>Marketing</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label>Issue Title</label>
+            <input type="text" id="ticketTitle" placeholder="Brief description of the problem">
+          </div>
+          <div class="form-group full">
+            <label>Describe the problem in detail</label>
+            <textarea id="ticketBody" placeholder="What happened? When did it start? What were you doing? Any error messages?"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Category (optional)</label>
+            <select id="ticketCategory">
+              <option value="">AI will detect...</option>
+              <option>Network / Connectivity</option>
+              <option>Hardware</option>
+              <option>Software / App</option>
+              <option>Access / Permissions</option>
+              <option>Email / Communication</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Urgency (your perception)</label>
+            <select id="ticketUrgency">
+              <option>Low — whenever possible</option>
+              <option>Medium — today if possible</option>
+              <option selected>High — blocking my work</option>
+              <option>Critical — system down</option>
+            </select>
+          </div>
+        </div>
+        <div style="margin-top:20px; display:flex; gap:10px;">
+          <button class="btn btn-primary" id="submitBtn" onclick="submitTicket()">
+            <span>⚡</span> Submit & Triage with AI
+          </button>
+          <button class="btn btn-ghost" onclick="loadSample()">Load Sample</button>
+        </div>
+      </div>
+
+      <!-- Quick samples -->
+      <div class="card">
+        <div class="card-title">Quick Test Scenarios</div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <button class="btn btn-ghost" style="justify-content:flex-start; text-align:left;" onclick="loadScenario(0)">🔴 Critical — Server down, 50 users affected</button>
+          <button class="btn btn-ghost" style="justify-content:flex-start; text-align:left;" onclick="loadScenario(1)">🟠 High — VPN not connecting, client demo soon</button>
+          <button class="btn btn-ghost" style="justify-content:flex-start; text-align:left;" onclick="loadScenario(2)">🟡 Medium — Laptop running very slow</button>
+          <button class="btn btn-ghost" style="justify-content:flex-start; text-align:left;" onclick="loadScenario(3)">🟢 Low — Password reset needed</button>
+          <button class="btn btn-ghost" style="justify-content:flex-start; text-align:left;" onclick="loadScenario(4)">🟣 Auto — Can't open Excel file</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI Processing Panel -->
+    <div>
+      <div class="ai-panel" id="aiPanel">
+        <div class="ai-panel-header">
+          <div class="ai-dot"></div>
+          <span style="font-size:14px; font-weight:500;">SmartDesk AI Engine</span>
+          <span style="margin-left:auto; font-size:12px; color:var(--text3);" id="aiStatus">Waiting for ticket...</span>
+        </div>
+        <div class="ai-panel-body" id="aiPanelBody">
+          <div style="text-align:center; padding:40px 20px; color:var(--text3);">
+            <div style="font-size:36px; margin-bottom:12px;">🤖</div>
+            <p style="font-size:14px;">Submit a ticket to see the AI triage in real-time</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prompt preview -->
+      <div class="card" style="margin-top:16px;">
+        <div class="card-title">AI Prompt Template (n8n node)</div>
+        <div style="background:var(--bg3); border-radius:var(--radius-sm); padding:14px; font-family:var(--mono); font-size:11px; color:var(--text2); line-height:1.8;">
+          <span style="color:var(--text3)">// System Prompt sent to Claude API</span><br>
+          You are an IT support triage agent. Analyze the ticket and respond ONLY in this exact JSON:<br><br>
+          <span style="color:var(--accent)">{</span><br>
+          &nbsp;&nbsp;<span style="color:var(--green)">"category"</span>: <span style="color:var(--amber)">"Network|Hardware|Software|Access|Email|Other"</span>,<br>
+          &nbsp;&nbsp;<span style="color:var(--green)">"priority"</span>: <span style="color:var(--amber)">"Critical|High|Medium|Low"</span>,<br>
+          &nbsp;&nbsp;<span style="color:var(--green)">"route"</span>: <span style="color:var(--amber)">"Auto-Resolve|L1|L2|Escalate"</span>,<br>
+          &nbsp;&nbsp;<span style="color:var(--green)">"confidence"</span>: <span style="color:var(--amber)">0-100</span>,<br>
+          &nbsp;&nbsp;<span style="color:var(--green)">"reasoning"</span>: <span style="color:var(--amber)">"one sentence"</span>,<br>
+          &nbsp;&nbsp;<span style="color:var(--green)">"auto_response"</span>: <span style="color:var(--amber)">"user-facing reply"</span>,<br>
+          &nbsp;&nbsp;<span style="color:var(--green)">"sla_hours"</span>: <span style="color:var(--amber)">number</span><br>
+          <span style="color:var(--accent)">}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE: TICKET QUEUE -->
+<div class="page" id="page-queue">
+  <div class="page-header">
+    <h1>Ticket Queue</h1>
+    <p>All tickets triaged and routed by AI. Click any ticket to view full details.</p>
+  </div>
+  <div id="ticketList">
+    <div class="empty-state">
+      <div class="empty-icon">📭</div>
+      <p>No tickets yet. Submit one from the Submit Ticket tab.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE: DASHBOARD -->
+<div class="page" id="page-dashboard">
+  <div class="page-header">
+    <h1>Analytics Dashboard</h1>
+    <p>Live metrics updated as tickets are triaged.</p>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-value" id="stat-total">0</div>
+      <div class="stat-label">Total Tickets</div>
+      <div class="stat-trend">↑ All triaged by AI</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" style="color:var(--green)" id="stat-auto">0</div>
+      <div class="stat-label">Auto-Resolved</div>
+      <div class="stat-trend" id="stat-auto-pct">0% of total</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" style="color:var(--amber)" id="stat-avg-time">—</div>
+      <div class="stat-label">Avg Triage Time</div>
+      <div class="stat-trend">vs 45 min manual</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" style="color:var(--red)" id="stat-critical">0</div>
+      <div class="stat-label">Critical / Escalated</div>
+      <div class="stat-trend down" id="stat-critical-label">Require immediate action</div>
+    </div>
+  </div>
+
+  <div class="two-cols">
+    <div class="card">
+      <div class="card-title">Tickets by Category</div>
+      <div id="categoryChart">
+        <div style="color:var(--text3); font-size:13px; padding:20px 0; text-align:center;">Submit tickets to see data</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Tickets by Priority</div>
+      <div id="priorityChart">
+        <div style="color:var(--text3); font-size:13px; padding:20px 0; text-align:center;">Submit tickets to see data</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Recent Ticket Log</div>
+    <div id="ticketLog">
+      <div style="color:var(--text3); font-size:13px; text-align:center; padding:20px;">No tickets logged yet.</div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE: WORKFLOW -->
+<div class="page" id="page-workflow">
+  <div class="page-header">
+    <h1>How SmartDesk Works</h1>
+    <p>End-to-end AI-powered triage pipeline built on n8n + Claude API.</p>
+  </div>
+
+  <!-- ══ ANIMATED EXPLAINER VIDEO ══ -->
+  <div class="video-card">
+    <div class="video-chrome">
+      <div class="chrome-dots">
+        <div class="chrome-dot" style="background:#ff5f57"></div>
+        <div class="chrome-dot" style="background:#febc2e"></div>
+        <div class="chrome-dot" style="background:#28c840"></div>
+      </div>
+      <span class="chrome-title">smartdesk_explainer.mp4 — How It Works</span>
+      <span style="margin-left:auto;font-size:11px;color:var(--text3);">5 chapters · 1:30 runtime</span>
+    </div>
+    <div class="video-stage" id="videoStage">
+      <canvas id="explainerCanvas"></canvas>
+      <div id="speakerBubble">
+        <div class="bubble-name">
+          <span class="bubble-live-dot"></span>
+          Alex &middot; SmartDesk Guide
+        </div>
+        <span id="bubbleText">Click Play &mdash; I&rsquo;ll explain how SmartDesk works!</span>
+        <div id="bubbleSubtitle"></div>
+      </div>
+      <canvas id="characterCanvas"></canvas>
+    </div>
+    <div class="chapter-strip" id="chapterStrip"></div>
+    <div class="video-controls">
+      <button class="vc-btn" id="vcPlay" onclick="videoToggle()">▶</button>
+      <button class="vc-btn" onclick="videoPrev()">⏮</button>
+      <button class="vc-btn" onclick="videoNext()">⏭</button>
+      <div class="vc-progress-track" id="vcTrack" onclick="videoScrub(event)">
+        <div class="vc-progress-fill" id="vcFill" style="width:0%"></div>
+      </div>
+      <span class="vc-time" id="vcTime">0:00 / 1:30</span>
+      <button class="vc-btn" id="vcMute" onclick="videoMuteToggle()" title="Toggle narration">🔊</button>
+      <input type="range" id="vcVolume" min="0" max="100" value="85" style="width:70px;accent-color:var(--accent);cursor:pointer;" oninput="videoSetVolume(this.value)" title="Volume">
+    </div>
+  </div>
+
+  <div class="two-cols">
+    <div>
+      <div class="card">
+        <div class="card-title">System Architecture</div>
+        <div class="workflow-steps">
+          <div class="workflow-step">
+            <div class="step-circle done">📧</div>
+            <div class="step-content">
+              <div class="step-title">Step 1 — Ticket Intake</div>
+              <div class="step-desc">Employee submits via Google Form or email. n8n webhook captures it instantly and parses the fields.</div>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="step-circle done">🤖</div>
+            <div class="step-content">
+              <div class="step-title">Step 2 — AI Analysis (Claude API)</div>
+              <div class="step-desc">n8n sends ticket body to Claude with a strict JSON prompt. AI returns category, priority, route, confidence score and a draft response. Takes ~2 seconds.</div>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="step-circle done">🔀</div>
+            <div class="step-content">
+              <div class="step-title">Step 3 — Smart Routing (n8n IF nodes)</div>
+              <div class="step-desc">Based on AI output: Auto-Resolve → email user + close. L1 → assign to agent with summary. L2 → assign senior + briefing. Escalate → Slack alert to manager.</div>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="step-circle done">📬</div>
+            <div class="step-content">
+              <div class="step-title">Step 4 — Auto Notification</div>
+              <div class="step-desc">User receives an instant AI-drafted email with either a fix or an ETA. Agent receives a pre-filled summary. Manager receives critical alerts via Slack.</div>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="step-circle done">📊</div>
+            <div class="step-content">
+              <div class="step-title">Step 5 — Logging & Dashboard</div>
+              <div class="step-desc">Every ticket is appended to Google Sheets with AI metadata. Dashboard updates live with category, priority, and resolution stats.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-title">Routing Logic</div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Route</th>
+              <th>Criteria</th>
+              <th>Action</th>
+              <th>SLA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="badge badge-auto">Auto-Resolve</span></td>
+              <td style="color:var(--text2); font-size:12px;">Low priority, known fix (password, VPN basic, printer)</td>
+              <td style="color:var(--text2); font-size:12px;">AI sends fix email, ticket closed</td>
+              <td style="color:var(--green); font-size:12px;">Instant</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-l1">L1 Support</span></td>
+              <td style="color:var(--text2); font-size:12px;">Medium priority, common issues needing human touch</td>
+              <td style="color:var(--text2); font-size:12px;">Assigned to agent with AI summary</td>
+              <td style="color:var(--accent); font-size:12px;">4 hours</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-l2">L2 Support</span></td>
+              <td style="color:var(--text2); font-size:12px;">High priority, complex or recurring issues</td>
+              <td style="color:var(--text2); font-size:12px;">Senior engineer + detailed briefing</td>
+              <td style="color:var(--amber); font-size:12px;">2 hours</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-escalated">Escalate</span></td>
+              <td style="color:var(--text2); font-size:12px;">Critical — system down, data loss, many users affected</td>
+              <td style="color:var(--text2); font-size:12px;">Manager Slack alert + war room</td>
+              <td style="color:var(--red); font-size:12px;">30 min</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Tools Used</div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div style="width:36px;height:36px;border-radius:8px;background:rgba(255,82,82,0.1);display:flex;align-items:center;justify-content:center;font-size:18px;">🔀</div>
+            <div>
+              <div style="font-size:14px;font-weight:500;">n8n</div>
+              <div style="font-size:12px;color:var(--text2);">Workflow automation — free & self-hostable</div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div style="width:36px;height:36px;border-radius:8px;background:rgba(79,138,255,0.1);display:flex;align-items:center;justify-content:center;font-size:18px;">🤖</div>
+            <div>
+              <div style="font-size:14px;font-weight:500;">Claude API (Anthropic)</div>
+              <div style="font-size:12px;color:var(--text2);">AI triage, classification & response drafting</div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div style="width:36px;height:36px;border-radius:8px;background:rgba(34,208,122,0.1);display:flex;align-items:center;justify-content:center;font-size:18px;">📊</div>
+            <div>
+              <div style="font-size:14px;font-weight:500;">Google Sheets</div>
+              <div style="font-size:12px;color:var(--text2);">Live ticket log and analytics dashboard</div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div style="width:36px;height:36px;border-radius:8px;background:rgba(124,92,252,0.1);display:flex;align-items:center;justify-content:center;font-size:18px;">💬</div>
+            <div>
+              <div style="font-size:14px;font-weight:500;">Slack + Gmail</div>
+              <div style="font-size:12px;color:var(--text2);">Escalation alerts and auto-reply delivery</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Business Impact</div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="display:flex; justify-content:space-between; font-size:13px; padding:8px 0; border-bottom:1px solid var(--border);">
+            <span style="color:var(--text2);">Manual triage time saved</span>
+            <span style="color:var(--green); font-weight:500;">~2.5 hrs/day</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-size:13px; padding:8px 0; border-bottom:1px solid var(--border);">
+            <span style="color:var(--text2);">Tickets auto-resolved</span>
+            <span style="color:var(--green); font-weight:500;">~38–42%</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-size:13px; padding:8px 0; border-bottom:1px solid var(--border);">
+            <span style="color:var(--text2);">Avg triage time (AI vs manual)</span>
+            <span style="color:var(--green); font-weight:500;">3 sec vs 45 min</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-size:13px; padding:8px 0; border-bottom:1px solid var(--border);">
+            <span style="color:var(--text2);">Misrouted tickets</span>
+            <span style="color:var(--green); font-weight:500;">Eliminated</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-size:13px; padding:8px 0;">
+            <span style="color:var(--text2);">Cost per ticket (AI API)</span>
+            <span style="color:var(--green); font-weight:500;">&lt; ₹0.20</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════
+// DATA & STATE
+// ═══════════════════════════════════════════════
+const tickets = [];
+let ticketCounter = 1000;
+
+const SCENARIOS = [
+  {
+    title: "Production server down — complete outage",
+    body: "Our main production server has crashed completely. All 50+ users in the engineering team cannot access any internal tools, databases, or the development environment. This started 20 minutes ago. We have a product release scheduled in 3 hours. The server console shows kernel panic error. This is a full system outage.",
+    urgency: "Critical — system down",
+    dept: "Engineering"
+  },
+  {
+    title: "VPN not connecting — client demo in 30 minutes",
+    body: "I cannot connect to the company VPN. I've tried restarting the VPN client and my laptop multiple times. I get error: 'Authentication failed - server unreachable'. I have a critical client demo call in 30 minutes and need to access internal project files. Please help urgently.",
+    urgency: "High — blocking my work",
+    dept: "Sales"
+  },
+  {
+    title: "Laptop extremely slow, taking 10 minutes to boot",
+    body: "My laptop has become very slow over the past week. It takes about 10 minutes to boot up and applications freeze frequently. I've checked and the hard drive shows 95% full. It's affecting my daily productivity but I can still work on basic tasks.",
+    urgency: "Medium — today if possible",
+    dept: "Finance"
+  },
+  {
+    title: "Password expired, cannot log in to email",
+    body: "My Windows login password has expired and I need to reset it. I am currently locked out. I have a phone and can receive SMS OTP for verification. Not urgent as I can use my phone for basic communication.",
+    urgency: "Low — whenever possible",
+    dept: "HR"
+  },
+  {
+    title: "Cannot open Excel file — format error",
+    body: "When I try to open the monthly report Excel file I received, I get an error: 'The file format or file extension is not valid'. Other Excel files open fine. The file was sent by a colleague.",
+    urgency: "Medium — today if possible",
+    dept: "Finance"
+  }
+];
+
+// ═══════════════════════════════════════════════
+// AI TRIAGE SIMULATION (mimics Claude API JSON output)
+// ═══════════════════════════════════════════════
+function triageTicket(title, body, urgency) {
+  const text = (title + ' ' + body).toLowerCase();
+  
+  // Category detection
+  let category = 'Other';
+  if (/vpn|network|internet|wifi|wi-fi|connect|bandwidth|firewall|dns|ip/.test(text)) category = 'Network';
+  else if (/password|login|access|permission|account|locked|auth|credential/.test(text)) category = 'Access';
+  else if (/laptop|computer|hardware|printer|monitor|keyboard|mouse|battery|screen|ram|disk|ssd/.test(text)) category = 'Hardware';
+  else if (/excel|word|software|app|application|install|crash|error|slow|program|teams|zoom|outlook/.test(text)) category = 'Software';
+  else if (/email|mail|outlook|inbox|smtp|calendar|meeting/.test(text)) category = 'Email';
+
+  // Priority scoring
+  let priorityScore = 0;
+  if (/critical|down|outage|crash|production|all users|everyone|urgent|emergency|data loss/.test(text)) priorityScore += 3;
+  if (/demo|client|meeting|deadline|release|30 minutes|hour|today/.test(text)) priorityScore += 2;
+  if (/slow|freezing|intermittent|sometimes/.test(text)) priorityScore += 1;
+  if (/50|100|all team|entire company/.test(text)) priorityScore += 2;
+  if (urgency.includes('Critical')) priorityScore += 3;
+  if (urgency.includes('High')) priorityScore += 2;
+  if (urgency.includes('Medium')) priorityScore += 1;
+
+  let priority = 'Low';
+  if (priorityScore >= 6) priority = 'Critical';
+  else if (priorityScore >= 4) priority = 'High';
+  else if (priorityScore >= 2) priority = 'Medium';
+
+  // Route determination
+  let route = 'L1';
+  const autoKeywords = /password reset|password expired|simple reset|excel file|file format|basic/;
+  if (priority === 'Critical' || /outage|production down|all users/.test(text)) route = 'Escalate';
+  else if (priority === 'High') route = 'L2';
+  else if (priority === 'Low' || autoKeywords.test(text)) route = 'Auto-Resolve';
+
+  // Confidence
+  const confidence = Math.floor(Math.random() * 12) + 87;
+
+  // SLA hours
+  const sla = { 'Critical': 0.5, 'High': 2, 'Medium': 4, 'Low': 24 }[priority];
+
+  // Reasoning
+  const reasoningMap = {
+    'Critical': `Multiple indicators of business-critical impact detected: production system affected, large user count impacted, time-sensitive context present.`,
+    'High': `Time-sensitive context and business impact detected. Routing to L2 for expedited resolution within SLA.`,
+    'Medium': `Moderate impact on individual productivity. Standard L1 resolution path appropriate with normal SLA.`,
+    'Low': `Low impact, isolated issue with a known resolution path. Auto-resolve eligible.`
+  };
+
+  // Auto response
+  const responseMap = {
+    'Auto-Resolve': {
+      'Access': `Hi there! I've received your ticket. Here's how to reset your password:\n\n1. Go to: accounts.company.com/reset\n2. Enter your employee email\n3. Check your phone for the OTP\n4. Set your new password\n\nDone! Your account will unlock within 2 minutes. If you still face issues, reply to this email.`,
+      'Software': `Hi there! For the file format error in Excel:\n\n1. Right-click the file → Open With → Excel\n2. Or try: File > Open > Browse, and change file type to "All Files"\n3. If it's a .xlsx from an older system, save it as .xls first\n\nThis resolves 90% of such cases. If it persists, we'll escalate.`,
+      'default': `Hi there! Thanks for reaching out. Our AI has reviewed your ticket and identified a known resolution. A step-by-step fix has been queued and will be emailed to you within 10 minutes. Ticket is auto-resolved pending your confirmation.`
+    },
+    'L1': `Hi there! Your ticket has been received and triaged. A support agent has been assigned and will contact you within 4 hours. Priority: ${priority}. We've shared a summary with the agent so you won't need to repeat yourself.`,
+    'L2': `Hi there! Your ticket has been flagged as ${priority} priority and escalated to our L2 engineering team. Expected response: within 2 hours. A senior engineer has been briefed on your issue and will contact you shortly.`,
+    'Escalate': `Hi there! Your ticket has been marked CRITICAL. The IT Manager and on-call engineer have been alerted via Slack. Response time: 30 minutes. A war room has been initiated. Please standby — you will be contacted immediately.`
+  };
+
+  let autoResponse;
+  if (route === 'Auto-Resolve') {
+    autoResponse = responseMap['Auto-Resolve'][category] || responseMap['Auto-Resolve']['default'];
+  } else {
+    autoResponse = responseMap[route];
+  }
+
+  return { category, priority, route, confidence, sla, reasoning: reasoningMap[priority], autoResponse };
+}
+
+// ═══════════════════════════════════════════════
+// TICKET SUBMISSION
+// ═══════════════════════════════════════════════
+async function submitTicket() {
+  const title = document.getElementById('ticketTitle').value.trim();
+  const body = document.getElementById('ticketBody').value.trim();
+  const urgency = document.getElementById('ticketUrgency').value;
+  const user = document.getElementById('userName').value.trim() || 'Anonymous';
+  const dept = document.getElementById('userDept').value;
+
+  if (!title || !body) {
+    showToast('⚠️', 'Missing fields', 'Please fill in the title and description.');
+    return;
+  }
+
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<div class="spinner"></div> AI Triaging...';
+
+  // Show thinking state
+  document.getElementById('aiStatus').textContent = 'Processing...';
+  document.getElementById('aiPanelBody').innerHTML = `
+    <div class="ai-thinking">
+      <div class="spinner"></div>
+      <span class="typing">AI reading ticket content</span>
+    </div>
+    <div style="padding:0 20px 20px; color:var(--text3); font-size:12px; line-height:1.8;">
+      → Parsing ticket body...<br>
+      → Detecting category keywords...<br>
+      → Scoring urgency signals...<br>
+      → Determining routing path...<br>
+      → Drafting auto-response...
+    </div>`;
+
+  // Simulate API delay
+  await sleep(2200);
+
+  const result = triageTicket(title, body, urgency);
+  const ticketId = `TKT-${++ticketCounter}`;
+  const now = new Date();
+
+  const ticket = { id: ticketId, title, body, urgency, user, dept, ...result, time: now, isNew: true };
+  tickets.unshift(ticket);
+
+  // Update badge
+  document.getElementById('queueCount').textContent = tickets.length;
+
+  // Show result
+  renderAIResult(result, ticketId);
+
+  // Show toast based on route
+  const toastMap = {
+    'Auto-Resolve': ['✅', 'Auto-Resolved!', 'AI sent fix to user. Ticket closed.'],
+    'L1': ['📋', 'Assigned to L1', `${ticketId} routed to L1 support.`],
+    'L2': ['⚡', 'Escalated to L2', `${ticketId} sent to senior engineer.`],
+    'Escalate': ['🚨', 'CRITICAL — Escalated!', 'Manager alerted via Slack!']
+  };
+  const [icon, head, sub] = toastMap[result.route];
+  showToast(icon, head, sub);
+
+  btn.disabled = false;
+  btn.innerHTML = '<span>⚡</span> Submit & Triage with AI';
+
+  updateDashboard();
+}
+
+function renderAIResult(r, ticketId) {
+  const priorityColors = { Critical: 'var(--red)', High: 'var(--amber)', Medium: 'var(--accent)', Low: 'var(--green)' };
+  const routeColors = { 'Auto-Resolve': 'var(--accent2)', 'L1': 'var(--accent)', 'L2': 'var(--amber)', 'Escalate': 'var(--red)' };
+  const catIcons = { Network: '🌐', Access: '🔑', Hardware: '💻', Software: '⚙️', Email: '📧', Other: '🎫' };
+
+  document.getElementById('aiStatus').textContent = 'Triage complete ✓';
+  document.getElementById('aiPanelBody').innerHTML = `
+    <div style="margin-bottom:16px;">
+      <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
+        <span style="font-family:var(--mono);font-size:12px;color:var(--text3);">${ticketId}</span>
+        <span style="color:var(--green);font-size:12px;">✓ Triage complete in 2.2s</span>
+      </div>
+      <div class="ai-result-grid">
+        <div class="ai-result-item">
+          <div class="ai-result-label">Category</div>
+          <div class="ai-result-value">${catIcons[r.category] || '🎫'} ${r.category}</div>
+        </div>
+        <div class="ai-result-item">
+          <div class="ai-result-label">Priority</div>
+          <div class="ai-result-value" style="color:${priorityColors[r.priority]}">● ${r.priority}</div>
+        </div>
+        <div class="ai-result-item">
+          <div class="ai-result-label">Route</div>
+          <div class="ai-result-value" style="color:${routeColors[r.route]}">${r.route}</div>
+        </div>
+        <div class="ai-result-item">
+          <div class="ai-result-label">Confidence</div>
+          <div class="ai-result-value">${r.confidence}%</div>
+        </div>
+        <div class="ai-result-item">
+          <div class="ai-result-label">SLA Target</div>
+          <div class="ai-result-value">${r.sla < 1 ? r.sla * 60 + ' min' : r.sla + ' hours'}</div>
+        </div>
+        <div class="ai-result-item">
+          <div class="ai-result-label">AI Reasoning</div>
+          <div class="ai-result-value" style="font-size:12px;color:var(--text2);">${r.reasoning.substring(0, 60)}...</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-title">Auto-Response Drafted for User</div>
+    <div class="ai-response-box">${r.autoResponse.replace(/\n/g, '<br>')}</div>
+  `;
+}
+
+// ═══════════════════════════════════════════════
+// TICKET QUEUE RENDERING
+// ═══════════════════════════════════════════════
+function renderQueue() {
+  if (tickets.length === 0) {
+    document.getElementById('ticketList').innerHTML = `<div class="empty-state"><div class="empty-icon">📭</div><p>No tickets yet. Submit one from the Submit Ticket tab.</p></div>`;
+    return;
+  }
+  const catIcons = { Network: '🌐', Access: '🔑', Hardware: '💻', Software: '⚙️', Email: '📧', Other: '🎫' };
+  const catClass = { Network: 'network', Access: 'access', Hardware: 'hardware', Software: 'software', Email: 'email', Other: 'other' };
+
+  document.getElementById('ticketList').innerHTML = `
+    <div class="ticket-list">
+      ${tickets.map(t => `
+        <div class="ticket-item ${t.isNew ? 'new-ticket' : ''}" onclick="showTicketModal('${t.id}')">
+          <div class="ticket-icon ${catClass[t.category]}">${catIcons[t.category] || '🎫'}</div>
+          <div class="ticket-info">
+            <div class="ticket-id">${t.id} · ${t.dept}</div>
+            <div class="ticket-title">${t.title}</div>
+            <div class="ticket-meta">
+              <span class="badge badge-${t.priority.toLowerCase()}">${t.priority}</span>
+              <span class="badge ${t.route === 'Auto-Resolve' ? 'badge-auto' : t.route === 'L1' ? 'badge-l1' : t.route === 'L2' ? 'badge-l2' : 'badge-escalated'}">${t.route}</span>
+              <span class="ticket-user">👤 ${t.user}</span>
+              <span class="ticket-time">${timeAgo(t.time)}</span>
+            </div>
+          </div>
+          <div class="ticket-actions">
+            <span style="font-size:12px;color:var(--text3);">${t.confidence}% conf.</span>
+          </div>
+        </div>
+      `).join('')}
+    </div>`;
+}
+
+function showTicketModal(id) {
+  const t = tickets.find(x => x.id === id);
+  if (!t) return;
+  const priorityColors = { Critical: 'var(--red)', High: 'var(--amber)', Medium: 'var(--accent)', Low: 'var(--green)' };
+
+  document.getElementById('modalContent').innerHTML = `
+    <div class="modal-header">
+      <div>
+        <div style="font-family:var(--mono);font-size:12px;color:var(--text3);margin-bottom:4px;">${t.id}</div>
+        <div style="font-size:18px;font-weight:600;">${t.title}</div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;">
+      <span class="badge badge-${t.priority.toLowerCase()}">${t.priority}</span>
+      <span class="badge ${t.route === 'Auto-Resolve' ? 'badge-auto' : t.route === 'L1' ? 'badge-l1' : t.route === 'L2' ? 'badge-l2' : 'badge-escalated'}">${t.route}</span>
+      <span class="badge badge-medium">${t.category}</span>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-label">Submitted By</div>
+      <div class="modal-section-value">${t.user} · ${t.dept} · ${t.time.toLocaleString()}</div>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-label">Ticket Description</div>
+      <div class="modal-section-value" style="color:var(--text2);">${t.body}</div>
+    </div>
+    <div class="divider"></div>
+    <div class="modal-section">
+      <div class="modal-section-label">AI Triage Results</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px;">
+        <div class="ai-result-item">
+          <div class="ai-result-label">Confidence</div>
+          <div class="ai-result-value">${t.confidence}%</div>
+        </div>
+        <div class="ai-result-item">
+          <div class="ai-result-label">SLA</div>
+          <div class="ai-result-value">${t.sla < 1 ? t.sla * 60 + ' min' : t.sla + ' hrs'}</div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-label">AI Reasoning</div>
+      <div class="modal-section-value" style="color:var(--text2);">${t.reasoning}</div>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-label">Auto-Response Sent to User</div>
+      <div class="ai-response-box" style="margin-top:8px;">${t.autoResponse.replace(/\n/g, '<br>')}</div>
+    </div>
+  `;
+  document.getElementById('modalOverlay').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+}
+
+document.getElementById('modalOverlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+});
+
+// ═══════════════════════════════════════════════
+// DASHBOARD
+// ═══════════════════════════════════════════════
+function updateDashboard() {
+  const total = tickets.length;
+  const autoResolved = tickets.filter(t => t.route === 'Auto-Resolve').length;
+  const critical = tickets.filter(t => t.priority === 'Critical' || t.route === 'Escalate').length;
+
+  document.getElementById('stat-total').textContent = total;
+  document.getElementById('stat-auto').textContent = autoResolved;
+  document.getElementById('stat-auto-pct').textContent = total ? Math.round(autoResolved / total * 100) + '% of total' : '0% of total';
+  document.getElementById('stat-avg-time').textContent = '3s';
+  document.getElementById('stat-critical').textContent = critical;
+
+  // Category chart
+  const cats = {};
+  tickets.forEach(t => cats[t.category] = (cats[t.category] || 0) + 1);
+  const catColors = { Network: '#4f8aff', Access: '#f5a623', Hardware: '#ff5252', Software: '#22d07a', Email: '#7c5cfc', Other: '#8b90a8' };
+  const maxCat = Math.max(...Object.values(cats), 1);
+  document.getElementById('categoryChart').innerHTML = Object.entries(cats).sort((a,b)=>b[1]-a[1]).map(([k,v]) => `
+    <div class="chart-bar-row">
+      <div class="chart-bar-label">${k}</div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:${v/maxCat*100}%;background:${catColors[k]||'#4f8aff'}"></div></div>
+      <div class="chart-bar-val">${v}</div>
+    </div>`).join('') || '<div style="color:var(--text3);font-size:13px;text-align:center;padding:20px 0;">No data yet</div>';
+
+  // Priority chart
+  const pris = { Critical: 0, High: 0, Medium: 0, Low: 0 };
+  tickets.forEach(t => pris[t.priority]++);
+  const priColors = { Critical: '#ff5252', High: '#f5a623', Medium: '#4f8aff', Low: '#22d07a' };
+  const maxPri = Math.max(...Object.values(pris), 1);
+  document.getElementById('priorityChart').innerHTML = Object.entries(pris).map(([k,v]) => `
+    <div class="chart-bar-row">
+      <div class="chart-bar-label">${k}</div>
+      <div class="chart-bar-track"><div class="chart-bar-fill" style="width:${v/maxPri*100}%;background:${priColors[k]}"></div></div>
+      <div class="chart-bar-val">${v}</div>
+    </div>`).join('');
+
+  // Log table
+  if (tickets.length === 0) {
+    document.getElementById('ticketLog').innerHTML = '<div style="color:var(--text3);font-size:13px;text-align:center;padding:20px;">No tickets logged yet.</div>';
+    return;
+  }
+  document.getElementById('ticketLog').innerHTML = `
+    <table class="table">
+      <thead><tr><th>ID</th><th>Title</th><th>User</th><th>Category</th><th>Priority</th><th>Route</th><th>SLA</th><th>Time</th></tr></thead>
+      <tbody>
+        ${tickets.slice(0, 20).map(t => `
+          <tr>
+            <td style="font-family:var(--mono);font-size:11px;color:var(--text3);">${t.id}</td>
+            <td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${t.title}</td>
+            <td style="color:var(--text2);">${t.user}</td>
+            <td style="color:var(--text2);">${t.category}</td>
+            <td><span class="badge badge-${t.priority.toLowerCase()}">${t.priority}</span></td>
+            <td><span class="badge ${t.route==='Auto-Resolve'?'badge-auto':t.route==='L1'?'badge-l1':t.route==='L2'?'badge-l2':'badge-escalated'}">${t.route}</span></td>
+            <td style="color:var(--text2);">${t.sla < 1 ? t.sla*60+'m' : t.sla+'h'}</td>
+            <td style="color:var(--text3);font-size:12px;">${timeAgo(t.time)}</td>
+          </tr>`).join('')}
+      </tbody>
+    </table>`;
+}
+
+// ═══════════════════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════════════════
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  event.target.classList.add('active');
+  if (name === 'queue') renderQueue();
+  if (name === 'dashboard') updateDashboard();
+}
+
+function loadSample() {
+  loadScenario(Math.floor(Math.random() * SCENARIOS.length));
+}
+
+function loadScenario(i) {
+  const s = SCENARIOS[i];
+  document.getElementById('ticketTitle').value = s.title;
+  document.getElementById('ticketBody').value = s.body;
+  document.getElementById('ticketUrgency').value = s.urgency;
+  document.getElementById('userDept').value = s.dept;
+}
+
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+function timeAgo(date) {
+  const diff = (new Date() - date) / 1000;
+  if (diff < 60) return 'just now';
+  if (diff < 3600) return Math.floor(diff / 60) + 'm ago';
+  return Math.floor(diff / 3600) + 'h ago';
+}
+
+function showToast(icon, title, subtitle) {
+  const t = document.createElement('div');
+  t.className = 'toast';
+  t.innerHTML = `<div class="toast-icon">${icon}</div><div class="toast-text"><strong>${title}</strong><span>${subtitle}</span></div>`;
+  document.getElementById('toastContainer').appendChild(t);
+  setTimeout(() => { t.classList.add('out'); setTimeout(() => t.remove(), 300); }, 4000);
+}
+
+// Init
+loadScenario(1);
+
+// ═══════════════════════════════════════════════
+// ANIMATED EXPLAINER VIDEO ENGINE
+// ═══════════════════════════════════════════════
+(function(){
+  const CHAPTERS = [
+    { title: 'The Problem',    emoji: '😩', duration: 18 },
+    { title: 'Ticket Intake',  emoji: '📧', duration: 18 },
+    { title: 'AI Triage',      emoji: '🤖', duration: 20 },
+    { title: 'Smart Routing',  emoji: '🔀', duration: 18 },
+    { title: 'Impact',         emoji: '📈', duration: 16 }
+  ];
+  const TOTAL = CHAPTERS.reduce((s,c)=>s+c.duration,0); // 90s
+
+  const canvas = document.getElementById('explainerCanvas');
+  const ctx = canvas.getContext('2d');
+  let W, H;
+  let playing = false;
+  let elapsed = 0;      // seconds
+  let lastTs = null;
+  let rafId = null;
+  let currentChapter = -1;
+  let sceneT = 0;       // time within current chapter (0-1)
+
+  function resize(){
+    const stage = document.getElementById('videoStage');
+    W = stage.clientWidth;
+    H = stage.clientHeight;
+    canvas.width = W * devicePixelRatio;
+    canvas.height = H * devicePixelRatio;
+    canvas.style.width = W+'px';
+    canvas.style.height = H+'px';
+    ctx.scale(devicePixelRatio, devicePixelRatio);
+    drawFrame();
+  }
+
+  // Build chapter strip
+  const strip = document.getElementById('chapterStrip');
+  CHAPTERS.forEach((c,i)=>{
+    const el = document.createElement('div');
+    el.className = 'chapter-item';
+    el.id = 'ch'+i;
+    el.innerHTML = `<span class="chapter-num">${c.emoji}</span>${c.title}`;
+    el.onclick = ()=>{ elapsed = chapterStart(i); drawFrame(); };
+    strip.appendChild(el);
+  });
+
+  function chapterStart(i){
+    let t=0; for(let j=0;j<i;j++) t+=CHAPTERS[j].duration; return t;
+  }
+  function chapterAt(e){
+    let t=0;
+    for(let i=0;i<CHAPTERS.length;i++){
+      if(e<t+CHAPTERS[i].duration) return {i, local:(e-t)/CHAPTERS[i].duration};
+      t+=CHAPTERS[i].duration;
+    }
+    return {i:CHAPTERS.length-1,local:1};
+  }
+
+  // ── DRAW UTILITIES ──
+  const BG   = '#080a0f';
+  const C1   = '#4f8aff';
+  const C2   = '#7c5cfc';
+  const CGRN = '#22d07a';
+  const CAMB = '#f5a623';
+  const CRED = '#ff5252';
+  const CTXT = '#e8eaf0';
+  const CDIM = '#555b72';
+  const CMID = '#8b90a8';
+
+  function clr(){ ctx.clearRect(0,0,W,H); ctx.fillStyle=BG; ctx.fillRect(0,0,W,H); }
+
+  function grid(){
+    ctx.save();
+    ctx.strokeStyle='rgba(79,138,255,0.04)';
+    ctx.lineWidth=1;
+    for(let x=0;x<W;x+=40){ ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke(); }
+    for(let y=0;y<H;y+=40){ ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke(); }
+    ctx.restore();
+  }
+
+  function pill(x,y,w,h,r,fill,stroke){
+    ctx.beginPath();
+    ctx.moveTo(x+r,y); ctx.lineTo(x+w-r,y);
+    ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+    ctx.lineTo(x+w,y+h-r);
+    ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+    ctx.lineTo(x+r,y+h);
+    ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+    ctx.lineTo(x,y+r);
+    ctx.quadraticCurveTo(x,y,x+r,y);
+    ctx.closePath();
+    if(fill){ ctx.fillStyle=fill; ctx.fill(); }
+    if(stroke){ ctx.strokeStyle=stroke; ctx.lineWidth=1.5; ctx.stroke(); }
+  }
+
+  function txt(s,x,y,size,color,align,weight){
+    ctx.font=`${weight||400} ${size}px 'DM Sans',sans-serif`;
+    ctx.fillStyle=color||CTXT;
+    ctx.textAlign=align||'center';
+    ctx.textBaseline='middle';
+    ctx.fillText(s,x,y);
+  }
+
+  function mono(s,x,y,size,color,align){
+    ctx.font=`400 ${size}px 'DM Mono',monospace`;
+    ctx.fillStyle=color||CDIM;
+    ctx.textAlign=align||'center';
+    ctx.textBaseline='middle';
+    ctx.fillText(s,x,y);
+  }
+
+  function arrow(x1,y1,x2,y2,color,alpha){
+    ctx.save();
+    ctx.globalAlpha=alpha||1;
+    ctx.strokeStyle=color||C1;
+    ctx.lineWidth=2;
+    ctx.lineCap='round';
+    ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
+    const angle=Math.atan2(y2-y1,x2-x1);
+    ctx.fillStyle=color||C1;
+    ctx.beginPath();
+    ctx.moveTo(x2,y2);
+    ctx.lineTo(x2-10*Math.cos(angle-0.4),y2-10*Math.sin(angle-0.4));
+    ctx.lineTo(x2-10*Math.cos(angle+0.4),y2-10*Math.sin(angle+0.4));
+    ctx.closePath(); ctx.fill();
+    ctx.restore();
+  }
+
+  function easeInOut(t){ return t<0.5?2*t*t:1-Math.pow(-2*t+2,2)/2; }
+  function ease(t){ return easeInOut(Math.min(1,t)); }
+  function reveal(t,delay,dur){ return ease(Math.max(0,Math.min(1,(t-delay)/dur))); }
+
+  // ── SCENE 0: THE PROBLEM ──
+  function scene0(t){
+    clr(); grid();
+    // Title
+    const ta=reveal(t,0,0.3);
+    ctx.globalAlpha=ta;
+    txt('The Problem',W/2,60,28,CTXT,'center',600);
+    ctx.globalAlpha=1;
+
+    // IT Manager drowning in tickets
+    const icons = ['🎫','📋','🎫','📧','🔖','🎫','📋','🎫','🎫','📋'];
+    icons.forEach((ic,i)=>{
+      const a=reveal(t,0.1+i*0.04,0.2);
+      ctx.globalAlpha=a;
+      const angle=i/icons.length*Math.PI*2 - Math.PI/2;
+      const r=90+Math.sin(t*2+i)*8;
+      const ix=W/2+Math.cos(angle)*r;
+      const iy=H/2+Math.sin(angle)*r-10;
+      ctx.font='22px serif';
+      ctx.textAlign='center';
+      ctx.textBaseline='middle';
+      ctx.fillText(ic,ix,iy);
+    });
+
+    // Center person icon
+    const pa=reveal(t,0,0.2);
+    ctx.globalAlpha=pa;
+    ctx.font='52px serif';
+    ctx.textAlign='center';
+    ctx.textBaseline='middle';
+    ctx.fillText('😰',W/2,H/2-10);
+    ctx.globalAlpha=1;
+
+    // Stats appearing
+    const stats=[
+      {v:'50+ tickets/day',c:CRED},
+      {v:'45 min manual triage',c:CAMB},
+      {v:'Misrouted = SLA breach',c:CAMB},
+      {v:'Engineers waste 2.5 hrs daily',c:CRED}
+    ];
+    stats.forEach((s,i)=>{
+      const sa=reveal(t,0.4+i*0.12,0.2);
+      ctx.globalAlpha=sa;
+      const py=H-130+i*32;
+      pill(W/2-160,py-14,320,28,6,'rgba(255,82,82,0.08)','rgba(255,82,82,0.2)');
+      txt(s.v,W/2,py,13,s.c,'center',500);
+    });
+    ctx.globalAlpha=1;
+  }
+
+  // ── SCENE 1: TICKET INTAKE ──
+  function scene1(t){
+    clr(); grid();
+    ctx.globalAlpha=reveal(t,0,0.3);
+    txt('Step 1 — Ticket Intake',W/2,55,26,CTXT,'center',600);
+    ctx.globalAlpha=1;
+
+    // Google Form box on left
+    const fa=reveal(t,0.1,0.3);
+    ctx.globalAlpha=fa;
+    pill(40,100,280,200,10,'rgba(79,138,255,0.07)','rgba(79,138,255,0.25)');
+    txt('Google Form / Email',180,120,13,C1,'center',500);
+    ctx.font='400 12px DM Sans,sans-serif';
+    ctx.fillStyle=CMID; ctx.textAlign='left'; ctx.textBaseline='middle';
+    const fields=[['Name','Rahul Mehta'],['Dept','Engineering'],['Title','VPN not working'],['Urgency','High']];
+    fields.forEach(([l,v],i)=>{
+      const fy=148+i*38;
+      ctx.fillStyle='rgba(255,255,255,0.06)';
+      ctx.beginPath();ctx.roundRect(60,fy-12,240,26,5);ctx.fill();
+      txt(l+':',72,fy,11,CDIM,'left');
+      txt(v,115,fy,11,CTXT,'left');
+    });
+    ctx.globalAlpha=1;
+
+    // Webhook arrow moving right
+    const wa=reveal(t,0.4,0.3);
+    if(wa>0){
+      const wx=320+wa*(W/2-160-320);
+      arrow(320,200,wx,200,C1,wa);
+      ctx.globalAlpha=wa;
+      mono('n8n webhook',330+(wx-320)/2,186,11,C1,'center');
+      ctx.globalAlpha=1;
+    }
+
+    // n8n box center
+    const na=reveal(t,0.55,0.3);
+    ctx.globalAlpha=na;
+    pill(W/2-80,150,160,100,10,'rgba(124,92,252,0.1)','rgba(124,92,252,0.3)');
+    ctx.font='28px serif'; ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillText('🔀',W/2,185);
+    txt('n8n',W/2,217,13,C2,'center',600);
+    txt('Workflow Engine',W/2,232,11,CDIM,'center');
+    ctx.globalAlpha=1;
+
+    // Parsed fields appear
+    const pa=reveal(t,0.7,0.3);
+    ctx.globalAlpha=pa;
+    pill(W-320,100,280,200,10,'rgba(34,208,122,0.07)','rgba(34,208,122,0.2)');
+    txt('Parsed Ticket Data',W-180,120,13,CGRN,'center',500);
+    const parsed=[['ticket_id','TKT-1001'],['user','Rahul Mehta'],['body','VPN not connecting…'],['urgency','high'],['timestamp','2024-03-23']];
+    parsed.forEach(([k,v],i)=>{
+      mono(`"${k}": "${v}"`,W-180,148+i*30,10,CMID,'center');
+    });
+    ctx.globalAlpha=1;
+
+    // Arrow to parsed
+    const pa2=reveal(t,0.72,0.2);
+    arrow(W/2+80,200,W-322,200,CGRN,pa2);
+  }
+
+  // ── SCENE 2: AI TRIAGE ──
+  function scene2(t){
+    clr(); grid();
+    ctx.globalAlpha=reveal(t,0,0.3);
+    txt('Step 2 — AI Triage (Claude API)',W/2,55,26,CTXT,'center',600);
+    ctx.globalAlpha=1;
+
+    // Input ticket
+    const ia=reveal(t,0.1,0.3);
+    ctx.globalAlpha=ia;
+    pill(30,90,200,130,8,'rgba(79,138,255,0.07)','rgba(79,138,255,0.2)');
+    txt('Incoming Ticket',130,110,12,C1,'center',500);
+    ctx.font='10px DM Mono,monospace';
+    ctx.fillStyle=CDIM; ctx.textAlign='center'; ctx.textBaseline='middle';
+    const lines=['title: "VPN not','connecting"','urgency: "high"','body: "client demo','in 30 min"'];
+    lines.forEach((l,i)=>{ mono(l,130,128+i*20,10,CDIM,'center'); });
+    ctx.globalAlpha=1;
+
+    // Flowing prompt arrow
+    const fa=reveal(t,0.28,0.3);
+    if(fa>0){
+      const fx=230+fa*70;
+      arrow(230,155,fx,155,C1,fa);
+      ctx.globalAlpha=fa*0.7;
+      mono('JSON prompt',255,142,10,C1,'center');
+      ctx.globalAlpha=1;
+    }
+
+    // AI Brain center (pulsing when thinking)
+    const ba=reveal(t,0.38,0.3);
+    ctx.globalAlpha=ba;
+    const pulse = t>0.38 && t<0.72 ? 0.5+Math.sin(elapsed*6)*0.5 : 1;
+    const grd = ctx.createRadialGradient(W/2,H/2-10,10,W/2,H/2-10,60);
+    grd.addColorStop(0,'rgba(79,138,255,0.25)');
+    grd.addColorStop(1,'rgba(79,138,255,0)');
+    if(t>0.38 && t<0.72){ ctx.fillStyle=grd; ctx.beginPath();ctx.arc(W/2,H/2-10,60,0,Math.PI*2);ctx.fill(); }
+    pill(W/2-70,H/2-55,140,90,10,'rgba(79,138,255,0.12)','rgba(79,138,255,0.4)');
+    ctx.font='36px serif'; ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.globalAlpha=ba*pulse;
+    ctx.fillText('🤖',W/2,H/2-15);
+    ctx.globalAlpha=ba;
+    txt('Claude API',W/2,H/2+28,12,C1,'center',600);
+    txt(t<0.72?'Analysing…':'Done ✓',W/2,H/2+43,11,t<0.72?CAMB:CGRN,'center');
+    ctx.globalAlpha=1;
+
+    // Thinking dots
+    if(t>0.38 && t<0.72){
+      ctx.globalAlpha=ba;
+      [0,1,2].forEach(i=>{
+        const da=0.5+0.5*Math.sin(elapsed*4+i*1.2);
+        ctx.globalAlpha=da*ba;
+        ctx.fillStyle=C1;
+        ctx.beginPath();ctx.arc(W/2-12+i*12,H/2+60,3,0,Math.PI*2);ctx.fill();
+      });
+      ctx.globalAlpha=1;
+    }
+
+    // Output JSON result
+    const oa=reveal(t,0.72,0.25);
+    ctx.globalAlpha=oa;
+    pill(W-230,90,200,185,8,'rgba(34,208,122,0.08)','rgba(34,208,122,0.3)');
+    txt('AI Output (JSON)',W-130,110,12,CGRN,'center',500);
+    const out=[
+      ['"category"','"Network"',CTXT],
+      ['"priority"','"High"',CAMB],
+      ['"route"','"L2"',CAMB],
+      ['"confidence"','94%',CGRN],
+      ['"sla_hours"','2',C1],
+      ['"reasoning"','Time-critical…',CDIM],
+    ];
+    out.forEach(([k,v,vc],i)=>{
+      mono(k+': '+v,W-130,130+i*26,10,vc,'center');
+    });
+
+    // Output arrow
+    const oa2=reveal(t,0.74,0.2);
+    arrow(W/2+70,H/2-10,W-232,155,CGRN,oa2);
+    ctx.globalAlpha=1;
+  }
+
+  // ── SCENE 3: ROUTING ──
+  function scene3(t){
+    clr(); grid();
+    ctx.globalAlpha=reveal(t,0,0.3);
+    txt('Step 3 — Smart Routing',W/2,55,26,CTXT,'center',600);
+    ctx.globalAlpha=1;
+
+    // n8n decision node
+    const na=reveal(t,0.1,0.25);
+    ctx.globalAlpha=na;
+    // Diamond shape
+    ctx.save();
+    ctx.translate(W/2,H/2-20);
+    ctx.rotate(Math.PI/4);
+    ctx.fillStyle='rgba(124,92,252,0.15)';
+    ctx.strokeStyle='rgba(124,92,252,0.5)';
+    ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.roundRect(-38,-38,76,76,6);ctx.fill();ctx.stroke();
+    ctx.restore();
+    ctx.font='26px serif'; ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillText('🔀',W/2,H/2-20);
+    txt('IF priority = ?',W/2,H/2+22,12,C2,'center',500);
+    ctx.globalAlpha=1;
+
+    // 4 routes
+    const routes=[
+      {label:'Auto-Resolve',sublabel:'Low · Instant',angle:-140,color:C2,icon:'✅',bg:'rgba(124,92,252,0.1)',border:'rgba(124,92,252,0.35)'},
+      {label:'L1 Support',sublabel:'Medium · 4hrs',angle:-40,color:C1,icon:'👤',bg:'rgba(79,138,255,0.1)',border:'rgba(79,138,255,0.35)'},
+      {label:'L2 Support',sublabel:'High · 2hrs',angle:40,color:CAMB,icon:'⚙️',bg:'rgba(245,166,35,0.1)',border:'rgba(245,166,35,0.35)'},
+      {label:'Escalate!',sublabel:'Critical · 30m',angle:140,color:CRED,icon:'🚨',bg:'rgba(255,82,82,0.1)',border:'rgba(255,82,82,0.35)'},
+    ];
+    routes.forEach((r,i)=>{
+      const ra=reveal(t,0.28+i*0.1,0.25);
+      ctx.globalAlpha=ra;
+      const angleRad=r.angle*Math.PI/180;
+      const dist=135;
+      const rx=W/2+Math.cos(angleRad)*dist;
+      const ry=H/2-20+Math.sin(angleRad)*dist;
+      // Arrow from center
+      const ax=W/2+Math.cos(angleRad)*50;
+      const ay=H/2-20+Math.sin(angleRad)*50;
+      const bx=W/2+Math.cos(angleRad)*(dist-44);
+      const by=H/2-20+Math.sin(angleRad)*(dist-44);
+      arrow(ax,ay,bx,by,r.color,ra);
+      // Box
+      pill(rx-62,ry-30,124,60,8,r.bg,r.border);
+      ctx.font='18px serif'; ctx.textAlign='center'; ctx.textBaseline='middle';
+      ctx.fillText(r.icon,rx,ry-8);
+      txt(r.label,rx,ry+10,12,r.color,'center',600);
+      txt(r.sublabel,rx,ry+24,10,CDIM,'center');
+      ctx.globalAlpha=1;
+    });
+
+    // Notification callout
+    const ca=reveal(t,0.75,0.25);
+    ctx.globalAlpha=ca;
+    pill(W/2-160,H-70,320,42,8,'rgba(34,208,122,0.08)','rgba(34,208,122,0.2)');
+    txt('📬 User notified instantly · 📊 Logged to Google Sheets',W/2,H-49,12,CGRN,'center',400);
+    ctx.globalAlpha=1;
+  }
+
+  // ── SCENE 4: IMPACT ──
+  function scene4(t){
+    clr(); grid();
+    ctx.globalAlpha=reveal(t,0,0.3);
+    txt('The Impact',W/2,55,28,CTXT,'center',600);
+    txt('Before SmartDesk vs After SmartDesk',W/2,82,13,CDIM,'center');
+    ctx.globalAlpha=1;
+
+    const metrics=[
+      {label:'Triage Time',before:'45 min',after:'3 sec',beforeC:CRED,afterC:CGRN},
+      {label:'Auto-Resolved',before:'0%',after:'~40%',beforeC:CRED,afterC:CGRN},
+      {label:'Misrouted Tickets',before:'~15%',after:'0%',beforeC:CRED,afterC:CGRN},
+      {label:'Engineer Hours Saved',before:'0 hrs',after:'2.5 hrs/day',beforeC:CDIM,afterC:CGRN},
+    ];
+
+    metrics.forEach((m,i)=>{
+      const ma=reveal(t,0.15+i*0.14,0.25);
+      ctx.globalAlpha=ma;
+      const my=120+i*72;
+      // Row bg
+      pill(40,my,W-80,58,8,'rgba(255,255,255,0.02)','rgba(255,255,255,0.05)');
+      // Label
+      txt(m.label,100,my+29,13,CMID,'center',500);
+      // Before
+      pill(W/2-200,my+10,150,36,6,'rgba(255,82,82,0.08)','rgba(255,82,82,0.15)');
+      txt('Before: '+m.before,W/2-125,my+29,13,m.beforeC,'center',500);
+      // Arrow
+      ctx.font='16px sans-serif'; ctx.textAlign='center'; ctx.textBaseline='middle';
+      ctx.fillStyle=CDIM; ctx.fillText('→',W/2,my+29);
+      // After
+      pill(W/2+52,my+10,150,36,6,'rgba(34,208,122,0.08)','rgba(34,208,122,0.2)');
+      txt('After: '+m.after,W/2+127,my+29,13,m.afterC,'center',600);
+      ctx.globalAlpha=1;
+    });
+
+    // Final CTA
+    const fa=reveal(t,0.82,0.18);
+    ctx.globalAlpha=fa;
+    const grd=ctx.createLinearGradient(W/2-180,H-75,W/2+180,H-45);
+    grd.addColorStop(0,'rgba(79,138,255,0.15)');
+    grd.addColorStop(1,'rgba(124,92,252,0.15)');
+    ctx.fillStyle=grd;
+    ctx.beginPath();ctx.roundRect(W/2-200,H-80,400,50,10);ctx.fill();
+    ctx.strokeStyle='rgba(79,138,255,0.35)';ctx.lineWidth=1.5;ctx.stroke();
+    txt('SmartDesk: AI triage in 3 seconds, not 45 minutes',W/2,H-55,14,CTXT,'center',500);
+    ctx.globalAlpha=1;
+  }
+
+  const SCENES=[scene0,scene1,scene2,scene3,scene4];
+
+  // ── MAIN DRAW ──
+  function drawFrame(){
+    if(!canvas.width) return;
+    const {i,local} = chapterAt(elapsed);
+    sceneT = local;
+    // Update chapter strip
+    if(i!==currentChapter){
+      currentChapter=i;
+      document.querySelectorAll('.chapter-item').forEach((el,j)=>{
+        el.classList.toggle('active',j===i);
+      });
+    }
+    // Progress bar
+    const pct=Math.min(elapsed/TOTAL,1)*100;
+    document.getElementById('vcFill').style.width=pct+'%';
+    // Time
+    const e=Math.floor(elapsed), tot=Math.floor(TOTAL);
+    document.getElementById('vcTime').textContent=
+      `${Math.floor(e/60)}:${String(e%60).padStart(2,'0')} / ${Math.floor(tot/60)}:${String(tot%60).padStart(2,'0')}`;
+
+    SCENES[Math.min(i,SCENES.length-1)](local);
+  }
+
+  // ── ANIMATION LOOP ──
+  function loop(ts){
+    if(lastTs!==null){
+      const dt=(ts-lastTs)/1000;
+      elapsed=Math.min(elapsed+dt,TOTAL);
+      if(elapsed>=TOTAL){ playing=false; document.getElementById('vcPlay').textContent='↺'; }
+    }
+    lastTs=ts;
+    drawFrame();
+    if(playing) rafId=requestAnimationFrame(loop);
+  }
+
+  // ── CONTROLS ──
+  window.videoToggle=function(){
+    if(elapsed>=TOTAL){ elapsed=0; }
+    playing=!playing;
+    document.getElementById('vcPlay').textContent=playing?'⏸':'▶';
+    if(playing){ lastTs=null; rafId=requestAnimationFrame(loop); }
+    else{ cancelAnimationFrame(rafId); }
+  };
+  window.videoPrev=function(){
+    const {i}=chapterAt(elapsed);
+    elapsed=chapterStart(Math.max(0,i-1));
+    drawFrame();
+  };
+  window.videoNext=function(){
+    const {i}=chapterAt(elapsed);
+    elapsed=chapterStart(Math.min(CHAPTERS.length-1,i+1));
+    drawFrame();
+  };
+  window.videoScrub=function(e){
+    const rect=document.getElementById('vcTrack').getBoundingClientRect();
+    const pct=(e.clientX-rect.left)/rect.width;
+    elapsed=Math.max(0,Math.min(TOTAL,pct*TOTAL));
+    drawFrame();
+  };
+
+  // Auto-play on tab open
+  const origShowPage=window.showPage;
+  window.showPage=function(name){
+    origShowPage.call(this,name);
+    if(name==='workflow' && !playing){
+      setTimeout(()=>{ resize(); videoToggle(); },100);
+    }
+  };
+
+  // Init
+  window.addEventListener('resize',resize);
+  setTimeout(resize,50);
+})();
+
+
+
+
+// ═══════════════════════════════════════════════
+
+
+
+// ═══════════════════════════════════════════════
+
+
+
+// ═══════════════════════════════════════════════
+// CARTOON CHARACTER — "Alex" the SmartDesk guide
+// Fully drawn on canvas: suit, tie, face, gestures
+// ═══════════════════════════════════════════════
+(function(){
+
+  const SCRIPTS = [
+    "Hi! I am Alex, your SmartDesk guide. Let me show you how AI solves a real IT problem.",
+    "The problem: IT teams waste two hours daily just sorting tickets. There had to be a smarter way.",
+    "Step one — Ticket Intake. Employee submits a ticket. n8n captures it instantly. No manual work needed.",
+    "Step two — AI Triage. Claude reads the ticket, detects urgency, classifies it, and returns a decision in three seconds.",
+    "Step three — Smart Routing. n8n routes automatically. Low priority gets auto-resolved. Critical issues alert the manager on Slack.",
+    "The results: forty percent auto-resolved, triage drops from forty-five minutes to three seconds. Zero misrouted tickets."
+  ];
+
+  const SUBTITLES = ["Introduction","The Problem","Ticket Intake","AI Triage","Smart Routing","The Impact"];
+
+  const canvas = document.getElementById('characterCanvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  const bubble = document.getElementById('speakerBubble');
+  const bText  = document.getElementById('bubbleText');
+  const bSub   = document.getElementById('bubbleSubtitle');
+
+  // ── State ──
+  let t         = 0;
+  let speaking  = false;
+  let mouthOpen = 0;
+  let mouthTgt  = 0;
+  let blinkV    = 0;
+  let blinkDir  = 0;
+  let blinkWait = 80 + Math.random()*100;
+  let blinkTmr  = 0;
+  let browRaise = 0;   // 0-1
+  let gestPhase = 0;   // drives hand/arm gesture
+  let gestAmt   = 0;
+  let eyeShiftX = 0;   // subtle eye movement
+  let eyeShiftY = 0;
+  let headTilt  = 0;
+  let syllTmr   = 0;
+  let glowA     = 0;
+  let excite    = 0;   // excitement bounce
+
+  // Colors
+  const SKIN   = '#F5C4A1';
+  const SKIN_D = '#E8A87A';
+  const SUIT   = '#2A3F6F';
+  const SUIT_D = '#1A2D52';
+  const TIE    = '#4f8aff';
+  const SHIRT  = '#EEF2FF';
+  const HAIR   = '#2C1810';
+  const EYE_W  = '#FAFAFA';
+  const EYE_P  = '#1A0A05';
+  const LIP_T  = '#D4826A';
+  const LIP_B  = '#B86050';
+  const TOOTH  = '#F9F5F0';
+  const BLUSH  = 'rgba(230,120,90,0.18)';
+
+  function resizeC(){
+    const stage = document.getElementById('videoStage');
+    if(!stage) return;
+    canvas.width  = 180;
+    canvas.height = Math.min(stage.clientHeight||460, 320);
+    canvas.style.height = canvas.height + 'px';
+  }
+
+  // ── DRAW CHARACTER ──
+  function drawCharacter(){
+    const W = canvas.width, H = canvas.height;
+    ctx.clearRect(0,0,W,H);
+
+    const CX = W/2;
+    // Breathing + excitement bob
+    const breathY = Math.sin(t*0.7)*1.8;
+    const bobY    = speaking ? Math.sin(t*3.5)*2.5*excite : 0;
+    const tiltR   = (Math.sin(t*0.5)*(speaking?1.8:0.5) + headTilt) * Math.PI/180;
+
+    ctx.save();
+    ctx.translate(CX, H*0.5 + breathY + bobY);
+
+    // ── BODY / SUIT ──
+    drawBody(ctx, tiltR);
+
+    // ── HEAD ──
+    ctx.save();
+    ctx.rotate(tiltR);
+    drawHead(ctx);
+    ctx.restore();
+
+    // ── ARMS / GESTURE ──
+    drawArms(ctx, tiltR);
+
+    ctx.restore();
+  }
+
+  function drawBody(ctx, tilt){
+    const sh = 60; // shoulder width half
+    const bh = 90; // body height
+
+    ctx.save();
+    ctx.rotate(tilt);
+
+    // Jacket body
+    ctx.beginPath();
+    ctx.moveTo(-sh, -10);
+    ctx.bezierCurveTo(-sh-8, 20, -sh-5, bh, -sh+8, bh+20);
+    ctx.lineTo(sh-8, bh+20);
+    ctx.bezierCurveTo(sh+5, bh, sh+8, 20, sh, -10);
+    ctx.closePath();
+    ctx.fillStyle = SUIT;
+    ctx.fill();
+
+    // Suit lapels
+    ctx.beginPath();
+    ctx.moveTo(-18, -8);
+    ctx.lineTo(-8, 30);
+    ctx.lineTo(0, 20);
+    ctx.lineTo(8, 30);
+    ctx.lineTo(18, -8);
+    ctx.fillStyle = SUIT_D;
+    ctx.fill();
+
+    // Shirt / chest
+    ctx.beginPath();
+    ctx.moveTo(-8, -8);
+    ctx.lineTo(-6, 55);
+    ctx.lineTo(6, 55);
+    ctx.lineTo(8, -8);
+    ctx.fillStyle = SHIRT;
+    ctx.fill();
+
+    // Tie
+    ctx.beginPath();
+    ctx.moveTo(-5, -5);
+    ctx.lineTo(-7, 30);
+    ctx.lineTo(0, 40);
+    ctx.lineTo(7, 30);
+    ctx.lineTo(5, -5);
+    ctx.closePath();
+    ctx.fillStyle = TIE;
+    ctx.fill();
+    // Tie stripe
+    ctx.beginPath();
+    ctx.moveTo(-3,5); ctx.lineTo(3,5);
+    ctx.moveTo(-5,15); ctx.lineTo(5,15);
+    ctx.strokeStyle='rgba(255,255,255,0.25)';
+    ctx.lineWidth=1.5;
+    ctx.stroke();
+
+    // Suit jacket line
+    ctx.beginPath();
+    ctx.moveTo(-sh, -10);
+    ctx.lineTo(-8,-8);
+    ctx.moveTo(sh,-10);
+    ctx.lineTo(8,-8);
+    ctx.strokeStyle=SUIT_D;
+    ctx.lineWidth=1;
+    ctx.stroke();
+
+    // Pocket square
+    ctx.beginPath();
+    ctx.moveTo(-sh+14, 10);
+    ctx.lineTo(-sh+22, 5);
+    ctx.lineTo(-sh+26, 14);
+    ctx.lineTo(-sh+14, 17);
+    ctx.closePath();
+    ctx.fillStyle='rgba(255,255,255,0.7)';
+    ctx.fill();
+
+    ctx.restore();
+  }
+
+  function drawHead(ctx){
+    const hy = -80; // head center Y relative to body centre
+    const hr = 34;  // head radius
+
+    ctx.save();
+    ctx.translate(0, hy);
+
+    // Neck
+    ctx.beginPath();
+    ctx.roundRect(-10, 28, 20, 22, 4);
+    ctx.fillStyle = SKIN_D;
+    ctx.fill();
+
+    // Collar
+    ctx.beginPath();
+    ctx.moveTo(-18, 32);
+    ctx.lineTo(-9, 42);
+    ctx.lineTo(0, 36);
+    ctx.lineTo(9, 42);
+    ctx.lineTo(18, 32);
+    ctx.strokeStyle=SHIRT;
+    ctx.lineWidth=3;
+    ctx.stroke();
+
+    // Head shape (slightly oval)
+    ctx.beginPath();
+    ctx.ellipse(0, 0, hr, hr+4, 0, 0, Math.PI*2);
+    ctx.fillStyle = SKIN;
+    ctx.fill();
+    ctx.strokeStyle = SKIN_D;
+    ctx.lineWidth = 1.2;
+    ctx.stroke();
+
+    // Ear left
+    ctx.beginPath();
+    ctx.ellipse(-hr+2, 4, 7, 10, -0.2, 0, Math.PI*2);
+    ctx.fillStyle = SKIN;
+    ctx.fill();
+    ctx.strokeStyle = SKIN_D;
+    ctx.lineWidth=1;
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.ellipse(-hr+4, 4, 3.5, 5.5, -0.2, 0, Math.PI*2);
+    ctx.fillStyle = SKIN_D;
+    ctx.fill();
+
+    // Ear right
+    ctx.beginPath();
+    ctx.ellipse(hr-2, 4, 7, 10, 0.2, 0, Math.PI*2);
+    ctx.fillStyle = SKIN;
+    ctx.fill();
+    ctx.strokeStyle = SKIN_D;
+    ctx.lineWidth=1;
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.ellipse(hr-4, 4, 3.5, 5.5, 0.2, 0, Math.PI*2);
+    ctx.fillStyle = SKIN_D;
+    ctx.fill();
+
+    // Hair
+    ctx.save();
+    ctx.beginPath();
+    ctx.ellipse(0, -12, hr-1, 24, 0, Math.PI, Math.PI*2);
+    ctx.fillStyle = HAIR;
+    ctx.fill();
+    // Hair side parts
+    ctx.beginPath();
+    ctx.moveTo(-hr+2, -8);
+    ctx.bezierCurveTo(-hr+8, -28, -8, -36, 0, -38);
+    ctx.bezierCurveTo(8, -36, hr-8, -28, hr-2, -8);
+    ctx.fillStyle = HAIR;
+    ctx.fill();
+    // Slight hair highlight
+    ctx.beginPath();
+    ctx.moveTo(-10,-34);
+    ctx.bezierCurveTo(-4,-40,4,-40,10,-34);
+    ctx.strokeStyle='rgba(255,255,255,0.12)';
+    ctx.lineWidth=2.5;
+    ctx.stroke();
+    ctx.restore();
+
+    // Glasses frame
+    drawGlasses(ctx);
+
+    // Eyebrows
+    drawEyebrows(ctx);
+
+    // Eyes
+    drawEyes(ctx);
+
+    // Nose
+    ctx.beginPath();
+    ctx.moveTo(0, 2);
+    ctx.bezierCurveTo(-5, 8, -7, 14, -5, 16);
+    ctx.bezierCurveTo(-2, 18, 2, 18, 5, 16);
+    ctx.bezierCurveTo(7, 14, 5, 8, 0, 2);
+    ctx.strokeStyle = SKIN_D;
+    ctx.lineWidth = 1.3;
+    ctx.stroke();
+
+    // Blush
+    ctx.beginPath();
+    ctx.ellipse(-20, 12, 9, 5, -0.3, 0, Math.PI*2);
+    ctx.fillStyle = BLUSH;
+    ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(20, 12, 9, 5, 0.3, 0, Math.PI*2);
+    ctx.fillStyle = BLUSH;
+    ctx.fill();
+
+    // Mouth
+    drawMouth(ctx);
+
+    ctx.restore();
+  }
+
+  function drawGlasses(ctx){
+    const ew = 13, eh = 9, ey = -4;
+    // Left lens
+    ctx.beginPath();
+    ctx.roundRect(-28, ey-eh, ew*2, eh*2, 5);
+    ctx.strokeStyle='rgba(79,138,255,0.8)';
+    ctx.lineWidth=2;
+    ctx.stroke();
+    ctx.fillStyle='rgba(79,138,255,0.06)';
+    ctx.fill();
+    // Right lens
+    ctx.beginPath();
+    ctx.roundRect(2, ey-eh, ew*2, eh*2, 5);
+    ctx.stroke();
+    ctx.fill();
+    // Bridge
+    ctx.beginPath();
+    ctx.moveTo(-2, ey); ctx.lineTo(2, ey);
+    ctx.strokeStyle='rgba(79,138,255,0.8)';
+    ctx.lineWidth=1.8;
+    ctx.stroke();
+    // Temple left
+    ctx.beginPath();
+    ctx.moveTo(-28, ey); ctx.lineTo(-35, ey-2);
+    ctx.stroke();
+    // Temple right
+    ctx.beginPath();
+    ctx.moveTo(28, ey); ctx.lineTo(35, ey-2);
+    ctx.stroke();
+  }
+
+  function drawEyebrows(ctx){
+    const raise = browRaise * 4;
+    const ex1 = [-26, -12], ex2 = [12, 26];
+    const ey = -17 - raise;
+
+    ctx.lineWidth = 2.5;
+    ctx.strokeStyle = HAIR;
+    ctx.lineCap = 'round';
+
+    // Left brow
+    ctx.beginPath();
+    ctx.moveTo(ex1[0], ey+1);
+    ctx.quadraticCurveTo(-19, ey-3-raise*0.3, ex1[1], ey);
+    ctx.stroke();
+    // Right brow
+    ctx.beginPath();
+    ctx.moveTo(ex2[0], ey);
+    ctx.quadraticCurveTo(19, ey-3-raise*0.3, ex2[1], ey+1);
+    ctx.stroke();
+  }
+
+  function drawEyes(ctx){
+    const EY = -5, EX = 15;
+    const pupilSz = 4.5;
+
+    // Apply blink scale
+    const blinkScale = 1 - blinkV;
+
+    [-EX, EX].forEach((ex, i) => {
+      ctx.save();
+      ctx.translate(ex, EY);
+
+      // White
+      ctx.beginPath();
+      ctx.ellipse(0, 0, 7, 5*blinkScale, 0, 0, Math.PI*2);
+      ctx.fillStyle = EYE_W;
+      ctx.fill();
+
+      if(blinkScale > 0.1){
+        // Iris
+        const shift = i===0 ? -1 : 1;
+        const px = eyeShiftX*2 + shift*0.5;
+        const py = eyeShiftY*2;
+        ctx.beginPath();
+        ctx.ellipse(px, py, pupilSz, pupilSz*blinkScale, 0, 0, Math.PI*2);
+        ctx.fillStyle = '#2E4A8C';
+        ctx.fill();
+
+        // Pupil
+        ctx.beginPath();
+        ctx.ellipse(px, py, pupilSz*0.55, pupilSz*0.55*blinkScale, 0, 0, Math.PI*2);
+        ctx.fillStyle = EYE_P;
+        ctx.fill();
+
+        // Shine
+        ctx.beginPath();
+        ctx.ellipse(px-1.5, py-1.5, 1.8, 1.4, -0.5, 0, Math.PI*2);
+        ctx.fillStyle = 'rgba(255,255,255,0.85)';
+        ctx.fill();
+      }
+
+      // Eyelid (blink)
+      if(blinkV > 0.05){
+        ctx.beginPath();
+        ctx.ellipse(0, -5*blinkScale*0.5, 7.5, 5.5, 0, Math.PI, Math.PI*2);
+        ctx.fillStyle = SKIN;
+        ctx.fill();
+      }
+
+      // Lower eyelid line
+      ctx.beginPath();
+      ctx.moveTo(-7, 0);
+      ctx.quadraticCurveTo(0, 3*blinkScale, 7, 0);
+      ctx.strokeStyle = SKIN_D;
+      ctx.lineWidth=0.8;
+      ctx.stroke();
+
+      ctx.restore();
+    });
+  }
+
+  function drawMouth(ctx){
+    const MY = 20;
+    const openAmt = mouthOpen;
+
+    if(openAmt < 0.05){
+      // Closed smile
+      ctx.beginPath();
+      ctx.moveTo(-12, MY-1);
+      ctx.quadraticCurveTo(0, MY+5, 12, MY-1);
+      ctx.strokeStyle = LIP_B;
+      ctx.lineWidth = 2;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+      // Mouth corners
+      ctx.beginPath();
+      ctx.arc(-12, MY-2, 2, 0, Math.PI*2);
+      ctx.arc(12, MY-2, 2, 0, Math.PI*2);
+      ctx.fillStyle = LIP_B;
+      ctx.fill();
+      return;
+    }
+
+    const MW  = 10 + openAmt * 4;
+    const MHt = openAmt * 5;   // top gap
+    const MHb = openAmt * 9;   // bottom gap
+
+    // Mouth cavity
+    ctx.beginPath();
+    ctx.moveTo(-MW, MY);
+    ctx.bezierCurveTo(-MW+2, MY+MHb, MW-2, MY+MHb, MW, MY);
+    ctx.bezierCurveTo(MW-2, MY-MHt, -MW+2, MY-MHt, -MW, MY);
+    ctx.closePath();
+    ctx.fillStyle = '#1A0505';
+    ctx.fill();
+
+    // Teeth (upper row)
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(-MW+1, MY);
+    ctx.bezierCurveTo(-MW+3, MY-MHt+1, MW-3, MY-MHt+1, MW-1, MY);
+    ctx.closePath();
+    ctx.fillStyle = TOOTH;
+    ctx.fill();
+    ctx.restore();
+
+    // Tongue (when open wide)
+    if(openAmt > 0.4){
+      ctx.beginPath();
+      ctx.ellipse(0, MY+MHb*0.55, 5*openAmt, 3*openAmt, 0, 0, Math.PI*2);
+      ctx.fillStyle='rgba(220,100,90,0.7)';
+      ctx.fill();
+    }
+
+    // Upper lip
+    ctx.beginPath();
+    ctx.moveTo(-MW, MY);
+    ctx.bezierCurveTo(-MW*0.5, MY-MHt-3, -2, MY-MHt-1, 0, MY-MHt-2);
+    ctx.bezierCurveTo(2, MY-MHt-1, MW*0.5, MY-MHt-3, MW, MY);
+    ctx.strokeStyle = LIP_T;
+    ctx.lineWidth = 2;
+    ctx.lineCap = 'round';
+    ctx.stroke();
+
+    // Lower lip
+    ctx.beginPath();
+    ctx.moveTo(-MW, MY);
+    ctx.bezierCurveTo(-MW*0.6, MY+MHb+2, MW*0.6, MY+MHb+2, MW, MY);
+    ctx.strokeStyle = LIP_B;
+    ctx.lineWidth = 2.5;
+    ctx.stroke();
+
+    // Lip corners
+    ctx.beginPath();
+    ctx.arc(-MW, MY, 2, 0, Math.PI*2);
+    ctx.arc(MW, MY, 2, 0, Math.PI*2);
+    ctx.fillStyle = LIP_B;
+    ctx.fill();
+  }
+
+  function drawArms(ctx, tilt){
+    ctx.save();
+    ctx.rotate(tilt);
+
+    const sh = 52; // shoulder x
+
+    // Gesture phase drives arm animation
+    const gAmt = speaking ? Math.sin(gestPhase) * gestAmt : 0;
+
+    // LEFT ARM
+    const lArmRot = -0.3 + gAmt * 0.4;
+    ctx.save();
+    ctx.translate(-sh, -5);
+    ctx.rotate(lArmRot);
+    // Upper arm
+    ctx.beginPath();
+    ctx.roundRect(-8, 0, 16, 38, 6);
+    ctx.fillStyle = SUIT;
+    ctx.fill();
+    // Forearm
+    ctx.save();
+    ctx.translate(0, 38);
+    ctx.rotate(lArmRot * 0.6 - 0.2);
+    ctx.beginPath();
+    ctx.roundRect(-7, 0, 14, 34, 5);
+    ctx.fillStyle = SUIT_D;
+    ctx.fill();
+    // Shirt cuff
+    ctx.beginPath();
+    ctx.roundRect(-7, 28, 14, 8, 3);
+    ctx.fillStyle = SHIRT;
+    ctx.fill();
+    // Hand
+    drawHand(ctx, false, gAmt);
+    ctx.restore();
+    ctx.restore();
+
+    // RIGHT ARM
+    const rArmRot = 0.3 - gAmt * 0.45;
+    ctx.save();
+    ctx.translate(sh, -5);
+    ctx.rotate(rArmRot);
+    // Upper arm
+    ctx.beginPath();
+    ctx.roundRect(-8, 0, 16, 38, 6);
+    ctx.fillStyle = SUIT;
+    ctx.fill();
+    // Forearm
+    ctx.save();
+    ctx.translate(0, 38);
+    ctx.rotate(rArmRot * 0.6 + 0.2);
+    ctx.beginPath();
+    ctx.roundRect(-7, 0, 14, 34, 5);
+    ctx.fillStyle = SUIT_D;
+    ctx.fill();
+    // Shirt cuff
+    ctx.beginPath();
+    ctx.roundRect(-7, 28, 14, 8, 3);
+    ctx.fillStyle = SHIRT;
+    ctx.fill();
+    // Hand (pointing when speaking)
+    drawHand(ctx, speaking && gAmt > 0.3, gAmt);
+    ctx.restore();
+    ctx.restore();
+
+    ctx.restore();
+  }
+
+  function drawHand(ctx, pointing, gAmt){
+    ctx.save();
+    ctx.translate(0, 36);
+    if(pointing){
+      // Pointing index finger
+      ctx.beginPath();
+      ctx.ellipse(0, 6, 7, 9, 0, 0, Math.PI*2);
+      ctx.fillStyle = SKIN;
+      ctx.fill();
+      // Index finger
+      ctx.beginPath();
+      ctx.roundRect(-3, -10, 6, 18, 3);
+      ctx.fillStyle = SKIN;
+      ctx.fill();
+      ctx.strokeStyle = SKIN_D;
+      ctx.lineWidth = 0.8;
+      ctx.stroke();
+      // Finger nail
+      ctx.beginPath();
+      ctx.ellipse(-0, -9, 2.5, 2, 0, 0, Math.PI*2);
+      ctx.fillStyle = 'rgba(255,255,255,0.5)';
+      ctx.fill();
+    } else {
+      // Relaxed fist
+      ctx.beginPath();
+      ctx.ellipse(0, 5, 7, 9, 0, 0, Math.PI*2);
+      ctx.fillStyle = SKIN;
+      ctx.fill();
+      // Finger lines
+      for(let i=0;i<3;i++){
+        ctx.beginPath();
+        ctx.moveTo(-5, -1+i*3);
+        ctx.lineTo(5, -1+i*3);
+        ctx.strokeStyle = SKIN_D;
+        ctx.lineWidth = 0.7;
+        ctx.stroke();
+      }
+    }
+    ctx.restore();
+  }
+
+  // ── ANIM LOOP ──
+  function animLoop(){
+    t += 0.042;
+
+    // Mouth animation
+    if(speaking){
+      syllTmr++;
+      if(syllTmr > 3 + Math.random()*5){
+        syllTmr = 0;
+        mouthTgt = Math.random()<0.4 ? 0.2+Math.random()*0.8 : 0.05+Math.random()*0.25;
+      }
+      mouthOpen += (mouthTgt - mouthOpen) * 0.28;
+      excite    = Math.min(1, excite + 0.04);
+      browRaise = Math.min(0.8, browRaise + 0.03);
+      gestPhase += 0.09;
+      gestAmt    = Math.min(0.9, gestAmt + 0.04);
+      glowA      = Math.min(1, glowA + 0.06);
+      // Subtle eye movement while speaking
+      if(Math.random()<0.008){ eyeShiftX = (Math.random()-0.5)*0.6; eyeShiftY = (Math.random()-0.5)*0.3; }
+    } else {
+      mouthOpen += (0 - mouthOpen) * 0.2;
+      excite    += (0 - excite) * 0.08;
+      browRaise += (0 - browRaise) * 0.07;
+      gestAmt   += (0 - gestAmt) * 0.08;
+      gestPhase += 0.02;
+      glowA     += (0 - glowA) * 0.09;
+      eyeShiftX += (0 - eyeShiftX) * 0.1;
+      eyeShiftY += (0 - eyeShiftY) * 0.1;
+    }
+
+    // Blink
+    blinkTmr++;
+    if(blinkDir===0 && blinkTmr > blinkWait){ blinkDir=1; blinkTmr=0; }
+    if(blinkDir===1){ blinkV=Math.min(1,blinkV+0.22); if(blinkV>=1){blinkDir=-1;blinkTmr=0;} }
+    if(blinkDir===-1){ blinkV=Math.max(0,blinkV-0.18); if(blinkV<=0){blinkDir=0;blinkTmr=0;blinkWait=70+Math.random()*130;} }
+
+    // Head tilt from gesture
+    headTilt = Math.sin(gestPhase*0.4) * (speaking?1.2:0.3);
+
+    drawCharacter();
+    requestAnimationFrame(animLoop);
+  }
+
+  // ── TTS ──
+  const synth = window.speechSynthesis;
+  let muted   = false;
+  let volume  = 0.88;
+  let lastCh  = -1;
+
+  function bestVoice(){
+    const vv = synth.getVoices();
+    // Priority: neutral American English voices — clear, accent-free, natural
+    const exact = [
+      'Google US English',
+      'Microsoft Aria Online (Natural) - English (United States)',
+      'Microsoft Guy Online (Natural) - English (United States)',
+      'Microsoft David - English (United States)',
+      'Microsoft Mark - English (United States)',
+      'Samantha',   // macOS US neutral
+      'Alex',       // macOS fallback
+    ];
+    for(const name of exact){
+      const v = vv.find(v => v.name === name);
+      if(v) return v;
+    }
+    // Fallback: any en-US voice
+    const usVoice = vv.find(v => v.lang === 'en-US');
+    if(usVoice) return usVoice;
+    // Last resort: any English
+    return vv.find(v => /^en/i.test(v.lang)) || vv[0] || null;
+  }
+
+  // ── Continuous chained narration — no gaps, no polling ──
+  let voiceReady = false;
+  let pendingIdx = -1;
+  let stopped    = false;
+
+  // Pre-load voices as early as possible
+  function loadVoices(){
+    if(synth.getVoices().length){ voiceReady=true; if(pendingIdx>=0){ const i=pendingIdx; pendingIdx=-1; _chain(i); } }
+  }
+  speechSynthesis.addEventListener('voiceschanged', loadVoices);
+  loadVoices();
+
+  // Update bubble UI for current chapter
+  function showSlide(idx){
+    lastCh = idx;
+    bText.textContent = SCRIPTS[idx];
+    bSub.textContent  = SUBTITLES[idx]||'';
+    bSub.style.display = 'block';
+    bubble.classList.add('show');
+    // Sync canvas chapter highlight
+    document.querySelectorAll('.chapter-item').forEach((el,i)=>{
+      el.classList.toggle('active', i===idx);
+    });
+  }
+
+  // Build one utterance, chain to next on end
+  function _chain(idx){
+    if(stopped || idx >= SCRIPTS.length){ speaking=false; return; }
+    showSlide(idx);
+    speaking = true;
+    if(muted){ speaking=false; return; }
+
+    const utt = new SpeechSynthesisUtterance(SCRIPTS[idx]);
+    utt.volume = volume;
+    utt.rate   = 1.05;   // natural pace — slightly brisk but fully clear
+    utt.pitch  = 1.0;
+    const v = bestVoice(); if(v) utt.voice = v;
+
+    utt.onstart = () => { speaking = true; };
+    utt.onend   = () => {
+      speaking = false;
+      if(!stopped) _chain(idx + 1);   // ← instant chain, zero gap
+    };
+    utt.onerror = () => {
+      speaking = false;
+      if(!stopped) _chain(idx + 1);   // skip broken utterance, keep going
+    };
+    synth.speak(utt);
+  }
+
+  function startNarration(fromIdx){
+    stopped = false;
+    synth.cancel();
+    if(!voiceReady){ pendingIdx = fromIdx; return; }
+    _chain(fromIdx);
+  }
+
+  function stopAll(){
+    stopped = true;
+    synth.cancel();
+    speaking = false;
+    bubble.classList.remove('show');
+  }
+
+  // Controls
+  window.videoMuteToggle = function(){
+    muted = !muted;
+    const btn = document.getElementById('vcMute');
+    if(btn) btn.textContent = muted ? '🔇' : '🔊';
+    if(muted){ synth.cancel(); speaking=false; }
+    else startNarration(lastCh >= 0 ? lastCh : 0);
+  };
+  window.videoSetVolume = function(val){
+    volume = val/100; muted = volume < 0.01;
+    const btn = document.getElementById('vcMute');
+    if(btn) btn.textContent = muted ? '🔇' : '🔊';
+    if(muted){ synth.cancel(); speaking=false; }
+  };
+
+  const _vt = window.videoToggle;
+  window.videoToggle = function(){
+    _vt.call(this);
+    const b = document.getElementById('vcPlay');
+    if(b && (b.textContent==='▶' || b.textContent==='↺')) stopAll();
+  };
+
+  const _sp = window.showPage;
+  window.showPage = function(name){
+    _sp.call(this, name);
+    if(name === 'workflow'){
+      stopAll();
+      lastCh = -1;
+      resizeC();
+      // Start immediately — 200ms just to let the tab render
+      setTimeout(()=> startNarration(0), 200);
+    } else {
+      stopAll();
+    }
+  };
+
+  document.addEventListener('visibilitychange', ()=>{ if(document.hidden) stopAll(); });
+  window.addEventListener('resize', resizeC);
+
+  resizeC();
+  animLoop();
+})();
+
+</script>
+</body>
+</html>
