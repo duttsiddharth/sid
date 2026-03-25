@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Blog | Siddharth Dutt — AI Transformation & IT Operations</title>
+<meta name="description" content="Insights on AIOps, GenAI, ITSM automation, and AI-driven service delivery by Siddharth Dutt — Senior IT Operations Leader.">
+<meta name="author" content="Siddharth Dutt">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://duttsiddharth.github.io/sid/blog.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Blog | Siddharth Dutt">
+<meta property="og:description" content="Insights on AIOps, GenAI, ITSM automation, and AI-driven service delivery.">
+<meta property="og:url" content="https://duttsiddharth.github.io/sid/blog.html">
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --paper: #f5f0e8;
+    --cream: #ede7d6;
+    --rust: #c0440a;
+    --gold: #b8922a;
+    --muted: #6b6258;
+    --line: rgba(13,13,13,0.12);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--paper); color: var(--ink); font-family: 'Syne', sans-serif; overflow-x: hidden; }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--paper); }
+  ::-webkit-scrollbar-thumb { background: var(--rust); }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 3rem;
+    background: rgba(245,240,232,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--rust); letter-spacing: 0.02em; text-decoration: none; }
+  .nav-links { display: flex; gap: 2.5rem; }
+  .nav-links a {
+    text-decoration: none; font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--rust); }
+
+  /* ── HERO ── */
+  .blog-hero {
+    background: var(--ink);
+    padding: 9rem 6rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .blog-hero::before {
+    content: '';
+    position: absolute; right: -80px; top: -80px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(192,68,10,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .blog-hero::after {
+    content: '// AI·Blog';
+    position: absolute; right: 6rem; bottom: 2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: clamp(4rem, 10vw, 9rem);
+    color: rgba(245,240,232,0.03);
+    letter-spacing: -0.05em;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .hero-tag {
+    font-family: 'DM Mono', monospace; font-size: 0.72rem;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--rust);
+    margin-bottom: 1.5rem;
+    opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+  }
+  .blog-hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    line-height: 1.05; letter-spacing: -0.02em;
+    color: var(--paper);
+    opacity: 0; animation: fadeUp 0.8s 0.4s forwards;
+  }
+  .blog-hero h1 em { font-style: italic; color: var(--rust); }
+  .hero-sub {
+    margin-top: 1.2rem; max-width: 520px;
+    font-size: 0.95rem; color: rgba(245,240,232,0.5); line-height: 1.7;
+    opacity: 0; animation: fadeUp 0.8s 0.6s forwards;
+  }
+
+  /* ── FILTER BAR ── */
+  .filter-bar {
+    display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;
+    padding: 2rem 6rem;
+    border-bottom: 1px solid var(--line);
+    background: var(--cream);
+    opacity: 0; animation: fadeUp 0.8s 0.8s forwards;
+  }
+  .filter-label {
+    font-family: 'DM Mono', monospace; font-size: 0.65rem;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted);
+    margin-right: 0.5rem;
+  }
+  .filter-btn {
+    padding: 0.4rem 1rem;
+    border: 1.5px solid var(--line); background: transparent;
+    font-family: 'Syne', sans-serif; font-size: 0.72rem;
+    font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--muted); cursor: pointer; transition: all 0.2s;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    border-color: var(--rust); color: var(--rust); background: rgba(192,68,10,0.05);
+  }
+
+  /* ── BLOG GRID ── */
+  .blog-main {
+    padding: 4rem 6rem 6rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 2rem;
+  }
+
+  /* ── POST CARD ── */
+  .post-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    display: flex; flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.6s, transform 0.6s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+  .post-card.visible { opacity: 1; transform: translateY(0); }
+  .post-card:hover { box-shadow: 6px 6px 0 var(--rust); transform: translate(-3px,-3px); }
+
+  .post-card-top {
+    background: var(--ink); padding: 2rem 2rem 1.5rem;
+    position: relative; overflow: hidden;
+    min-height: 160px; display: flex; flex-direction: column; justify-content: flex-end;
+  }
+  .post-card-top::before {
+    content: attr(data-icon);
+    position: absolute; right: 1.5rem; top: 1.2rem;
+    font-size: 2.5rem; opacity: 0.18;
+  }
+  .post-tag {
+    font-family: 'DM Mono', monospace; font-size: 0.62rem;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--rust); margin-bottom: 0.75rem;
+  }
+  .post-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.35rem; line-height: 1.2;
+    color: var(--paper);
+  }
+  .post-title em { font-style: italic; color: var(--rust); }
+
+  .post-card-body { padding: 1.8rem 2rem; flex: 1; display: flex; flex-direction: column; gap: 1rem; }
+  .post-excerpt { font-size: 0.85rem; color: var(--muted); line-height: 1.7; flex: 1; }
+
+  .post-meta {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+  }
+  .post-date { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.08em; }
+  .post-read {
+    font-family: 'DM Mono', monospace; font-size: 0.65rem;
+    color: var(--rust); letter-spacing: 0.08em;
+    text-decoration: none; display: flex; align-items: center; gap: 0.4rem;
+    transition: gap 0.2s;
+  }
+  .post-card:hover .post-read { gap: 0.75rem; }
+
+  /* ── FEATURED CARD (spans 2 cols) ── */
+  .post-card.featured {
+    grid-column: span 2;
+    flex-direction: row;
+  }
+  .post-card.featured .post-card-top {
+    width: 45%; min-height: 240px; flex-shrink: 0;
+  }
+  .post-card.featured .post-card-body { padding: 2.5rem; }
+  .post-card.featured .post-title { font-size: 1.6rem; }
+  .post-card.featured .post-excerpt { font-size: 0.9rem; }
+
+  /* ── COMING SOON CARD ── */
+  .post-card.coming-soon {
+    border-style: dashed; opacity: 0.5;
+    pointer-events: none;
+  }
+  .post-card.coming-soon .post-card-top {
+    background: var(--cream);
+  }
+  .coming-label {
+    font-family: 'DM Mono', monospace; font-size: 0.7rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--muted); text-align: center; padding: 1rem;
+  }
+
+  /* ── NEWSLETTER STRIP ── */
+  .newsletter-strip {
+    background: var(--rust); padding: 3rem 6rem;
+    display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .newsletter-text h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem; color: var(--paper); margin-bottom: 0.4rem;
+  }
+  .newsletter-text p { font-size: 0.85rem; color: rgba(245,240,232,0.7); }
+  .newsletter-input-group { display: flex; gap: 0; }
+  .newsletter-input {
+    padding: 0.85rem 1.4rem;
+    border: none; background: rgba(245,240,232,0.15);
+    color: var(--paper); font-family: 'Syne', sans-serif; font-size: 0.82rem;
+    width: 260px; outline: none;
+  }
+  .newsletter-input::placeholder { color: rgba(245,240,232,0.4); }
+  .newsletter-btn {
+    padding: 0.85rem 1.8rem; border: none;
+    background: var(--ink); color: var(--paper);
+    font-family: 'Syne', sans-serif; font-size: 0.78rem;
+    font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    cursor: pointer; transition: opacity 0.2s;
+  }
+  .newsletter-btn:hover { opacity: 0.85; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink); color: rgba(245,240,232,0.35);
+    padding: 2rem 6rem;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.75rem; letter-spacing: 0.05em;
+    flex-wrap: wrap; gap: 0.5rem;
+  }
+  footer a { color: var(--rust); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.2rem; }
+    .blog-hero { padding: 8rem 1.5rem 4rem; }
+    .filter-bar { padding: 1.5rem; }
+    .blog-main { padding: 2.5rem 1.5rem; grid-template-columns: 1fr; }
+    .post-card.featured { flex-direction: column; grid-column: span 1; }
+    .post-card.featured .post-card-top { width: 100%; }
+    .newsletter-strip { padding: 2.5rem 1.5rem; }
+    .newsletter-input { width: 100%; }
+    footer { padding: 1.5rem; flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">S. Dutt</a>
+  <div class="nav-links">
+    <a href="index.html#summary">About</a>
+    <a href="index.html#experience">Experience</a>
+    <a href="index.html#ai-projects">Projects</a>
+    <a href="blog.html" class="active">AI Blog</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="blog-hero">
+  <div class="hero-tag">// Perspectives &amp; Insights</div>
+  <h1>The <em>AI</em> Operations<br>Intelligence Brief</h1>
+  <p class="hero-sub">Practical thinking on AIOps, GenAI in service delivery, ITSM automation, and the future of intelligent IT operations — from 20+ years on the frontline.</p>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <span class="filter-label">Filter:</span>
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="aiops">AIOps</button>
+  <button class="filter-btn" data-filter="genai">GenAI</button>
+  <button class="filter-btn" data-filter="itsm">ITSM</button>
+  <button class="filter-btn" data-filter="automation">Automation</button>
+  <button class="filter-btn" data-filter="leadership">Leadership</button>
+</div>
+
+<!-- BLOG GRID -->
+<main class="blog-main" id="blog-grid">
+
+  <!-- FEATURED POST -->
+  <article class="post-card featured" data-category="aiops genai">
+    <div class="post-card-top" data-icon="🤖">
+      <div class="post-tag">✦ Featured · AIOps · GenAI</div>
+      <div class="post-title">Why <em>AIOps</em> is Not Just<br>Another Buzzword</div>
+    </div>
+    <div class="post-card-body">
+      <p class="post-excerpt">
+        After two decades in IT operations, I've watched trends come and go. AIOps is different. When implemented correctly — with real telemetry, real workflows, and real ITIL alignment — it doesn't just monitor your infrastructure. It anticipates failure, auto-routes incidents, and learns from every resolution. Here's what separates genuine AIOps maturity from shiny dashboards.
+      </p>
+      <div class="post-meta">
+        <span class="post-date">Mar 2025 · 8 min read</span>
+        <a href="#" class="post-read">Read Article →</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- POST 2 -->
+  <article class="post-card" data-category="genai itsm">
+    <div class="post-card-top" data-icon="⚡">
+      <div class="post-tag">GenAI · ITSM</div>
+      <div class="post-title">Prompt Engineering<br>for <em>ITSM Teams</em></div>
+    </div>
+    <div class="post-card-body">
+      <p class="post-excerpt">Most service desk teams are sitting on untapped potential. With the right prompt architecture, Claude or ChatGPT can triage tickets, generate incident summaries, draft RCA reports, and coach L1 agents — all without replacing your team.</p>
+      <div class="post-meta">
+        <span class="post-date">Feb 2025 · 6 min read</span>
+        <a href="#" class="post-read">Read →</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- POST 3 -->
+  <article class="post-card" data-category="automation">
+    <div class="post-card-top" data-icon="🔗">
+      <div class="post-tag">Automation · n8n</div>
+      <div class="post-title"><em>n8n</em> + Claude:<br>The ITSM Power Combo</div>
+    </div>
+    <div class="post-card-body">
+      <p class="post-excerpt">How I built SmartDesk — an AI triage system that auto-classifies 42% of tickets — using n8n workflows and Claude API. A complete walkthrough of the architecture, prompt design, and lessons learned.</p>
+      <div class="post-meta">
+        <span class="post-date">Jan 2025 · 10 min read</span>
+        <a href="#" class="post-read">Read →</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- POST 4 -->
+  <article class="post-card" data-category="leadership aiops">
+    <div class="post-card-top" data-icon="📊">
+      <div class="post-tag">Leadership · Strategy</div>
+      <div class="post-title">The AI Adoption<br><em>Maturity Model</em> for IT</div>
+    </div>
+    <div class="post-card-body">
+      <p class="post-excerpt">Not all organisations are ready for the same AI interventions. This maturity framework helps CIOs and service delivery leaders identify where they are — and what their next AI investment should be.</p>
+      <div class="post-meta">
+        <span class="post-date">Dec 2024 · 7 min read</span>
+        <a href="#" class="post-read">Read →</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- POST 5 -->
+  <article class="post-card" data-category="itsm">
+    <div class="post-card-top" data-icon="📋">
+      <div class="post-tag">ITSM · ITIL</div>
+      <div class="post-title">ITIL 4 Meets<br><em>Generative AI</em></div>
+    </div>
+    <div class="post-card-body">
+      <p class="post-excerpt">ITIL 4's Service Value System wasn't designed with LLMs in mind — but its flexibility makes it ideal for AI augmentation. A practical guide to overlaying GenAI capabilities on your existing ITIL framework.</p>
+      <div class="post-meta">
+        <span class="post-date">Nov 2024 · 5 min read</span>
+        <a href="#" class="post-read">Read →</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- POST 6 -->
+  <article class="post-card" data-category="genai automation">
+    <div class="post-card-top" data-icon="🧠">
+      <div class="post-tag">GenAI · RAG</div>
+      <div class="post-title">RAG for <em>Knowledge</em><br>Base Automation</div>
+    </div>
+    <div class="post-card-body">
+      <p class="post-excerpt">Retrieval-Augmented Generation can turn your ServiceNow knowledge base into an intelligent self-service engine. Here's the architecture I recommend for enterprise ITSM knowledge automation.</p>
+      <div class="post-meta">
+        <span class="post-date">Oct 2024 · 9 min read</span>
+        <a href="#" class="post-read">Read →</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- COMING SOON -->
+  <article class="post-card coming-soon" data-category="aiops">
+    <div class="post-card-top" data-icon="✦" style="background:var(--cream); min-height:120px;">
+    </div>
+    <div class="post-card-body">
+      <div class="coming-label">✦ &nbsp; Next Article Coming Soon</div>
+      <p class="post-excerpt" style="text-align:center; font-size:0.78rem;">Observability vs. Monitoring — Why Your Splunk Dashboard Isn't Enough</p>
+    </div>
+  </article>
+
+</main>
+
+<!-- NEWSLETTER -->
+<div class="newsletter-strip">
+  <div class="newsletter-text">
+    <h3>Stay in the Loop</h3>
+    <p>New articles on AI, AIOps, and ITSM — delivered when they matter.</p>
+  </div>
+  <div class="newsletter-input-group">
+    <input type="email" class="newsletter-input" placeholder="your@email.com">
+    <button class="newsletter-btn">Subscribe →</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2025 Siddharth Dutt. All Rights Reserved.</span>
+  <span><a href="index.html">← Back to Profile</a></span>
+  <span>ITIL Expert · PRINCE2 · AWS CSA</span>
+</footer>
+
+<script>
+  /* ── Scroll reveal ── */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.post-card:not(.coming-soon)').forEach(el => observer.observe(el));
+
+  /* ── Category filter ── */
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.post-card:not(.coming-soon)');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      cards.forEach(card => {
+        const cats = card.dataset.category || '';
+        card.style.display = (filter === 'all' || cats.includes(filter)) ? '' : 'none';
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
