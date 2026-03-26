@@ -178,10 +178,11 @@
     color: var(--rust); letter-spacing: 0.08em;
     text-decoration: none; display: flex; align-items: center; gap: 0.4rem;
     transition: gap 0.2s;
+    background: none; border: none; cursor: pointer; padding: 0;
   }
   .post-card:hover .post-read { gap: 0.75rem; }
 
-  /* ── FEATURED CARD (spans 2 cols) ── */
+  /* ── FEATURED CARD ── */
   .post-card.featured {
     grid-column: span 2;
     flex-direction: row;
@@ -198,14 +199,169 @@
     border-style: dashed; opacity: 0.5;
     pointer-events: none;
   }
-  .post-card.coming-soon .post-card-top {
-    background: var(--cream);
-  }
+  .post-card.coming-soon .post-card-top { background: var(--cream); }
   .coming-label {
     font-family: 'DM Mono', monospace; font-size: 0.7rem;
     letter-spacing: 0.2em; text-transform: uppercase;
     color: var(--muted); text-align: center; padding: 1rem;
   }
+
+  /* ── ARTICLE MODAL ── */
+  .modal-backdrop {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(13,13,13,0.75);
+    backdrop-filter: blur(6px);
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.35s ease;
+    display: flex; align-items: flex-start; justify-content: center;
+    padding: 2rem 1rem;
+    overflow-y: auto;
+  }
+  .modal-backdrop.open {
+    opacity: 1; pointer-events: all;
+  }
+
+  .modal-panel {
+    background: var(--paper);
+    max-width: 760px; width: 100%;
+    margin: auto;
+    position: relative;
+    transform: translateY(40px);
+    transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+    min-height: 60vh;
+  }
+  .modal-backdrop.open .modal-panel {
+    transform: translateY(0);
+  }
+
+  .modal-close {
+    position: absolute; top: 1.5rem; right: 1.5rem;
+    background: var(--ink); border: none;
+    color: var(--paper); width: 40px; height: 40px;
+    font-size: 1.1rem; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 10; transition: background 0.2s;
+    font-family: 'DM Mono', monospace;
+  }
+  .modal-close:hover { background: var(--rust); }
+
+  .modal-header {
+    background: var(--ink); padding: 3.5rem 3rem 2.5rem;
+    position: relative; overflow: hidden;
+  }
+  .modal-header::before {
+    content: attr(data-icon);
+    position: absolute; right: 2.5rem; top: 50%;
+    transform: translateY(-50%);
+    font-size: 7rem; opacity: 0.06;
+    pointer-events: none;
+  }
+  .modal-tag {
+    font-family: 'DM Mono', monospace; font-size: 0.65rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--rust); margin-bottom: 1rem;
+  }
+  .modal-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    line-height: 1.1; letter-spacing: -0.02em;
+    color: var(--paper);
+  }
+  .modal-title em { font-style: italic; color: var(--rust); }
+  .modal-byline {
+    margin-top: 1.5rem;
+    display: flex; align-items: center; gap: 2rem;
+    font-family: 'DM Mono', monospace; font-size: 0.65rem;
+    color: rgba(245,240,232,0.45); letter-spacing: 0.08em;
+  }
+  .modal-byline span { color: rgba(245,240,232,0.65); }
+
+  .modal-body {
+    padding: 3rem;
+    font-size: 0.95rem; line-height: 1.85; color: #2a2420;
+  }
+  .modal-body h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.45rem; color: var(--ink);
+    margin: 2.5rem 0 1rem; letter-spacing: -0.01em;
+  }
+  .modal-body h3 {
+    font-family: 'Syne', sans-serif; font-size: 0.85rem;
+    font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--rust); margin: 2rem 0 0.75rem;
+  }
+  .modal-body p { margin-bottom: 1.3rem; }
+  .modal-body ul, .modal-body ol {
+    padding-left: 1.4rem; margin-bottom: 1.3rem;
+  }
+  .modal-body li { margin-bottom: 0.5rem; }
+  .modal-body blockquote {
+    border-left: 3px solid var(--rust);
+    padding: 1rem 1.5rem;
+    background: var(--cream);
+    margin: 2rem 0;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem; font-style: italic;
+    color: var(--ink); line-height: 1.6;
+  }
+  .modal-body .callout {
+    background: var(--ink); color: var(--paper);
+    padding: 1.5rem 2rem; margin: 2rem 0;
+    border-left: 4px solid var(--rust);
+  }
+  .modal-body .callout strong {
+    display: block; font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--rust); margin-bottom: 0.5rem;
+  }
+  .modal-body .callout p { margin: 0; font-size: 0.88rem; color: rgba(245,240,232,0.8); line-height: 1.7; }
+  .modal-body .stat-row {
+    display: flex; gap: 1.5rem; margin: 2rem 0; flex-wrap: wrap;
+  }
+  .modal-body .stat-box {
+    flex: 1; min-width: 120px;
+    border: 1px solid var(--line); padding: 1.2rem 1.5rem;
+    text-align: center;
+  }
+  .modal-body .stat-box .num {
+    font-family: 'DM Serif Display', serif; font-size: 2rem;
+    color: var(--rust); line-height: 1;
+  }
+  .modal-body .stat-box .lbl {
+    font-family: 'DM Mono', monospace; font-size: 0.62rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); margin-top: 0.3rem;
+  }
+  .modal-body hr {
+    border: none; border-top: 1px solid var(--line);
+    margin: 2.5rem 0;
+  }
+  .modal-body code {
+    font-family: 'DM Mono', monospace; font-size: 0.82rem;
+    background: var(--cream); padding: 0.15rem 0.4rem;
+    color: var(--rust);
+  }
+
+  .modal-footer {
+    padding: 2rem 3rem;
+    border-top: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; flex-wrap: wrap;
+    background: var(--cream);
+  }
+  .modal-author {
+    font-family: 'DM Mono', monospace; font-size: 0.68rem;
+    color: var(--muted); letter-spacing: 0.06em;
+  }
+  .modal-author strong { color: var(--ink); }
+  .modal-close-btn {
+    padding: 0.7rem 1.8rem; background: var(--ink);
+    border: none; color: var(--paper);
+    font-family: 'Syne', sans-serif; font-size: 0.72rem;
+    font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    cursor: pointer; transition: background 0.2s;
+  }
+  .modal-close-btn:hover { background: var(--rust); }
 
   /* ── NEWSLETTER STRIP ── */
   .newsletter-strip {
@@ -264,6 +420,9 @@
     .newsletter-strip { padding: 2.5rem 1.5rem; }
     .newsletter-input { width: 100%; }
     footer { padding: 1.5rem; flex-direction: column; text-align: center; }
+    .modal-body { padding: 2rem 1.5rem; }
+    .modal-header { padding: 3rem 1.5rem 2rem; }
+    .modal-footer { padding: 1.5rem; }
   }
 </style>
 </head>
@@ -303,24 +462,24 @@
 <main class="blog-main" id="blog-grid">
 
   <!-- FEATURED POST -->
-  <article class="post-card featured" data-category="aiops genai">
+  <article class="post-card featured" data-category="aiops genai" data-post="1">
     <div class="post-card-top" data-icon="🤖">
       <div class="post-tag">✦ Featured · AIOps · GenAI</div>
       <div class="post-title">Why <em>AIOps</em> is Not Just<br>Another Buzzword</div>
     </div>
     <div class="post-card-body">
       <p class="post-excerpt">
-        After two decades in IT operations, I've watched trends come and go. AIOps is different. When implemented correctly — with real telemetry, real workflows, and real ITIL alignment — it doesn't just monitor your infrastructure. It anticipates failure, auto-routes incidents, and learns from every resolution. Here's what separates genuine AIOps maturity from shiny dashboards.
+        After two decades in IT operations, I've watched trends come and go. AIOps is different. When implemented correctly — with real telemetry, real workflows, and real ITIL alignment — it doesn't just monitor your infrastructure. It anticipates failure, auto-routes incidents, and learns from every resolution.
       </p>
       <div class="post-meta">
-        <span class="post-date">Mar 2025 · 8 min read</span>
-        <a href="#" class="post-read">Read Article →</a>
+        <span class="post-date">Jun 2026 · 8 min read</span>
+        <button class="post-read" data-post="1">Read Article →</button>
       </div>
     </div>
   </article>
 
   <!-- POST 2 -->
-  <article class="post-card" data-category="genai itsm">
+  <article class="post-card" data-category="genai itsm" data-post="2">
     <div class="post-card-top" data-icon="⚡">
       <div class="post-tag">GenAI · ITSM</div>
       <div class="post-title">Prompt Engineering<br>for <em>ITSM Teams</em></div>
@@ -328,14 +487,14 @@
     <div class="post-card-body">
       <p class="post-excerpt">Most service desk teams are sitting on untapped potential. With the right prompt architecture, Claude or ChatGPT can triage tickets, generate incident summaries, draft RCA reports, and coach L1 agents — all without replacing your team.</p>
       <div class="post-meta">
-        <span class="post-date">Feb 2025 · 6 min read</span>
-        <a href="#" class="post-read">Read →</a>
+        <span class="post-date">May 2026 · 6 min read</span>
+        <button class="post-read" data-post="2">Read →</button>
       </div>
     </div>
   </article>
 
   <!-- POST 3 -->
-  <article class="post-card" data-category="automation">
+  <article class="post-card" data-category="automation" data-post="3">
     <div class="post-card-top" data-icon="🔗">
       <div class="post-tag">Automation · n8n</div>
       <div class="post-title"><em>n8n</em> + Claude:<br>The ITSM Power Combo</div>
@@ -343,14 +502,14 @@
     <div class="post-card-body">
       <p class="post-excerpt">How I built SmartDesk — an AI triage system that auto-classifies 42% of tickets — using n8n workflows and Claude API. A complete walkthrough of the architecture, prompt design, and lessons learned.</p>
       <div class="post-meta">
-        <span class="post-date">Jan 2025 · 10 min read</span>
-        <a href="#" class="post-read">Read →</a>
+        <span class="post-date">Apr 2026 · 10 min read</span>
+        <button class="post-read" data-post="3">Read →</button>
       </div>
     </div>
   </article>
 
   <!-- POST 4 -->
-  <article class="post-card" data-category="leadership aiops">
+  <article class="post-card" data-category="leadership aiops" data-post="4">
     <div class="post-card-top" data-icon="📊">
       <div class="post-tag">Leadership · Strategy</div>
       <div class="post-title">The AI Adoption<br><em>Maturity Model</em> for IT</div>
@@ -358,14 +517,14 @@
     <div class="post-card-body">
       <p class="post-excerpt">Not all organisations are ready for the same AI interventions. This maturity framework helps CIOs and service delivery leaders identify where they are — and what their next AI investment should be.</p>
       <div class="post-meta">
-        <span class="post-date">Dec 2024 · 7 min read</span>
-        <a href="#" class="post-read">Read →</a>
+        <span class="post-date">Mar 2026 · 7 min read</span>
+        <button class="post-read" data-post="4">Read →</button>
       </div>
     </div>
   </article>
 
   <!-- POST 5 -->
-  <article class="post-card" data-category="itsm">
+  <article class="post-card" data-category="itsm" data-post="5">
     <div class="post-card-top" data-icon="📋">
       <div class="post-tag">ITSM · ITIL</div>
       <div class="post-title">ITIL 4 Meets<br><em>Generative AI</em></div>
@@ -373,14 +532,14 @@
     <div class="post-card-body">
       <p class="post-excerpt">ITIL 4's Service Value System wasn't designed with LLMs in mind — but its flexibility makes it ideal for AI augmentation. A practical guide to overlaying GenAI capabilities on your existing ITIL framework.</p>
       <div class="post-meta">
-        <span class="post-date">Nov 2024 · 5 min read</span>
-        <a href="#" class="post-read">Read →</a>
+        <span class="post-date">Feb 2026 · 5 min read</span>
+        <button class="post-read" data-post="5">Read →</button>
       </div>
     </div>
   </article>
 
   <!-- POST 6 -->
-  <article class="post-card" data-category="genai automation">
+  <article class="post-card" data-category="genai automation" data-post="6">
     <div class="post-card-top" data-icon="🧠">
       <div class="post-tag">GenAI · RAG</div>
       <div class="post-title">RAG for <em>Knowledge</em><br>Base Automation</div>
@@ -388,16 +547,15 @@
     <div class="post-card-body">
       <p class="post-excerpt">Retrieval-Augmented Generation can turn your ServiceNow knowledge base into an intelligent self-service engine. Here's the architecture I recommend for enterprise ITSM knowledge automation.</p>
       <div class="post-meta">
-        <span class="post-date">Oct 2024 · 9 min read</span>
-        <a href="#" class="post-read">Read →</a>
+        <span class="post-date">Jan 2026 · 9 min read</span>
+        <button class="post-read" data-post="6">Read →</button>
       </div>
     </div>
   </article>
 
   <!-- COMING SOON -->
   <article class="post-card coming-soon" data-category="aiops">
-    <div class="post-card-top" data-icon="✦" style="background:var(--cream); min-height:120px;">
-    </div>
+    <div class="post-card-top" data-icon="✦" style="background:var(--cream); min-height:120px;"></div>
     <div class="post-card-body">
       <div class="coming-label">✦ &nbsp; Next Article Coming Soon</div>
       <p class="post-excerpt" style="text-align:center; font-size:0.78rem;">Observability vs. Monitoring — Why Your Splunk Dashboard Isn't Enough</p>
@@ -405,6 +563,26 @@
   </article>
 
 </main>
+
+<!-- ARTICLE MODAL -->
+<div class="modal-backdrop" id="articleModal" role="dialog" aria-modal="true" aria-label="Article reader">
+  <div class="modal-panel" id="modalPanel">
+    <button class="modal-close" id="modalClose" aria-label="Close article">✕</button>
+    <div class="modal-header" id="modalHeader">
+      <div class="modal-tag" id="modalTag"></div>
+      <div class="modal-title" id="modalTitle"></div>
+      <div class="modal-byline">
+        <span>Siddharth Dutt</span>
+        <span id="modalDate"></span>
+      </div>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-footer">
+      <div class="modal-author">Written by <strong>Siddharth Dutt</strong> — ITIL Expert · PRINCE2 · AWS CSA</div>
+      <button class="modal-close-btn" id="modalCloseBtn">Close Article</button>
+    </div>
+  </div>
+</div>
 
 <!-- NEWSLETTER -->
 <div class="newsletter-strip">
@@ -426,32 +604,507 @@
 </footer>
 
 <script>
-  /* ── Scroll reveal ── */
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.post-card:not(.coming-soon)').forEach(el => observer.observe(el));
+/* ─────────────────────────────────────────────
+   ARTICLE CONTENT DATABASE
+───────────────────────────────────────────── */
+const articles = {
+  1: {
+    tag: '✦ Featured · AIOps · GenAI',
+    icon: '🤖',
+    title: 'Why <em>AIOps</em> is Not Just Another Buzzword',
+    date: 'Jun 2026 · 8 min read',
+    body: `
+      <p>After twenty years in IT operations — managing enterprise infrastructure across APAC, EMEA, and the Americas — I've developed a finely tuned radar for industry hype. I've watched ITIL get over-complicated, cloud get over-promised, and DevOps get over-simplified. So when AIOps started appearing in every vendor deck around 2022, my instinct was healthy scepticism.</p>
 
-  /* ── Category filter ── */
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const cards = document.querySelectorAll('.post-card:not(.coming-soon)');
+      <p>That scepticism has since been replaced by something more useful: a framework for separating genuine AIOps maturity from expensive dashboards with a machine learning veneer.</p>
 
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.dataset.filter;
-      cards.forEach(card => {
-        const cats = card.dataset.category || '';
-        card.style.display = (filter === 'all' || cats.includes(filter)) ? '' : 'none';
-      });
+      <h2>What AIOps Actually Is</h2>
+      <p>The term was coined by Gartner in 2017 to describe platforms that combine big data and machine learning to enhance and partially replace IT operations processes. The operative word is <em>enhance</em>. AIOps is not a replacement for ITIL, not a substitute for skilled engineers, and definitely not a magic box that eliminates on-call rotations.</p>
+
+      <p>At its core, genuine AIOps does three things well:</p>
+      <ul>
+        <li><strong>Event correlation</strong> — connecting thousands of alerts across siloed tools into meaningful incident narratives</li>
+        <li><strong>Anomaly detection</strong> — identifying deviation from baseline before humans notice a symptom</li>
+        <li><strong>Predictive routing</strong> — directing the right incident to the right team with pre-populated context</li>
+      </ul>
+
+      <blockquote>"The measure of AIOps maturity isn't how many alerts it suppresses. It's how many incidents it prevents."</blockquote>
+
+      <h2>The Three Failure Modes I've Seen</h2>
+
+      <h3>1. Telemetry Poverty</h3>
+      <p>AIOps is only as intelligent as the data it ingests. Organisations that deploy AIOps on top of fragmented, inconsistent monitoring data end up with highly confident predictions about the wrong things. Before any AI layer, you need unified observability: metrics, logs, traces, and events in a single data fabric. Dynatrace and Splunk are excellent — but only when properly instrumented.</p>
+
+      <h3>2. Workflow Isolation</h3>
+      <p>AIOps tools that don't integrate with your ticketing, change, and configuration management systems create a parallel universe. Insights stay inside the AIOps platform. Remediation still happens manually. The AI becomes a very expensive alert dashboard.</p>
+
+      <h3>3. No Feedback Loop</h3>
+      <p>Machine learning models degrade without reinforcement. If your AIOps platform doesn't learn from human override decisions — when engineers dismiss predictions, escalate incidents, or route differently — it stops improving. Operationalising the feedback loop is the most overlooked engineering challenge in AIOps deployments.</p>
+
+      <div class="callout">
+        <strong>Key Takeaway</strong>
+        <p>True AIOps maturity requires three prerequisites: high-quality telemetry across all infrastructure layers, bidirectional integration with ITSM workflows, and an active feedback loop that continuously trains the model on real operational decisions.</p>
+      </div>
+
+      <h2>What Good Looks Like</h2>
+      <p>In my work at AVAYA, we achieved 99.9%+ availability across enterprise managed services accounts by combining Dynatrace observability with structured incident workflows. The shift from reactive monitoring to predictive operations reduced mean-time-to-detect by over 60% on our highest-complexity accounts.</p>
+
+      <div class="stat-row">
+        <div class="stat-box"><div class="num">99.9%</div><div class="lbl">SLA Achieved</div></div>
+        <div class="stat-box"><div class="num">60%</div><div class="lbl">MTTD Reduction</div></div>
+        <div class="stat-box"><div class="num">95%+</div><div class="lbl">P1 Resolution Rate</div></div>
+      </div>
+
+      <p>The difference wasn't the tool — it was the architecture. Telemetry was standardised across all accounts. Alerts fed directly into ServiceNow with auto-populated CMDB context. Every incident closure included a structured outcome tag that the system learned from.</p>
+
+      <h2>Where GenAI Changes the Equation</h2>
+      <p>The arrival of large language models has added a new layer to AIOps that deserves separate attention. LLMs don't replace the pattern-recognition and anomaly-detection functions of traditional AIOps platforms. But they dramatically improve the human interface.</p>
+
+      <p>Specifically, GenAI excels at:</p>
+      <ul>
+        <li>Generating natural-language incident summaries from structured telemetry data</li>
+        <li>Synthesising root cause analysis narratives from multiple correlated alerts</li>
+        <li>Drafting post-incident reports that comply with ITIL Problem Management standards</li>
+        <li>Coaching L1 agents through resolution steps in real time</li>
+      </ul>
+
+      <p>The combination of traditional AIOps (pattern detection, correlation, prediction) with GenAI (language, synthesis, communication) is where the real productivity multiplier lives. Neither alone is sufficient.</p>
+
+      <h2>The Honest Assessment</h2>
+      <p>AIOps is not a buzzword — but it is frequently sold as something it isn't. The technology is real. The value is provable. The failure rates in enterprise deployments are high because organisations skip the foundational work: clean telemetry, integrated workflows, and disciplined model governance.</p>
+
+      <p>If you're evaluating AIOps investments, my recommendation is to spend 60% of your budget on data infrastructure and integration — and 40% on the AI platform. The inverse ratio is what most organisations get wrong.</p>
+
+      <hr>
+      <p>In the next article, I'll cover how to structure an AIOps proof-of-concept that generates board-ready ROI data within 90 days — without disrupting your production environment.</p>
+    `
+  },
+
+  2: {
+    tag: 'GenAI · ITSM',
+    icon: '⚡',
+    title: 'Prompt Engineering for <em>ITSM Teams</em>',
+    date: 'May 2026 · 6 min read',
+    body: `
+      <p>The service desk is one of the highest-volume, highest-repetition environments in IT. Thousands of tickets per month. Dozens of agents fielding the same questions. Manual triage. Copy-pasted RCA templates. This is exactly the environment where well-designed prompts deliver outsized value.</p>
+
+      <p>I've spent the past year embedding GenAI into ITSM workflows — using Claude, ChatGPT, and Gemini in different configurations. What follows is the practical prompt architecture that actually works in production, not in demos.</p>
+
+      <h2>The Three Prompt Layers</h2>
+      <p>Effective ITSM prompt engineering operates across three layers, each building on the last:</p>
+
+      <h3>Layer 1: Classification Prompts</h3>
+      <p>The first job of any GenAI ITSM integration is accurate ticket classification. A well-structured classification prompt should output a structured JSON object, not a narrative response.</p>
+
+      <div class="callout">
+        <strong>Example Classification Prompt</strong>
+        <p>You are an ITSM triage specialist. Analyse the following ticket and return ONLY a JSON object with: category (one of: hardware, software, network, access, other), priority (P1–P4 using ITIL criteria), suggested_team, confidence_score (0–1), and reasoning (max 30 words). Ticket: [TICKET_TEXT]</p>
+      </div>
+
+      <p>The key design decisions here: force structured output, constrain the category set to your actual service catalogue, and request a confidence score so your workflow can route low-confidence tickets to human review.</p>
+
+      <h3>Layer 2: Enrichment Prompts</h3>
+      <p>Once a ticket is classified, enrichment prompts add operational context — pulling from your knowledge base, CMDB, and recent incident history. This is where RAG (Retrieval-Augmented Generation) comes in, which I'll cover in a separate article.</p>
+
+      <p>A basic enrichment prompt might ask the model to:</p>
+      <ul>
+        <li>Summarise the last 3 similar incidents and their resolutions</li>
+        <li>Identify the affected configuration items from the CMDB</li>
+        <li>Flag any active change windows that might be related</li>
+        <li>Generate a pre-filled agent briefing in under 100 words</li>
+      </ul>
+
+      <h3>Layer 3: Communication Prompts</h3>
+      <p>The third layer handles user-facing and stakeholder communications. This is where tone and brand voice matter. Your service desk has a communication standard — the LLM should follow it.</p>
+
+      <blockquote>"The best ITSM prompt is the one your agents never have to rewrite."</blockquote>
+
+      <h2>Common Mistakes I've Seen</h2>
+
+      <h3>Vague Instructions</h3>
+      <p>Prompts like "summarise this ticket" produce inconsistent output. Always specify format, length, audience, and constraints. The more specific your prompt, the more reliable your output.</p>
+
+      <h3>Ignoring Edge Cases</h3>
+      <p>P1 incidents, VIP users, and security-related tickets need special handling. Build explicit conditional logic into your prompts: "If the ticket contains keywords related to security or data breach, set priority to P1 regardless of other factors and add flag: SECURITY."</p>
+
+      <h3>No Human Override Path</h3>
+      <p>Every AI-generated action needs a visible override mechanism. Agents must be able to see what the AI recommended, why, and change it with one click. This isn't just good UX — it's how you build the feedback data that improves the model over time.</p>
+
+      <div class="stat-row">
+        <div class="stat-box"><div class="num">42%</div><div class="lbl">Tickets Auto-Resolved</div></div>
+        <div class="stat-box"><div class="num">90s</div><div class="lbl">AI Triage vs 8min Manual</div></div>
+        <div class="stat-box"><div class="num">2.5h</div><div class="lbl">Agent Time Saved/Day</div></div>
+      </div>
+
+      <h2>Starting Small</h2>
+      <p>You don't need a platform overhaul to start. The fastest path to production value is a single, well-defined use case: auto-generating the first response to password reset tickets, or summarising incident timelines for post-incident reviews.</p>
+
+      <p>Pick one high-volume, low-risk ticket type. Design a prompt. Test it on 100 historical tickets. Measure accuracy against human-labelled outcomes. Iterate. That's the prompt engineering loop that scales.</p>
+    `
+  },
+
+  3: {
+    tag: 'Automation · n8n',
+    icon: '🔗',
+    title: '<em>n8n</em> + Claude: The ITSM Power Combo',
+    date: 'Apr 2026 · 10 min read',
+    body: `
+      <p>SmartDesk started as a side project. A question I couldn't stop thinking about: could I build an AI-powered IT helpdesk triage system — one that actually works in production — without a data science team, a six-figure platform budget, or months of integration work?</p>
+
+      <p>The answer is yes. And the stack that made it possible is n8n + Claude API.</p>
+
+      <h2>Why This Stack</h2>
+      <p>n8n is an open-source workflow automation platform that sits comfortably between Zapier's ease and Airflow's power. It handles the orchestration: receiving tickets, calling APIs, routing outputs, sending notifications. Claude handles the intelligence: understanding ticket context, classifying intent, generating responses.</p>
+
+      <p>Together, they cover the full ITSM automation loop without requiring you to write a production application from scratch.</p>
+
+      <h2>The Architecture</h2>
+      <p>SmartDesk runs a five-stage pipeline:</p>
+
+      <h3>Stage 1: Ticket Intake</h3>
+      <p>An n8n webhook node receives incoming tickets from email (via IMAP), ServiceNow API webhook, or a simple web form. The node normalises the payload into a standard schema: <code>{ id, subject, body, submitter, timestamp }</code>.</p>
+
+      <h3>Stage 2: AI Analysis</h3>
+      <p>The normalised ticket is sent to Claude API with a structured classification prompt. Claude returns a JSON object with category, priority (P1–P4), confidence score, suggested resolution team, and a 50-word agent briefing.</p>
+
+      <div class="callout">
+        <strong>The Classification Prompt</strong>
+        <p>You are an ITIL-aligned service desk triage specialist. Classify the following IT support ticket. Return ONLY valid JSON with: category, priority (P1=Critical/P4=Low), team, confidence (0-1), briefing (max 50 words), auto_resolve (boolean). If confidence &lt; 0.75, set auto_resolve to false. Ticket: {{ticket_body}}</p>
+      </div>
+
+      <h3>Stage 3: Smart Routing</h3>
+      <p>An n8n switch node reads Claude's JSON output and routes the ticket accordingly:</p>
+      <ul>
+        <li>High confidence + known resolution → auto-resolve path</li>
+        <li>High confidence + needs human → route to specific L1/L2 queue with briefing</li>
+        <li>P1/P0 → immediate Slack alert to on-call engineer + escalation path</li>
+        <li>Low confidence → route to senior L2 with full AI analysis attached</li>
+      </ul>
+
+      <h3>Stage 4: Auto-Notification</h3>
+      <p>Claude drafts a user-facing response. For auto-resolved tickets, this is a step-by-step resolution guide. For routed tickets, it's an acknowledgement with estimated resolution time based on historical SLA data. n8n sends it via the original channel (email or ServiceNow portal).</p>
+
+      <h3>Stage 5: Logging & Dashboard</h3>
+      <p>Every ticket, AI decision, routing outcome, and user response is logged to a Google Sheet (prototype) or ServiceNow (production). A Power BI dashboard tracks classification accuracy, auto-resolution rate, and time-to-first-response.</p>
+
+      <div class="stat-row">
+        <div class="stat-box"><div class="num">38–42%</div><div class="lbl">Auto-Resolved</div></div>
+        <div class="stat-box"><div class="num">90s</div><div class="lbl">Avg Triage Time</div></div>
+        <div class="stat-box"><div class="num">0</div><div class="lbl">Disruption to Existing Tools</div></div>
+      </div>
+
+      <h2>What I Learned</h2>
+
+      <h3>Prompt Engineering is 70% of the Work</h3>
+      <p>The n8n plumbing is relatively straightforward. The intelligence lives in the prompt. I went through 14 iterations of the classification prompt before settling on the current version. Each iteration was tested against 200 historical tickets with known correct classifications.</p>
+
+      <h3>Confidence Thresholds Matter</h3>
+      <p>The 0.75 confidence threshold for auto-resolution wasn't arbitrary — it came from testing. Below that threshold, AI errors increased enough to erode user trust in the system. Human-in-the-loop for borderline cases isn't a fallback; it's a feature.</p>
+
+      <h3>The Feedback Loop is Essential</h3>
+      <p>Every agent override of an AI decision is logged with the agent's corrected classification. These are batched weekly and used to evaluate prompt performance. When accuracy drops in a specific category, the prompt for that category gets refined.</p>
+
+      <h2>Deployment Considerations</h2>
+      <p>SmartDesk is designed as a parallel layer, not a replacement for your existing ITSM platform. It sits in front of ServiceNow, reading tickets and enriching them before they reach your agents. This means zero disruption to existing workflows during rollout — and easy rollback if needed.</p>
+
+      <p>The full source code and n8n workflow JSON are available on request. If you're interested in deploying this in your environment, reach out via the contact section of my profile.</p>
+    `
+  },
+
+  4: {
+    tag: 'Leadership · Strategy',
+    icon: '📊',
+    title: 'The AI Adoption <em>Maturity Model</em> for IT',
+    date: 'Mar 2026 · 7 min read',
+    body: `
+      <p>One of the most common mistakes I see when advising IT leaders on AI strategy is the assumption that more AI is always better. Organisations at the earliest stage of operational maturity are attempting to implement GenAI agent frameworks that would challenge teams at the most advanced stage.</p>
+
+      <p>The result is predictable: failed pilots, eroded trust, and a leadership team that concludes "AI doesn't work for us" — when the real issue is sequencing, not technology.</p>
+
+      <p>The AI Adoption Maturity Model I've developed over the past two years helps CIOs and service delivery leaders answer a more useful question: <em>what's the right AI investment for where we are right now?</em></p>
+
+      <h2>The Five Stages</h2>
+
+      <h3>Stage 1: Reactive (Ad-hoc)</h3>
+      <p>At this stage, IT operations are primarily reactive. Incidents are detected by users, not monitoring systems. Processes are undocumented or inconsistently followed. Data is siloed across multiple tools with no unified view.</p>
+      <p><strong>Right AI investment:</strong> None yet. Stabilise your ITSM foundations first. Implement consistent ticketing, basic monitoring, and a functioning CMDB. AI on unstable foundations amplifies problems, not solutions.</p>
+
+      <h3>Stage 2: Structured (Process-Defined)</h3>
+      <p>Incident, problem, and change management processes are documented and followed. A ticketing system captures work. Monitoring exists, but alerts are noisy and manual triage is standard.</p>
+      <p><strong>Right AI investment:</strong> Start with GenAI for productivity. Ticket summarisation, first-response drafting, and RCA report generation. These add value immediately without requiring data infrastructure changes.</p>
+
+      <h3>Stage 3: Instrumented (Data-Rich)</h3>
+      <p>Unified observability is in place. Metrics, logs, and traces flow into a central platform. Historical incident data is clean and queryable. SLA reporting is automated.</p>
+      <p><strong>Right AI investment:</strong> Traditional AIOps — event correlation, noise reduction, anomaly detection. You now have the data quality that makes ML models reliable.</p>
+
+      <blockquote>"The organisations that succeed with AI in IT operations aren't necessarily the most innovative. They're the most disciplined about sequencing."</blockquote>
+
+      <h3>Stage 4: Predictive (AI-Augmented)</h3>
+      <p>AIOps is running in production. Predictive alerting is reducing MTTD. Incident routing is partially automated. Engineers are spending less time on detection and more on resolution and prevention.</p>
+      <p><strong>Right AI investment:</strong> GenAI augmentation of operational workflows — intelligent runbook automation, LLM-powered knowledge base search, AI-assisted problem management.</p>
+
+      <h3>Stage 5: Autonomous (Self-Healing)</h3>
+      <p>The highest maturity stage. AI agents are executing remediation actions without human intervention for defined incident categories. The operations team focuses on model governance, edge case handling, and capability expansion.</p>
+      <p><strong>Right AI investment:</strong> Agentic AI with human-in-the-loop governance. Automated remediation for known failure patterns. Continuous learning pipelines.</p>
+
+      <div class="stat-row">
+        <div class="stat-box"><div class="num">Stage 1–2</div><div class="lbl">~60% of Enterprises</div></div>
+        <div class="stat-box"><div class="num">Stage 3</div><div class="lbl">~30% of Enterprises</div></div>
+        <div class="stat-box"><div class="num">Stage 4–5</div><div class="lbl">~10% of Enterprises</div></div>
+      </div>
+
+      <h2>How to Use This Model</h2>
+      <p>Start with an honest assessment of your current stage. The most reliable signal is not your technology stack — it's your data quality. If you can't answer "what were our top 5 recurring incident categories last quarter and their resolution times?" without significant manual work, you're at Stage 1 or 2 regardless of what tools you have.</p>
+
+      <p>Once you've placed yourself on the model, the next AI investment becomes obvious. It's the set of capabilities that Stage n+1 requires, not what Stage 5 organisations are doing.</p>
+
+      <h2>The Board Conversation</h2>
+      <p>This model is also useful for managing upward expectations. When a board asks "why aren't we using AI agents like [competitor]?" the maturity model provides a structured answer: because self-healing operations require Stage 4 prerequisites, and we're building those now. Here's the roadmap.</p>
+
+      <p>Sequencing is strategy. The organisations I've seen succeed with AI in IT operations aren't the ones who moved fastest — they're the ones who built the right foundations before layering intelligence on top.</p>
+    `
+  },
+
+  5: {
+    tag: 'ITSM · ITIL',
+    icon: '📋',
+    title: 'ITIL 4 Meets <em>Generative AI</em>',
+    date: 'Feb 2026 · 5 min read',
+    body: `
+      <p>ITIL 4 was published in 2019. Large language models became practically useful in 2023. The four-year gap means the framework wasn't designed with GenAI in mind — but that doesn't mean they're incompatible. In fact, ITIL 4's architecture is unusually well-suited for AI augmentation.</p>
+
+      <p>Here's my practical guide to overlaying GenAI on your existing ITIL framework, practice by practice.</p>
+
+      <h2>Why ITIL 4 and GenAI Fit</h2>
+      <p>ITIL 4's Service Value System is built around flexible, outcome-oriented practices rather than prescriptive procedures. This flexibility is precisely what allows AI to be introduced incrementally without breaking existing workflows. The guiding principle of "progress iteratively with feedback" could have been written for AI deployment.</p>
+
+      <h2>High-Impact Integration Points</h2>
+
+      <h3>Incident Management</h3>
+      <p>This is the highest-volume ITIL practice and the most obvious starting point for GenAI. Specific augmentation opportunities:</p>
+      <ul>
+        <li><strong>Auto-classification:</strong> LLMs classify incoming incidents against your service catalogue with 85%+ accuracy when properly prompted</li>
+        <li><strong>Impact assessment:</strong> GenAI analyses CMDB relationships to identify affected services and users before a human reviews the ticket</li>
+        <li><strong>Communication drafting:</strong> AI drafts user notifications, stakeholder updates, and major incident communications in your organisation's tone</li>
+        <li><strong>Post-incident summaries:</strong> Structured incident timelines generated from ticket history, reducing PIR preparation from hours to minutes</li>
+      </ul>
+
+      <h3>Problem Management</h3>
+      <p>Problem Management is traditionally time-intensive and under-resourced. GenAI changes the economics significantly.</p>
+      <ul>
+        <li><strong>Trend analysis:</strong> LLMs can analyse hundreds of incident records and surface recurring themes that pattern-matching algorithms miss</li>
+        <li><strong>RCA narrative generation:</strong> Given structured incident data, GenAI drafts root cause analysis narratives that engineers then validate and refine</li>
+        <li><strong>Known error database population:</strong> Auto-generating KEDB entries from resolved incidents, dramatically improving knowledge capture rates</li>
+      </ul>
+
+      <div class="callout">
+        <strong>Important Principle</strong>
+        <p>GenAI should augment the judgment of experienced service management professionals — not replace it. Every AI output in a regulated environment should be reviewed by a qualified practitioner before becoming an official record.</p>
+      </div>
+
+      <h3>Service Request Management</h3>
+      <p>High-volume, low-complexity service requests are ideal for full GenAI automation. Password resets, access requests, and software installation requests following defined approval workflows can be handled end-to-end with AI orchestration.</p>
+
+      <h3>Knowledge Management</h3>
+      <p>The ITIL 4 practice of Knowledge Management has always suffered from a fundamental problem: creating knowledge articles is time-consuming, so it doesn't happen consistently. GenAI eliminates this friction.</p>
+
+      <p>A properly configured knowledge automation pipeline can: extract resolution steps from closed tickets, draft a knowledge article, have it reviewed and approved by the resolving engineer in a single click, and publish it to your service portal. Knowledge capture rates in organisations using this approach typically increase by 200–400%.</p>
+
+      <h2>Governance Considerations</h2>
+      <p>ITIL 4 emphasises risk management and governance throughout its practices. When introducing GenAI, three governance controls are essential:</p>
+      <ul>
+        <li><strong>Audit trails:</strong> Every AI-generated action must be logged with the model version, prompt used, and human review outcome</li>
+        <li><strong>Escalation thresholds:</strong> Define explicit confidence thresholds below which AI output always goes to human review</li>
+        <li><strong>Accuracy monitoring:</strong> Establish KPIs for AI classification accuracy and review them in your regular service review cadence</li>
+      </ul>
+
+      <p>ITIL 4's Continual Improvement practice provides the perfect governance wrapper for AI performance management. Treat your GenAI deployment the same way you'd treat any other service: measure it, review it, improve it.</p>
+
+      <h2>Where to Start</h2>
+      <p>If you're an ITIL practitioner wondering where to begin, my recommendation is Incident Classification. It's high-volume, well-defined, measurable, and low-risk for a proof-of-concept. A 30-day pilot on a single incident category will give you the accuracy data and ROI story you need to expand.</p>
+    `
+  },
+
+  6: {
+    tag: 'GenAI · RAG',
+    icon: '🧠',
+    title: 'RAG for <em>Knowledge</em> Base Automation',
+    date: 'Jan 2026 · 9 min read',
+    body: `
+      <p>Every enterprise ITSM deployment I've encountered has the same problem: a knowledge base full of articles that agents rarely use, users can't find, and no one has time to keep current. The articles that exist are often out of date. The resolutions that happen daily never get captured. It's institutional knowledge that evaporates.</p>
+
+      <p>Retrieval-Augmented Generation changes this equation fundamentally. RAG doesn't just make your knowledge base searchable — it makes it intelligent, current, and conversational.</p>
+
+      <h2>What RAG Actually Is</h2>
+      <p>RAG is an architecture pattern, not a product. It combines two components:</p>
+      <ul>
+        <li><strong>Retrieval:</strong> A semantic search system that finds relevant documents from your knowledge base based on meaning, not just keywords</li>
+        <li><strong>Generation:</strong> An LLM that synthesises a coherent, contextual answer using those retrieved documents as source material</li>
+      </ul>
+
+      <p>The result is a system that answers questions like "how do I resolve VPN connectivity issues for remote users in Singapore?" by finding the three most relevant knowledge articles and synthesising a response tailored to that specific query — not returning a list of links.</p>
+
+      <h2>The ITSM RAG Architecture I Recommend</h2>
+
+      <h3>Layer 1: Document Processing Pipeline</h3>
+      <p>Your source documents — ServiceNow knowledge articles, SharePoint wikis, resolved ticket notes, runbooks — are chunked, cleaned, and converted into vector embeddings using an embedding model (OpenAI's text-embedding-3-small or similar). These embeddings are stored in a vector database (Pinecone, Weaviate, or pgvector if you're already on PostgreSQL).</p>
+
+      <p>The chunking strategy matters enormously. Chunks that are too large lose precision; too small lose context. For ITSM knowledge articles, I've found 512-token chunks with 50-token overlap to be the most reliable starting point.</p>
+
+      <h3>Layer 2: Retrieval Engine</h3>
+      <p>When a query arrives (from an agent, a chatbot, or an automation), it's also converted to a vector embedding and compared against your knowledge base using cosine similarity. The top-k most relevant chunks (typically k=5–8 for ITSM) are retrieved.</p>
+
+      <div class="callout">
+        <strong>Hybrid Search</strong>
+        <p>Pure semantic search misses exact-match queries (e.g., specific error codes, product names). The highest-accuracy RAG systems use hybrid search: combining semantic similarity with BM25 keyword matching and re-ranking the combined results. This is worth the additional complexity for production deployments.</p>
+      </div>
+
+      <h3>Layer 3: Generation with Guardrails</h3>
+      <p>The retrieved chunks are injected into the LLM prompt as context. The model is instructed to answer using only the provided context — not its general training knowledge. This is critical for ITSM, where you want answers grounded in your specific environment, not generic IT advice.</p>
+
+      <p>The prompt structure I use:</p>
+      <ul>
+        <li>System role: ITSM knowledge assistant with ITIL alignment</li>
+        <li>Context: retrieved knowledge article chunks (clearly delimited)</li>
+        <li>Instruction: answer using only the provided context; if insufficient, say so explicitly</li>
+        <li>Query: the user's question</li>
+        <li>Format constraint: structured response with resolution steps and sources cited</li>
+      </ul>
+
+      <h2>Knowledge Capture Automation</h2>
+      <p>The second major RAG use case in ITSM is automatic knowledge article generation. Every resolved ticket is a knowledge asset waiting to be captured. The problem is friction: agents don't write articles because it takes 20–30 minutes to document a resolution properly.</p>
+
+      <p>A RAG-powered knowledge capture pipeline reduces this to under 2 minutes:</p>
+      <ol>
+        <li>Ticket closes. The system extracts the resolution notes, applied fixes, and time log</li>
+        <li>LLM generates a structured knowledge article draft: problem statement, symptoms, root cause, resolution steps, related CIs</li>
+        <li>The resolving agent receives a one-click review interface: approve, edit, or reject</li>
+        <li>Approved articles are automatically embedded and added to the RAG knowledge base</li>
+      </ol>
+
+      <div class="stat-row">
+        <div class="stat-box"><div class="num">200–400%</div><div class="lbl">Knowledge Capture Increase</div></div>
+        <div class="stat-box"><div class="num">< 2min</div><div class="lbl">Article Creation Time</div></div>
+        <div class="stat-box"><div class="num">85%+</div><div class="lbl">Self-Service Deflection Rate</div></div>
+      </div>
+
+      <h2>Implementation Pitfalls</h2>
+
+      <h3>Stale Embeddings</h3>
+      <p>Your knowledge base is only as current as the last embedding run. Implement an incremental embedding pipeline that processes new and updated documents within hours of publication — not in weekly batch jobs.</p>
+
+      <h3>Hallucination Without Guardrails</h3>
+      <p>LLMs will fill gaps in retrieved context with confident-sounding but fabricated information. The "answer only from provided context" instruction is your primary guardrail — but also implement a retrieval confidence threshold: if no retrieved chunk has similarity above 0.75, return "I don't have reliable information on this" rather than hallucinating.</p>
+
+      <h3>Governance and Auditability</h3>
+      <p>For regulated environments, every RAG response should log the source documents used, their versions, and the retrieval scores. This creates an audit trail for AI-assisted resolutions and supports continuous accuracy measurement.</p>
+
+      <h2>The Business Case</h2>
+      <p>The ROI case for ITSM RAG is straightforward. A self-service resolution rate increase of 15–20 percentage points translates directly to ticket deflection. At an average L1 handling cost of £15–25 per ticket, the economics are compelling even for mid-size operations.</p>
+
+      <p>Start with your highest-volume, most-documented ticket category. Build the RAG pipeline. Measure deflection rate for 60 days. That pilot data is your business case for enterprise rollout.</p>
+    `
+  }
+};
+
+/* ─────────────────────────────────────────────
+   MODAL LOGIC
+───────────────────────────────────────────── */
+const modal      = document.getElementById('articleModal');
+const modalPanel = document.getElementById('modalPanel');
+const modalTag   = document.getElementById('modalTag');
+const modalTitle = document.getElementById('modalTitle');
+const modalDate  = document.getElementById('modalDate');
+const modalHeader= document.getElementById('modalHeader');
+const modalBody  = document.getElementById('modalBody');
+
+function openArticle(postId) {
+  const article = articles[postId];
+  if (!article) return;
+
+  modalTag.textContent   = article.tag;
+  modalTitle.innerHTML   = article.title;
+  modalDate.textContent  = article.date;
+  modalHeader.setAttribute('data-icon', article.icon);
+  modalBody.innerHTML    = article.body;
+
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  modal.scrollTop = 0;
+
+  // Focus the close button for accessibility
+  setTimeout(() => document.getElementById('modalClose').focus(), 100);
+}
+
+function closeModal() {
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Card click (anywhere on card)
+document.querySelectorAll('.post-card:not(.coming-soon)').forEach(card => {
+  card.addEventListener('click', (e) => {
+    // Don't double-fire if clicking the button (it has its own listener)
+    if (e.target.classList.contains('post-read')) return;
+    const postId = card.dataset.post;
+    if (postId) openArticle(parseInt(postId));
+  });
+});
+
+// "Read →" button click
+document.querySelectorAll('.post-read').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const postId = btn.dataset.post;
+    if (postId) openArticle(parseInt(postId));
+  });
+});
+
+// Close button
+document.getElementById('modalClose').addEventListener('click', closeModal);
+document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
+
+// Backdrop click (outside the panel)
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) closeModal();
+});
+
+// ESC key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+});
+
+/* ─────────────────────────────────────────────
+   SCROLL REVEAL
+───────────────────────────────────────────── */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.post-card:not(.coming-soon)').forEach(el => revealObserver.observe(el));
+
+/* ─────────────────────────────────────────────
+   CATEGORY FILTER
+───────────────────────────────────────────── */
+const filterBtns = document.querySelectorAll('.filter-btn');
+const cards      = document.querySelectorAll('.post-card:not(.coming-soon)');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    cards.forEach(card => {
+      const cats = card.dataset.category || '';
+      card.style.display = (filter === 'all' || cats.includes(filter)) ? '' : 'none';
     });
   });
+});
 </script>
 
 </body>
