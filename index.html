@@ -713,6 +713,85 @@
 
   </div>
 
+  <!-- ═══════════════════════════════════════════════════════════════════════
+     CBSE PRACTICE HUB — Project Card for Siddharth Dutt's Portfolio
+     
+     WHERE TO PASTE:
+       Open index.html → find this exact text (around line 714-715):
+         </div>          ← closing tag of your SECOND project-card div
+         <div class="projects-note">
+       
+       Paste THIS ENTIRE BLOCK between those two lines.
+       
+     NOTHING ELSE needs to change — no CSS, no nav, no JS.
+     The outer class="project-card" picks up all your existing card styles.
+═══════════════════════════════════════════════════════════════════════ -->
+
+    <div class="project-card">
+
+      <!-- Top label row -->
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+        <span style="font-size:28px; line-height:1;">📚</span>
+        <div>
+          <span style="font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--rust, #c0704a); opacity:0.9;">EdTech · SaaS · AI-Powered</span>
+          <h3 style="margin:4px 0 0; font-size:18px; font-weight:700; color:inherit; line-height:1.2;">CBSE Practice Hub</h3>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <p style="font-size:14px; line-height:1.7; opacity:0.85; margin:0 0 16px;">
+        A full-stack educational platform for CBSE students (Class 1–8) with 405 free printable
+        worksheets across all subjects — English, Mathematics, Science, EVS and Social Science.
+        Features a freemium model with 3 free downloads per class, Razorpay payment integration
+        (UPI · Cards · Wallets · Net Banking), and a Supabase-backed PDF library deployed on Vercel.
+      </p>
+
+      <!-- Highlights list -->
+      <ul style="margin:0 0 16px; padding-left:18px; font-size:13px; line-height:1.8; opacity:0.8;">
+        <li>405 AI-generated PDF worksheets · Easy, Medium &amp; Hard · Answer keys included</li>
+        <li>Freemium engine with localStorage tracking — no backend auth required</li>
+        <li>Razorpay checkout: UPI, PhonePe, GPay, Cards, Net Banking</li>
+        <li>Supabase Storage for PDFs + PostgreSQL metadata · Auto-deploy via Vercel</li>
+      </ul>
+
+      <!-- Tech stack tags -->
+      <div style="display:flex; flex-wrap:wrap; gap:7px; margin-bottom:20px;">
+        <span style="font-size:11px; font-weight:600; padding:3px 10px; border-radius:20px; border:1px solid rgba(255,255,255,0.15); background:rgba(255,255,255,0.06); letter-spacing:0.3px;">React</span>
+        <span style="font-size:11px; font-weight:600; padding:3px 10px; border-radius:20px; border:1px solid rgba(255,255,255,0.15); background:rgba(255,255,255,0.06); letter-spacing:0.3px;">Vite</span>
+        <span style="font-size:11px; font-weight:600; padding:3px 10px; border-radius:20px; border:1px solid rgba(255,255,255,0.15); background:rgba(255,255,255,0.06); letter-spacing:0.3px;">Supabase</span>
+        <span style="font-size:11px; font-weight:600; padding:3px 10px; border-radius:20px; border:1px solid rgba(255,255,255,0.15); background:rgba(255,255,255,0.06); letter-spacing:0.3px;">Razorpay</span>
+        <span style="font-size:11px; font-weight:600; padding:3px 10px; border-radius:20px; border:1px solid rgba(255,255,255,0.15); background:rgba(255,255,255,0.06); letter-spacing:0.3px;">Vercel</span>
+        <span style="font-size:11px; font-weight:600; padding:3px 10px; border-radius:20px; border:1px solid rgba(255,255,255,0.15); background:rgba(255,255,255,0.06); letter-spacing:0.3px;">Python / ReportLab</span>
+        <span style="font-size:11px; font-weight:600; padding:3px 10px; border-radius:20px; border:1px solid rgba(255,255,255,0.15); background:rgba(255,255,255,0.06); letter-spacing:0.3px;">AI-generated Content</span>
+      </div>
+
+      <!-- Buttons -->
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <a href="https://cbse-practice-hub.vercel.app/"
+           target="_blank" rel="noopener noreferrer"
+           style="display:inline-flex; align-items:center; gap:6px; padding:9px 18px; border-radius:7px;
+                  background:var(--rust, #c0704a); color:#fff; font-size:13px; font-weight:700;
+                  text-decoration:none; letter-spacing:0.2px; transition:opacity 0.2s;"
+           onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+          🚀 Live Site
+        </a>
+        <a href="https://github.com/duttsiddharth/sid"
+           target="_blank" rel="noopener noreferrer"
+           style="display:inline-flex; align-items:center; gap:6px; padding:9px 18px; border-radius:7px;
+                  border:1px solid rgba(255,255,255,0.2); color:inherit; font-size:13px; font-weight:600;
+                  text-decoration:none; transition:border-color 0.2s, opacity 0.2s;"
+           onmouseover="this.style.borderColor='var(--rust,#c0704a)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)'">
+          GitHub →
+        </a>
+      </div>
+
+    </div><!-- end project-card: CBSE Practice Hub -->
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     END OF PASTE BLOCK
+═══════════════════════════════════════════════════════════════════════ -->
+
+
   <div class="projects-note">
     <strong>Building in public.</strong> These projects are practical AI implementations developed from real service delivery challenges — exploring how modern AI tools (Claude, n8n, Make, Supabase) can automate ITSM workflows, reduce manual effort, and improve SLA outcomes. More projects shipping soon.
   </div>
