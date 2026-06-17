@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Free AI Readiness Assessment | Score Your IT Operations — Siddharth Dutt</title>
+<meta name="description" content="Take a free 3-minute AI Readiness Assessment to find out how ready your IT operations are for AIOps, GenAI, and intelligent automation — get a personalized score and recommendation.">
+<meta name="keywords" content="AI readiness assessment, AIOps readiness, ITSM AI maturity assessment, free AI assessment IT operations">
+<meta name="author" content="Siddharth Dutt">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://duttsiddharth.github.io/sid/assessment.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free AI Readiness Assessment for IT Operations">
+<meta property="og:description" content="Find out in 3 minutes how ready your IT operations are for AI-driven automation — get a personalized readiness score.">
+<meta property="og:url" content="https://duttsiddharth.github.io/sid/assessment.html">
+<meta property="og:site_name" content="Siddharth Dutt — SD Advisory">
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="service-pages.css">
+<style>
+  .quiz-card { background: var(--paper); border: 1px solid var(--line); padding: 1.8rem 2rem; margin-bottom: 1.2rem; }
+  .quiz-q { font-weight: 700; font-size: 1rem; margin-bottom: 1rem; }
+  .quiz-opts label { display: block; padding: 0.7rem 0.9rem; margin-bottom: 0.5rem; border: 1px solid var(--line); cursor: pointer; font-size: 0.92rem; transition: all 0.2s; }
+  .quiz-opts label:hover { background: var(--cream); border-color: var(--rust); }
+  .quiz-opts input { margin-right: 0.6rem; }
+  .quiz-opts label.selected { background: var(--cream); border-color: var(--rust); }
+  #scoreResult { display: none; text-align: center; padding: 3rem 2rem; background: var(--ink); color: var(--paper); }
+  #scoreResult .score-num { font-family: 'DM Serif Display', serif; font-size: 3.2rem; color: var(--rust); }
+  #scoreResult .score-tier { font-size: 1.3rem; font-weight: 700; margin: 0.5rem 0 1rem; }
+  #scoreResult p { color: rgba(245,240,232,0.8); max-width: 600px; margin: 0 auto 1.5rem; }
+  .lead-form { max-width: 560px; margin-top: 1rem; }
+  .lead-form label { display: block; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.4rem; margin-top: 1.1rem; }
+  .lead-form input, .lead-form textarea {
+    width: 100%; padding: 0.8rem 1rem; border: 1px solid var(--line); background: var(--paper);
+    font-family: 'Syne', sans-serif; font-size: 0.95rem; color: var(--ink);
+  }
+  .lead-form textarea { min-height: 100px; resize: vertical; }
+  .lead-form button { margin-top: 1.5rem; }
+  #formSuccess { display: none; padding: 2rem; border-left: 3px solid var(--rust); background: var(--cream); }
+  .calc-btn { margin-top: 1rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">SD</a>
+  <div class="nav-links">
+    <a href="index.html#about">About</a>
+    <a href="index.html#services">Services</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="index.html#ai-projects">AI Projects</a>
+    <a href="blog.html">AI Blog</a>
+    <a href="assessment.html" style="color:var(--rust);">Free Assessment</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="breadcrumb"><a href="index.html">Home</a> / Free AI Readiness Assessment</div>
+  <div class="section-label">// Free Assessment · 3 Minutes</div>
+  <h1>How Ready Is Your IT Operation for AI?</h1>
+  <p class="lede">Answer 5 quick questions about your current ITSM, observability, and automation maturity to get a personalized AI Readiness Score — and a clear next step based on where you actually stand today.</p>
+</section>
+
+<section class="content">
+  <div id="quizSection">
+
+    <div class="quiz-card" data-q="1" data-pts="0">
+      <div class="quiz-q">1. How is ticket triage currently handled in your IT operations?</div>
+      <div class="quiz-opts">
+        <label><input type="radio" name="q1" value="1"> Fully manual, no automation</label>
+        <label><input type="radio" name="q1" value="2"> Basic rules-based automation only</label>
+        <label><input type="radio" name="q1" value="3"> Some AI-assisted classification, but not used consistently</label>
+        <label><input type="radio" name="q1" value="4"> AI-driven triage is in production and trusted</label>
+      </div>
+    </div>
+
+    <div class="quiz-card" data-q="2" data-pts="0">
+      <div class="quiz-q">2. What's your current observability / monitoring maturity?</div>
+      <div class="quiz-opts">
+        <label><input type="radio" name="q2" value="1"> Limited or fragmented monitoring tools</label>
+        <label><input type="radio" name="q2" value="2"> Centralized monitoring (e.g. Dynatrace/Splunk) but mostly reactive</label>
+        <label><input type="radio" name="q2" value="3"> Monitoring integrated with some automated alerting/correlation</label>
+        <label><input type="radio" name="q2" value="4"> Fully integrated AIOps-style correlation and automated response</label>
+      </div>
+    </div>
+
+    <div class="quiz-card" data-q="3" data-pts="0">
+      <div class="quiz-q">3. How would you describe your ServiceNow (or equivalent ITSM) governance?</div>
+      <div class="quiz-opts">
+        <label><input type="radio" name="q3" value="1"> Inconsistent governance, frequent manual workarounds</label>
+        <label><input type="radio" name="q3" value="2"> Solid governance (RBAC/SSO) but little automation beyond ticketing</label>
+        <label><input type="radio" name="q3" value="3"> Governance plus some API-based automation/integrations</label>
+        <label><input type="radio" name="q3" value="4"> Strong governance with AI-powered workflows already integrated</label>
+      </div>
+    </div>
+
+    <div class="quiz-card" data-q="4" data-pts="0">
+      <div class="quiz-q">4. What best describes your current SLA / MTTR performance?</div>
+      <div class="quiz-opts">
+        <label><input type="radio" name="q4" value="1"> Frequent SLA breaches, MTTR is a recurring concern</label>
+        <label><input type="radio" name="q4" value="2"> SLA mostly met, but inconsistent across teams/regions</label>
+        <label><input type="radio" name="q4" value="3"> SLA consistently met (95%+), looking to optimize further</label>
+        <label><input type="radio" name="q4" value="4"> SLA adherence is consistently excellent (99%+), focus is now scaling</label>
+      </div>
+    </div>
+
+    <div class="quiz-card" data-q="5" data-pts="0">
+      <div class="quiz-q">5. Where is your organization in adopting GenAI for IT operations?</div>
+      <div class="quiz-opts">
+        <label><input type="radio" name="q5" value="1"> Not yet explored</label>
+        <label><input type="radio" name="q5" value="2"> Exploring / early research stage</label>
+        <label><input type="radio" name="q5" value="3"> Piloting one or two use cases</label>
+        <label><input type="radio" name="q5" value="4"> Production use of GenAI in at least one ITSM/AIOps workflow</label>
+      </div>
+    </div>
+
+    <button class="btn btn-primary calc-btn" id="calcBtn">See My AI Readiness Score →</button>
+    <p class="muted" id="quizError" style="display:none; color: var(--rust); margin-top: 0.8rem;">Please answer all 5 questions to see your score.</p>
+  </div>
+</section>
+
+<div id="scoreResult">
+  <div class="section-label" style="color:var(--rust); justify-content:center; display:flex;">// Your Result</div>
+  <div class="score-num" id="scoreNum">--</div>
+  <div class="score-tier" id="scoreTier">--</div>
+  <p id="scoreMsg">--</p>
+  <div class="hero-cta" style="justify-content:center;">
+    <a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" class="btn btn-primary">📅 Book a Free Consultation</a>
+  </div>
+</div>
+
+<section class="content narrow">
+  <div class="section-label">// Get Your Detailed Breakdown</div>
+  <h2>Want a Detailed Write-Up of Your Result?</h2>
+  <p class="muted">Share a few details below and I'll send a short, personalized breakdown of where the biggest AI/automation opportunity likely is for your environment, based on your answers.</p>
+
+  <form class="lead-form" id="assessmentForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="Name" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="Email" required>
+
+    <label for="company">Company</label>
+    <input type="text" id="company" name="Company" required>
+
+    <label for="challenge">Current Challenge</label>
+    <textarea id="challenge" name="Current Challenge" placeholder="What's the biggest IT operations / ITSM challenge you're trying to solve right now?" required></textarea>
+
+    <input type="hidden" name="AI Readiness Score" id="hiddenScore" value="Not calculated">
+    <input type="hidden" name="_subject" value="New AI Readiness Assessment Lead">
+
+    <button type="submit" class="btn btn-primary">Send My Details →</button>
+  </form>
+
+  <div id="formSuccess">
+    <p style="margin:0; color: var(--ink);"><strong>Thanks — that's received.</strong> I'll follow up by email with a short breakdown based on your answers. If it's urgent, feel free to <a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" style="color:var(--rust);">book a call directly</a>.</p>
+  </div>
+</section>
+
+<section class="content">
+  <div class="section-label">// Related</div>
+  <h2>Explore Further</h2>
+  <div class="related-grid">
+    <a class="related-card" href="ai-for-itsm.html"><div class="rc-label">Service</div><div class="rc-title">AI for ITSM</div></a>
+    <a class="related-card" href="aiops-consulting.html"><div class="rc-label">Service</div><div class="rc-title">AIOps Consulting</div></a>
+    <a class="related-card" href="case-studies.html"><div class="rc-label">Case Studies</div><div class="rc-title">View All Case Studies</div></a>
+    <a class="related-card" href="index.html#services"><div class="rc-label">Overview</div><div class="rc-title">All Services</div></a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Siddharth Dutt. All Rights Reserved.</p>
+  <p>ITIL Expert · PRINCE2 Practitioner · AWS CSA</p>
+</footer>
+
+<script>
+  document.querySelectorAll('.quiz-opts input').forEach(input => {
+    input.addEventListener('change', () => {
+      const card = input.closest('.quiz-card');
+      card.querySelectorAll('label').forEach(l => l.classList.remove('selected'));
+      input.closest('label').classList.add('selected');
+    });
+  });
+
+  document.getElementById('calcBtn').addEventListener('click', () => {
+    const cards = document.querySelectorAll('.quiz-card');
+    let total = 0, answered = 0;
+    cards.forEach(card => {
+      const checked = card.querySelector('input:checked');
+      if (checked) { total += parseInt(checked.value); answered++; }
+    });
+    if (answered < cards.length) {
+      document.getElementById('quizError').style.display = 'block';
+      return;
+    }
+    document.getElementById('quizError').style.display = 'none';
+
+    let tier, msg;
+    if (total <= 9) {
+      tier = "Early Stage — Foundational Automation Opportunity";
+      msg = "There's significant low-effort, high-impact opportunity here — starting with basic AI-assisted ticket triage and observability integration typically delivers the fastest visible wins at this stage.";
+    } else if (total <= 15) {
+      tier = "Developing — Ready for a Targeted AI Pilot";
+      msg = "Your foundation is solid enough to support a focused AI pilot — something like an AI-powered triage system or incident co-pilot on a defined ticket category or workflow.";
+    } else {
+      tier = "Advanced — Ready to Scale AI Across Operations";
+      msg = "You're past the pilot stage. The opportunity now is expanding AI-driven automation and governance consistently across your full operations footprint.";
+    }
+
+    document.getElementById('scoreNum').textContent = total + ' / 20';
+    document.getElementById('scoreTier').textContent = tier;
+    document.getElementById('scoreMsg').textContent = msg;
+    document.getElementById('hiddenScore').value = total + '/20 — ' + tier;
+    document.getElementById('scoreResult').style.display = 'block';
+    document.getElementById('scoreResult').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  document.getElementById('assessmentForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        form.style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      } else {
+        alert('Something went wrong submitting the form — please email dutt.siddharth@gmail.com directly.');
+      }
+    } catch (err) {
+      alert('Something went wrong submitting the form — please email dutt.siddharth@gmail.com directly.');
+    }
+  });
+</script>
+
+<!-- Cloudflare Web Analytics -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</body>
+</html>

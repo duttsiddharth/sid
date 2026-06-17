@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Desk Case Study | 42% Ticket Auto-Resolution with AI — Siddharth Dutt</title>
+<meta name="description" content="Case study: how Smart Desk, an AI-powered IT support triage system built on Claude API, n8n, and ServiceNow, achieved ~42% ticket auto-resolution and saved ~2.5 hrs/day in manual triage.">
+<meta name="keywords" content="Smart Desk case study, AI ticket triage, Claude API ServiceNow, AI auto-resolution case study, n8n ITSM automation">
+<meta name="author" content="Siddharth Dutt">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://duttsiddharth.github.io/sid/case-study-smartdesk.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Smart Desk: AI-Powered IT Support Triage">
+<meta property="og:description" content="How an AI-powered IT support triage system achieved ~42% ticket auto-resolution and saved ~2.5 hours per day in manual triage effort.">
+<meta property="og:url" content="https://duttsiddharth.github.io/sid/case-study-smartdesk.html">
+<meta property="og:site_name" content="Siddharth Dutt — SD Advisory">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Smart Desk: AI-Powered IT Support Triage">
+<meta name="twitter:description" content="How an AI-powered IT support triage system achieved ~42% ticket auto-resolution and saved ~2.5 hours per day in manual triage effort.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CaseStudy",
+  "name": "Smart Desk AI Ticket Triage Case Study",
+  "description": "Case study of Smart Desk, an AI-powered IT support triage system using Claude API, n8n, and ServiceNow, achieving 42% ticket auto-resolution.",
+  "author": {
+    "@type": "Person",
+    "name": "Siddharth Dutt",
+    "url": "https://duttsiddharth.github.io/sid/index.html"
+  },
+  "url": "https://duttsiddharth.github.io/sid/case-study-smartdesk.html"
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="service-pages.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">SD</a>
+  <div class="nav-links">
+    <a href="index.html#about">About</a>
+    <a href="index.html#services">Services</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="index.html#ai-projects">AI Projects</a>
+    <a href="blog.html">AI Blog</a>
+    <a href="assessment.html" style="color:var(--rust);">Free Assessment</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="breadcrumb"><a href="index.html">Home</a> / <a href="case-studies.html">Case Studies</a> / Smart Desk</div>
+  <div class="section-label">// Case Study · AI-Powered IT Support Triage</div>
+  <h1>Smart Desk: AI-Powered IT Support Triage</h1>
+  <p class="lede">An enterprise IT operations engagement needed faster, more consistent ticket triage without adding headcount. Smart Desk automated classification, prioritization, and escalation routing — and cut manual triage effort by ~2.5 hours a day.</p>
+  <div class="case-meta">
+    <div><strong>Engagement:</strong> Enterprise IT Operations Engagement</div>
+    <div><strong>Stack:</strong> Claude API, n8n, ServiceNow, Slack</div>
+    <div><strong>Status:</strong> Production deployment, ongoing</div>
+  </div>
+  <div class="hero-cta" style="margin-top:2rem;">
+    <a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" class="btn btn-primary">Book a Free Consultation →</a>
+    <a href="case-studies.html" class="btn btn-secondary">View All Case Studies</a>
+  </div>
+</section>
+
+<section class="content">
+  <div class="section-label">// Challenge</div>
+  <h2>The Challenge</h2>
+  <p>An enterprise IT operations environment was handling a high volume of inbound support tickets through ServiceNow, with classification, prioritization, and routing done manually by Tier-1 analysts. This created two compounding problems: triage consumed a significant share of analyst time that could otherwise go toward actually resolving issues, and the manual process introduced inconsistency — similar tickets were sometimes prioritized differently depending on which analyst picked them up.</p>
+  <p>The operational cost showed up in two ways: slower time-to-first-response on tickets that should have been fast-tracked, and analyst fatigue from repetitive classification work that didn't require human judgment in the majority of cases. Leadership needed a way to reduce this overhead without compromising on accuracy or introducing a new, disconnected tool that analysts would have to learn alongside ServiceNow.</p>
+</section>
+
+<section class="content alt-bg">
+  <div class="section-label">// Approach</div>
+  <h2>The Approach</h2>
+  <p>Smart Desk was designed as an AI layer on top of the existing ServiceNow workflow, not a replacement for it. Using Claude API for natural-language ticket classification and n8n for workflow orchestration, incoming tickets are automatically analyzed, categorized, and prioritized the moment they're created — then routed through existing ServiceNow assignment rules or, where confidence is high enough, resolved automatically with a documented resolution path.</p>
+  <p>P1/P0-level tickets are flagged for immediate human escalation rather than auto-resolution, with Slack automation notifying the right stakeholders instantly. Lower-priority, well-understood ticket categories — password resets, access requests, common how-to queries — were the initial focus for auto-resolution, since they carried the clearest classification patterns and lowest risk if something needed correction.</p>
+</section>
+
+<section class="content">
+  <div class="section-label">// Architecture</div>
+  <h2>The Architecture</h2>
+  <p>Smart Desk sits between ticket intake and ServiceNow's existing workflow engine, adding an AI classification and decision layer without replacing any of the platform's native governance.</p>
+  <div class="arch-flow"><div class="arch-step">Ticket Intake (ServiceNow)</div><div class="arch-arrow">→</div><div class="arch-step">n8n Workflow Trigger</div><div class="arch-arrow">→</div><div class="arch-step">Claude API Classification</div><div class="arch-arrow">→</div><div class="arch-step">Priority & Routing Decision</div><div class="arch-arrow">→</div><div class="arch-step">Auto-Resolution or Human Escalation</div><div class="arch-arrow">→</div><div class="arch-step">Slack Notification (P1/P0)</div></div>
+</section>
+
+<section class="content alt-bg">
+  <div class="section-label">// Outcomes</div>
+  <h2>The Outcomes</h2>
+  <div class="stat-row"><div class="stat-pill"><div class="num">42%</div><div class="lbl">Ticket Auto-Resolution</div></div><div class="stat-pill"><div class="num">~2.5 hrs</div><div class="lbl">Saved Per Day in Triage</div></div><div class="stat-pill"><div class="num">Live</div><div class="lbl">Production Deployment</div></div></div>
+  <p>In production use, Smart Desk achieved approximately 42% ticket auto-resolution across the categories it was deployed on, meaning roughly four in ten tickets in scope were classified, prioritized, and resolved without requiring analyst intervention.</p>
+  <p>The time saved from automated triage was approximately 2.5 hours per day in manual effort — time that was redirected toward higher-complexity tickets and proactive operational work rather than repetitive classification.</p>
+</section>
+
+<section class="content narrow">
+  <div class="section-label">// Business Impact</div>
+  <h2>Business Impact</h2>
+  <p>Beyond the direct time savings, Smart Desk demonstrated that GenAI tooling could be integrated into an existing ServiceNow-based ITSM workflow without disrupting governance, escalation paths, or analyst trust in the system — a meaningful proof point for any enterprise hesitant about AI adoption in IT operations.</p>
+  <p>The architecture is designed to extend to additional ticket categories over time, with each new category following the same pattern: start with auto-resolution on well-understood, low-risk tickets, then expand scope as confidence and historical accuracy data accumulate.</p>
+</section>
+
+<div class="cta-band">
+  <div class="section-label" style="color:var(--rust);">// Let's Talk</div>
+  <h2>Want Results Like This?</h2>
+  <p>Book a free 30-minute consultation to discuss whether a similar approach fits your environment — no obligation, no sales pitch.</p>
+  <div class="hero-cta">
+    <a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" class="btn btn-primary">📅 Book a Free Consultation</a>
+    <a href="mailto:dutt.siddharth@gmail.com" class="btn btn-secondary">✉ Email Me</a>
+  </div>
+</div>
+
+<section class="content">
+  <div class="section-label">// Related</div>
+  <h2>Related Services &amp; Case Studies</h2>
+  <div class="related-grid"><a class="related-card" href="ai-for-itsm.html"><div class="rc-label">Service</div><div class="rc-title">AI for ITSM</div></a><a class="related-card" href="servicenow-automation.html"><div class="rc-label">Service</div><div class="rc-title">ServiceNow Automation</div></a><a class="related-card" href="case-study-ai-incident-copilot.html"><div class="rc-label">Case Study</div><div class="rc-title">AI Incident Co-Pilot</div></a><a class="related-card" href="case-study-sla-transformation.html"><div class="rc-label">Case Study</div><div class="rc-title">SLA Transformation</div></a></div>
+</section>
+
+<footer>
+  <p>© 2025 Siddharth Dutt. All Rights Reserved.</p>
+  <p>ITIL Expert · PRINCE2 Practitioner · AWS CSA</p>
+</footer>
+
+<!-- Cloudflare Web Analytics -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</body>
+</html>

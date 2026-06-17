@@ -69,7 +69,7 @@ h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem; color
 .tool-tags span { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.04em; color: var(--ink); border: 1px solid var(--line); padding: 0.3rem 0.7rem; background: var(--paper); }
 
 /* STAT ROW */
-.stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 1.5rem 0 2rem; }
+.stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 1.5rem 0 2rem; }
 .stat-pill { background: var(--paper); padding: 1.6rem 1.2rem; text-align: center; }
 .stat-pill .num { font-family: 'DM Serif Display', serif; font-size: 1.9rem; color: var(--rust); line-height: 1; }
 .stat-pill .lbl { font-size: 0.66rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-top: 0.5rem; line-height: 1.4; }
@@ -92,6 +92,13 @@ h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem; color
 .related-card .rc-label { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; color: var(--rust); text-transform: uppercase; margin-bottom: 0.5rem; }
 .related-card .rc-title { font-size: 0.88rem; font-weight: 700; color: var(--ink); line-height: 1.4; }
 
+/* ARCHITECTURE FLOW (case studies) */
+.arch-flow { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin: 1.5rem 0 2rem; }
+.arch-step { background: var(--paper); border: 1px solid var(--line); padding: 1rem 1.1rem; font-size: 0.8rem; font-weight: 700; text-align: center; line-height: 1.35; min-width: 135px; max-width: 180px; }
+.arch-arrow { color: var(--rust); font-size: 1.2rem; flex-shrink: 0; }
+.case-meta { display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 1.5rem; font-family: 'DM Mono', monospace; font-size: 0.74rem; color: var(--muted); }
+.case-meta strong { color: var(--ink); }
+
 footer { display: flex; justify-content: space-between; padding: 2rem 6rem; font-size: 0.78rem; color: var(--muted); border-top: 1px solid var(--line); }
 
 @media (max-width: 900px) {
@@ -104,5 +111,7 @@ footer { display: flex; justify-content: space-between; padding: 2rem 6rem; font
   .stat-row { grid-template-columns: repeat(2, 1fr); }
   .who-grid { grid-template-columns: 1fr; }
   .related-grid { grid-template-columns: 1fr; }
+  .arch-flow { flex-direction: column; align-items: stretch; }
+  .arch-arrow { transform: rotate(90deg); align-self: center; }
   footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem 1.5rem; }
 }

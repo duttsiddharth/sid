@@ -129,8 +129,8 @@
     border-bottom: 1px solid var(--line);
   }
   .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--rust); letter-spacing: 0.02em; }
-  .nav-links { display: flex; gap: 2.5rem; }
-  .nav-links a { text-decoration: none; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; }
+  .nav-links { display: flex; gap: 1.7rem; }
+  .nav-links a { text-decoration: none; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; }
   .nav-links a:hover { color: var(--rust); }
 
   /* HERO */
@@ -224,6 +224,22 @@
   section { padding: 6rem 6rem; }
   .section-label { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--rust); margin-bottom: 1rem; }
   h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1.1; color: var(--ink); margin-bottom: 3rem; }
+
+  /* BUSINESS IMPACT */
+  .impact-section { background: var(--paper); padding-top: 4.5rem; padding-bottom: 4.5rem; }
+  .impact-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 2.5rem; }
+  .impact-card {
+    background: var(--paper); padding: 2rem 1.4rem; text-align: center;
+    opacity: 0; transform: translateY(14px);
+    transition: opacity 0.5s, transform 0.5s, background 0.25s;
+  }
+  .impact-card.visible { opacity: 1; transform: translateY(0); }
+  .impact-card:hover { background: var(--cream); }
+  .impact-num { font-family: 'DM Serif Display', serif; font-size: 2.1rem; color: var(--rust); line-height: 1; }
+  .impact-label { font-size: 0.68rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); margin-top: 0.6rem; line-height: 1.5; }
+  @media (max-width: 900px) {
+    .impact-grid { grid-template-columns: repeat(2, 1fr); }
+  }
 
   /* SUMMARY */
   .summary-section { background: var(--ink); color: var(--paper); }
@@ -335,6 +351,9 @@
 
   /* FOOTER */
   footer { background: #080808; padding: 1.5rem 6rem; display: flex; justify-content: space-between; align-items: center; }
+  .footer-links { display: flex; gap: 1.6rem; flex-wrap: wrap; }
+  .footer-links a { color: rgba(245,240,232,0.55); text-decoration: none; font-size: 0.76rem; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--rust); }
   footer p { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: rgba(245,240,232,0.3); }
 
   /* ANIMATIONS */
@@ -448,7 +467,8 @@
     .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
     .edu-grid { grid-template-columns: 1fr; }
     .contact-section { flex-direction: column; padding: 3rem 2rem; }
-    footer { padding: 1.5rem 2rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+    footer { padding: 1.5rem 2rem; flex-direction: column; gap: 0.8rem; text-align: center; }
+    .footer-links { justify-content: center; gap: 1rem 1.2rem; }
   }
 </style>
 </head>
@@ -459,11 +479,13 @@
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#services">Services</a>
+    <a href="case-studies.html">Case Studies</a>
     <a href="#experience">Experience</a>
     <a href="#tools">Tools</a>
     <a href="#certifications">Certifications</a>
     <a href="#ai-projects">AI Projects</a>
     <a href="blog.html">AI Blog</a>
+    <a href="assessment.html" style="color:var(--rust);">Free Assessment</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -515,6 +537,38 @@
   </div>
 </section>
 
+<!-- BUSINESS IMPACT -->
+<section class="impact-section" id="impact">
+  <div class="section-label">// Verified Track Record</div>
+  <h2 style="margin-bottom: 0.5rem;">Measurable Operational Impact</h2>
+  <div class="impact-grid">
+    <div class="impact-card">
+      <div class="impact-num">42<span style="color:var(--rust);">%</span></div>
+      <div class="impact-label">Ticket<br>Auto-Resolution</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-num">20<span style="color:var(--rust);">%</span></div>
+      <div class="impact-label">MTTR<br>Reduction</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-num">99.8<span style="color:var(--rust);">%</span></div>
+      <div class="impact-label">SLA<br>Adherence</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-num">99.9<span style="color:var(--rust);">%</span></div>
+      <div class="impact-label">Service<br>Availability</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-num">$25<span style="color:var(--rust);">M</span></div>
+      <div class="impact-label">Portfolio<br>Managed</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-num">15<span style="color:var(--rust);">+</span></div>
+      <div class="impact-label">Global Service<br>Transitions</div>
+    </div>
+  </div>
+</section>
+
 <!-- SUMMARY -->
 <section class="summary-section" id="summary">
   <div class="section-label">// Executive Summary</div>
@@ -558,6 +612,7 @@
       <div class="service-title">AI Transformation Strategy &amp; Roadmapping</div>
       <div class="service-desc">Advisory on AI adoption strategy, operating model redesign, and the transition to AI-orchestrated service delivery — helping leadership identify high-impact automation opportunities and sequence them into a practical roadmap.</div>
       <div class="service-tags"><span>AI Strategy</span><span>Operating Model</span><span>Executive Advisory</span></div>
+      <div style="margin-top:1rem;"><a href="assessment.html" style="font-size:0.78rem; font-weight:700; color:var(--rust); text-decoration:none;">Take the Free AI Readiness Assessment →</a></div>
     </div>
 
     <div class="service-card">
@@ -565,6 +620,7 @@
       <div class="service-title">AIOps &amp; Intelligent Automation</div>
       <div class="service-desc">Design and deployment of AIOps-driven workflows using observability tools like Dynatrace and Splunk for real-time monitoring, anomaly detection, and predictive incident management — reducing manual effort by 30–40%.</div>
       <div class="service-tags"><span>Dynatrace</span><span>Splunk</span><span>Anomaly Detection</span></div>
+      <div style="margin-top:1rem;"><a href="aiops-consulting.html" style="font-size:0.78rem; font-weight:700; color:var(--rust); text-decoration:none;">Learn More →</a></div>
     </div>
 
     <div class="service-card">
@@ -572,6 +628,7 @@
       <div class="service-title">GenAI &amp; LLM Solutions for IT Ops</div>
       <div class="service-desc">Building production-ready GenAI tools for ITSM — automated ticket triage, AI incident co-pilots, and RAG-powered knowledge assistants — using Claude API, n8n, ServiceNow, and vector search, with proven results like 42% auto-resolution.</div>
       <div class="service-tags"><span>Claude API</span><span>RAG</span><span>AI Agents</span><span>n8n</span></div>
+      <div style="margin-top:1rem;"><a href="ai-for-itsm.html" style="font-size:0.78rem; font-weight:700; color:var(--rust); text-decoration:none;">Learn More →</a></div>
     </div>
 
     <div class="service-card">
@@ -579,6 +636,7 @@
       <div class="service-title">ITSM Process Design &amp; ITIL 4 Governance</div>
       <div class="service-desc">Defining end-to-end service processes, runbooks, governance models, and SLA frameworks aligned to ITIL 4 — covering incident, problem, and change management for multi-region operations.</div>
       <div class="service-tags"><span>ITIL 4</span><span>Runbooks</span><span>SLA Frameworks</span></div>
+      <div style="margin-top:1rem;"><a href="itil-governance.html" style="font-size:0.78rem; font-weight:700; color:var(--rust); text-decoration:none;">Learn More →</a></div>
     </div>
 
     <div class="service-card">
@@ -586,6 +644,7 @@
       <div class="service-title">Service Delivery, SLA &amp; Vendor Governance</div>
       <div class="service-desc">P&amp;L-aligned management of global managed services accounts, SaaS portfolio governance (licence lifecycle, RBAC, SSO), vendor evaluation, and contract negotiation — with a track record of 99.9%+ availability and ~12% licensing cost reduction.</div>
       <div class="service-tags"><span>SLA Management</span><span>SaaS Governance</span><span>Vendor Negotiation</span></div>
+      <div style="margin-top:1rem;"><a href="managed-services-transformation.html" style="font-size:0.78rem; font-weight:700; color:var(--rust); text-decoration:none;">Learn More →</a></div>
     </div>
 
     <div class="service-card">
@@ -593,6 +652,7 @@
       <div class="service-title">Program &amp; Service Transition Management</div>
       <div class="service-desc">End-to-end planning and execution of complex global service transitions and transformation programs — scope, cost, risk, and schedule management, with a record of 20+ transitions and zero Sev-1 incidents post go-live.</div>
       <div class="service-tags"><span>Transition Mgmt</span><span>Risk &amp; Schedule</span><span>Hypercare</span></div>
+      <div style="margin-top:1rem;"><a href="managed-services-transformation.html" style="font-size:0.78rem; font-weight:700; color:var(--rust); text-decoration:none;">Learn More →</a></div>
     </div>
 
     <div class="service-card" style="grid-column: 1 / -1;">
@@ -797,7 +857,10 @@
 
       <div class="project-footer">
         <div class="project-status"><span class="status-dot live"></span> Live Prototype</div>
-        <a href="smartdesk.html" target="_blank" class="project-link">View Demo →</a>
+        <div>
+          <a href="case-study-smartdesk.html" class="project-link" style="margin-right:1.2rem;">Read Case Study →</a>
+          <a href="smartdesk.html" target="_blank" class="project-link">View Demo →</a>
+        </div>
       </div>
     </div>
 
@@ -846,7 +909,10 @@
 
       <div class="project-footer">
         <div class="project-status"><span class="status-dot live"></span> Live Prototype</div>
-        <a href="https://ai-incident-co-pilot-1.onrender.com/" target="_blank" class="project-link">View Demo →</a>
+        <div>
+          <a href="case-study-ai-incident-copilot.html" class="project-link" style="margin-right:1.2rem;">Read Case Study →</a>
+          <a href="https://ai-incident-co-pilot-1.onrender.com/" target="_blank" class="project-link">View Demo →</a>
+        </div>
       </div>
     </div>
 
@@ -975,6 +1041,13 @@
 
 <footer>
   <p>© 2025 Siddharth Dutt. All Rights Reserved.</p>
+  <div class="footer-links">
+    <a href="case-studies.html">Case Studies</a>
+    <a href="assessment.html">Free AI Assessment</a>
+    <a href="aiops-consulting.html">AIOps Consulting</a>
+    <a href="ai-for-itsm.html">AI for ITSM</a>
+    <a href="managed-services-transformation.html">Managed Services</a>
+  </div>
   <p>ITIL Expert · PRINCE2 Practitioner · AWS CSA</p>
 </footer>
 
@@ -987,7 +1060,7 @@
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('.timeline-item, .cert-card, .project-card, .service-card').forEach(el => {
+  document.querySelectorAll('.timeline-item, .cert-card, .project-card, .service-card, .impact-card').forEach(el => {
     observer.observe(el);
   });
 </script>

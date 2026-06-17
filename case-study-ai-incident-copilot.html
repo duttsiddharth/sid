@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Incident Co-Pilot Case Study | 20% MTTR Reduction — Siddharth Dutt</title>
+<meta name="description" content="Case study: how AI Incident Co-Pilot, a GenAI-powered incident response assistant, reduced MTTR by 20% and improved SLA adherence from 96% to 99.8%.">
+<meta name="keywords" content="AI Incident Co-Pilot case study, AI incident response, MTTR reduction case study, Dynatrace Splunk AI, AIOps case study">
+<meta name="author" content="Siddharth Dutt">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://duttsiddharth.github.io/sid/case-study-ai-incident-copilot.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Incident Co-Pilot: Intelligent Incident Response">
+<meta property="og:description" content="How a GenAI-powered incident response assistant reduced MTTR by 20% and lifted SLA adherence from 96% to 99.8%.">
+<meta property="og:url" content="https://duttsiddharth.github.io/sid/case-study-ai-incident-copilot.html">
+<meta property="og:site_name" content="Siddharth Dutt — SD Advisory">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Incident Co-Pilot: Intelligent Incident Response">
+<meta name="twitter:description" content="How a GenAI-powered incident response assistant reduced MTTR by 20% and lifted SLA adherence from 96% to 99.8%.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CaseStudy",
+  "name": "AI Incident Co-Pilot Case Study",
+  "description": "Case study of AI Incident Co-Pilot, a GenAI-powered incident response assistant integrated with Dynatrace and Splunk, achieving 20% MTTR reduction.",
+  "author": {
+    "@type": "Person",
+    "name": "Siddharth Dutt",
+    "url": "https://duttsiddharth.github.io/sid/index.html"
+  },
+  "url": "https://duttsiddharth.github.io/sid/case-study-ai-incident-copilot.html"
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="service-pages.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">SD</a>
+  <div class="nav-links">
+    <a href="index.html#about">About</a>
+    <a href="index.html#services">Services</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="index.html#ai-projects">AI Projects</a>
+    <a href="blog.html">AI Blog</a>
+    <a href="assessment.html" style="color:var(--rust);">Free Assessment</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="breadcrumb"><a href="index.html">Home</a> / <a href="case-studies.html">Case Studies</a> / AI Incident Co-Pilot</div>
+  <div class="section-label">// Case Study · Intelligent Incident Response</div>
+  <h1>AI Incident Co-Pilot: Intelligent Incident Response</h1>
+  <p class="lede">Manual incident analysis and stakeholder communication were slowing down resolution times. AI Incident Co-Pilot gave operations teams real-time analysis and auto-drafted communications — reducing MTTR by 20%.</p>
+  <div class="case-meta">
+    <div><strong>Engagement:</strong> Enterprise IT Operations Engagement</div>
+    <div><strong>Stack:</strong> Claude API, Dynatrace, Splunk, AI Agents</div>
+    <div><strong>Status:</strong> Production deployment, ongoing</div>
+  </div>
+  <div class="hero-cta" style="margin-top:2rem;">
+    <a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" class="btn btn-primary">Book a Free Consultation →</a>
+    <a href="case-studies.html" class="btn btn-secondary">View All Case Studies</a>
+  </div>
+</section>
+
+<section class="content">
+  <div class="section-label">// Challenge</div>
+  <h2>The Challenge</h2>
+  <p>During major incidents, two things consistently slowed down resolution: the time it took responders to correlate observability signals from Dynatrace and Splunk into a clear picture of what was actually happening, and the manual effort of drafting and sending stakeholder communications while the incident was still active.</p>
+  <p>Both tasks competed for the same responder's attention at the worst possible time — in the middle of an active P1. The result was incidents that took longer to resolve not because the technical fix was hard to find, but because the surrounding process of analysis and communication consumed time that should have gone toward resolution.</p>
+</section>
+
+<section class="content alt-bg">
+  <div class="section-label">// Approach</div>
+  <h2>The Approach</h2>
+  <p>AI Incident Co-Pilot was built to sit alongside the existing incident response process, not replace the responders running it. It ingests observability signals from Dynatrace and Splunk, correlates them using AI-driven analysis, and surfaces a prioritized, context-rich summary of likely causes and recommended next steps in real time as an incident unfolds.</p>
+  <p>In parallel, it auto-drafts stakeholder communications — incident summaries, status updates, and resolution notes — based on the same real-time context, so the responder reviews and sends rather than writing from scratch under time pressure. Every AI-generated recommendation and communication draft goes through human review before action is taken, keeping a person in control of the final call throughout.</p>
+</section>
+
+<section class="content">
+  <div class="section-label">// Architecture</div>
+  <h2>The Architecture</h2>
+  <p>AI Incident Co-Pilot layers AI-driven correlation and drafting on top of existing observability tooling, feeding directly into the human-led incident response process rather than operating independently of it.</p>
+  <div class="arch-flow"><div class="arch-step">Dynatrace / Splunk Signals</div><div class="arch-arrow">→</div><div class="arch-step">Anomaly Correlation</div><div class="arch-arrow">→</div><div class="arch-step">AI Incident Co-Pilot Analysis</div><div class="arch-arrow">→</div><div class="arch-step">Resolution Guidance + Draft Comms</div><div class="arch-arrow">→</div><div class="arch-step">Human Review & Action</div><div class="arch-arrow">→</div><div class="arch-step">Stakeholder Notification</div></div>
+</section>
+
+<section class="content alt-bg">
+  <div class="section-label">// Outcomes</div>
+  <h2>The Outcomes</h2>
+  <div class="stat-row"><div class="stat-pill"><div class="num">20%</div><div class="lbl">MTTR Reduction</div></div><div class="stat-pill"><div class="num">96% → 99.8%</div><div class="lbl">SLA Adherence</div></div><div class="stat-pill"><div class="num">Real-Time</div><div class="lbl">Incident Analysis</div></div></div>
+  <p>Incident resolution time was reduced by 20% through AI-enabled triage and escalation workflows integrated with Dynatrace and Splunk — a direct result of responders spending less time on manual correlation and communication drafting.</p>
+  <p>Over the course of the engagement, SLA adherence improved from 96% to 99.8% through intelligent monitoring and AI-driven workflow automation working in tandem with the Co-Pilot's incident-level support.</p>
+</section>
+
+<section class="content narrow">
+  <div class="section-label">// Business Impact</div>
+  <h2>Business Impact</h2>
+  <p>Faster, more consistent incident resolution directly reduces the customer-facing impact of outages and degradations — which matters disproportionately for SLA-bound managed services accounts where missed targets carry contractual and reputational cost.</p>
+  <p>Because the Co-Pilot's recommendations and drafts are always reviewed by a human before action, the tool built trust with operations teams quickly rather than facing the adoption resistance that fully automated 'black box' AI incident tools often encounter.</p>
+</section>
+
+<div class="cta-band">
+  <div class="section-label" style="color:var(--rust);">// Let's Talk</div>
+  <h2>Want Results Like This?</h2>
+  <p>Book a free 30-minute consultation to discuss whether a similar approach fits your environment — no obligation, no sales pitch.</p>
+  <div class="hero-cta">
+    <a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" class="btn btn-primary">📅 Book a Free Consultation</a>
+    <a href="mailto:dutt.siddharth@gmail.com" class="btn btn-secondary">✉ Email Me</a>
+  </div>
+</div>
+
+<section class="content">
+  <div class="section-label">// Related</div>
+  <h2>Related Services &amp; Case Studies</h2>
+  <div class="related-grid"><a class="related-card" href="aiops-consulting.html"><div class="rc-label">Service</div><div class="rc-title">AIOps Consulting</div></a><a class="related-card" href="ai-for-itsm.html"><div class="rc-label">Service</div><div class="rc-title">AI for ITSM</div></a><a class="related-card" href="case-study-smartdesk.html"><div class="rc-label">Case Study</div><div class="rc-title">Smart Desk</div></a><a class="related-card" href="case-study-sla-transformation.html"><div class="rc-label">Case Study</div><div class="rc-title">SLA Transformation</div></a></div>
+</section>
+
+<footer>
+  <p>© 2025 Siddharth Dutt. All Rights Reserved.</p>
+  <p>ITIL Expert · PRINCE2 Practitioner · AWS CSA</p>
+</footer>
+
+<!-- Cloudflare Web Analytics -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</body>
+</html>
