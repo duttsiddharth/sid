@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /Legal Rights.html
 
 Sitemap: https://duttsiddharth.github.io/sid/sitemap.xml
