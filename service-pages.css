@@ -29,9 +29,10 @@ nav {
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
 }
-.nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--rust); letter-spacing: 0.02em; text-decoration: none; }
-.nav-links { display: flex; gap: 2rem; }
-.nav-links a { text-decoration: none; font-size: 0.76rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; }
+.nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--rust); letter-spacing: 0.02em; text-decoration: none; display: inline-flex; align-items: center; }
+.nav-logo svg { height: 26px; width: auto; display: block; }
+.nav-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.5rem 1.6rem; }
+.nav-links a { text-decoration: none; font-size: 0.76rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; white-space: nowrap; }
 .nav-links a:hover { color: var(--rust); }
 
 /* BUTTONS */

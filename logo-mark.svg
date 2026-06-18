@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 92 34" class="logo-mark" role="img" aria-label="SD logo">
+<polyline points="2,18 11,18 15,7 21,28 25,18 33,18" fill="none" stroke="#c0440a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="33" cy="18" r="3" fill="#b8922a"/>
+<text x="41" y="25" font-family="Georgia, 'DM Serif Display', serif" font-size="20" font-weight="700" fill="currentColor">SD</text>
+</svg>

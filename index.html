@@ -136,9 +136,10 @@
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--line);
   }
-  .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--rust); letter-spacing: 0.02em; }
-  .nav-links { display: flex; gap: 1.7rem; }
-  .nav-links a { text-decoration: none; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; }
+  .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--rust); letter-spacing: 0.02em; display: inline-flex; align-items: center; }
+  .nav-logo svg { height: 26px; width: auto; display: block; }
+  .nav-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.5rem 1.4rem; }
+  .nav-links a { text-decoration: none; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; white-space: nowrap; }
   .nav-links a:hover { color: var(--rust); }
 
   /* HERO */
@@ -483,7 +484,11 @@
 <body>
 
 <nav>
-  <div class="nav-logo">SD</div>
+  <div class="nav-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 92 34" class="logo-mark" role="img" aria-label="SD logo">
+<polyline points="2,18 11,18 15,7 21,28 25,18 33,18" fill="none" stroke="#c0440a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="33" cy="18" r="3" fill="#b8922a"/>
+<text x="41" y="25" font-family="Georgia, 'DM Serif Display', serif" font-size="20" font-weight="700" fill="currentColor">SD</text>
+</svg></div>
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#services">Services</a>
