@@ -128,8 +128,13 @@
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--line);
   }
-  .nav-logo { display: flex; align-items: center; }
+  .nav-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
   .nav-logo img { height: 40px; width: 40px; display: block; }
+  .nav-brand { display: flex; flex-direction: column; line-height: 1.25; }
+  .nav-brand-name { font-family: 'DM Serif Display', Georgia, serif; font-size: 1.02rem; letter-spacing: 0.06em; color: var(--ink); }
+  .nav-brand-tag { font-family: 'DM Mono', monospace; font-size: 0.5rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rust); }
+  @media (max-width: 1200px) { .nav-brand-tag { display: none; } }
+  @media (max-width: 560px) { .nav-brand { display: none; } .nav-links { max-width: calc(100vw - 95px) !important; } }
   .nav-links { display: flex; gap: 1.7rem; }
   .nav-links a { text-decoration: none; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; white-space: nowrap; }
   .nav-links a:hover { color: var(--rust); }
@@ -494,7 +499,7 @@
   /* RESPONSIVE */
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
-    .nav-links { overflow-x: auto; max-width: calc(100vw - 100px); scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+    .nav-links { overflow-x: auto; max-width: calc(100vw - 235px); scrollbar-width: none; -webkit-overflow-scrolling: touch; }
     .nav-links::-webkit-scrollbar { display: none; }
     .hero { grid-template-columns: 1fr; }
     .hero-right { display: none; }
@@ -543,13 +548,19 @@
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo"><img src="logo-mark.png" alt="SD — Siddharth Dutt"></a>
+  <a href="index.html" class="nav-logo">
+    <img src="logo-mark.png" alt="SD Advisory">
+    <span class="nav-brand">
+      <span class="nav-brand-name">SD ADVISORY</span>
+      <span class="nav-brand-tag">IT Consulting · AI Transformation &amp; Operations</span>
+    </span>
+  </a>
   <div class="nav-links">
     <a href="#services">Services</a>
     <a href="#ai-projects">Solutions</a>
     <a href="case-studies.html">Case Studies</a>
-    <a href="#about">About</a>
     <a href="blog.html">Insights</a>
+    <a href="#about">About</a>
     <a href="assessment.html" style="color:var(--rust);">Free Assessment</a>
     <a href="#contact">Contact</a>
   </div>
@@ -1367,7 +1378,7 @@
 </div>
 
 <footer>
-  <p>© 2025 Siddharth Dutt. All Rights Reserved.</p>
+  <p>© 2026 SD Advisory. All Rights Reserved.</p>
   <div class="footer-links">
     <a href="case-studies.html">Case Studies</a>
     <a href="assessment.html">Free AI Assessment</a>

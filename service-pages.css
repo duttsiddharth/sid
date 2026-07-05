@@ -29,8 +29,13 @@ nav {
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
 }
-.nav-logo { display: flex; align-items: center; text-decoration: none; }
+.nav-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
 .nav-logo img { height: 40px; width: 40px; display: block; }
+.nav-brand { display: flex; flex-direction: column; line-height: 1.25; }
+.nav-brand-name { font-family: 'DM Serif Display', Georgia, serif; font-size: 1.02rem; letter-spacing: 0.06em; color: var(--ink); }
+.nav-brand-tag { font-family: 'DM Mono', monospace; font-size: 0.5rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rust); }
+@media (max-width: 1200px) { .nav-brand-tag { display: none; } }
+@media (max-width: 560px) { .nav-brand { display: none; } .nav-links { max-width: calc(100vw - 95px) !important; } }
 .nav-links { display: flex; gap: 2rem; }
 .nav-links a { text-decoration: none; font-size: 0.76rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; white-space: nowrap; }
 .nav-links a:hover { color: var(--rust); }
@@ -127,7 +132,7 @@ footer { display: flex; justify-content: space-between; padding: 2rem 6rem; font
 
 @media (max-width: 900px) {
   nav { padding: 1rem 1.5rem; }
-  .nav-links { gap: 1.1rem; overflow-x: auto; max-width: calc(100vw - 90px); scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .nav-links { gap: 1.1rem; overflow-x: auto; max-width: calc(100vw - 235px); scrollbar-width: none; -webkit-overflow-scrolling: touch; }
   .nav-links::-webkit-scrollbar { display: none; }
   .nav-links a { font-size: 0.68rem; }
   .page-hero { padding: 7rem 1.5rem 3rem; }
