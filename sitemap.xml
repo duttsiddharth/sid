@@ -41,11 +41,6 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.sdadvisory.in/leadership.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
     <loc>https://www.sdadvisory.in/case-study-smartdesk.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
