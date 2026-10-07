@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Resilience by Design | Enterprise AI Reference Architecture — SD Advisory</title>
+<meta name="description" content="An interactive reference architecture for AI-driven IT service operations: how an enterprise keeps running when AI is down, wrong, replaced or more autonomous. AI-on, degraded and off modes, failure simulations, scorecard.">
+<meta name="keywords" content="AI resilience, AI resilience architecture, enterprise AI architecture, AI-off mode, AI gateway, model portability, vendor portability, AI governance, AI observability, AIOps resilience">
+<meta name="author" content="Siddharth Dutt">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.sdadvisory.in/ai-resilience-by-design.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Resilience by Design — Interactive Reference Architecture">
+<meta property="og:description" content="Designing enterprises that can evolve with AI, and operate without it. An interactive reference architecture with failure simulations and a resilience scorecard.">
+<meta property="og:url" content="https://www.sdadvisory.in/ai-resilience-by-design.html">
+<meta property="og:site_name" content="SD Advisory">
+<meta property="og:image" content="https://www.sdadvisory.in/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Resilience by Design — Interactive Reference Architecture">
+<meta name="twitter:description" content="Designing enterprises that can evolve with AI, and operate without it.">
+<meta name="twitter:image" content="https://www.sdadvisory.in/og-image.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "AI Resilience by Design",
+  "description": "Interactive reference architecture showing how an enterprise keeps operating when AI is unavailable, wrong, replaced or more autonomous.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any (web browser)",
+  "author": {
+    "@type": "Person",
+    "name": "Siddharth Dutt",
+    "url": "https://www.sdadvisory.in/index.html"
+  },
+  "url": "https://www.sdadvisory.in/ai-resilience/"
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="service-pages.css">
+<style>
+  .model-frame { border: 1px solid var(--line); background: var(--paper); margin: 1.5rem 0 0.8rem; }
+  .model-frame iframe { display: block; width: 100%; height: 760px; border: 0; }
+  .model-actions { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 1rem; }
+  .model-note { font-size: 0.8rem; color: var(--muted); max-width: 760px; }
+  .principle { font-family: 'DM Serif Display', serif; font-size: clamp(1.25rem, 2.4vw, 1.6rem); line-height: 1.4; border-left: 3px solid var(--rust); padding-left: 1.2rem; max-width: 820px; margin: 1.5rem 0; }
+  @media (max-width: 900px) { .model-frame iframe { height: 640px; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo-mark.png" alt="SD Advisory">
+    <span class="nav-brand">
+      <span class="nav-brand-name">SD ADVISORY</span>
+      <span class="nav-brand-tag">IT Consulting · AI Transformation &amp; Operations</span>
+    </span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html#services">Services</a>
+    <a href="index.html#ai-projects">Solutions</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="blog.html">Insights</a>
+    <a href="index.html#about">About</a>
+    <a href="assessment.html" style="color:var(--rust);">Free Assessment</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="breadcrumb"><a href="index.html">Home</a> / <a href="index.html#ai-projects">Solutions</a> / AI Resilience by Design</div>
+  <div class="section-label">// Reference Architecture · Interactive</div>
+  <h1>AI Resilience by Design</h1>
+  <p class="lede">Designing enterprises that can evolve with AI — and operate without it. An interactive reference architecture for AI-driven IT service operations, built for CIOs, enterprise architects, IT operations, risk and AI governance teams.</p>
+  <div class="case-meta">
+    <div><strong>Scenario:</strong> AI-powered IT service operations</div>
+    <div><strong>Format:</strong> 10-page interactive model</div>
+    <div><strong>Status:</strong> Reference model, illustrative figures</div>
+  </div>
+  <div class="hero-cta" style="margin-top:2rem;">
+    <a href="ai-resilience/" target="_blank" class="btn btn-primary">Launch the Interactive Model →</a>
+    <a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" class="btn btn-secondary">Book a Free Consultation</a>
+  </div>
+</section>
+
+<section class="content">
+  <div class="section-label">// The Idea</div>
+  <h2>Resilience Is a Property of the Business, Not the Model</h2>
+  <p class="principle">AI resilience is not about having a backup AI model. It is about designing the business so that AI can evolve, fail, disappear or be replaced without bringing the business to a halt.</p>
+  <p>Most AI resilience planning asks how to keep the model available: a second provider, a fallback endpoint. That helps with outages. It does nothing for a model that is up, fast and confidently wrong, a vendor that changes pricing or behaviour, a regulator that restricts a model, or an agent that is given more autonomy than the design assumed.</p>
+  <p>This reference architecture starts from a different question: what must the business keep doing when the AI underneath it changes? Business processes, decisions, knowledge and automation are separated from AI capability, so the capability can be swapped, degraded or switched off while service outcomes continue.</p>
+</section>
+
+<section class="content alt-bg">
+  <div class="section-label">// Try It</div>
+  <h2>The Interactive Model</h2>
+  <p>Switch between AI-on, AI-degraded and AI-off, inject failures, replace a model through evaluation gates, and score your own environment. The preview below is the full model; open it full screen for the best experience.</p>
+  <div class="model-actions">
+    <a href="ai-resilience/" target="_blank" class="btn btn-primary">Open Full Screen →</a>
+    <span class="model-note">Scenario figures, thresholds and evaluation data are illustrative examples, not benchmarks of any product.</span>
+  </div>
+  <div class="model-frame">
+    <iframe src="ai-resilience/" title="AI Resilience by Design interactive reference architecture" loading="lazy"></iframe>
+  </div>
+</section>
+
+<section class="content">
+  <div class="section-label">// The Architecture</div>
+  <h2>Ten Layers, With the Business on Top</h2>
+  <p>Every layer has a defined behaviour when AI fails. The business layers never reference a model or a vendor; the AI capability layers are designed to be replaced.</p>
+  <div class="arch-flow"><div class="arch-step">Business Services</div><div class="arch-arrow">→</div><div class="arch-step">Business Process Layer</div><div class="arch-arrow">→</div><div class="arch-step">Decision &amp; Policy Engine</div><div class="arch-arrow">→</div><div class="arch-step">AI Gateway</div><div class="arch-arrow">→</div><div class="arch-step">Model Router</div><div class="arch-arrow">→</div><div class="arch-step">Models (A, B, Local)</div><div class="arch-arrow">→</div><div class="arch-step">Knowledge / RAG</div><div class="arch-arrow">→</div><div class="arch-step">Agent &amp; Tool Orchestration</div><div class="arch-arrow">→</div><div class="arch-step">Human Control</div><div class="arch-arrow">→</div><div class="arch-step">Automation / ITSM / Infrastructure</div></div>
+  <p>Observability, security, governance, audit and resilience run across every layer. Governance is a runtime capability here: policy is evaluated on each call rather than described in a document.</p>
+</section>
+
+<section class="content alt-bg">
+  <div class="section-label">// What the Model Demonstrates</div>
+  <h2>Six Ideas, Each Interactive</h2>
+  <h3>1. The AI dependency trap</h3>
+  <p>Thirteen realistic failures (provider outage, latency, hallucination, vector database loss, prompt regression, vendor pricing change, regulatory restriction, incorrect remediation and more) shown side by side against a tightly coupled design and a resilient one.</p>
+  <h3>2. AI on, AI degraded, AI off</h3>
+  <p>Every business-critical capability (receive incidents, monitor, run runbooks, escalate, access knowledge, approve changes, communicate, restore services) has a defined way to be performed in every mode. AI off is not business off.</p>
+  <h3>3. Wrong AI, not just down AI</h3>
+  <p>Availability, reliability and trustworthiness are separated. Confidence thresholds, grounding checks, risk-tiered human approval and runtime policy contain an AI that is available but wrong.</p>
+  <h3>4. Model and vendor replacement</h3>
+  <p>A candidate model advances through evaluation gates, shadow testing and canary rollout, with the previous model kept as the rollback target. The vendor view lists honestly what stays portable and what does not, rather than claiming full vendor neutrality.</p>
+  <h3>5. Technology evolution and scale</h3>
+  <p>New model architectures, multimodal input, reasoning models, agents and edge inference enter as replaceable capabilities under stable business contracts. Controls such as agent registries and policies become required as users and agents grow.</p>
+  <h3>6. A scorecard and an executive view</h3>
+  <p>Fourteen dimensions produce an AI Resilience Maturity Score and seven CIO-level answers: can we operate without AI, replace our provider or model, detect wrong AI, stop automation safely, hand over to people, and absorb the next generation.</p>
+  <div class="stat-row"><div class="stat-pill"><div class="num">10</div><div class="lbl">Architecture Layers</div></div><div class="stat-pill"><div class="num">8</div><div class="lbl">Failure Simulations</div></div><div class="stat-pill"><div class="num">3</div><div class="lbl">Operating Modes</div></div><div class="stat-pill"><div class="num">14</div><div class="lbl">Scorecard Dimensions</div></div></div>
+</section>
+
+<section class="content">
+  <div class="section-label">// Connection to My Work</div>
+  <h2>Same Domain as Smart Desk and AI Incident Co-Pilot</h2>
+  <p>The reference scenario, AI-powered IT service operations, is the domain of Smart Desk, AI Incident Co-Pilot and the Enterprise AI Knowledge Assistant. This model describes the design principles such tools need to survive provider changes, model drift and outages: AI recommends, policy decides, automation executes with checks, and people stay accountable for high-risk decisions.</p>
+  <div class="tool-tags"><span>AI Gateway</span><span>Model Routing</span><span>RAG</span><span>Policy as Code</span><span>Human-in-the-Loop</span><span>AI Observability</span><span>Runbook Automation</span><span>ITSM</span></div>
+</section>
+
+<section class="content alt-bg">
+  <div class="section-label">// Common Questions</div>
+  <h2>Frequently Asked Questions</h2>
+  <h3>Is this a product?</h3><p>No. It is a reference architecture and interactive model. The numbers in it (thresholds, evaluation scores, costs) are illustrative examples; each enterprise sets its own.</p>
+  <h3>Is the architecture future-proof?</h3><p>No architecture can honestly claim that. This one is designed for technology evolution and change: it does not try to predict which model, vendor or technique will win, and it keeps those choices replaceable.</p>
+  <h3>Does it depend on a particular AI vendor?</h3><p>No. Applications talk to a gateway, not to a vendor. The model also states plainly what is not portable between vendors, such as embeddings, fine-tunes, contracts and exact model behaviour.</p>
+  <h3>Can this be applied to our environment?</h3><p>Yes. A good starting point is to score your current state in the model and review the weakest dimensions together. The free assessment and a 30-minute consultation are both available.</p>
+</section>
+
+<section class="content narrow">
+  <div class="section-label">// Who This Is For</div>
+  <h2>Built For Technology and Risk Leaders</h2>
+  <div class="who-grid"><div>CIOs and CTOs deciding how far to let AI into operations</div><div>Enterprise architects defining AI platform boundaries</div><div>IT operations leaders who must keep services running through AI changes</div><div>Risk and AI governance teams that need controls enforced at runtime</div></div>
+</section>
+
+<div class="cta-band">
+  <div class="section-label" style="color:var(--rust);">// Let's Talk</div>
+  <h2>Want to Score Your Own Environment?</h2>
+  <p>Book a free 30-minute consultation to walk through the scorecard, find the weakest dimensions and agree where to start. No obligation, no sales pitch.</p>
+  <div class="hero-cta">
+    <a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" class="btn btn-primary">📅 Book a Free Consultation</a>
+    <a href="assessment.html" class="btn btn-secondary">Take the Free Assessment</a>
+    <a href="mailto:sdutt@sdadvisory.in" class="btn btn-secondary">✉ Email Me</a>
+  </div>
+</div>
+
+<section class="content">
+  <div class="section-label">// Related</div>
+  <h2>Related Services &amp; Solutions</h2>
+  <div class="related-grid"><a class="related-card" href="aiops-consulting.html"><div class="rc-label">Service</div><div class="rc-title">AIOps Consulting</div></a><a class="related-card" href="ai-for-itsm.html"><div class="rc-label">Service</div><div class="rc-title">AI for ITSM</div></a><a class="related-card" href="itil-governance.html"><div class="rc-label">Service</div><div class="rc-title">ITIL 4 Governance</div></a><a class="related-card" href="case-study-smartdesk.html"><div class="rc-label">Case Study</div><div class="rc-title">Smart Desk: AI-Powered IT Support Triage</div></a></div>
+</section>
+
+<footer>
+  <p>© 2026 SD Advisory. All Rights Reserved.</p>
+  <p>ITIL Expert · PRINCE2 Practitioner · AWS CSA</p>
+</footer>
+<!-- Cloudflare Web Analytics -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</body>
+</html>

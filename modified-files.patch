@@ -1,0 +1,122 @@
+diff --git a/ai-for-itsm.html b/ai-for-itsm.html
+index 022f2b1..7b911c9 100644
+--- a/ai-for-itsm.html
++++ b/ai-for-itsm.html
+@@ -143,7 +143,7 @@
+ <section class="content">
+   <div class="section-label">// Related Services</div>
+   <h2>Explore Other Services</h2>
+-  <div class="related-grid"><a class="related-card" href="aiops-consulting.html"><div class="rc-label">Service</div><div class="rc-title">AIOps Consulting</div></a><a class="related-card" href="servicenow-automation.html"><div class="rc-label">Service</div><div class="rc-title">ServiceNow Automation</div></a><a class="related-card" href="managed-services-transformation.html"><div class="rc-label">Service</div><div class="rc-title">Managed Services Transformation</div></a><a class="related-card" href="itil-governance.html"><div class="rc-label">Service</div><div class="rc-title">ITIL 4 Governance</div></a></div>
++  <div class="related-grid"><a class="related-card" href="aiops-consulting.html"><div class="rc-label">Service</div><div class="rc-title">AIOps Consulting</div></a><a class="related-card" href="servicenow-automation.html"><div class="rc-label">Service</div><div class="rc-title">ServiceNow Automation</div></a><a class="related-card" href="managed-services-transformation.html"><div class="rc-label">Service</div><div class="rc-title">Managed Services Transformation</div></a><a class="related-card" href="itil-governance.html"><div class="rc-label">Service</div><div class="rc-title">ITIL 4 Governance</div></a><a class="related-card" href="ai-resilience-by-design.html"><div class="rc-label">Solution</div><div class="rc-title">AI Resilience by Design</div></a></div>
+ </section>
+ 
+ <footer>
+diff --git a/aiops-consulting.html b/aiops-consulting.html
+index c71df16..4505d27 100644
+--- a/aiops-consulting.html
++++ b/aiops-consulting.html
+@@ -143,7 +143,7 @@
+ <section class="content">
+   <div class="section-label">// Related Services</div>
+   <h2>Explore Other Services</h2>
+-  <div class="related-grid"><a class="related-card" href="ai-for-itsm.html"><div class="rc-label">Service</div><div class="rc-title">AI for ITSM</div></a><a class="related-card" href="servicenow-automation.html"><div class="rc-label">Service</div><div class="rc-title">ServiceNow Automation</div></a><a class="related-card" href="managed-services-transformation.html"><div class="rc-label">Service</div><div class="rc-title">Managed Services Transformation</div></a><a class="related-card" href="itil-governance.html"><div class="rc-label">Service</div><div class="rc-title">ITIL 4 Governance</div></a></div>
++  <div class="related-grid"><a class="related-card" href="ai-for-itsm.html"><div class="rc-label">Service</div><div class="rc-title">AI for ITSM</div></a><a class="related-card" href="servicenow-automation.html"><div class="rc-label">Service</div><div class="rc-title">ServiceNow Automation</div></a><a class="related-card" href="managed-services-transformation.html"><div class="rc-label">Service</div><div class="rc-title">Managed Services Transformation</div></a><a class="related-card" href="itil-governance.html"><div class="rc-label">Service</div><div class="rc-title">ITIL 4 Governance</div></a><a class="related-card" href="ai-resilience-by-design.html"><div class="rc-label">Solution</div><div class="rc-title">AI Resilience by Design</div></a></div>
+ </section>
+ 
+ <footer>
+diff --git a/index.html b/index.html
+index bedde58..ffb009a 100644
+--- a/index.html
++++ b/index.html
+@@ -1359,6 +1359,59 @@
+     </div>
+     <!-- END PROJECT 6: Proposal Automation Platform -->
+ 
++    <!-- PROJECT 7: AI Resilience by Design -->
++    <div class="project-card">
++      <div class="project-header">
++        <div class="project-tag">🛡️ AI Architecture · Resilience &amp; Governance</div>
++        <div class="project-title"><em>AI Resilience by Design</em> — Interactive Reference Architecture</div>
++        <p class="project-desc">
++          An interactive reference architecture showing how an enterprise keeps operating when AI is unavailable, wrong, replaced, or more autonomous — with AI-on, degraded and AI-off modes, failure simulations, and a resilience scorecard for IT service operations.
++        </p>
++      </div>
++
++      <div class="project-metrics">
++        <div class="metric">
++          <div class="metric-num">10</div>
++          <div class="metric-label">Architecture Layers</div>
++        </div>
++        <div class="metric">
++          <div class="metric-num">8</div>
++          <div class="metric-label">Failure Simulations</div>
++        </div>
++        <div class="metric">
++          <div class="metric-num">14</div>
++          <div class="metric-label">Scorecard Dimensions</div>
++        </div>
++      </div>
++
++      <div class="project-body">
++        <div class="project-stack">
++          <span class="stack-tag">AI Gateway</span>
++          <span class="stack-tag">Model Routing</span>
++          <span class="stack-tag">RAG</span>
++          <span class="stack-tag">Policy as Code</span>
++          <span class="stack-tag">AI Observability</span>
++          <span class="stack-tag">React / TypeScript</span>
++        </div>
++        <ul class="project-highlights">
++          <li>Shows the AI dependency trap: 13 failures compared across a tightly coupled design and a resilient one</li>
++          <li>AI-on, AI-degraded and AI-off operating modes — every business-critical capability keeps a defined non-AI path</li>
++          <li>Designs for wrong AI, not just down AI: confidence thresholds, grounding checks, risk-tiered human approval</li>
++          <li>Model and vendor replacement through evaluation gates, shadow testing and canary rollout, with an honest portability ledger</li>
++          <li>AI Resilience Maturity Score and CIO dashboard derived from a 14-dimension scorecard; all figures illustrative</li>
++        </ul>
++      </div>
++
++      <div class="project-footer">
++        <div class="project-status"><span class="status-dot live"></span> Interactive Reference Model</div>
++        <div>
++          <a href="ai-resilience-by-design.html" class="project-link" style="margin-right:1.2rem;">Read Overview →</a>
++          <a href="ai-resilience/" target="_blank" class="project-link">Launch Model →</a>
++        </div>
++      </div>
++    </div>
++    <!-- END PROJECT 7: AI Resilience by Design -->
++
+   </div><!-- end project-grid -->
+ 
+   <div class="projects-note">
+diff --git a/service-pages.css b/service-pages.css
+index adec3fd..e3ab59f 100644
+--- a/service-pages.css
++++ b/service-pages.css
+@@ -92,7 +92,7 @@ h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem; color
+ .cta-band .btn-secondary { color: var(--paper); border-color: rgba(245,240,232,0.3); }
+ 
+ /* RELATED SERVICES */
+-.related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 1.5rem; }
++.related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 1.5rem; }
+ .related-card { background: var(--paper); padding: 1.6rem 1.3rem; text-decoration: none; transition: background 0.2s; }
+ .related-card:hover { background: var(--cream); }
+ .related-card .rc-label { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; color: var(--rust); text-transform: uppercase; margin-bottom: 0.5rem; }
+diff --git a/sitemap.xml b/sitemap.xml
+index 59df701..10ac3f0 100644
+--- a/sitemap.xml
++++ b/sitemap.xml
+@@ -65,4 +65,14 @@
+     <changefreq>monthly</changefreq>
+     <priority>0.9</priority>
+   </url>
++  <url>
++    <loc>https://www.sdadvisory.in/ai-resilience-by-design.html</loc>
++    <changefreq>monthly</changefreq>
++    <priority>0.9</priority>
++  </url>
++  <url>
++    <loc>https://www.sdadvisory.in/ai-resilience/</loc>
++    <changefreq>monthly</changefreq>
++    <priority>0.8</priority>
++  </url>
+ </urlset>

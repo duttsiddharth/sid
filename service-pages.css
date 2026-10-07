@@ -92,7 +92,7 @@ h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem; color
 .cta-band .btn-secondary { color: var(--paper); border-color: rgba(245,240,232,0.3); }
 
 /* RELATED SERVICES */
-.related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 1.5rem; }
+.related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 1.5rem; }
 .related-card { background: var(--paper); padding: 1.6rem 1.3rem; text-decoration: none; transition: background 0.2s; }
 .related-card:hover { background: var(--cream); }
 .related-card .rc-label { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; color: var(--rust); text-transform: uppercase; margin-bottom: 0.5rem; }
