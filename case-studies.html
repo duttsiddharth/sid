@@ -3,127 +3,197 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Case Studies | AI &amp; ITSM Transformation Results — SD Advisory</title>
-<meta name="description" content="Real case studies in AI-powered IT operations: Smart Desk (42% ticket auto-resolution), AI Incident Co-Pilot (20% MTTR reduction), and SLA Transformation (96% to 99.8% adherence).">
-<meta name="keywords" content="AIOps case studies, AI ITSM case studies, ticket automation case study, MTTR reduction case study, SLA transformation case study">
+<script>document.documentElement.classList.add('js')</script>
+<title>Case Studies: AI &amp; ITSM Transformation Evidence | SD Advisory</title>
+<meta name="description" content="Four labelled case studies: SmartDesk, AI Incident Co-Pilot, SLA Transformation and AI Resilience by Design. Problem, approach, architecture, outcome and lessons.">
 <meta name="author" content="Siddharth Dutt">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.sdadvisory.in/case-studies.html">
-
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Case Studies — AI &amp; ITSM Transformation Results">
-<meta property="og:description" content="Real, verified results from AI-powered IT operations engagements — ticket automation, incident response, and SLA transformation.">
+<meta property="og:title" content="Case Studies — SD Advisory">
+<meta property="og:description" content="Prototype benchmarks, delivery engagements and a reference architecture, clearly labelled.">
 <meta property="og:url" content="https://www.sdadvisory.in/case-studies.html">
 <meta property="og:site_name" content="SD Advisory">
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="service-pages.css">
-<style>
-  .case-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 2rem; }
-  .case-row { background: var(--paper); padding: 2.2rem 2rem; display: grid; grid-template-columns: 100px 1fr auto; gap: 2rem; align-items: center; text-decoration: none; transition: background 0.2s; }
-  .case-row:hover { background: var(--cream); }
-  .case-row .case-stat { font-family: 'DM Serif Display', serif; font-size: 1.8rem; color: var(--rust); text-align: center; }
-  .case-row .case-stat-lbl { font-size: 0.6rem; color: var(--muted); text-align: center; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.2rem; }
-  .case-row h3 { margin: 0 0 0.4rem; font-size: 1.2rem; }
-  .case-row p { margin: 0; font-size: 0.88rem; color: var(--muted); }
-  .case-row .case-cta { font-size: 0.78rem; font-weight: 700; color: var(--rust); white-space: nowrap; }
-  @media (max-width: 800px) {
-    .case-row { grid-template-columns: 1fr; gap: 0.8rem; text-align: left; }
-    .case-row .case-stat { text-align: left; }
-    .case-row .case-stat-lbl { text-align: left; }
-  }
-</style>
+<meta property="og:locale" content="en_IN">
 <meta property="og:image" content="https://www.sdadvisory.in/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SD Advisory — Enterprise AI Transformation for IT Operations">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Case Studies — SD Advisory">
+<meta name="twitter:description" content="Prototype benchmarks, delivery engagements and a reference architecture, clearly labelled.">
 <meta name="twitter:image" content="https://www.sdadvisory.in/og-image.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "SD Advisory Case Studies",
+  "url": "https://www.sdadvisory.in/case-studies.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "SmartDesk",
+      "url": "https://www.sdadvisory.in/case-study-smartdesk.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "AI Incident Co-Pilot",
+      "url": "https://www.sdadvisory.in/case-study-ai-incident-copilot.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "SLA Transformation",
+      "url": "https://www.sdadvisory.in/case-study-sla-transformation.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "AI Resilience by Design",
+      "url": "https://www.sdadvisory.in/ai-resilience-by-design.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.sdadvisory.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Case Studies",
+      "item": "https://www.sdadvisory.in/case-studies.html"
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="service-pages.css">
+<link rel="stylesheet" href="site.css">
 </head>
-<body>
-
-<nav>
-  <a href="index.html" class="nav-logo">
-    <img src="logo-mark.png" alt="SD Advisory">
+<body class="sd-page">
+<a class="skip-link" href="#main">Skip to main content</a>
+<nav aria-label="Primary">
+  <a href="index.html" class="nav-logo" aria-label="SD Advisory home">
+    <img src="logo-mark-80.png" width="40" height="40" alt="">
     <span class="nav-brand">
       <span class="nav-brand-name">SD ADVISORY</span>
-      <span class="nav-brand-tag">IT Consulting · AI Transformation &amp; Operations</span>
+      <span class="nav-brand-tag">Enterprise AI Transformation</span>
     </span>
   </a>
-  <div class="nav-links">
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <div class="nav-links" id="nav-menu">
     <a href="index.html#services">Services</a>
-    <a href="index.html#ai-projects">Solutions</a>
-    <a href="case-studies.html" style="color:var(--rust);">Case Studies</a>
+    <a href="accelerators.html">Accelerators</a>
+    <a href="ai-resilience-by-design.html">AI Resilience</a>
+    <a href="case-studies.html" aria-current="page">Case Studies</a>
     <a href="blog.html">Insights</a>
-    <a href="index.html#about">About</a>
-    <a href="assessment.html" style="color:var(--rust);">Free Assessment</a>
-    <a href="index.html#contact">Contact</a>
+    <a href="start-here.html">Start Here</a>
+    <a href="assessment.html" class="nav-cta">Assess Your AI Readiness</a>
   </div>
 </nav>
-
+<main id="main">
 <section class="page-hero">
   <div class="breadcrumb"><a href="index.html">Home</a> / Case Studies</div>
-  <div class="section-label">// Verified Results</div>
-  <h1>Case Studies</h1>
-  <p class="lede">Real engagements, real numbers — how AI-powered automation and governance redesign moved the needle on ticket resolution, incident response, and SLA performance.</p>
+  <div class="section-label">// Evidence · Case studies</div>
+  <h1>Case Studies: Proof, Not Promises</h1>
+  <p class="lede">How AI-enabled operations and governance redesign moved ticket resolution, incident response and SLA performance — each result labelled for what it is.</p>
+  <div class="hero-cta"><a href="assessment.html" class="btn btn-primary">Assess Your AI Readiness →</a><a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" rel="noopener" class="btn btn-secondary">Book a 30-Minute Consultation</a></div>
 </section>
-
-<section class="content" style="max-width: 1100px;">
-  <div class="case-grid">
-
-    <a class="case-row" href="case-study-smartdesk.html">
-      <div>
-        <div class="case-stat">42%</div>
-        <div class="case-stat-lbl">Auto-Resolved</div>
-      </div>
-      <div>
-        <h3>Smart Desk — AI-Powered IT Support Triage</h3>
-        <p>Claude API + n8n + ServiceNow integration automating ticket classification, prioritization, and routing.</p>
-      </div>
-      <div class="case-cta">Read Case Study →</div>
-    </a>
-
-    <a class="case-row" href="case-study-ai-incident-copilot.html">
-      <div>
-        <div class="case-stat">20%</div>
-        <div class="case-stat-lbl">MTTR Reduction</div>
-      </div>
-      <div>
-        <h3>AI Incident Co-Pilot — Intelligent Incident Response</h3>
-        <p>Real-time incident analysis and auto-drafted stakeholder communications integrated with Dynatrace and Splunk.</p>
-      </div>
-      <div class="case-cta">Read Case Study →</div>
-    </a>
-
-    <a class="case-row" href="case-study-sla-transformation.html">
-      <div>
-        <div class="case-stat">99.8%</div>
-        <div class="case-stat-lbl">SLA Adherence</div>
-      </div>
-      <div>
-        <h3>SLA Transformation — From 96% to 99.8%</h3>
-        <p>ITIL 4-aligned governance redesign combined with AI-driven monitoring to close a persistent SLA gap.</p>
-      </div>
-      <div class="case-cta">Read Case Study →</div>
-    </a>
-
-  </div>
+<section class="content wide">
+  <div class="section-label">// Four case studies</div>
+  <h2>Read the evidence</h2>
+  <div class="proof-grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));max-width:1100px"><a class="proof-card" href="case-study-smartdesk.html"><span class="status ">Accelerator · Live prototype</span><div class="metric">42<small>%</small></div><div class="metric-label">Ticket auto-resolution</div><h3>SmartDesk — AI-powered IT support triage</h3><p class="flow">Manual triage → AI classification → routing → response. Claude API, n8n and ServiceNow.</p><span class="more">Read case study →</span></a><a class="proof-card" href="case-study-ai-incident-copilot.html"><span class="status ">Accelerator · Live prototype</span><div class="metric">20<small>%</small></div><div class="metric-label">MTTR reduction</div><h3>AI Incident Co-Pilot — intelligent incident response</h3><p class="flow">Observability → AI analysis → remediation guidance → stakeholder communication, with human review.</p><span class="more">Read case study →</span></a><a class="proof-card" href="case-study-sla-transformation.html"><span class="status delivery">Delivery engagement</span><div class="metric">99.8<small>%</small></div><div class="metric-label">SLA adherence, from 96%</div><h3>SLA Transformation — governance redesign</h3><p class="flow">ITIL 4-aligned governance, vendor accountability and AI-driven monitoring on an enterprise engagement.</p><span class="more">Read case study →</span></a><a class="proof-card" href="ai-resilience-by-design.html"><span class="status ref">Reference architecture</span><div class="metric">10</div><div class="metric-label">Layers · 8 failure simulations</div><h3>AI Resilience by Design — enterprise AI resilience framework</h3><p class="flow">AI ON → AI DEGRADED → AI OFF. An interactive reference model with a 14-dimension scorecard (figures illustrative).</p><span class="more">Read case study →</span></a></div>
 </section>
-
+<section class="content alt-bg">
+  <div class="section-label">// How we label evidence</div>
+  <h2>Honest terminology</h2>
+  <ul>
+    <li><strong>Production deployment</strong> — live in a client environment.</li>
+    <li><strong>Pilot</strong> — a scoped trial with a client, measured against an agreed baseline.</li>
+    <li><strong>Accelerator · live prototype</strong> — a working build used to demonstrate the approach. Its figures are benchmarks of that build, not client results.</li>
+    <li><strong>Delivery engagement</strong> — enterprise service-delivery work; the client is not named.</li>
+    <li><strong>Reference architecture</strong> — a design model, not a deployment. Figures inside it are illustrative.</li>
+  </ul>
+  <p class="muted">Every case study follows the same structure: business problem, challenge, approach, architecture, outcome, technology and lessons.</p>
+</section>
 <div class="cta-band">
-  <div class="section-label" style="color:var(--rust);">// Let's Talk</div>
-  <h2>Want Results Like These?</h2>
-  <p>Book a free 30-minute consultation to discuss whether a similar approach fits your environment.</p>
-  <div class="hero-cta">
-    <a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" class="btn btn-primary">📅 Book a Free Consultation</a>
-    <a href="assessment.html" class="btn btn-secondary">Take the Free AI Readiness Assessment</a>
-  </div>
+  <div class="section-label">// Next step</div>
+  <h2>Want to know what this looks like in your environment?</h2>
+  <p>Start with a three-minute readiness assessment, or talk it through in a 30-minute consultation.</p>
+  <div class="hero-cta"><a href="assessment.html" class="btn btn-primary">Assess Your AI Readiness →</a>
+  <a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" rel="noopener" class="btn btn-secondary">Book a 30-Minute Consultation</a></div>
 </div>
-
-<footer>
-  <p>© 2026 SD Advisory. All Rights Reserved.</p>
-  <p>ITIL Expert · PRINCE2 Practitioner · AWS CSA</p>
+</main>
+<footer class="sd-footer">
+  <div class="sd-footer-grid">
+    <div>
+      <div class="f-brand">SD ADVISORY</div>
+      <p class="f-tag">Enterprise AI transformation for IT operations. From reactive IT operations to intelligent, resilient and AI-enabled operations.</p>
+      <ul>
+        <li><a href="mailto:sdutt@sdadvisory.in">sdutt@sdadvisory.in</a></li>
+        <li><a href="tel:+919611105276">+91 96111 05276</a></li>
+        <li><a href="https://linkedin.com/in/siddharth-dutt-csm" rel="noopener" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Services</h2>
+      <ul>
+        <li><a href="ai-transformation-advisory.html">AI Transformation Advisory</a></li>
+        <li><a href="intelligent-it-operations.html">Intelligent IT Operations</a></li>
+        <li><a href="accelerators.html">AI &amp; ITSM Accelerators</a></li>
+        <li><a href="transformation-delivery.html">Transformation &amp; Delivery</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Explore</h2>
+      <ul>
+        <li><a href="assessment.html">Free AI Readiness Assessment</a></li>
+        <li><a href="ai-resilience-by-design.html">AI Resilience by Design</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="blog.html">Insights</a></li>
+        <li><a href="start-here.html">Where to Start</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Company</h2>
+      <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" rel="noopener" target="_blank">Book a Consultation</a></li>
+        <li><a href="experiments.html">Built in Public</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="sd-footer-base">
+    <span>© 2026 SD Advisory. All rights reserved.</span>
+    <span>ITIL Expert · PRINCE2 Practitioner · AWS Certified Solutions Architect</span>
+  </div>
 </footer>
-
+<script src="site.js" defer></script>
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
 <!-- End Cloudflare Web Analytics -->

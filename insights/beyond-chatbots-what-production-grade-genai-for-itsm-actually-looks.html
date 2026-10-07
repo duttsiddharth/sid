@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js')</script>
+<title>Beyond Chatbots: Production-Grade GenAI for ITSM</title>
+<meta name="description" content="A behind-the-scenes look at building Smart Desk — the architecture decisions, the failure modes I hit early, and why the boring parts of the build…">
+<meta name="author" content="Siddharth Dutt">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.sdadvisory.in/insights/beyond-chatbots-what-production-grade-genai-for-itsm-actually-looks.html">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Beyond Chatbots: Production-Grade GenAI for ITSM">
+<meta property="og:description" content="A behind-the-scenes look at building Smart Desk — the architecture decisions, the failure modes I hit early, and why the boring parts of the build…">
+<meta property="og:url" content="https://www.sdadvisory.in/insights/beyond-chatbots-what-production-grade-genai-for-itsm-actually-looks.html">
+<meta property="og:site_name" content="SD Advisory">
+<meta property="og:locale" content="en_IN">
+<meta property="og:image" content="https://www.sdadvisory.in/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SD Advisory — Enterprise AI Transformation for IT Operations">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Beyond Chatbots: Production-Grade GenAI for ITSM">
+<meta name="twitter:description" content="A behind-the-scenes look at building Smart Desk — the architecture decisions, the failure modes I hit early, and why the boring parts of the build…">
+<meta name="twitter:image" content="https://www.sdadvisory.in/og-image.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Beyond Chatbots: What Production-Grade GenAI for ITSM Actually Looks Like",
+  "description": "A behind-the-scenes look at building Smart Desk — the architecture decisions, the failure modes I hit early, and why the boring parts of the build…",
+  "author": {
+    "@type": "Person",
+    "name": "Siddharth Dutt",
+    "url": "https://www.sdadvisory.in/"
+  },
+  "publisher": {
+    "@type": "ProfessionalService",
+    "name": "SD Advisory",
+    "url": "https://www.sdadvisory.in/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.sdadvisory.in/logo-mark.png"
+    }
+  },
+  "datePublished": "2025-10",
+  "articleSection": "AI + ITSM",
+  "image": "https://www.sdadvisory.in/og-image.jpg",
+  "mainEntityOfPage": "https://www.sdadvisory.in/insights/beyond-chatbots-what-production-grade-genai-for-itsm-actually-looks.html",
+  "inLanguage": "en"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.sdadvisory.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Insights",
+      "item": "https://www.sdadvisory.in/blog.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Beyond Chatbots: What Production-Grade GenAI for ITSM Actually Looks Like",
+      "item": "https://www.sdadvisory.in/insights/beyond-chatbots-what-production-grade-genai-for-itsm-actually-looks.html"
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../service-pages.css">
+<link rel="stylesheet" href="../site.css">
+</head>
+<body class="sd-page">
+<a class="skip-link" href="#main">Skip to main content</a>
+<nav aria-label="Primary">
+  <a href="../index.html" class="nav-logo" aria-label="SD Advisory home">
+    <img src="../logo-mark-80.png" width="40" height="40" alt="">
+    <span class="nav-brand">
+      <span class="nav-brand-name">SD ADVISORY</span>
+      <span class="nav-brand-tag">Enterprise AI Transformation</span>
+    </span>
+  </a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <div class="nav-links" id="nav-menu">
+    <a href="../index.html#services">Services</a>
+    <a href="../accelerators.html">Accelerators</a>
+    <a href="../ai-resilience-by-design.html">AI Resilience</a>
+    <a href="../case-studies.html">Case Studies</a>
+    <a href="../blog.html" aria-current="page">Insights</a>
+    <a href="../start-here.html">Start Here</a>
+    <a href="../assessment.html" class="nav-cta">Assess Your AI Readiness</a>
+  </div>
+</nav>
+<main id="main">
+<header class="article-hero">
+  <div class="sd-wrap">
+    <div class="crumbs"><a href="../index.html">Home</a> / <a href="../blog.html">Insights</a> / <a href="../blog.html#ai-itsm">AI + ITSM</a></div>
+    <div class="tag">AI + ITSM · GenAI · ITSM</div>
+    <h1>Beyond Chatbots: What Production-Grade GenAI for <em>ITSM</em> Actually Looks Like</h1>
+    <div class="byline"><span>Siddharth Dutt</span><span>Oct 2025</span><span>7 min read</span></div>
+  </div>
+</header>
+<article class="article-body">
+
+      <p>Almost every enterprise I talk to has run a GenAI chatbot pilot for IT support. Almost none of them are still running it a year later. The pattern is consistent enough that I can usually predict, within the first ten minutes of a conversation, whether a GenAI-for-ITSM initiative will survive contact with production.</p>
+
+      <h2>Decision 1: Classification, Not Conversation</h2>
+      <p>The highest-value, lowest-risk GenAI use case in ITSM isn't a chatbot users talk to — it's a classifier that runs silently on every incoming ticket. Accurate classification and prioritization compounds across thousands of tickets without ever exposing an end user to an AI interaction that might go wrong.</p>
+
+      <h2>Decision 2: Confidence Thresholds, Not Auto-Everything</h2>
+      <p>Production systems route low-confidence classifications to a human, full stop. The temptation to auto-resolve everything the model touches is exactly how pilots become incidents. On Smart Desk, the AI ticket triage system I built using Claude API and n8n, only well-understood, low-risk categories were enabled for auto-resolution initially — everything else routed through normal human-reviewed paths.</p>
+
+      <div class="stat-row">
+        <div class="stat-box"><div class="num">42%</div><div class="lbl">Ticket Auto-Resolution</div></div>
+        <div class="stat-box"><div class="num">~2.5 hrs</div><div class="lbl">Saved Per Day</div></div>
+      </div>
+
+      <h2>Decision 3: Draft, Don't Send</h2>
+      <p>For anything customer- or stakeholder-facing — incident updates, resolution summaries, RCA drafts — the AI should produce a draft a human reviews and sends, not an autonomous message. This single design choice is the difference between a tool operations teams trust and one they quietly route around.</p>
+
+      <blockquote>"The fastest way to kill trust in an AI tool is one bad autonomous action nobody approved."</blockquote>
+
+      <h2>Decision 4: Integrate, Don't Replace</h2>
+      <p>Every successful implementation I've built sits inside the existing ServiceNow workflow rather than next to it. Tickets still live in ServiceNow. Escalations still follow the existing matrix. The AI is a layer that makes the existing system faster, not a parallel system competing for the team's attention.</p>
+
+      <div class="callout">
+        <strong>Key Takeaway</strong>
+        <p>The chatbot demo and the production system solve different problems. Demos are built to impress; production systems are built to survive a bad day. Design for the second one from the start.</p>
+      </div>
+
+      <p>None of this is exotic engineering. It's mostly discipline about scope and a refusal to let the AI take actions that haven't earned trust yet. That discipline is also exactly what turns a pilot into something that's still running — and still saving real hours — a year later.</p>
+    
+</article>
+<section class="article-next" aria-labelledby="where-next">
+  <div class="box">
+    <h2 id="where-next">Where to go from here</h2>
+    <ul>
+      <li>Service: <a href="../ai-for-itsm.html">AI for ITSM</a></li>
+      <li>Evidence: <a href="../case-study-smartdesk.html">SmartDesk case study</a></li>
+      <li>Check your own position: <a href="../assessment.html">the free three-minute AI Readiness Assessment</a></li>
+      <li>More on <a href="../blog.html#ai-itsm">AI + ITSM</a></li>
+    </ul>
+    <h2 style="font-size:1.1rem">Keep reading</h2><ul><li><a href="../insights/prompt-engineering-for-itsm-teams.html">Prompt Engineering for ITSM Teams</a></li><li><a href="../insights/n8n-claude-the-itsm-power-combo.html">n8n + Claude: The ITSM Power Combo</a></li><li><a href="../insights/itil-4-meets-generative-ai.html">ITIL 4 Meets Generative AI</a></li></ul>
+    <div class="row"><a class="btn btn-primary" href="../assessment.html">Assess Your AI Readiness →</a>
+    <a class="btn btn-secondary" href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" rel="noopener">Book a 30-Minute Consultation</a></div>
+  </div>
+</section>
+</main>
+<footer class="sd-footer">
+  <div class="sd-footer-grid">
+    <div>
+      <div class="f-brand">SD ADVISORY</div>
+      <p class="f-tag">Enterprise AI transformation for IT operations. From reactive IT operations to intelligent, resilient and AI-enabled operations.</p>
+      <ul>
+        <li><a href="mailto:sdutt@sdadvisory.in">sdutt@sdadvisory.in</a></li>
+        <li><a href="tel:+919611105276">+91 96111 05276</a></li>
+        <li><a href="https://linkedin.com/in/siddharth-dutt-csm" rel="noopener" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Services</h2>
+      <ul>
+        <li><a href="../ai-transformation-advisory.html">AI Transformation Advisory</a></li>
+        <li><a href="../intelligent-it-operations.html">Intelligent IT Operations</a></li>
+        <li><a href="../accelerators.html">AI &amp; ITSM Accelerators</a></li>
+        <li><a href="../transformation-delivery.html">Transformation &amp; Delivery</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Explore</h2>
+      <ul>
+        <li><a href="../assessment.html">Free AI Readiness Assessment</a></li>
+        <li><a href="../ai-resilience-by-design.html">AI Resilience by Design</a></li>
+        <li><a href="../case-studies.html">Case Studies</a></li>
+        <li><a href="../blog.html">Insights</a></li>
+        <li><a href="../start-here.html">Where to Start</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Company</h2>
+      <ul>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" rel="noopener" target="_blank">Book a Consultation</a></li>
+        <li><a href="../experiments.html">Built in Public</a></li>
+        <li><a href="../privacy.html">Privacy</a></li>
+        <li><a href="../terms.html">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="sd-footer-base">
+    <span>© 2026 SD Advisory. All rights reserved.</span>
+    <span>ITIL Expert · PRINCE2 Practitioner · AWS Certified Solutions Architect</span>
+  </div>
+</footer>
+<script src="../site.js" defer></script>
+<!-- Cloudflare Web Analytics -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</body>
+</html>

@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /Legal Rights.html
+Disallow: /experiments.html
 
 Sitemap: https://www.sdadvisory.in/sitemap.xml

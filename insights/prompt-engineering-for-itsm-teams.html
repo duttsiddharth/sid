@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js')</script>
+<title>Prompt Engineering for ITSM Teams | SD Advisory</title>
+<meta name="description" content="How I built SmartDesk — an AI triage system that auto-classifies 42% of tickets — using n8n workflows and Claude API. A complete walkthrough of the…">
+<meta name="author" content="Siddharth Dutt">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.sdadvisory.in/insights/prompt-engineering-for-itsm-teams.html">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Prompt Engineering for ITSM Teams | SD Advisory">
+<meta property="og:description" content="How I built SmartDesk — an AI triage system that auto-classifies 42% of tickets — using n8n workflows and Claude API. A complete walkthrough of the…">
+<meta property="og:url" content="https://www.sdadvisory.in/insights/prompt-engineering-for-itsm-teams.html">
+<meta property="og:site_name" content="SD Advisory">
+<meta property="og:locale" content="en_IN">
+<meta property="og:image" content="https://www.sdadvisory.in/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SD Advisory — Enterprise AI Transformation for IT Operations">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Prompt Engineering for ITSM Teams | SD Advisory">
+<meta name="twitter:description" content="How I built SmartDesk — an AI triage system that auto-classifies 42% of tickets — using n8n workflows and Claude API. A complete walkthrough of the…">
+<meta name="twitter:image" content="https://www.sdadvisory.in/og-image.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Prompt Engineering for ITSM Teams",
+  "description": "How I built SmartDesk — an AI triage system that auto-classifies 42% of tickets — using n8n workflows and Claude API. A complete walkthrough of the…",
+  "author": {
+    "@type": "Person",
+    "name": "Siddharth Dutt",
+    "url": "https://www.sdadvisory.in/"
+  },
+  "publisher": {
+    "@type": "ProfessionalService",
+    "name": "SD Advisory",
+    "url": "https://www.sdadvisory.in/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.sdadvisory.in/logo-mark.png"
+    }
+  },
+  "datePublished": "2026-05",
+  "articleSection": "AI + ITSM",
+  "image": "https://www.sdadvisory.in/og-image.jpg",
+  "mainEntityOfPage": "https://www.sdadvisory.in/insights/prompt-engineering-for-itsm-teams.html",
+  "inLanguage": "en"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.sdadvisory.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Insights",
+      "item": "https://www.sdadvisory.in/blog.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Prompt Engineering for ITSM Teams",
+      "item": "https://www.sdadvisory.in/insights/prompt-engineering-for-itsm-teams.html"
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../service-pages.css">
+<link rel="stylesheet" href="../site.css">
+</head>
+<body class="sd-page">
+<a class="skip-link" href="#main">Skip to main content</a>
+<nav aria-label="Primary">
+  <a href="../index.html" class="nav-logo" aria-label="SD Advisory home">
+    <img src="../logo-mark-80.png" width="40" height="40" alt="">
+    <span class="nav-brand">
+      <span class="nav-brand-name">SD ADVISORY</span>
+      <span class="nav-brand-tag">Enterprise AI Transformation</span>
+    </span>
+  </a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <div class="nav-links" id="nav-menu">
+    <a href="../index.html#services">Services</a>
+    <a href="../accelerators.html">Accelerators</a>
+    <a href="../ai-resilience-by-design.html">AI Resilience</a>
+    <a href="../case-studies.html">Case Studies</a>
+    <a href="../blog.html" aria-current="page">Insights</a>
+    <a href="../start-here.html">Start Here</a>
+    <a href="../assessment.html" class="nav-cta">Assess Your AI Readiness</a>
+  </div>
+</nav>
+<main id="main">
+<header class="article-hero">
+  <div class="sd-wrap">
+    <div class="crumbs"><a href="../index.html">Home</a> / <a href="../blog.html">Insights</a> / <a href="../blog.html#ai-itsm">AI + ITSM</a></div>
+    <div class="tag">AI + ITSM · GenAI · ITSM</div>
+    <h1>Prompt Engineering for <em>ITSM Teams</em></h1>
+    <div class="byline"><span>Siddharth Dutt</span><span>May 2026</span><span>6 min read</span></div>
+  </div>
+</header>
+<article class="article-body">
+
+      <p>The service desk is one of the highest-volume, highest-repetition environments in IT. Thousands of tickets per month. Dozens of agents fielding the same questions. Manual triage. Copy-pasted RCA templates. This is exactly the environment where well-designed prompts deliver outsized value.</p>
+
+      <p>I've spent the past year embedding GenAI into ITSM workflows — using Claude, ChatGPT, and Gemini in different configurations. What follows is the practical prompt architecture that actually works in production, not in demos.</p>
+
+      <h2>The Three Prompt Layers</h2>
+      <p>Effective ITSM prompt engineering operates across three layers, each building on the last:</p>
+
+      <h3>Layer 1: Classification Prompts</h3>
+      <p>The first job of any GenAI ITSM integration is accurate ticket classification. A well-structured classification prompt should output a structured JSON object, not a narrative response.</p>
+
+      <div class="callout">
+        <strong>Example Classification Prompt</strong>
+        <p>You are an ITSM triage specialist. Analyse the following ticket and return ONLY a JSON object with: category (one of: hardware, software, network, access, other), priority (P1–P4 using ITIL criteria), suggested_team, confidence_score (0–1), and reasoning (max 30 words). Ticket: [TICKET_TEXT]</p>
+      </div>
+
+      <p>The key design decisions here: force structured output, constrain the category set to your actual service catalogue, and request a confidence score so your workflow can route low-confidence tickets to human review.</p>
+
+      <h3>Layer 2: Enrichment Prompts</h3>
+      <p>Once a ticket is classified, enrichment prompts add operational context — pulling from your knowledge base, CMDB, and recent incident history. This is where RAG (Retrieval-Augmented Generation) comes in, which I'll cover in a separate article.</p>
+
+      <p>A basic enrichment prompt might ask the model to:</p>
+      <ul>
+        <li>Summarise the last 3 similar incidents and their resolutions</li>
+        <li>Identify the affected configuration items from the CMDB</li>
+        <li>Flag any active change windows that might be related</li>
+        <li>Generate a pre-filled agent briefing in under 100 words</li>
+      </ul>
+
+      <h3>Layer 3: Communication Prompts</h3>
+      <p>The third layer handles user-facing and stakeholder communications. This is where tone and brand voice matter. Your service desk has a communication standard — the LLM should follow it.</p>
+
+      <blockquote>"The best ITSM prompt is the one your agents never have to rewrite."</blockquote>
+
+      <h2>Common Mistakes I've Seen</h2>
+
+      <h3>Vague Instructions</h3>
+      <p>Prompts like "summarise this ticket" produce inconsistent output. Always specify format, length, audience, and constraints. The more specific your prompt, the more reliable your output.</p>
+
+      <h3>Ignoring Edge Cases</h3>
+      <p>P1 incidents, VIP users, and security-related tickets need special handling. Build explicit conditional logic into your prompts: "If the ticket contains keywords related to security or data breach, set priority to P1 regardless of other factors and add flag: SECURITY."</p>
+
+      <h3>No Human Override Path</h3>
+      <p>Every AI-generated action needs a visible override mechanism. Agents must be able to see what the AI recommended, why, and change it with one click. This isn't just good UX — it's how you build the feedback data that improves the model over time.</p>
+
+      <div class="stat-row">
+        <div class="stat-box"><div class="num">42%</div><div class="lbl">Tickets Auto-Resolved</div></div>
+        <div class="stat-box"><div class="num">90s</div><div class="lbl">AI Triage vs 8min Manual</div></div>
+        <div class="stat-box"><div class="num">2.5h</div><div class="lbl">Agent Time Saved/Day</div></div>
+      </div>
+
+      <h2>Starting Small</h2>
+      <p>You don't need a platform overhaul to start. The fastest path to production value is a single, well-defined use case: auto-generating the first response to password reset tickets, or summarising incident timelines for post-incident reviews.</p>
+
+      <p>Pick one high-volume, low-risk ticket type. Design a prompt. Test it on 100 historical tickets. Measure accuracy against human-labelled outcomes. Iterate. That's the prompt engineering loop that scales.</p>
+    
+</article>
+<section class="article-next" aria-labelledby="where-next">
+  <div class="box">
+    <h2 id="where-next">Where to go from here</h2>
+    <ul>
+      <li>Service: <a href="../ai-for-itsm.html">AI for ITSM</a></li>
+      <li>Evidence: <a href="../case-study-smartdesk.html">SmartDesk case study</a></li>
+      <li>Check your own position: <a href="../assessment.html">the free three-minute AI Readiness Assessment</a></li>
+      <li>More on <a href="../blog.html#ai-itsm">AI + ITSM</a></li>
+    </ul>
+    <h2 style="font-size:1.1rem">Keep reading</h2><ul><li><a href="../insights/n8n-claude-the-itsm-power-combo.html">n8n + Claude: The ITSM Power Combo</a></li><li><a href="../insights/itil-4-meets-generative-ai.html">ITIL 4 Meets Generative AI</a></li><li><a href="../insights/rag-for-knowledge-base-automation.html">RAG for Knowledge Base Automation</a></li></ul>
+    <div class="row"><a class="btn btn-primary" href="../assessment.html">Assess Your AI Readiness →</a>
+    <a class="btn btn-secondary" href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" rel="noopener">Book a 30-Minute Consultation</a></div>
+  </div>
+</section>
+</main>
+<footer class="sd-footer">
+  <div class="sd-footer-grid">
+    <div>
+      <div class="f-brand">SD ADVISORY</div>
+      <p class="f-tag">Enterprise AI transformation for IT operations. From reactive IT operations to intelligent, resilient and AI-enabled operations.</p>
+      <ul>
+        <li><a href="mailto:sdutt@sdadvisory.in">sdutt@sdadvisory.in</a></li>
+        <li><a href="tel:+919611105276">+91 96111 05276</a></li>
+        <li><a href="https://linkedin.com/in/siddharth-dutt-csm" rel="noopener" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Services</h2>
+      <ul>
+        <li><a href="../ai-transformation-advisory.html">AI Transformation Advisory</a></li>
+        <li><a href="../intelligent-it-operations.html">Intelligent IT Operations</a></li>
+        <li><a href="../accelerators.html">AI &amp; ITSM Accelerators</a></li>
+        <li><a href="../transformation-delivery.html">Transformation &amp; Delivery</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Explore</h2>
+      <ul>
+        <li><a href="../assessment.html">Free AI Readiness Assessment</a></li>
+        <li><a href="../ai-resilience-by-design.html">AI Resilience by Design</a></li>
+        <li><a href="../case-studies.html">Case Studies</a></li>
+        <li><a href="../blog.html">Insights</a></li>
+        <li><a href="../start-here.html">Where to Start</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Company</h2>
+      <ul>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" rel="noopener" target="_blank">Book a Consultation</a></li>
+        <li><a href="../experiments.html">Built in Public</a></li>
+        <li><a href="../privacy.html">Privacy</a></li>
+        <li><a href="../terms.html">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="sd-footer-base">
+    <span>© 2026 SD Advisory. All rights reserved.</span>
+    <span>ITIL Expert · PRINCE2 Practitioner · AWS Certified Solutions Architect</span>
+  </div>
+</footer>
+<script src="../site.js" defer></script>
+<!-- Cloudflare Web Analytics -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</body>
+</html>

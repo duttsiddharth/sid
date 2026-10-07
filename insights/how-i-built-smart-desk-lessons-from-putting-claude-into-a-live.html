@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js')</script>
+<title>How I Built Smart Desk: Claude in ServiceNow | SD Advisory</title>
+<meta name="description" content="Most ServiceNow instances accumulate governance debt the same way technical debt builds in codebases — quietly, through years of reasonable-seeming…">
+<meta name="author" content="Siddharth Dutt">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.sdadvisory.in/insights/how-i-built-smart-desk-lessons-from-putting-claude-into-a-live.html">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How I Built Smart Desk: Claude in ServiceNow | SD Advisory">
+<meta property="og:description" content="Most ServiceNow instances accumulate governance debt the same way technical debt builds in codebases — quietly, through years of reasonable-seeming…">
+<meta property="og:url" content="https://www.sdadvisory.in/insights/how-i-built-smart-desk-lessons-from-putting-claude-into-a-live.html">
+<meta property="og:site_name" content="SD Advisory">
+<meta property="og:locale" content="en_IN">
+<meta property="og:image" content="https://www.sdadvisory.in/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SD Advisory — Enterprise AI Transformation for IT Operations">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How I Built Smart Desk: Claude in ServiceNow | SD Advisory">
+<meta name="twitter:description" content="Most ServiceNow instances accumulate governance debt the same way technical debt builds in codebases — quietly, through years of reasonable-seeming…">
+<meta name="twitter:image" content="https://www.sdadvisory.in/og-image.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How I Built Smart Desk: Lessons From Putting Claude Into a Live ServiceNow Workflow",
+  "description": "Most ServiceNow instances accumulate governance debt the same way technical debt builds in codebases — quietly, through years of reasonable-seeming…",
+  "author": {
+    "@type": "Person",
+    "name": "Siddharth Dutt",
+    "url": "https://www.sdadvisory.in/"
+  },
+  "publisher": {
+    "@type": "ProfessionalService",
+    "name": "SD Advisory",
+    "url": "https://www.sdadvisory.in/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.sdadvisory.in/logo-mark.png"
+    }
+  },
+  "datePublished": "2025-09",
+  "articleSection": "AI + ITSM",
+  "image": "https://www.sdadvisory.in/og-image.jpg",
+  "mainEntityOfPage": "https://www.sdadvisory.in/insights/how-i-built-smart-desk-lessons-from-putting-claude-into-a-live.html",
+  "inLanguage": "en"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.sdadvisory.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Insights",
+      "item": "https://www.sdadvisory.in/blog.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "How I Built Smart Desk: Lessons From Putting Claude Into a Live ServiceNow Workflow",
+      "item": "https://www.sdadvisory.in/insights/how-i-built-smart-desk-lessons-from-putting-claude-into-a-live.html"
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../service-pages.css">
+<link rel="stylesheet" href="../site.css">
+</head>
+<body class="sd-page">
+<a class="skip-link" href="#main">Skip to main content</a>
+<nav aria-label="Primary">
+  <a href="../index.html" class="nav-logo" aria-label="SD Advisory home">
+    <img src="../logo-mark-80.png" width="40" height="40" alt="">
+    <span class="nav-brand">
+      <span class="nav-brand-name">SD ADVISORY</span>
+      <span class="nav-brand-tag">Enterprise AI Transformation</span>
+    </span>
+  </a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <div class="nav-links" id="nav-menu">
+    <a href="../index.html#services">Services</a>
+    <a href="../accelerators.html">Accelerators</a>
+    <a href="../ai-resilience-by-design.html">AI Resilience</a>
+    <a href="../case-studies.html">Case Studies</a>
+    <a href="../blog.html" aria-current="page">Insights</a>
+    <a href="../start-here.html">Start Here</a>
+    <a href="../assessment.html" class="nav-cta">Assess Your AI Readiness</a>
+  </div>
+</nav>
+<main id="main">
+<header class="article-hero">
+  <div class="sd-wrap">
+    <div class="crumbs"><a href="../index.html">Home</a> / <a href="../blog.html">Insights</a> / <a href="../blog.html#ai-itsm">AI + ITSM</a></div>
+    <div class="tag">AI + ITSM · GenAI · Case Study</div>
+    <h1>How I Built <em>Smart Desk</em>: Lessons From Putting Claude Into a Live ServiceNow Workflow</h1>
+    <div class="byline"><span>Siddharth Dutt</span><span>Sep 2025</span><span>9 min read</span></div>
+  </div>
+</header>
+<article class="article-body">
+
+      <p>When people ask about Smart Desk, they usually want to talk about the AI model. That's the least interesting part of the build. The architecture decisions around it — how tickets flow in, what happens when the model is wrong, how escalation actually gets triggered — are what determined whether this became a production tool or another abandoned pilot.</p>
+
+      <h2>The Starting Point</h2>
+      <p>The brief was simple: reduce manual ticket triage effort without disrupting the existing ServiceNow workflow or asking analysts to learn a new tool. That constraint shaped almost every decision that followed.</p>
+
+      <h2>Architecture: Where the AI Actually Sits</h2>
+      <p>Smart Desk uses n8n as the orchestration layer between ServiceNow and Claude API. Tickets land in ServiceNow exactly as they always did. An n8n workflow trigger picks up new tickets, sends the relevant content to Claude for classification, and routes the result back into ServiceNow's existing assignment and priority fields — so from an analyst's point of view, tickets just arrive better-classified, with no new tool to open.</p>
+
+      <div class="callout">
+        <strong>Design Principle</strong>
+        <p>If your AI layer requires the end user to change their workflow, you've added a tool, not an improvement. Smart Desk's biggest design win was being invisible to the people it helped most.</p>
+      </div>
+
+      <h2>The First Failure Mode: Overconfidence</h2>
+      <p>Early versions auto-resolved too aggressively. A handful of edge cases got incorrectly closed before a human could catch the misclassification — not a disaster, but exactly the kind of trust-eroding mistake that gets a tool shut off. The fix wasn't a better prompt; it was a stricter confidence threshold and a much narrower initial scope, limited to ticket categories with very clear, low-ambiguity patterns.</p>
+
+      <h2>The Second Failure Mode: Silent Drift</h2>
+      <p>Classification accuracy that looks great in week one can quietly degrade as ticket patterns shift — new product launches, seasonal spikes, org changes. Smart Desk now includes a lightweight accuracy-tracking loop that flags when auto-resolution rates or override frequency move outside expected ranges, so drift gets caught before it becomes a trend.</p>
+
+      <div class="stat-row">
+        <div class="stat-box"><div class="num">42%</div><div class="lbl">Auto-Resolution</div></div>
+        <div class="stat-box"><div class="num">~2.5 hrs</div><div class="lbl">Saved Daily</div></div>
+        <div class="stat-box"><div class="num">Live</div><div class="lbl">In Production</div></div>
+      </div>
+
+      <h2>What I'd Do Differently</h2>
+      <p>I'd build the accuracy-tracking and drift-detection loop from day one rather than retrofitting it after the fact. Everything else — the narrow initial scope, the confidence thresholds, the invisible integration — I'd keep exactly as it was.</p>
+
+      <p>If you want the deeper operational case study with full before/after metrics, <a href="../case-study-smartdesk.html" style="color:var(--rust);">it's written up in detail here</a>.</p>
+    
+</article>
+<section class="article-next" aria-labelledby="where-next">
+  <div class="box">
+    <h2 id="where-next">Where to go from here</h2>
+    <ul>
+      <li>Service: <a href="../ai-for-itsm.html">AI for ITSM</a></li>
+      <li>Evidence: <a href="../case-study-smartdesk.html">SmartDesk case study</a></li>
+      <li>Check your own position: <a href="../assessment.html">the free three-minute AI Readiness Assessment</a></li>
+      <li>More on <a href="../blog.html#ai-itsm">AI + ITSM</a></li>
+    </ul>
+    <h2 style="font-size:1.1rem">Keep reading</h2><ul><li><a href="../insights/prompt-engineering-for-itsm-teams.html">Prompt Engineering for ITSM Teams</a></li><li><a href="../insights/n8n-claude-the-itsm-power-combo.html">n8n + Claude: The ITSM Power Combo</a></li><li><a href="../insights/itil-4-meets-generative-ai.html">ITIL 4 Meets Generative AI</a></li></ul>
+    <div class="row"><a class="btn btn-primary" href="../assessment.html">Assess Your AI Readiness →</a>
+    <a class="btn btn-secondary" href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" rel="noopener">Book a 30-Minute Consultation</a></div>
+  </div>
+</section>
+</main>
+<footer class="sd-footer">
+  <div class="sd-footer-grid">
+    <div>
+      <div class="f-brand">SD ADVISORY</div>
+      <p class="f-tag">Enterprise AI transformation for IT operations. From reactive IT operations to intelligent, resilient and AI-enabled operations.</p>
+      <ul>
+        <li><a href="mailto:sdutt@sdadvisory.in">sdutt@sdadvisory.in</a></li>
+        <li><a href="tel:+919611105276">+91 96111 05276</a></li>
+        <li><a href="https://linkedin.com/in/siddharth-dutt-csm" rel="noopener" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Services</h2>
+      <ul>
+        <li><a href="../ai-transformation-advisory.html">AI Transformation Advisory</a></li>
+        <li><a href="../intelligent-it-operations.html">Intelligent IT Operations</a></li>
+        <li><a href="../accelerators.html">AI &amp; ITSM Accelerators</a></li>
+        <li><a href="../transformation-delivery.html">Transformation &amp; Delivery</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Explore</h2>
+      <ul>
+        <li><a href="../assessment.html">Free AI Readiness Assessment</a></li>
+        <li><a href="../ai-resilience-by-design.html">AI Resilience by Design</a></li>
+        <li><a href="../case-studies.html">Case Studies</a></li>
+        <li><a href="../blog.html">Insights</a></li>
+        <li><a href="../start-here.html">Where to Start</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Company</h2>
+      <ul>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" rel="noopener" target="_blank">Book a Consultation</a></li>
+        <li><a href="../experiments.html">Built in Public</a></li>
+        <li><a href="../privacy.html">Privacy</a></li>
+        <li><a href="../terms.html">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="sd-footer-base">
+    <span>© 2026 SD Advisory. All rights reserved.</span>
+    <span>ITIL Expert · PRINCE2 Practitioner · AWS Certified Solutions Architect</span>
+  </div>
+</footer>
+<script src="../site.js" defer></script>
+<!-- Cloudflare Web Analytics -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</body>
+</html>

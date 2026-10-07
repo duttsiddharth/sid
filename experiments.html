@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js')</script>
+<title>Built in Public: Experiments | SD Advisory</title>
+<meta name="description" content="Side projects and internal tools built in public by SD Advisory: PMO toolkit, proposal automation and an edtech experiment.">
+<meta name="author" content="Siddharth Dutt">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.sdadvisory.in/experiments.html">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Built in Public: Experiments | SD Advisory">
+<meta property="og:description" content="Side projects and internal tools built in public by SD Advisory: PMO toolkit, proposal automation and an edtech experiment.">
+<meta property="og:url" content="https://www.sdadvisory.in/experiments.html">
+<meta property="og:site_name" content="SD Advisory">
+<meta property="og:locale" content="en_IN">
+<meta property="og:image" content="https://www.sdadvisory.in/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SD Advisory — Enterprise AI Transformation for IT Operations">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Built in Public: Experiments | SD Advisory">
+<meta name="twitter:description" content="Side projects and internal tools built in public by SD Advisory: PMO toolkit, proposal automation and an edtech experiment.">
+<meta name="twitter:image" content="https://www.sdadvisory.in/og-image.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.sdadvisory.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Built in Public",
+      "item": "https://www.sdadvisory.in/experiments.html"
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="service-pages.css">
+<style>
+  .projects-section { background: var(--ink); color: var(--paper); }
+  .projects-section .section-label { color: var(--rust-light); }
+  .projects-section h2 { color: var(--paper); }
+
+  .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr)); gap: 2rem; }
+
+  .project-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    position: relative; overflow: hidden;
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.6s, transform 0.6s, border-color 0.25s, background 0.25s;
+  }
+  .project-card.visible { opacity: 1; transform: translateY(0); }
+  .project-card:hover { background: rgba(255,255,255,0.07); border-color: var(--rust-light); }
+  .project-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--rust), var(--gold));
+  }
+
+  .project-header { padding: 2rem 2rem 1.2rem; }
+  .project-tag {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-family: 'DM Mono', monospace; font-size: 0.62rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--rust-light); background: rgba(192,68,10,0.18);
+    padding: 0.3rem 0.75rem; margin-bottom: 1rem;
+  }
+  .project-title {
+    font-family: 'DM Serif Display', serif; font-size: 1.5rem;
+    color: var(--paper); margin-bottom: 0.6rem; line-height: 1.2;
+  }
+  .project-title em { font-style: italic; color: var(--gold); }
+  .project-desc { font-size: 0.85rem; color: rgba(245,240,232,0.8); line-height: 1.75; }
+
+  .project-metrics {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .metric { padding: 1.1rem; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
+  .metric:last-child { border-right: none; }
+  .metric-num { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--gold); line-height: 1; }
+  .metric-label { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,240,232,0.72); margin-top: 0.3rem; }
+
+  .project-body { padding: 1.5rem 2rem; }
+  .project-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+  .stack-tag {
+    padding: 0.25rem 0.65rem;
+    background: rgba(255,255,255,0.06);
+    font-family: 'DM Mono', monospace; font-size: 0.68rem;
+    color: rgba(245,240,232,0.78); letter-spacing: 0.05em;
+  }
+
+  .project-highlights { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+  .project-highlights li { font-size: 0.82rem; color: rgba(245,240,232,0.78); padding-left: 1.2rem; position: relative; line-height: 1.6; }
+  .project-highlights li::before { content: '→'; position: absolute; left: 0; color: var(--rust-light); font-size: 0.75rem; }
+
+  .project-footer {
+    padding: 1.2rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .project-status {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-family: 'DM Mono', monospace; font-size: 0.65rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(245,240,232,0.72);
+  }
+  .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2s infinite; }
+  .status-dot.live { background: #4caf50; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+  .project-link {
+    font-family: 'DM Mono', monospace; font-size: 0.68rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--rust-light); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    transition: color 0.2s;
+  }
+  .project-link:hover { color: var(--gold); }
+
+  .projects-note {
+    margin-top: 2.5rem;
+    padding: 1.5rem 2rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-left: 3px solid var(--rust);
+    font-size: 0.85rem;
+    color: rgba(245,240,232,0.75);
+    line-height: 1.7;
+  }
+  .projects-note strong { color: var(--gold); }
+.project-card { opacity: 1 !important; transform: none !important; }
+.project-title { font-family: 'DM Serif Display', serif; }
+.status-dot { animation: none; }
+.exp-group { margin-bottom: 3.2rem; }
+.exp-group h2 { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 1.5rem; margin: 0 0 .5rem; color: var(--paper); }
+.exp-group > p { color: rgba(245,240,232,.78); max-width: 70ch; margin: 0 0 1.6rem; line-height: 1.7; font-size: .95rem; }
+.projects-section .project-grid { grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr)); }
+
+</style>
+<link rel="stylesheet" href="site.css">
+</head>
+<body class="sd-page">
+<a class="skip-link" href="#main">Skip to main content</a>
+<nav aria-label="Primary">
+  <a href="index.html" class="nav-logo" aria-label="SD Advisory home">
+    <img src="logo-mark-80.png" width="40" height="40" alt="">
+    <span class="nav-brand">
+      <span class="nav-brand-name">SD ADVISORY</span>
+      <span class="nav-brand-tag">Enterprise AI Transformation</span>
+    </span>
+  </a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <div class="nav-links" id="nav-menu">
+    <a href="index.html#services">Services</a>
+    <a href="accelerators.html">Accelerators</a>
+    <a href="ai-resilience-by-design.html">AI Resilience</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="blog.html">Insights</a>
+    <a href="start-here.html">Start Here</a>
+    <a href="assessment.html" class="nav-cta">Assess Your AI Readiness</a>
+  </div>
+</nav>
+<main id="main">
+<section class="page-hero">
+  <div class="breadcrumb"><a href="index.html">Home</a> / Built in Public</div>
+  <div class="section-label">// Experiments · Built in public</div>
+  <h1>Built in Public</h1>
+  <p class="lede">Side projects and internal tools. Some are adjacent to delivery work, some are not. They are shown here for transparency and kept out of the main enterprise offering.</p>
+  <div class="hero-cta"><a href="accelerators.html" class="btn btn-primary">See the enterprise accelerators →</a></div>
+</section>
+<section class="projects-section sd-section sd-dark">
+  <div class="sd-wrap">
+    <div class="exp-group">
+      <h2>Delivery tooling</h2>
+      <p>Internal tools built for programme and pre-sales work. Both are functional demos, not hosted client products.</p>
+      <div class="project-grid">
+    <!-- PROJECT 5: SD Advisory PMO Toolkit -->
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-tag">📊 PMO · Delivery Governance · AI-Assisted</div>
+        <div class="project-title"><em>SD Advisory PMO Toolkit</em> — AI-Enabled Delivery OS</div>
+        <p class="project-desc">
+          A full-featured PMO and delivery governance platform — portfolio dashboards, EVM analytics, risk/issue registers, AI-assisted status reporting, and role-based access — built as an "AI-Enabled PMO-in-a-Box" for IT services firms and GCCs.
+        </p>
+      </div>
+
+      <div class="project-metrics">
+        <div class="metric">
+          <div class="metric-num">19+</div>
+          <div class="metric-label">Modules</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">EVM</div>
+          <div class="metric-label">Trend Analytics</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">RBAC</div>
+          <div class="metric-label">Role-Based Access</div>
+        </div>
+      </div>
+
+      <div class="project-body">
+        <div class="project-stack">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">Streamlit</span>
+          <span class="stack-tag">SQLAlchemy</span>
+          <span class="stack-tag">PostgreSQL / Supabase</span>
+          <span class="stack-tag">GenAI Reporting</span>
+          <span class="stack-tag">EVM Engine</span>
+        </div>
+        <ul class="project-highlights">
+          <li>End-to-end delivery governance: projects, milestones, RAID logs, change requests, MACD panels, and knowledge intake in one workspace</li>
+          <li>Earned Value Management engine with snapshot history and trend charts — CPI/SPI tracking across the portfolio</li>
+          <li>AI-assisted weekly status reports and Portfolio Weekly Digest — executive-ready summaries generated in seconds</li>
+          <li>Role &amp; permissions model spanning Admin, PM, Sponsor, and Vendor views with security hardening</li>
+          <li>Multi-format exports (DOCX, XLSX, PDF) — packaged as a deployable PMO-in-a-Box offering for delivery leaders</li>
+        </ul>
+      </div>
+
+      <div class="project-footer">
+        <div class="project-status"><span class="status-dot live"></span> Live on Streamlit</div>
+        <a href="https://sdadvisorypmo.streamlit.app/" target="_blank" class="project-link">View Demo →</a>
+      </div>
+    </div>
+    <!-- END PROJECT 5: SD Advisory PMO Toolkit -->
+
+    <!-- PROJECT 6: Proposal Automation Platform -->
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-tag">📝 Pre-Sales Automation · Consulting Ops</div>
+        <div class="project-title"><em>Proposal Automation Platform</em> — RFP to Deliverables</div>
+        <p class="project-desc">
+          A proposal automation platform that turns RFP inputs into six standard IT consulting deliverables — accelerating pre-sales response cycles from days to minutes with consistent, client-ready output every time.
+        </p>
+      </div>
+
+      <div class="project-metrics">
+        <div class="metric">
+          <div class="metric-num">6</div>
+          <div class="metric-label">Deliverables</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">Mins</div>
+          <div class="metric-label">vs Days of Effort</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">100%</div>
+          <div class="metric-label">Consistent Output</div>
+        </div>
+      </div>
+
+      <div class="project-body">
+        <div class="project-stack">
+          <span class="stack-tag">JavaScript</span>
+          <span class="stack-tag">HTML / CSS</span>
+          <span class="stack-tag">GitHub Pages</span>
+          <span class="stack-tag">Document Automation</span>
+          <span class="stack-tag">Pre-Sales Workflow</span>
+        </div>
+        <ul class="project-highlights">
+          <li>Generates six standard consulting deliverables from a single set of RFP inputs — proposal, approach, plan, and supporting artefacts</li>
+          <li>Structured intake captures scope, timelines, and commercials once — reused across every generated document</li>
+          <li>Eliminates copy-paste errors and formatting drift across proposal packs — consistent SD Advisory branding throughout</li>
+          <li>Zero-backend architecture hosted on GitHub Pages — instant access, no installation or login required</li>
+          <li>Built from real pre-sales pain points in enterprise IT bids — designed for consultants and bid teams</li>
+        </ul>
+      </div>
+
+      <div class="project-footer">
+        <div class="project-status"><span class="status-dot live"></span> Live on GitHub Pages</div>
+        <a href="https://duttsiddharth.github.io/Proposal-Platform/" target="_blank" class="project-link">View Demo →</a>
+      </div>
+    </div>
+    <!-- END PROJECT 6: Proposal Automation Platform -->
+
+      </div>
+    </div>
+    <div class="exp-group">
+      <h2>Other experiments</h2>
+      <p>An unrelated consumer edtech project, kept for transparency about what is built in public.</p>
+      <div class="project-grid">
+    <!-- PROJECT 3: CBSE Practice Hub -->
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-tag">📚 EdTech · SaaS · AI-Powered</div>
+        <div class="project-title"><em>CBSE Practice Hub</em> — AI-Powered Learning Platform</div>
+        <p class="project-desc">
+          A full-stack educational platform for CBSE students (Class 1–8) with 405 free printable worksheets across all subjects — English, Mathematics, Science, EVS and Social Science. Features a freemium model with Razorpay payment integration and a Supabase-backed PDF library.
+        </p>
+      </div>
+
+      <div class="project-metrics">
+        <div class="metric">
+          <div class="metric-num">405</div>
+          <div class="metric-label">Worksheets</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">8</div>
+          <div class="metric-label">Classes Covered</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">Free</div>
+          <div class="metric-label">Freemium Model</div>
+        </div>
+      </div>
+
+      <div class="project-body">
+        <div class="project-stack">
+          <span class="stack-tag">React</span>
+          <span class="stack-tag">Vite</span>
+          <span class="stack-tag">Supabase</span>
+          <span class="stack-tag">Razorpay</span>
+          <span class="stack-tag">Vercel</span>
+          <span class="stack-tag">Python / ReportLab</span>
+          <span class="stack-tag">AI-generated Content</span>
+        </div>
+        <ul class="project-highlights">
+          <li>405 AI-generated PDF worksheets · Easy, Medium &amp; Hard difficulty · Answer keys included</li>
+          <li>Freemium engine with 3 free downloads per class — no backend auth required</li>
+          <li>Razorpay checkout: UPI, PhonePe, GPay, Cards, Net Banking</li>
+          <li>Supabase Storage for PDFs + PostgreSQL metadata · Auto-deploy via Vercel</li>
+          <li>Passive income stream — built as a self-sustaining edtech SaaS product</li>
+        </ul>
+      </div>
+
+      <div class="project-footer">
+        <div class="project-status"><span class="status-dot live"></span> Live on Vercel</div>
+        <a href="https://cbse-practice-hub.vercel.app/" target="_blank" class="project-link">View Demo →</a>
+      </div>
+    </div>
+
+      </div>
+    </div>
+    <div class="projects-note"><strong>Building in public.</strong> These are practical implementations developed alongside service-delivery work, exploring how modern AI tools can reduce manual effort. They are not part of SD Advisory’s enterprise service offering.</div>
+  </div>
+</section>
+</main>
+<footer class="sd-footer">
+  <div class="sd-footer-grid">
+    <div>
+      <div class="f-brand">SD ADVISORY</div>
+      <p class="f-tag">Enterprise AI transformation for IT operations. From reactive IT operations to intelligent, resilient and AI-enabled operations.</p>
+      <ul>
+        <li><a href="mailto:sdutt@sdadvisory.in">sdutt@sdadvisory.in</a></li>
+        <li><a href="tel:+919611105276">+91 96111 05276</a></li>
+        <li><a href="https://linkedin.com/in/siddharth-dutt-csm" rel="noopener" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Services</h2>
+      <ul>
+        <li><a href="ai-transformation-advisory.html">AI Transformation Advisory</a></li>
+        <li><a href="intelligent-it-operations.html">Intelligent IT Operations</a></li>
+        <li><a href="accelerators.html">AI &amp; ITSM Accelerators</a></li>
+        <li><a href="transformation-delivery.html">Transformation &amp; Delivery</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Explore</h2>
+      <ul>
+        <li><a href="assessment.html">Free AI Readiness Assessment</a></li>
+        <li><a href="ai-resilience-by-design.html">AI Resilience by Design</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="blog.html">Insights</a></li>
+        <li><a href="start-here.html">Where to Start</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Company</h2>
+      <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" rel="noopener" target="_blank">Book a Consultation</a></li>
+        <li><a href="experiments.html">Built in Public</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="sd-footer-base">
+    <span>© 2026 SD Advisory. All rights reserved.</span>
+    <span>ITIL Expert · PRINCE2 Practitioner · AWS Certified Solutions Architect</span>
+  </div>
+</footer>
+<script src="site.js" defer></script>
+<!-- Cloudflare Web Analytics -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</body>
+</html>

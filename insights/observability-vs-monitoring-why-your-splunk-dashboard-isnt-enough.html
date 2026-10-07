@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js')</script>
+<title>Observability vs. Monitoring for IT Operations | SD Advisory</title>
+<meta name="description" content="Most organizations buy an AIOps platform before they know what maturity stage they&#x27;re actually at. Here&#x27;s the four-stage framework I use to diagnose where…">
+<meta name="author" content="Siddharth Dutt">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.sdadvisory.in/insights/observability-vs-monitoring-why-your-splunk-dashboard-isnt-enough.html">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Observability vs. Monitoring for IT Operations | SD Advisory">
+<meta property="og:description" content="Most organizations buy an AIOps platform before they know what maturity stage they&#x27;re actually at. Here&#x27;s the four-stage framework I use to diagnose where…">
+<meta property="og:url" content="https://www.sdadvisory.in/insights/observability-vs-monitoring-why-your-splunk-dashboard-isnt-enough.html">
+<meta property="og:site_name" content="SD Advisory">
+<meta property="og:locale" content="en_IN">
+<meta property="og:image" content="https://www.sdadvisory.in/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SD Advisory — Enterprise AI Transformation for IT Operations">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Observability vs. Monitoring for IT Operations | SD Advisory">
+<meta name="twitter:description" content="Most organizations buy an AIOps platform before they know what maturity stage they&#x27;re actually at. Here&#x27;s the four-stage framework I use to diagnose where…">
+<meta name="twitter:image" content="https://www.sdadvisory.in/og-image.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Observability vs. Monitoring — Why Your Splunk Dashboard Isn't Enough",
+  "description": "Most organizations buy an AIOps platform before they know what maturity stage they're actually at. Here's the four-stage framework I use to diagnose where…",
+  "author": {
+    "@type": "Person",
+    "name": "Siddharth Dutt",
+    "url": "https://www.sdadvisory.in/"
+  },
+  "publisher": {
+    "@type": "ProfessionalService",
+    "name": "SD Advisory",
+    "url": "https://www.sdadvisory.in/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.sdadvisory.in/logo-mark.png"
+    }
+  },
+  "datePublished": "2025-12",
+  "articleSection": "Intelligent IT Operations",
+  "image": "https://www.sdadvisory.in/og-image.jpg",
+  "mainEntityOfPage": "https://www.sdadvisory.in/insights/observability-vs-monitoring-why-your-splunk-dashboard-isnt-enough.html",
+  "inLanguage": "en"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.sdadvisory.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Insights",
+      "item": "https://www.sdadvisory.in/blog.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Observability vs. Monitoring — Why Your Splunk Dashboard Isn't Enough",
+      "item": "https://www.sdadvisory.in/insights/observability-vs-monitoring-why-your-splunk-dashboard-isnt-enough.html"
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../service-pages.css">
+<link rel="stylesheet" href="../site.css">
+</head>
+<body class="sd-page">
+<a class="skip-link" href="#main">Skip to main content</a>
+<nav aria-label="Primary">
+  <a href="../index.html" class="nav-logo" aria-label="SD Advisory home">
+    <img src="../logo-mark-80.png" width="40" height="40" alt="">
+    <span class="nav-brand">
+      <span class="nav-brand-name">SD ADVISORY</span>
+      <span class="nav-brand-tag">Enterprise AI Transformation</span>
+    </span>
+  </a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <div class="nav-links" id="nav-menu">
+    <a href="../index.html#services">Services</a>
+    <a href="../accelerators.html">Accelerators</a>
+    <a href="../ai-resilience-by-design.html">AI Resilience</a>
+    <a href="../case-studies.html">Case Studies</a>
+    <a href="../blog.html" aria-current="page">Insights</a>
+    <a href="../start-here.html">Start Here</a>
+    <a href="../assessment.html" class="nav-cta">Assess Your AI Readiness</a>
+  </div>
+</nav>
+<main id="main">
+<header class="article-hero">
+  <div class="sd-wrap">
+    <div class="crumbs"><a href="../index.html">Home</a> / <a href="../blog.html">Insights</a> / <a href="../blog.html#intelligent-it-operations">Intelligent IT Operations</a></div>
+    <div class="tag">Intelligent IT Operations · AIOps · Observability</div>
+    <h1>Observability vs. <em>Monitoring</em> — Why Your Splunk Dashboard Isn't Enough</h1>
+    <div class="byline"><span>Siddharth Dutt</span><span>Dec 2025</span><span>7 min read</span></div>
+  </div>
+</header>
+<article class="article-body">
+
+      <p>I've sat through more monitoring tool demos than I can count, and almost all of them get pitched as "observability." They're not the same thing, and the difference isn't academic — it's the gap between an operations team that reacts and one that actually understands its own systems.</p>
+
+      <p>Monitoring answers questions you defined in advance: is CPU above 80%? Did the health check fail? Is the queue depth over threshold? Observability answers questions you didn't know you'd need to ask: why did latency spike for this specific customer segment during this specific deployment window, three services downstream from where the alert fired?</p>
+
+      <h2>The Three Pillars, Briefly</h2>
+      <p>Metrics tell you something is wrong. Logs tell you what happened. Traces tell you where, across a distributed system, it actually happened. Most Splunk deployments I've reviewed are metrics-and-logs heavy and trace-poor — which is exactly why root cause analysis on distributed, microservice-heavy environments takes hours instead of minutes.</p>
+
+      <blockquote>"A dashboard full of green checkmarks tells you nothing about the failure mode you haven't seen yet."</blockquote>
+
+      <h2>Where This Bit Us — and How We Fixed It</h2>
+      <p>On one enterprise managed services account, we had textbook monitoring: clean dashboards, sensible thresholds, solid alerting. And we still missed a slow-burning degradation that didn't trip any single threshold but was visible the moment we correlated trace data across three services. Once we instrumented proper distributed tracing alongside the existing Splunk metrics and logs, mean-time-to-detect on that class of issue dropped sharply.</p>
+
+      <div class="stat-row">
+        <div class="stat-box"><div class="num">99.9%</div><div class="lbl">Availability Maintained</div></div>
+        <div class="stat-box"><div class="num">60%</div><div class="lbl">MTTD Reduction</div></div>
+      </div>
+
+      <h2>A Practical Maturity Checklist</h2>
+      <ul>
+        <li>Can you trace a single request across every service it touches, not just see logs from each service in isolation?</li>
+        <li>Can a new engineer answer "why is this slow" without paging someone who's been here five years?</li>
+        <li>Does your alerting tell responders <em>where to look</em>, or just <em>that something is wrong</em>?</li>
+      </ul>
+
+      <div class="callout">
+        <strong>Key Takeaway</strong>
+        <p>Monitoring is necessary but not sufficient. If your team can only answer questions you anticipated when you built the dashboard, you have monitoring — not observability. The upgrade path is distributed tracing and correlation, not a bigger dashboard.</p>
+      </div>
+
+      <p>This is also exactly the foundation that any real AIOps initiative depends on — you can't correlate or predict on top of data that was never structured to be correlated in the first place. More on building that maturity model in the next article.</p>
+    
+</article>
+<section class="article-next" aria-labelledby="where-next">
+  <div class="box">
+    <h2 id="where-next">Where to go from here</h2>
+    <ul>
+      <li>Service: <a href="../intelligent-it-operations.html">Intelligent IT Operations</a></li>
+      <li>Evidence: <a href="../case-study-ai-incident-copilot.html">AI Incident Co-Pilot case study</a></li>
+      <li>Check your own position: <a href="../assessment.html">the free three-minute AI Readiness Assessment</a></li>
+      <li>More on <a href="../blog.html#intelligent-it-operations">Intelligent IT Operations</a></li>
+    </ul>
+    <h2 style="font-size:1.1rem">Keep reading</h2><ul><li><a href="../insights/why-aiops-is-not-just-another-buzzword.html">Why AIOps is Not Just Another Buzzword</a></li><li><a href="../insights/building-an-aiops-maturity-model-a-practical-framework.html">Building an AIOps Maturity Model: A Practical Framework</a></li><li><a href="../insights/running-a-25m-managed-services-portfolio-lessons-in-sla-governance.html">Running a $25M Managed Services Portfolio: Lessons in SLA Governance</a></li></ul>
+    <div class="row"><a class="btn btn-primary" href="../assessment.html">Assess Your AI Readiness →</a>
+    <a class="btn btn-secondary" href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" rel="noopener">Book a 30-Minute Consultation</a></div>
+  </div>
+</section>
+</main>
+<footer class="sd-footer">
+  <div class="sd-footer-grid">
+    <div>
+      <div class="f-brand">SD ADVISORY</div>
+      <p class="f-tag">Enterprise AI transformation for IT operations. From reactive IT operations to intelligent, resilient and AI-enabled operations.</p>
+      <ul>
+        <li><a href="mailto:sdutt@sdadvisory.in">sdutt@sdadvisory.in</a></li>
+        <li><a href="tel:+919611105276">+91 96111 05276</a></li>
+        <li><a href="https://linkedin.com/in/siddharth-dutt-csm" rel="noopener" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Services</h2>
+      <ul>
+        <li><a href="../ai-transformation-advisory.html">AI Transformation Advisory</a></li>
+        <li><a href="../intelligent-it-operations.html">Intelligent IT Operations</a></li>
+        <li><a href="../accelerators.html">AI &amp; ITSM Accelerators</a></li>
+        <li><a href="../transformation-delivery.html">Transformation &amp; Delivery</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Explore</h2>
+      <ul>
+        <li><a href="../assessment.html">Free AI Readiness Assessment</a></li>
+        <li><a href="../ai-resilience-by-design.html">AI Resilience by Design</a></li>
+        <li><a href="../case-studies.html">Case Studies</a></li>
+        <li><a href="../blog.html">Insights</a></li>
+        <li><a href="../start-here.html">Where to Start</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Company</h2>
+      <ul>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" rel="noopener" target="_blank">Book a Consultation</a></li>
+        <li><a href="../experiments.html">Built in Public</a></li>
+        <li><a href="../privacy.html">Privacy</a></li>
+        <li><a href="../terms.html">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="sd-footer-base">
+    <span>© 2026 SD Advisory. All rights reserved.</span>
+    <span>ITIL Expert · PRINCE2 Practitioner · AWS Certified Solutions Architect</span>
+  </div>
+</footer>
+<script src="../site.js" defer></script>
+<!-- Cloudflare Web Analytics -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</body>
+</html>

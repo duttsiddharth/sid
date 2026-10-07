@@ -8,25 +8,25 @@
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AI Resilience by Design | Enterprise AI Reference Architecture — SD Advisory</title>
-<meta name="description" content="An interactive reference architecture for AI-driven IT service operations: how an enterprise keeps running when AI is down, wrong, replaced or more autonomous. AI-on, degraded and off modes, failure simulations, scorecard.">
-<meta name="keywords" content="AI resilience, AI resilience architecture, enterprise AI architecture, AI-off mode, AI gateway, model portability, vendor portability, AI governance, AI observability, AIOps resilience">
+<title>Enterprise AI Resilience by Design | SD Advisory</title>
+<meta name="description" content="An interactive reference architecture for AI-driven IT operations: how an enterprise keeps running when AI is down, wrong or replaced. AI-on, degraded and off modes.">
 <meta name="author" content="Siddharth Dutt">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.sdadvisory.in/ai-resilience-by-design.html">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="AI Resilience by Design — Interactive Reference Architecture">
-<meta property="og:description" content="Designing enterprises that can evolve with AI, and operate without it. An interactive reference architecture with failure simulations and a resilience scorecard.">
+<meta property="og:description" content="An interactive reference architecture for AI-driven IT operations: how an enterprise keeps running when AI is down, wrong or replaced. AI-on, degraded and off modes.">
 <meta property="og:url" content="https://www.sdadvisory.in/ai-resilience-by-design.html">
 <meta property="og:site_name" content="SD Advisory">
 <meta property="og:image" content="https://www.sdadvisory.in/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SD Advisory — Enterprise AI Transformation for IT Operations">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="AI Resilience by Design — Interactive Reference Architecture">
-<meta name="twitter:description" content="Designing enterprises that can evolve with AI, and operate without it.">
+<meta name="twitter:description" content="An interactive reference architecture for AI-driven IT operations: how an enterprise keeps running when AI is down, wrong or replaced. AI-on, degraded and off modes.">
 <meta name="twitter:image" content="https://www.sdadvisory.in/og-image.jpg">
 
 <script type="application/ld+json">
@@ -46,7 +46,9 @@
 }
 </script>
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="service-pages.css">
 <style>
   .model-frame { border: 1px solid var(--line); background: var(--paper); margin: 1.5rem 0 0.8rem; }
@@ -56,27 +58,51 @@
   .principle { font-family: 'DM Serif Display', serif; font-size: clamp(1.25rem, 2.4vw, 1.6rem); line-height: 1.4; border-left: 3px solid var(--rust); padding-left: 1.2rem; max-width: 820px; margin: 1.5rem 0; }
   @media (max-width: 900px) { .model-frame iframe { height: 640px; } }
 </style>
+<link rel="stylesheet" href="site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.sdadvisory.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "AI Resilience by Design",
+      "item": "https://www.sdadvisory.in/ai-resilience-by-design.html"
+    }
+  ]
+}
+</script>
 </head>
-<body>
+<body class="sd-page">
+<a class="skip-link" href="#main">Skip to main content</a>
 
-<nav>
-  <a href="index.html" class="nav-logo">
-    <img src="logo-mark.png" alt="SD Advisory">
+<nav aria-label="Primary">
+  <a href="index.html" class="nav-logo" aria-label="SD Advisory home">
+    <img src="logo-mark-80.png" width="40" height="40" alt="">
     <span class="nav-brand">
       <span class="nav-brand-name">SD ADVISORY</span>
-      <span class="nav-brand-tag">IT Consulting · AI Transformation &amp; Operations</span>
+      <span class="nav-brand-tag">Enterprise AI Transformation</span>
     </span>
   </a>
-  <div class="nav-links">
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <div class="nav-links" id="nav-menu">
     <a href="index.html#services">Services</a>
-    <a href="index.html#ai-projects">Solutions</a>
+    <a href="accelerators.html">Accelerators</a>
+    <a href="ai-resilience-by-design.html" aria-current="page">AI Resilience</a>
     <a href="case-studies.html">Case Studies</a>
     <a href="blog.html">Insights</a>
-    <a href="index.html#about">About</a>
-    <a href="assessment.html" style="color:var(--rust);">Free Assessment</a>
-    <a href="index.html#contact">Contact</a>
+    <a href="start-here.html">Start Here</a>
+    <a href="assessment.html" class="nav-cta">Assess Your AI Readiness</a>
   </div>
 </nav>
+<main id="main">
 
 <section class="page-hero">
   <div class="breadcrumb"><a href="index.html">Home</a> / <a href="index.html#ai-projects">Solutions</a> / AI Resilience by Design</div>
@@ -89,8 +115,8 @@
     <div><strong>Status:</strong> Reference model, illustrative figures</div>
   </div>
   <div class="hero-cta" style="margin-top:2rem;">
-    <a href="ai-resilience/" target="_blank" class="btn btn-primary">Launch the Interactive Model →</a>
-    <a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" class="btn btn-secondary">Book a Free Consultation</a>
+    <a href="assessment.html" class="btn btn-primary">Assess Your AI Readiness →</a>
+    <a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" rel="noopener" class="btn btn-secondary">Book a 30-Minute Consultation</a>
   </div>
 </section>
 
@@ -168,11 +194,22 @@
   <h2>Want to Score Your Own Environment?</h2>
   <p>Book a free 30-minute consultation to walk through the scorecard, find the weakest dimensions and agree where to start. No obligation, no sales pitch.</p>
   <div class="hero-cta">
-    <a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" class="btn btn-primary">📅 Book a Free Consultation</a>
-    <a href="assessment.html" class="btn btn-secondary">Take the Free Assessment</a>
-    <a href="mailto:sdutt@sdadvisory.in" class="btn btn-secondary">✉ Email Me</a>
+    <a href="assessment.html" class="btn btn-primary">Assess Your AI Readiness →</a>
+    <a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" rel="noopener" class="btn btn-secondary">Book a 30-Minute Consultation</a>
   </div>
 </div>
+
+<section class="funnel-links" aria-labelledby="keep-going">
+  <div class="sd-wrap">
+    <h2 id="keep-going">Keep going</h2>
+    <div class="sd-card-grid c4" style="max-width:none;margin:0">
+      <a class="sd-card" href="case-study-sla-transformation.html"><h3>Evidence</h3><p>SLA Transformation: governance that holds up under pressure.</p><span class="more">Read →</span></a>
+      <a class="sd-card" href="blog.html#ai-resilience-governance"><h3>Insights</h3><p>Articles on ai resilience & governance.</p><span class="more">Read →</span></a>
+      <a class="sd-card" href="assessment.html"><h3>Assess</h3><p>Your three-minute AI Readiness Score.</p><span class="more">Start →</span></a>
+      <a class="sd-card" href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" rel="noopener"><h3>Talk</h3><p>A 30-minute consultation about your operations.</p><span class="more">Book →</span></a>
+    </div>
+  </div>
+</section>
 
 <section class="content">
   <div class="section-label">// Related</div>
@@ -180,12 +217,56 @@
   <div class="related-grid"><a class="related-card" href="aiops-consulting.html"><div class="rc-label">Service</div><div class="rc-title">AIOps Consulting</div></a><a class="related-card" href="ai-for-itsm.html"><div class="rc-label">Service</div><div class="rc-title">AI for ITSM</div></a><a class="related-card" href="itil-governance.html"><div class="rc-label">Service</div><div class="rc-title">ITIL 4 Governance</div></a><a class="related-card" href="case-study-smartdesk.html"><div class="rc-label">Case Study</div><div class="rc-title">Smart Desk: AI-Powered IT Support Triage</div></a></div>
 </section>
 
-<footer>
-  <p>© 2026 SD Advisory. All Rights Reserved.</p>
-  <p>ITIL Expert · PRINCE2 Practitioner · AWS CSA</p>
+</main>
+<footer class="sd-footer">
+  <div class="sd-footer-grid">
+    <div>
+      <div class="f-brand">SD ADVISORY</div>
+      <p class="f-tag">Enterprise AI transformation for IT operations. From reactive IT operations to intelligent, resilient and AI-enabled operations.</p>
+      <ul>
+        <li><a href="mailto:sdutt@sdadvisory.in">sdutt@sdadvisory.in</a></li>
+        <li><a href="tel:+919611105276">+91 96111 05276</a></li>
+        <li><a href="https://linkedin.com/in/siddharth-dutt-csm" rel="noopener" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Services</h2>
+      <ul>
+        <li><a href="ai-transformation-advisory.html">AI Transformation Advisory</a></li>
+        <li><a href="intelligent-it-operations.html">Intelligent IT Operations</a></li>
+        <li><a href="accelerators.html">AI &amp; ITSM Accelerators</a></li>
+        <li><a href="transformation-delivery.html">Transformation &amp; Delivery</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Explore</h2>
+      <ul>
+        <li><a href="assessment.html">Free AI Readiness Assessment</a></li>
+        <li><a href="ai-resilience-by-design.html">AI Resilience by Design</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="blog.html">Insights</a></li>
+        <li><a href="start-here.html">Where to Start</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Company</h2>
+      <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" rel="noopener" target="_blank">Book a Consultation</a></li>
+        <li><a href="experiments.html">Built in Public</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="sd-footer-base">
+    <span>© 2026 SD Advisory. All rights reserved.</span>
+    <span>ITIL Expert · PRINCE2 Practitioner · AWS Certified Solutions Architect</span>
+  </div>
 </footer>
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
 <!-- End Cloudflare Web Analytics -->
+<script src="site.js" defer></script>
 </body>
 </html>
