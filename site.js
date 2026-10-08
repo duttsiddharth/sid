@@ -19,7 +19,7 @@
       if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') { setOpen(false); toggle.focus(); }
     });
     menu.addEventListener('click', function (e) { if (e.target.closest('a')) setOpen(false); });
-    window.addEventListener('resize', function () { if (window.innerWidth > 1260) setOpen(false); });
+    window.addEventListener('resize', function () { if (window.innerWidth > 1080) setOpen(false); });
   }
 
   /* ---------------- Header: compact, solid state once the page scrolls ---------------- */
@@ -27,6 +27,34 @@
   if (navEl) {
     var onScroll = function () { navEl.classList.toggle('is-scrolled', (window.pageYOffset || document.documentElement.scrollTop) > 12); };
     onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  /* ---------------- Motion preferences: stop the hero's travelling signal for reduced-motion users ---------------- */
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) document.querySelectorAll('svg.net').forEach(function (svg) { if (svg.pauseAnimations) svg.pauseAnimations(); });
+
+  /* ---------------- Metric count-up (final values are already in the HTML; this only animates once, on view) ---------------- */
+  var counters = document.querySelectorAll('[data-count]');
+  if (counters.length && !reduce && 'IntersectionObserver' in window) {
+    var run = function (el) {
+      var target = parseFloat(el.getAttribute('data-count'));
+      var node = el.firstChild;
+      if (!node || node.nodeType !== 3 || isNaN(target)) return;
+      var dec = (String(target).split('.')[1] || '').length, t0 = null, dur = 1100;
+      var step = function (ts) {
+        if (!t0) t0 = ts;
+        var k = Math.min(1, (ts - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+        node.nodeValue = (target * e).toFixed(dec);
+        if (k < 1) requestAnimationFrame(step); else node.nodeValue = target.toFixed(dec);
+      };
+      requestAnimationFrame(step);
+    };
+    var cio = new IntersectionObserver(function (es) {
+      es.forEach(function (en) { if (en.isIntersecting) { run(en.target); cio.unobserve(en.target); } });
+    }, { threshold: 0.6 });
+    counters.forEach(function (el) {
+      cio.observe(el);
+    });
   }
 
   /* ---------------- Reveal on scroll ---------------- */
