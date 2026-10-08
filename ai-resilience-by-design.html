@@ -49,8 +49,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="service-pages.css?v=4">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   .model-frame { border: 1px solid var(--line); background: var(--paper); margin: 1.5rem 0 0.8rem; }
   .model-frame iframe { display: block; width: 100%; height: 760px; border: 0; }
@@ -59,7 +58,7 @@
   .principle { font-family: 'DM Serif Display', serif; font-size: clamp(1.25rem, 2.4vw, 1.6rem); line-height: 1.4; border-left: 3px solid var(--rust); padding-left: 1.2rem; max-width: 820px; margin: 1.5rem 0; }
   @media (max-width: 900px) { .model-frame iframe { height: 640px; } }
 </style>
-<link rel="stylesheet" href="site.css?v=4">
+<link rel="stylesheet" href="site.css?v=5">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -86,7 +85,7 @@
 
 <nav aria-label="Primary">
   <a href="index.html" class="nav-logo" aria-label="SD Advisory home">
-    <img src="logo-mark-80.png" width="40" height="40" alt="">
+    <img src="logo-mark-80.png" width="38" height="38" alt="">
     <span class="nav-brand">
       <span class="nav-brand-name">SD ADVISORY</span>
       <span class="nav-brand-tag">Enterprise AI Transformation</span>
@@ -99,9 +98,10 @@
     <a href="ai-resilience-by-design.html" aria-current="page">AI Resilience</a>
     <a href="case-studies.html">Case Studies</a>
     <a href="blog.html">Insights</a>
+    <a href="assessment.html">AI Readiness</a>
     <a href="start-here.html">Start Here</a>
     <a href="contact.html">Contact</a>
-    <a href="assessment.html" class="nav-cta">Assess Your AI Readiness</a>
+    <a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" rel="noopener" class="nav-cta">Book a Consultation</a>
   </div>
 </nav>
 <main id="main">
@@ -117,7 +117,7 @@
     <div><strong>Status:</strong> Reference model, illustrative figures</div>
   </div>
   <div class="hero-cta" style="margin-top:2rem;">
-    <a href="ai-resilience/" target="_blank" rel="noopener" class="btn btn-primary">Launch the Interactive Model →</a>
+    <a href="ai-resilience/" target="_blank" rel="noopener" class="btn btn-primary">Launch the Interactive Model<span class="arr" aria-hidden="true">→</span></a>
     <a href="assessment.html" class="btn btn-secondary">Assess Your AI Readiness</a>
   </div>
 </section>
@@ -136,7 +136,7 @@
   <h2>The Interactive Model</h2>
   <p>Switch between AI-on, AI-degraded and AI-off, inject failures, replace a model through evaluation gates, and score your own environment. The preview below is the full model; open it full screen for the best experience.</p>
   <div class="model-actions">
-    <a href="ai-resilience/" target="_blank" class="btn btn-primary">Open Full Screen →</a>
+    <a href="ai-resilience/" target="_blank" class="btn btn-primary">Open Full Screen <span class="arr" aria-hidden="true">→</span></a>
     <span class="model-note">Scenario figures, thresholds and evaluation data are illustrative examples, not benchmarks of any product.</span>
   </div>
   <div class="model-frame">
@@ -206,8 +206,8 @@
   <h2>Want to Score Your Own Environment?</h2>
   <p>Book a free 30-minute consultation to walk through the scorecard, find the weakest dimensions and agree where to start. No obligation, no sales pitch.</p>
   <div class="hero-cta">
-    <a href="assessment.html" class="btn btn-primary">Assess Your AI Readiness →</a>
-    <a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" rel="noopener" class="btn btn-secondary">Book a 30-Minute Consultation</a>
+    <a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" rel="noopener" class="btn btn-primary">Book a Consultation<span class="arr" aria-hidden="true">→</span></a>
+    <a href="assessment.html" class="btn btn-secondary">Assess Your AI Readiness</a>
   </div>
 </div>
 
@@ -215,10 +215,10 @@
   <div class="sd-wrap">
     <h2 id="keep-going">Keep going</h2>
     <div class="sd-card-grid c4" style="max-width:none;margin:0">
-      <a class="sd-card" href="case-study-sla-transformation.html"><h3>Evidence</h3><p>SLA Transformation: governance that holds up under pressure.</p><span class="more">Read →</span></a>
-      <a class="sd-card" href="blog.html#ai-resilience-governance"><h3>Insights</h3><p>Articles on AI Resilience & Governance.</p><span class="more">Read →</span></a>
-      <a class="sd-card" href="assessment.html"><h3>Assess</h3><p>Your three-minute AI Readiness Score.</p><span class="more">Start →</span></a>
-      <a class="sd-card" href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" rel="noopener"><h3>Talk</h3><p>A 30-minute consultation about your operations.</p><span class="more">Book →</span></a>
+      <a class="sd-card" href="case-study-sla-transformation.html"><h3>Evidence</h3><p>SLA Transformation: governance that holds up under pressure.</p><span class="more">Read <span class="arr" aria-hidden="true">→</span></span></a>
+      <a class="sd-card" href="blog.html#ai-resilience-governance"><h3>Insights</h3><p>Articles on AI Resilience & Governance.</p><span class="more">Read <span class="arr" aria-hidden="true">→</span></span></a>
+      <a class="sd-card" href="assessment.html"><h3>Assess</h3><p>Your three-minute AI Readiness Score.</p><span class="more">Start <span class="arr" aria-hidden="true">→</span></span></a>
+      <a class="sd-card" href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" rel="noopener"><h3>Talk</h3><p>A 30-minute consultation about your operations.</p><span class="more">Book <span class="arr" aria-hidden="true">→</span></span></a>
     </div>
     <h3 class="related-h">Related Services &amp; Solutions</h3>
     <div class="related-grid"><a class="related-card" href="aiops-consulting.html"><div class="rc-label">Service</div><div class="rc-title">AIOps Consulting</div></a><a class="related-card" href="ai-for-itsm.html"><div class="rc-label">Service</div><div class="rc-title">AI for ITSM</div></a><a class="related-card" href="itil-governance.html"><div class="rc-label">Service</div><div class="rc-title">ITIL 4 Governance</div></a><a class="related-card" href="case-study-smartdesk.html"><div class="rc-label">Case Study</div><div class="rc-title">Smart Desk: AI-Powered IT Support Triage</div></a></div>
@@ -275,6 +275,6 @@
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
 <!-- End Cloudflare Web Analytics -->
-<script src="site.js?v=4" defer></script>
+<script src="site.js?v=5" defer></script>
 </body>
 </html>

@@ -31,31 +31,8 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="service-pages.css?v=4">
-<style>
-  .quiz-card { background: var(--paper); border: 1px solid var(--line); padding: 1.8rem 2rem; margin-bottom: 1.2rem; }
-  .quiz-q { font-weight: 700; font-size: 1rem; margin-bottom: 1rem; }
-  .quiz-opts label { display: block; padding: 0.7rem 0.9rem; margin-bottom: 0.5rem; border: 1px solid var(--line); cursor: pointer; font-size: 0.92rem; transition: all 0.2s; }
-  .quiz-opts label:hover { background: var(--cream); border-color: var(--rust); }
-  .quiz-opts input { margin-right: 0.6rem; }
-  .quiz-opts label.selected { background: var(--cream); border-color: var(--rust); }
-  #scoreResult { display: none; text-align: center; padding: 3rem 2rem; background: var(--ink); color: var(--paper); }
-  #scoreResult .score-num { font-family: 'DM Serif Display', serif; font-size: 3.2rem; color: var(--rust); }
-  #scoreResult .score-tier { font-size: 1.3rem; font-weight: 700; margin: 0.5rem 0 1rem; }
-  #scoreResult p { color: rgba(245,240,232,0.8); max-width: 600px; margin: 0 auto 1.5rem; }
-  .lead-form { max-width: 560px; margin-top: 1rem; }
-  .lead-form label { display: block; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.4rem; margin-top: 1.1rem; }
-  .lead-form input, .lead-form textarea {
-    width: 100%; padding: 0.8rem 1rem; border: 1px solid var(--line); background: var(--paper);
-    font-family: 'Syne', sans-serif; font-size: 0.95rem; color: var(--ink);
-  }
-  .lead-form textarea { min-height: 100px; resize: vertical; }
-  .lead-form button { margin-top: 1.5rem; }
-  #formSuccess { display: none; padding: 2rem; border-left: 3px solid var(--rust); background: var(--cream); }
-  .calc-btn { margin-top: 1rem; }
-</style>
-<link rel="stylesheet" href="site.css?v=4">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=5">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -94,7 +71,7 @@
 
 <nav aria-label="Primary">
   <a href="index.html" class="nav-logo" aria-label="SD Advisory home">
-    <img src="logo-mark-80.png" width="40" height="40" alt="">
+    <img src="logo-mark-80.png" width="38" height="38" alt="">
     <span class="nav-brand">
       <span class="nav-brand-name">SD ADVISORY</span>
       <span class="nav-brand-tag">Enterprise AI Transformation</span>
@@ -107,9 +84,10 @@
     <a href="ai-resilience-by-design.html">AI Resilience</a>
     <a href="case-studies.html">Case Studies</a>
     <a href="blog.html">Insights</a>
+    <a href="assessment.html">AI Readiness</a>
     <a href="start-here.html">Start Here</a>
     <a href="contact.html">Contact</a>
-    <a href="assessment.html" class="nav-cta">Assess Your AI Readiness</a>
+    <a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" rel="noopener" class="nav-cta">Book a Consultation</a>
   </div>
 </nav>
 <main id="main">
@@ -179,8 +157,8 @@
   </div>
 </section>
 
-<div id="scoreResult" aria-live="polite">
-  <div class="section-label" style="color:var(--rust-light); justify-content:center; display:flex;">// Your result</div>
+<div id="scoreResult" class="on-dark net-bg" aria-live="polite">
+  <div class="section-label" style="justify-content:center;display:flex">Your result</div>
   <div class="score-num" id="scoreNum">--</div>
   <div class="score-tier" id="scoreTier">--</div>
   <p id="scoreMsg">--</p>
@@ -190,10 +168,10 @@
     <div class="result-box"><h3>Recommended actions</h3><ul id="actionList"></ul></div>
   </div>
   <div class="hero-cta" style="justify-content:center;">
-    <a href="#detailed-breakdown" class="btn btn-primary">Get the Written Breakdown →</a>
-    <a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" rel="noopener" class="btn btn-secondary">Book a 30-Minute Consultation</a>
+    <a href="#detailed-breakdown" class="btn btn-primary">Get the Written Breakdown<span class="arr" aria-hidden="true">→</span></a>
+    <a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" rel="noopener" class="btn btn-secondary">Book a Consultation</a>
   </div>
-  <p class="next-steps" style="color:rgba(245,240,232,.75)">Your path: assessment → recommended actions → consultation → scoped pilot → scale. <a href="case-studies.html" style="color:var(--rust-light)">Explore case studies</a></p>
+  <p class="next-steps">Your path: assessment → recommended actions → consultation → scoped pilot → scale. <a href="case-studies.html">Explore case studies</a></p>
 </div>
 
 <section class="content narrow">
@@ -394,6 +372,6 @@
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
 <!-- End Cloudflare Web Analytics -->
-<script src="site.js?v=4" defer></script>
+<script src="site.js?v=5" defer></script>
 </body>
 </html>

@@ -9,443 +9,24 @@
 <meta name="author" content="Siddharth Dutt">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.sdadvisory.in/blog.html">
-
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Insights — AI Transformation &amp; Intelligent IT Operations | SD Advisory">
 <meta property="og:description" content="Practical insights on AI transformation, intelligent IT operations, AI + ITSM, AI resilience and enterprise AI architecture, from 20+ years in IT service delivery.">
 <meta property="og:url" content="https://www.sdadvisory.in/blog.html">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
-
-<style>
-  :root {
-    --ink: #0d0d0d;
-    --paper: #f5f0e8;
-    --cream: #ede7d6;
-    --rust: #c0440a;
-    --gold: #b8922a;
-    --muted: #6b6258;
-    --line: rgba(13,13,13,0.12);
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { background: var(--paper); color: var(--ink); font-family: 'Syne', sans-serif; overflow-x: hidden; }
-  ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: var(--paper); }
-  ::-webkit-scrollbar-thumb { background: var(--rust); }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.2rem 3rem;
-    background: rgba(245,240,232,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--line);
-  }
-  .nav-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
-  .nav-logo img { height: 40px; width: 40px; display: block; }
-  .nav-brand { display: flex; flex-direction: column; line-height: 1.25; }
-  .nav-brand-name { font-family: 'DM Serif Display', Georgia, serif; font-size: 1.02rem; letter-spacing: 0.06em; color: var(--ink); }
-  .nav-brand-tag { font-family: 'DM Mono', monospace; font-size: 0.5rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rust); }
-  @media (max-width: 1200px) { .nav-brand-tag { display: none; } }
-  @media (max-width: 560px) { .nav-brand { display: none; } }
-  .nav-links { display: flex; gap: 1.6rem; }
-  .nav-links a {
-    text-decoration: none; font-size: 0.72rem; font-weight: 600;
-    letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--muted); transition: color 0.2s; white-space: nowrap;
-  }
-  .nav-links a:hover, .nav-links a.active { color: var(--rust); }
-
-  /* ── HERO ── */
-  .blog-hero {
-    background: var(--ink);
-    padding: 9rem 6rem 5rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .blog-hero::before {
-    content: '';
-    position: absolute; right: -80px; top: -80px;
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(192,68,10,0.15) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .blog-hero::after {
-    content: '// Insights';
-    position: absolute; right: 6rem; bottom: 2rem;
-    font-family: 'DM Mono', monospace;
-    font-size: clamp(4rem, 10vw, 9rem);
-    color: rgba(245,240,232,0.03);
-    letter-spacing: -0.05em;
-    pointer-events: none;
-    white-space: nowrap;
-  }
-  .hero-tag {
-    font-family: 'DM Mono', monospace; font-size: 0.72rem;
-    letter-spacing: 0.2em; text-transform: uppercase; color: var(--rust);
-    margin-bottom: 1.5rem;
-    opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
-  }
-  .blog-hero h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(3rem, 6vw, 5rem);
-    line-height: 1.05; letter-spacing: -0.02em;
-    color: var(--paper);
-    opacity: 0; animation: fadeUp 0.8s 0.4s forwards;
-  }
-  .blog-hero h1 em { font-style: italic; color: var(--rust); }
-  .hero-sub {
-    margin-top: 1.2rem; max-width: 520px;
-    font-size: 0.95rem; color: rgba(245,240,232,0.5); line-height: 1.7;
-    opacity: 0; animation: fadeUp 0.8s 0.6s forwards;
-  }
-
-  /* ── FILTER BAR ── */
-  .filter-bar {
-    display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;
-    padding: 2rem 6rem;
-    border-bottom: 1px solid var(--line);
-    background: var(--cream);
-    opacity: 0; animation: fadeUp 0.8s 0.8s forwards;
-  }
-  .filter-label {
-    font-family: 'DM Mono', monospace; font-size: 0.65rem;
-    letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted);
-    margin-right: 0.5rem;
-  }
-  .filter-btn {
-    padding: 0.4rem 1rem;
-    border: 1.5px solid var(--line); background: transparent;
-    font-family: 'Syne', sans-serif; font-size: 0.72rem;
-    font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--muted); cursor: pointer; transition: all 0.2s;
-  }
-  .filter-btn:hover, .filter-btn.active {
-    border-color: var(--rust); color: var(--rust); background: rgba(192,68,10,0.05);
-  }
-
-  /* ── BLOG GRID ── */
-  .blog-main {
-    padding: 4rem 6rem 6rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-    gap: 2rem;
-  }
-
-  /* ── POST CARD ── */
-  .post-card {
-    background: var(--paper);
-    border: 1px solid var(--line);
-    display: flex; flex-direction: column;
-    position: relative;
-    overflow: hidden;
-    opacity: 0; transform: translateY(20px);
-    transition: opacity 0.6s, transform 0.6s, box-shadow 0.2s;
-    cursor: pointer;
-  }
-  .post-card.visible { opacity: 1; transform: translateY(0); }
-  .post-card:hover { box-shadow: 6px 6px 0 var(--rust); transform: translate(-3px,-3px); }
-
-  .post-card-top {
-    background: var(--ink); padding: 2rem 2rem 1.5rem;
-    position: relative; overflow: hidden;
-    min-height: 160px; display: flex; flex-direction: column; justify-content: flex-end;
-  }
-  .post-card-top::before {
-    content: attr(data-icon);
-    position: absolute; right: 1.5rem; top: 1.2rem;
-    font-size: 2.5rem; opacity: 0.18;
-  }
-  .post-tag {
-    font-family: 'DM Mono', monospace; font-size: 0.62rem;
-    letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--rust); margin-bottom: 0.75rem;
-  }
-  .post-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.35rem; line-height: 1.2;
-    color: var(--paper);
-  }
-  .post-title em { font-style: italic; color: var(--rust); }
-
-  .post-card-body { padding: 1.8rem 2rem; flex: 1; display: flex; flex-direction: column; gap: 1rem; }
-  .post-excerpt { font-size: 0.85rem; color: var(--muted); line-height: 1.7; flex: 1; }
-
-  .post-meta {
-    display: flex; align-items: center; justify-content: space-between;
-    padding-top: 1rem;
-    border-top: 1px solid var(--line);
-  }
-  .post-date { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.08em; }
-  .post-read {
-    font-family: 'DM Mono', monospace; font-size: 0.65rem;
-    color: var(--rust); letter-spacing: 0.08em;
-    text-decoration: none; display: flex; align-items: center; gap: 0.4rem;
-    transition: gap 0.2s;
-    background: none; border: none; cursor: pointer; padding: 0;
-  }
-  .post-card:hover .post-read { gap: 0.75rem; }
-
-  /* ── FEATURED CARD ── */
-  .post-card.featured {
-    grid-column: span 2;
-    flex-direction: row;
-  }
-  .post-card.featured .post-card-top {
-    width: 45%; min-height: 240px; flex-shrink: 0;
-  }
-  .post-card.featured .post-card-body { padding: 2.5rem; }
-  .post-card.featured .post-title { font-size: 1.6rem; }
-  .post-card.featured .post-excerpt { font-size: 0.9rem; }
-
-  /* ── COMING SOON CARD ── */
-  .post-card.coming-soon {
-    border-style: dashed; opacity: 0.5;
-    pointer-events: none;
-  }
-  .post-card.coming-soon .post-card-top { background: var(--cream); }
-  .coming-label {
-    font-family: 'DM Mono', monospace; font-size: 0.7rem;
-    letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--muted); text-align: center; padding: 1rem;
-  }
-
-  /* ── ARTICLE MODAL ── */
-  .modal-backdrop {
-    position: fixed; inset: 0; z-index: 200;
-    background: rgba(13,13,13,0.75);
-    backdrop-filter: blur(6px);
-    opacity: 0; pointer-events: none;
-    transition: opacity 0.35s ease;
-    display: flex; align-items: flex-start; justify-content: center;
-    padding: 2rem 1rem;
-    overflow-y: auto;
-  }
-  .modal-backdrop.open {
-    opacity: 1; pointer-events: all;
-  }
-
-  .modal-panel {
-    background: var(--paper);
-    max-width: 760px; width: 100%;
-    margin: auto;
-    position: relative;
-    transform: translateY(40px);
-    transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
-    min-height: 60vh;
-  }
-  .modal-backdrop.open .modal-panel {
-    transform: translateY(0);
-  }
-
-  .modal-close {
-    position: absolute; top: 1.5rem; right: 1.5rem;
-    background: var(--ink); border: none;
-    color: var(--paper); width: 40px; height: 40px;
-    font-size: 1.1rem; cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    z-index: 10; transition: background 0.2s;
-    font-family: 'DM Mono', monospace;
-  }
-  .modal-close:hover { background: var(--rust); }
-
-  .modal-header {
-    background: var(--ink); padding: 3.5rem 3rem 2.5rem;
-    position: relative; overflow: hidden;
-  }
-  .modal-header::before {
-    content: attr(data-icon);
-    position: absolute; right: 2.5rem; top: 50%;
-    transform: translateY(-50%);
-    font-size: 7rem; opacity: 0.06;
-    pointer-events: none;
-  }
-  .modal-tag {
-    font-family: 'DM Mono', monospace; font-size: 0.65rem;
-    letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--rust); margin-bottom: 1rem;
-  }
-  .modal-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(1.8rem, 4vw, 2.6rem);
-    line-height: 1.1; letter-spacing: -0.02em;
-    color: var(--paper);
-  }
-  .modal-title em { font-style: italic; color: var(--rust); }
-  .modal-byline {
-    margin-top: 1.5rem;
-    display: flex; align-items: center; gap: 2rem;
-    font-family: 'DM Mono', monospace; font-size: 0.65rem;
-    color: rgba(245,240,232,0.45); letter-spacing: 0.08em;
-  }
-  .modal-byline span { color: rgba(245,240,232,0.65); }
-
-  .modal-body {
-    padding: 3rem;
-    font-size: 0.95rem; line-height: 1.85; color: #2a2420;
-  }
-  .modal-body h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.45rem; color: var(--ink);
-    margin: 2.5rem 0 1rem; letter-spacing: -0.01em;
-  }
-  .modal-body h3 {
-    font-family: 'Syne', sans-serif; font-size: 0.85rem;
-    font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--rust); margin: 2rem 0 0.75rem;
-  }
-  .modal-body p { margin-bottom: 1.3rem; }
-  .modal-body ul, .modal-body ol {
-    padding-left: 1.4rem; margin-bottom: 1.3rem;
-  }
-  .modal-body li { margin-bottom: 0.5rem; }
-  .modal-body blockquote {
-    border-left: 3px solid var(--rust);
-    padding: 1rem 1.5rem;
-    background: var(--cream);
-    margin: 2rem 0;
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.15rem; font-style: italic;
-    color: var(--ink); line-height: 1.6;
-  }
-  .modal-body .callout {
-    background: var(--ink); color: var(--paper);
-    padding: 1.5rem 2rem; margin: 2rem 0;
-    border-left: 4px solid var(--rust);
-  }
-  .modal-body .callout strong {
-    display: block; font-family: 'DM Mono', monospace;
-    font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--rust); margin-bottom: 0.5rem;
-  }
-  .modal-body .callout p { margin: 0; font-size: 0.88rem; color: rgba(245,240,232,0.8); line-height: 1.7; }
-  .modal-body .stat-row {
-    display: flex; gap: 1.5rem; margin: 2rem 0; flex-wrap: wrap;
-  }
-  .modal-body .stat-box {
-    flex: 1; min-width: 120px;
-    border: 1px solid var(--line); padding: 1.2rem 1.5rem;
-    text-align: center;
-  }
-  .modal-body .stat-box .num {
-    font-family: 'DM Serif Display', serif; font-size: 2rem;
-    color: var(--rust); line-height: 1;
-  }
-  .modal-body .stat-box .lbl {
-    font-family: 'DM Mono', monospace; font-size: 0.62rem;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--muted); margin-top: 0.3rem;
-  }
-  .modal-body hr {
-    border: none; border-top: 1px solid var(--line);
-    margin: 2.5rem 0;
-  }
-  .modal-body code {
-    font-family: 'DM Mono', monospace; font-size: 0.82rem;
-    background: var(--cream); padding: 0.15rem 0.4rem;
-    color: var(--rust);
-  }
-
-  .modal-footer {
-    padding: 2rem 3rem;
-    border-top: 1px solid var(--line);
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 1rem; flex-wrap: wrap;
-    background: var(--cream);
-  }
-  .modal-author {
-    font-family: 'DM Mono', monospace; font-size: 0.68rem;
-    color: var(--muted); letter-spacing: 0.06em;
-  }
-  .modal-author strong { color: var(--ink); }
-  .modal-close-btn {
-    padding: 0.7rem 1.8rem; background: var(--ink);
-    border: none; color: var(--paper);
-    font-family: 'Syne', sans-serif; font-size: 0.72rem;
-    font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-    cursor: pointer; transition: background 0.2s;
-  }
-  .modal-close-btn:hover { background: var(--rust); }
-
-  /* ── NEWSLETTER STRIP ── */
-  .newsletter-strip {
-    background: var(--rust); padding: 3rem 6rem;
-    display: flex; align-items: center; justify-content: space-between; gap: 2rem;
-    flex-wrap: wrap;
-  }
-  .newsletter-text h3 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.8rem; color: var(--paper); margin-bottom: 0.4rem;
-  }
-  .newsletter-text p { font-size: 0.85rem; color: rgba(245,240,232,0.7); }
-  .newsletter-input-group { display: flex; gap: 0; }
-  .newsletter-input {
-    padding: 0.85rem 1.4rem;
-    border: none; background: rgba(245,240,232,0.15);
-    color: var(--paper); font-family: 'Syne', sans-serif; font-size: 0.82rem;
-    width: 260px; outline: none;
-  }
-  .newsletter-input::placeholder { color: rgba(245,240,232,0.4); }
-  .newsletter-btn {
-    padding: 0.85rem 1.8rem; border: none;
-    background: var(--ink); color: var(--paper);
-    font-family: 'Syne', sans-serif; font-size: 0.78rem;
-    font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-    cursor: pointer; transition: opacity 0.2s;
-  }
-  .newsletter-btn:hover { opacity: 0.85; }
-
-  /* ── FOOTER ── */
-  footer {
-    background: var(--ink); color: rgba(245,240,232,0.35);
-    padding: 2rem 6rem;
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 0.75rem; letter-spacing: 0.05em;
-    flex-wrap: wrap; gap: 0.5rem;
-  }
-  footer a { color: var(--rust); text-decoration: none; }
-  footer a:hover { text-decoration: underline; }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(18px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 1300px) {
-    nav { padding: 1.2rem 1.8rem; }
-    .nav-links { gap: 1rem; }
-    .nav-links a { font-size: 0.64rem; }
-  }
-  @media (max-width: 900px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-links { gap: 1.2rem; overflow-x: auto; max-width: calc(100vw - 90px); scrollbar-width: none; -webkit-overflow-scrolling: touch; }
-    .nav-links::-webkit-scrollbar { display: none; }
-    .blog-hero { padding: 8rem 1.5rem 4rem; }
-    .filter-bar { padding: 1.5rem; }
-    .blog-main { padding: 2.5rem 1.5rem; grid-template-columns: 1fr; }
-    .post-card.featured { flex-direction: column; grid-column: span 1; }
-    .post-card.featured .post-card-top { width: 100%; }
-    .newsletter-strip { padding: 2.5rem 1.5rem; }
-    .newsletter-input { width: 100%; }
-    footer { padding: 1.5rem; flex-direction: column; text-align: center; }
-    .modal-body { padding: 2rem 1.5rem; }
-    .modal-header { padding: 3rem 1.5rem 2rem; }
-    .modal-footer { padding: 1.5rem; }
-  }
-</style>
+<meta property="og:site_name" content="SD Advisory">
+<meta property="og:locale" content="en_IN">
 <meta property="og:image" content="https://www.sdadvisory.in/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="SD Advisory — Enterprise AI Transformation for IT Operations">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Insights — AI Transformation &amp; Intelligent IT Operations | SD Advisory">
+<meta name="twitter:description" content="Practical insights on AI transformation, intelligent IT operations, AI + ITSM, AI resilience and enterprise AI architecture, from 20+ years in IT service delivery.">
 <meta name="twitter:image" content="https://www.sdadvisory.in/og-image.jpg">
-<link rel="stylesheet" href="site.css?v=4">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -594,14 +175,16 @@
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=5">
 </head>
 <body class="sd-page">
-<a class="skip-link" href="#blog-grid">Skip to main content</a>
-
-<!-- NAV -->
+<a class="skip-link" href="#main">Skip to main content</a>
 <nav aria-label="Primary">
   <a href="index.html" class="nav-logo" aria-label="SD Advisory home">
-    <img src="logo-mark-80.png" width="40" height="40" alt="">
+    <img src="logo-mark-80.png" width="38" height="38" alt="">
     <span class="nav-brand">
       <span class="nav-brand-name">SD ADVISORY</span>
       <span class="nav-brand-tag">Enterprise AI Transformation</span>
@@ -614,329 +197,26 @@
     <a href="ai-resilience-by-design.html">AI Resilience</a>
     <a href="case-studies.html">Case Studies</a>
     <a href="blog.html" aria-current="page">Insights</a>
+    <a href="assessment.html">AI Readiness</a>
     <a href="start-here.html">Start Here</a>
     <a href="contact.html">Contact</a>
-    <a href="assessment.html" class="nav-cta">Assess Your AI Readiness</a>
+    <a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" rel="noopener" class="nav-cta">Book a Consultation</a>
   </div>
 </nav>
-
-<!-- HERO -->
-<div role="region" aria-label="Insights introduction and topic filters">
-<div class="blog-hero">
-  <div class="hero-tag">// Perspectives &amp; Insights</div>
-  <h1>Insights on <em>AI</em> &amp; Intelligent<br>IT Operations</h1>
+<main id="main">
+<header class="blog-hero">
+  <p class="sd-eyebrow">Perspectives &amp; Insights</p>
+  <h1>Insights on <em>AI</em> &amp; Intelligent IT Operations</h1>
   <p class="hero-sub">Practical thinking on AI transformation, intelligent IT operations, AI and ITSM, AI resilience and enterprise AI architecture — from 20+ years of running enterprise IT service delivery.</p>
+</header>
+<div class="filter-bar" role="group" aria-label="Filter by topic"><span class="filter-label">Topic</span><button class="filter-btn active" data-filter="all" aria-pressed="true">All</button><button class="filter-btn" id="ai-transformation" data-filter="ai-transformation" aria-pressed="false">AI Transformation</button><button class="filter-btn" id="intelligent-it-operations" data-filter="intelligent-it-operations" aria-pressed="false">Intelligent IT Operations</button><button class="filter-btn" id="ai-itsm" data-filter="ai-itsm" aria-pressed="false">AI + ITSM</button><button class="filter-btn" id="ai-resilience-governance" data-filter="ai-resilience-governance" aria-pressed="false">AI Resilience & Governance</button><button class="filter-btn" id="enterprise-ai-architecture" data-filter="enterprise-ai-architecture" aria-pressed="false">Enterprise AI Architecture</button></div>
+<div class="blog-main" id="blog-grid">
+<a class="ed-card feature" data-category="intelligent-it-operations" href="insights/why-aiops-is-not-just-another-buzzword.html"><span class="ed-no" aria-hidden="true">01</span><div class="ed-cat">Intelligent IT Operations</div><h2 class="ed-title">Why AIOps is Not Just Another Buzzword</h2><p class="ed-sum">After two decades in IT operations, I&#x27;ve watched trends come and go. AIOps is different. When implemented correctly — with real telemetry, real workflows, and real ITIL alignment — it doesn&#x27;t just monitor your infrastructure. It anticipates failure, auto-routes incidents, and learns from every resolution.</p><div class="ed-meta"><span>Jun 2026 · 8 min read</span><span class="more">Read Insight <span class="arr" aria-hidden="true">→</span></span></div></a><a class="ed-card" data-category="enterprise-ai-architecture ai-transformation intelligent-it-operations" href="insights/agentic-ai-from-copilots-to-autonomous-it-operations.html"><span class="ed-no" aria-hidden="true">02</span><div class="ed-cat">Enterprise AI Architecture</div><h2 class="ed-title">Agentic AI: From Copilots to Autonomous IT Operations</h2><p class="ed-sum">2026 is the year AI stopped suggesting and started doing. Agentic AI systems now plan, execute, and verify multi-step IT operations tasks — but autonomy without guardrails is an outage waiting to happen. Here&#x27;s where agents genuinely help, and where humans must stay in the loop.</p><div class="ed-meta"><span>Jul 2026 · 9 min read</span><span class="more">Read Insight <span class="arr" aria-hidden="true">→</span></span></div></a><a class="ed-card" data-category="enterprise-ai-architecture" href="insights/digital-twins-spatial-computing-for-enterprise-it.html"><span class="ed-no" aria-hidden="true">03</span><div class="ed-cat">Enterprise AI Architecture</div><h2 class="ed-title">Digital Twins &amp; Spatial Computing for Enterprise IT</h2><p class="ed-sum">Digital twins have moved beyond manufacturing floors into the data centre and the NOC. Combined with spatial computing interfaces, they&#x27;re changing how operations teams visualise infrastructure, rehearse changes, and predict failures before they happen.</p><div class="ed-meta"><span>Jul 2026 · 7 min read</span><span class="more">Read Insight <span class="arr" aria-hidden="true">→</span></span></div></a><a class="ed-card" data-category="ai-resilience-governance enterprise-ai-architecture" href="insights/quantum-safe-it-preparing-enterprise-infrastructure-for-post-quantum.html"><span class="ed-no" aria-hidden="true">04</span><div class="ed-cat">AI Resilience &amp; Governance</div><h2 class="ed-title">Quantum-Safe IT: Preparing Enterprise Infrastructure for Post-Quantum Cryptography</h2><p class="ed-sum">Attackers are harvesting your encrypted traffic today to decrypt it when quantum computers mature. With NIST&#x27;s post-quantum standards finalised and regulatory deadlines approaching, PQC migration has become an IT delivery programme — not a research topic. Here&#x27;s the practical roadmap.</p><div class="ed-meta"><span>Jul 2026 · 8 min read</span><span class="more">Read Insight <span class="arr" aria-hidden="true">→</span></span></div></a><a class="ed-card" data-category="ai-itsm" href="insights/prompt-engineering-for-itsm-teams.html"><span class="ed-no" aria-hidden="true">05</span><div class="ed-cat">AI + ITSM</div><h2 class="ed-title">Prompt Engineering for ITSM Teams</h2><p class="ed-sum">Most service desk teams are sitting on untapped potential. With the right prompt architecture, Claude or ChatGPT can triage tickets, generate incident summaries, draft RCA reports, and coach L1 agents — all without replacing your team.</p><div class="ed-meta"><span>May 2026 · 6 min read</span><span class="more">Read Insight <span class="arr" aria-hidden="true">→</span></span></div></a><a class="ed-card" data-category="ai-itsm enterprise-ai-architecture" href="insights/n8n-claude-the-itsm-power-combo.html"><span class="ed-no" aria-hidden="true">06</span><div class="ed-cat">AI + ITSM</div><h2 class="ed-title">n8n + Claude: The ITSM Power Combo</h2><p class="ed-sum">How I built SmartDesk — an AI triage system that auto-classifies 42% of tickets — using n8n workflows and Claude API. A complete walkthrough of the architecture, prompt design, and lessons learned.</p><div class="ed-meta"><span>Apr 2026 · 10 min read</span><span class="more">Read Insight <span class="arr" aria-hidden="true">→</span></span></div></a><a class="ed-card" data-category="ai-transformation" href="insights/the-ai-adoption-maturity-model-for-it.html"><span class="ed-no" aria-hidden="true">07</span><div class="ed-cat">AI Transformation</div><h2 class="ed-title">The AI Adoption Maturity Model for IT</h2><p class="ed-sum">Not all organisations are ready for the same AI interventions. This maturity framework helps CIOs and service delivery leaders identify where they are — and what their next AI investment should be.</p><div class="ed-meta"><span>Mar 2026 · 7 min read</span><span class="more">Read Insight <span class="arr" aria-hidden="true">→</span></span></div></a><a class="ed-card" data-category="ai-itsm ai-resilience-governance" href="insights/itil-4-meets-generative-ai.html"><span class="ed-no" aria-hidden="true">08</span><div class="ed-cat">AI + ITSM</div><h2 class="ed-title">ITIL 4 Meets Generative AI</h2><p class="ed-sum">ITIL 4&#x27;s Service Value System wasn&#x27;t designed with LLMs in mind — but its flexibility makes it ideal for AI augmentation. A practical guide to overlaying GenAI capabilities on your existing ITIL framework.</p><div class="ed-meta"><span>Feb 2026 · 5 min read</span><span class="more">Read Insight <span class="arr" aria-hidden="true">→</span></span></div></a><a class="ed-card" data-category="enterprise-ai-architecture ai-itsm" href="insights/rag-for-knowledge-base-automation.html"><span class="ed-no" aria-hidden="true">09</span><div class="ed-cat">Enterprise AI Architecture</div><h2 class="ed-title">RAG for Knowledge Base Automation</h2><p class="ed-sum">Retrieval-Augmented Generation can turn your ServiceNow knowledge base into an intelligent self-service engine. Here&#x27;s the architecture I recommend for enterprise ITSM knowledge automation.</p><div class="ed-meta"><span>Jan 2026 · 9 min read</span><span class="more">Read Insight <span class="arr" aria-hidden="true">→</span></span></div></a><a class="ed-card" data-category="intelligent-it-operations" href="insights/observability-vs-monitoring-why-your-splunk-dashboard-isnt-enough.html"><span class="ed-no" aria-hidden="true">10</span><div class="ed-cat">Intelligent IT Operations</div><h2 class="ed-title">Observability vs. Monitoring — Why Your Splunk Dashboard Isn&#x27;t Enough</h2><p class="ed-sum">Monitoring tells you when something you already anticipated breaks. Observability lets you ask questions you never thought to ask in advance. Most enterprise Splunk deployments are still doing the former.</p><div class="ed-meta"><span>Dec 2025 · 7 min read</span><span class="more">Read Insight <span class="arr" aria-hidden="true">→</span></span></div></a><a class="ed-card" data-category="intelligent-it-operations ai-transformation" href="insights/building-an-aiops-maturity-model-a-practical-framework.html"><span class="ed-no" aria-hidden="true">11</span><div class="ed-cat">Intelligent IT Operations</div><h2 class="ed-title">Building an AIOps Maturity Model: A Practical Framework</h2><p class="ed-sum">Most organizations buy an AIOps platform before they know what maturity stage they&#x27;re actually at. Here&#x27;s the four-stage framework I use to diagnose where a team really stands before recommending anything.</p><div class="ed-meta"><span>Nov 2025 · 8 min read</span><span class="more">Read Insight <span class="arr" aria-hidden="true">→</span></span></div></a><a class="ed-card" data-category="ai-itsm" href="insights/beyond-chatbots-what-production-grade-genai-for-itsm-actually-looks.html"><span class="ed-no" aria-hidden="true">12</span><div class="ed-cat">AI + ITSM</div><h2 class="ed-title">Beyond Chatbots: What Production-Grade GenAI for ITSM Actually Looks Like</h2><p class="ed-sum">Most enterprise GenAI-for-ITSM initiatives stall at a chatbot demo. Production-grade implementations look almost nothing like that — and the difference comes down to four specific design decisions.</p><div class="ed-meta"><span>Oct 2025 · 7 min read</span><span class="more">Read Insight <span class="arr" aria-hidden="true">→</span></span></div></a><a class="ed-card" data-category="ai-itsm enterprise-ai-architecture" href="insights/how-i-built-smart-desk-lessons-from-putting-claude-into-a-live.html"><span class="ed-no" aria-hidden="true">13</span><div class="ed-cat">AI + ITSM</div><h2 class="ed-title">How I Built Smart Desk: Lessons From Putting Claude Into a Live ServiceNow Workflow</h2><p class="ed-sum">A behind-the-scenes look at building Smart Desk — the architecture decisions, the failure modes I hit early, and why the boring parts of the build mattered more than the AI model choice.</p><div class="ed-meta"><span>Sep 2025 · 9 min read</span><span class="more">Read Insight <span class="arr" aria-hidden="true">→</span></span></div></a><a class="ed-card" data-category="ai-resilience-governance" href="insights/servicenow-governance-debt-the-hidden-cost-of-it-just-works.html"><span class="ed-no" aria-hidden="true">14</span><div class="ed-cat">AI Resilience &amp; Governance</div><h2 class="ed-title">ServiceNow Governance Debt: The Hidden Cost of &#x27;It Just Works&#x27;</h2><p class="ed-sum">Most ServiceNow instances accumulate governance debt the same way technical debt builds in codebases — quietly, through years of reasonable-seeming shortcuts, until an audit or an automation project hits the bill all at once.</p><div class="ed-meta"><span>Aug 2025 · 6 min read</span><span class="more">Read Insight <span class="arr" aria-hidden="true">→</span></span></div></a><a class="ed-card" data-category="ai-resilience-governance ai-itsm" href="insights/api-integrations-in-servicenow-a-security-first-checklist.html"><span class="ed-no" aria-hidden="true">15</span><div class="ed-cat">AI Resilience &amp; Governance</div><h2 class="ed-title">API Integrations in ServiceNow: A Security-First Checklist</h2><p class="ed-sum">Every API integration you add to ServiceNow expands the platform&#x27;s attack surface, whether or not anyone treats it that way. Here&#x27;s the checklist I run before any integration goes live.</p><div class="ed-meta"><span>Jul 2025 · 6 min read</span><span class="more">Read Insight <span class="arr" aria-hidden="true">→</span></span></div></a><a class="ed-card" data-category="ai-resilience-governance" href="insights/itil-4-in-practice-why-most-governance-frameworks-fail-at-2am.html"><span class="ed-no" aria-hidden="true">16</span><div class="ed-cat">AI Resilience &amp; Governance</div><h2 class="ed-title">ITIL 4 in Practice: Why Most Governance Frameworks Fail at 2am</h2><p class="ed-sum">A governance framework that only works during business hours, with the process owner available to clarify edge cases, isn&#x27;t a governance framework — it&#x27;s a documentation exercise waiting for its first real incident.</p><div class="ed-meta"><span>Jun 2025 · 7 min read</span><span class="more">Read Insight <span class="arr" aria-hidden="true">→</span></span></div></a><a class="ed-card" data-category="ai-itsm" href="insights/change-management-without-the-bottleneck-a-practical-itil-4-approach.html"><span class="ed-no" aria-hidden="true">17</span><div class="ed-cat">AI + ITSM</div><h2 class="ed-title">Change Management Without the Bottleneck: A Practical ITIL 4 Approach</h2><p class="ed-sum">Change management gets a bad reputation because most implementations treat every change like it carries equal risk. ITIL 4&#x27;s risk-based approach fixes this — if anyone actually implements it that way.</p><div class="ed-meta"><span>May 2025 · 6 min read</span><span class="more">Read Insight <span class="arr" aria-hidden="true">→</span></span></div></a><a class="ed-card" data-category="intelligent-it-operations" href="insights/running-a-global-managed-services-portfolio-lessons-in-sla-governance.html"><span class="ed-no" aria-hidden="true">18</span><div class="ed-cat">Intelligent IT Operations</div><h2 class="ed-title">Running a Global Managed Services Portfolio: Lessons in SLA Governance</h2><p class="ed-sum">SLA governance at portfolio scale is a completely different discipline than SLA management for a single account. Here&#x27;s what changes once you&#x27;re responsible for fifteen accounts instead of one.</p><div class="ed-meta"><span>Apr 2025 · 8 min read</span><span class="more">Read Insight <span class="arr" aria-hidden="true">→</span></span></div></a><a class="ed-card" data-category="intelligent-it-operations" href="insights/the-hidden-cost-of-bad-service-transitions-and-how-to-avoid-sev-1s.html"><span class="ed-no" aria-hidden="true">19</span><div class="ed-cat">Intelligent IT Operations</div><h2 class="ed-title">The Hidden Cost of Bad Service Transitions (and How to Avoid Sev-1s)</h2><p class="ed-sum">Most service transition failures aren&#x27;t caused by the cutover itself — they&#x27;re caused by hypercare planning that was treated as an afterthought rather than a core deliverable.</p><div class="ed-meta"><span>Mar 2025 · 7 min read</span><span class="more">Read Insight <span class="arr" aria-hidden="true">→</span></span></div></a><div class="ed-card soon"><div class="ed-cat">Next article coming soon</div><h2 class="ed-title">The AI-Native NOC — What IT Operations Looks Like When Agents, Twins, and Humans Share the Console</h2></div>
 </div>
-
-<!-- FILTER BAR -->
-<div class="filter-bar" role="group" aria-label="Filter by topic">
-  <span class="filter-label">Topic:</span>
-  <button class="filter-btn active" data-filter="all">All</button>
-  <button class="filter-btn" id="ai-transformation" data-filter="ai-transformation">AI Transformation</button>
-  <button class="filter-btn" id="intelligent-it-operations" data-filter="intelligent-it-operations">Intelligent IT Operations</button>
-  <button class="filter-btn" id="ai-itsm" data-filter="ai-itsm">AI + ITSM</button>
-  <button class="filter-btn" id="ai-resilience-governance" data-filter="ai-resilience-governance">AI Resilience & Governance</button>
-  <button class="filter-btn" id="enterprise-ai-architecture" data-filter="enterprise-ai-architecture">Enterprise AI Architecture</button>
-</div>
-
-<!-- BLOG GRID -->
-</div>
-<main class="blog-main" id="blog-grid">
-
-  <!-- FEATURED POST -->
-  <article class="post-card featured" data-category="intelligent-it-operations" data-post="1">
-    <div class="post-card-top" data-icon="🤖">
-      <div class="post-tag">✦ Featured · AIOps · GenAI</div>
-      <div class="post-title"><a class="post-title-link" href="insights/why-aiops-is-not-just-another-buzzword.html">Why <em>AIOps</em> is Not Just<br>Another Buzzword</a></div>
-    </div>
-    <div class="post-card-body">
-      <p class="post-excerpt">
-        After two decades in IT operations, I've watched trends come and go. AIOps is different. When implemented correctly — with real telemetry, real workflows, and real ITIL alignment — it doesn't just monitor your infrastructure. It anticipates failure, auto-routes incidents, and learns from every resolution.
-      </p>
-      <div class="post-meta">
-        <span class="post-date">Jun 2026 · 8 min read</span>
-        <a class="post-read" href="insights/why-aiops-is-not-just-another-buzzword.html">Read Article →</a>
-      </div>
-    </div>
-  </article>
-
-  <!-- POST 17: Agentic AI (Emerging Tech) -->
-  <article class="post-card" data-category="enterprise-ai-architecture ai-transformation intelligent-it-operations" data-post="17">
-    <div class="post-card-top" data-icon="🕹️">
-      <div class="post-tag">✦ New · Emerging Tech · Agentic AI</div>
-      <div class="post-title"><a class="post-title-link" href="insights/agentic-ai-from-copilots-to-autonomous-it-operations.html">Agentic AI: From <em>Copilots</em><br>to Autonomous IT Ops</a></div>
-    </div>
-    <div class="post-card-body">
-      <p class="post-excerpt">2026 is the year AI stopped suggesting and started doing. Agentic AI systems now plan, execute, and verify multi-step IT operations tasks — but autonomy without guardrails is an outage waiting to happen. Here's where agents genuinely help, and where humans must stay in the loop.</p>
-      <div class="post-meta">
-        <span class="post-date">Jul 2026 · 9 min read</span>
-        <a class="post-read" href="insights/agentic-ai-from-copilots-to-autonomous-it-operations.html">Read →</a>
-      </div>
-    </div>
-  </article>
-
-  <!-- POST 18: Digital Twins & Spatial Computing (Emerging Tech) -->
-  <article class="post-card" data-category="enterprise-ai-architecture" data-post="18">
-    <div class="post-card-top" data-icon="🌐">
-      <div class="post-tag">Emerging Tech · Digital Twins</div>
-      <div class="post-title"><a class="post-title-link" href="insights/digital-twins-spatial-computing-for-enterprise-it.html"><em>Digital Twins</em> &amp; Spatial<br>Computing for Enterprise IT</a></div>
-    </div>
-    <div class="post-card-body">
-      <p class="post-excerpt">Digital twins have moved beyond manufacturing floors into the data centre and the NOC. Combined with spatial computing interfaces, they're changing how operations teams visualise infrastructure, rehearse changes, and predict failures before they happen.</p>
-      <div class="post-meta">
-        <span class="post-date">Jul 2026 · 7 min read</span>
-        <a class="post-read" href="insights/digital-twins-spatial-computing-for-enterprise-it.html">Read →</a>
-      </div>
-    </div>
-  </article>
-
-  <!-- POST 19: Quantum-Safe IT (Emerging Tech) -->
-  <article class="post-card" data-category="ai-resilience-governance enterprise-ai-architecture" data-post="19">
-    <div class="post-card-top" data-icon="🔐">
-      <div class="post-tag">Emerging Tech · Post-Quantum Security</div>
-      <div class="post-title"><a class="post-title-link" href="insights/quantum-safe-it-preparing-enterprise-infrastructure-for-post-quantum.html"><em>Quantum-Safe IT:</em><br>Preparing for PQC Migration</a></div>
-    </div>
-    <div class="post-card-body">
-      <p class="post-excerpt">Attackers are harvesting your encrypted traffic today to decrypt it when quantum computers mature. With NIST's post-quantum standards finalised and regulatory deadlines approaching, PQC migration has become an IT delivery programme — not a research topic. Here's the practical roadmap.</p>
-      <div class="post-meta">
-        <span class="post-date">Jul 2026 · 8 min read</span>
-        <a class="post-read" href="insights/quantum-safe-it-preparing-enterprise-infrastructure-for-post-quantum.html">Read →</a>
-      </div>
-    </div>
-  </article>
-
-  <!-- POST 2 -->
-  <article class="post-card" data-category="ai-itsm" data-post="2">
-    <div class="post-card-top" data-icon="⚡">
-      <div class="post-tag">GenAI · ITSM</div>
-      <div class="post-title"><a class="post-title-link" href="insights/prompt-engineering-for-itsm-teams.html">Prompt Engineering<br>for <em>ITSM Teams</em></a></div>
-    </div>
-    <div class="post-card-body">
-      <p class="post-excerpt">Most service desk teams are sitting on untapped potential. With the right prompt architecture, Claude or ChatGPT can triage tickets, generate incident summaries, draft RCA reports, and coach L1 agents — all without replacing your team.</p>
-      <div class="post-meta">
-        <span class="post-date">May 2026 · 6 min read</span>
-        <a class="post-read" href="insights/prompt-engineering-for-itsm-teams.html">Read →</a>
-      </div>
-    </div>
-  </article>
-
-  <!-- POST 3 -->
-  <article class="post-card" data-category="ai-itsm enterprise-ai-architecture" data-post="3">
-    <div class="post-card-top" data-icon="🔗">
-      <div class="post-tag">Automation · n8n</div>
-      <div class="post-title"><a class="post-title-link" href="insights/n8n-claude-the-itsm-power-combo.html"><em>n8n</em> + Claude:<br>The ITSM Power Combo</a></div>
-    </div>
-    <div class="post-card-body">
-      <p class="post-excerpt">How I built SmartDesk — an AI triage system that auto-classifies 42% of tickets — using n8n workflows and Claude API. A complete walkthrough of the architecture, prompt design, and lessons learned.</p>
-      <div class="post-meta">
-        <span class="post-date">Apr 2026 · 10 min read</span>
-        <a class="post-read" href="insights/n8n-claude-the-itsm-power-combo.html">Read →</a>
-      </div>
-    </div>
-  </article>
-
-  <!-- POST 4 -->
-  <article class="post-card" data-category="ai-transformation" data-post="4">
-    <div class="post-card-top" data-icon="📊">
-      <div class="post-tag">Leadership · Strategy</div>
-      <div class="post-title"><a class="post-title-link" href="insights/the-ai-adoption-maturity-model-for-it.html">The AI Adoption<br><em>Maturity Model</em> for IT</a></div>
-    </div>
-    <div class="post-card-body">
-      <p class="post-excerpt">Not all organisations are ready for the same AI interventions. This maturity framework helps CIOs and service delivery leaders identify where they are — and what their next AI investment should be.</p>
-      <div class="post-meta">
-        <span class="post-date">Mar 2026 · 7 min read</span>
-        <a class="post-read" href="insights/the-ai-adoption-maturity-model-for-it.html">Read →</a>
-      </div>
-    </div>
-  </article>
-
-  <!-- POST 5 -->
-  <article class="post-card" data-category="ai-itsm ai-resilience-governance" data-post="5">
-    <div class="post-card-top" data-icon="📋">
-      <div class="post-tag">ITSM · ITIL</div>
-      <div class="post-title"><a class="post-title-link" href="insights/itil-4-meets-generative-ai.html">ITIL 4 Meets<br><em>Generative AI</em></a></div>
-    </div>
-    <div class="post-card-body">
-      <p class="post-excerpt">ITIL 4's Service Value System wasn't designed with LLMs in mind — but its flexibility makes it ideal for AI augmentation. A practical guide to overlaying GenAI capabilities on your existing ITIL framework.</p>
-      <div class="post-meta">
-        <span class="post-date">Feb 2026 · 5 min read</span>
-        <a class="post-read" href="insights/itil-4-meets-generative-ai.html">Read →</a>
-      </div>
-    </div>
-  </article>
-
-  <!-- POST 6 -->
-  <article class="post-card" data-category="enterprise-ai-architecture ai-itsm" data-post="6">
-    <div class="post-card-top" data-icon="🧠">
-      <div class="post-tag">GenAI · RAG</div>
-      <div class="post-title"><a class="post-title-link" href="insights/rag-for-knowledge-base-automation.html">RAG for <em>Knowledge</em><br>Base Automation</a></div>
-    </div>
-    <div class="post-card-body">
-      <p class="post-excerpt">Retrieval-Augmented Generation can turn your ServiceNow knowledge base into an intelligent self-service engine. Here's the architecture I recommend for enterprise ITSM knowledge automation.</p>
-      <div class="post-meta">
-        <span class="post-date">Jan 2026 · 9 min read</span>
-        <a class="post-read" href="insights/rag-for-knowledge-base-automation.html">Read →</a>
-      </div>
-    </div>
-  </article>
-
-
-  <article class="post-card" data-category="intelligent-it-operations" data-post="7">
-    <div class="post-card-top" data-icon="🔭">
-      <div class="post-tag">AIOps · Observability</div>
-      <div class="post-title"><a class="post-title-link" href="insights/observability-vs-monitoring-why-your-splunk-dashboard-isnt-enough.html">Observability vs. <em>Monitoring</em> — Why Your Splunk Dashboard Isn't Enough</a></div>
-    </div>
-    <div class="post-card-body">
-      <p class="post-excerpt">Monitoring tells you when something you already anticipated breaks. Observability lets you ask questions you never thought to ask in advance. Most enterprise Splunk deployments are still doing the former.</p>
-      <div class="post-meta">
-        <span class="post-date">Dec 2025 · 7 min read</span>
-        <a class="post-read" href="insights/observability-vs-monitoring-why-your-splunk-dashboard-isnt-enough.html">Read →</a>
-      </div>
-    </div>
-  </article>
-
-  <article class="post-card" data-category="intelligent-it-operations ai-transformation" data-post="8">
-    <div class="post-card-top" data-icon="📐">
-      <div class="post-tag">AIOps · Strategy</div>
-      <div class="post-title"><a class="post-title-link" href="insights/building-an-aiops-maturity-model-a-practical-framework.html">Building an AIOps Maturity Model: A Practical Framework</a></div>
-    </div>
-    <div class="post-card-body">
-      <p class="post-excerpt">Most organizations buy an AIOps platform before they know what maturity stage they're actually at. Here's the four-stage framework I use to diagnose where a team really stands before recommending anything.</p>
-      <div class="post-meta">
-        <span class="post-date">Nov 2025 · 8 min read</span>
-        <a class="post-read" href="insights/building-an-aiops-maturity-model-a-practical-framework.html">Read →</a>
-      </div>
-    </div>
-  </article>
-
-  <article class="post-card" data-category="ai-itsm" data-post="9">
-    <div class="post-card-top" data-icon="🧩">
-      <div class="post-tag">GenAI · ITSM</div>
-      <div class="post-title"><a class="post-title-link" href="insights/beyond-chatbots-what-production-grade-genai-for-itsm-actually-looks.html">Beyond Chatbots: What Production-Grade GenAI for <em>ITSM</em> Actually Looks Like</a></div>
-    </div>
-    <div class="post-card-body">
-      <p class="post-excerpt">Most enterprise GenAI-for-ITSM initiatives stall at a chatbot demo. Production-grade implementations look almost nothing like that — and the difference comes down to four specific design decisions.</p>
-      <div class="post-meta">
-        <span class="post-date">Oct 2025 · 7 min read</span>
-        <a class="post-read" href="insights/beyond-chatbots-what-production-grade-genai-for-itsm-actually-looks.html">Read →</a>
-      </div>
-    </div>
-  </article>
-
-  <article class="post-card" data-category="ai-itsm enterprise-ai-architecture" data-post="10">
-    <div class="post-card-top" data-icon="🛠️">
-      <div class="post-tag">GenAI · Case Study</div>
-      <div class="post-title"><a class="post-title-link" href="insights/how-i-built-smart-desk-lessons-from-putting-claude-into-a-live.html">How I Built <em>Smart Desk</em>: Lessons From Putting Claude Into a Live ServiceNow Workflow</a></div>
-    </div>
-    <div class="post-card-body">
-      <p class="post-excerpt">A behind-the-scenes look at building Smart Desk — the architecture decisions, the failure modes I hit early, and why the boring parts of the build mattered more than the AI model choice.</p>
-      <div class="post-meta">
-        <span class="post-date">Sep 2025 · 9 min read</span>
-        <a class="post-read" href="insights/how-i-built-smart-desk-lessons-from-putting-claude-into-a-live.html">Read →</a>
-      </div>
-    </div>
-  </article>
-
-  <article class="post-card" data-category="ai-resilience-governance" data-post="11">
-    <div class="post-card-top" data-icon="🔐">
-      <div class="post-tag">ServiceNow · Governance</div>
-      <div class="post-title"><a class="post-title-link" href="insights/servicenow-governance-debt-the-hidden-cost-of-it-just-works.html">ServiceNow Governance Debt: The Hidden Cost of <em>'It Just Works'</em></a></div>
-    </div>
-    <div class="post-card-body">
-      <p class="post-excerpt">Most ServiceNow instances accumulate governance debt the same way technical debt builds in codebases — quietly, through years of reasonable-seeming shortcuts, until an audit or an automation project hits the bill all at once.</p>
-      <div class="post-meta">
-        <span class="post-date">Aug 2025 · 6 min read</span>
-        <a class="post-read" href="insights/servicenow-governance-debt-the-hidden-cost-of-it-just-works.html">Read →</a>
-      </div>
-    </div>
-  </article>
-
-  <article class="post-card" data-category="ai-resilience-governance ai-itsm" data-post="12">
-    <div class="post-card-top" data-icon="🛡️">
-      <div class="post-tag">ServiceNow · Security</div>
-      <div class="post-title"><a class="post-title-link" href="insights/api-integrations-in-servicenow-a-security-first-checklist.html">API Integrations in ServiceNow: A Security-First Checklist</a></div>
-    </div>
-    <div class="post-card-body">
-      <p class="post-excerpt">Every API integration you add to ServiceNow expands the platform's attack surface, whether or not anyone treats it that way. Here's the checklist I run before any integration goes live.</p>
-      <div class="post-meta">
-        <span class="post-date">Jul 2025 · 6 min read</span>
-        <a class="post-read" href="insights/api-integrations-in-servicenow-a-security-first-checklist.html">Read →</a>
-      </div>
-    </div>
-  </article>
-
-  <article class="post-card" data-category="ai-resilience-governance" data-post="13">
-    <div class="post-card-top" data-icon="📋">
-      <div class="post-tag">ITIL 4 · Governance</div>
-      <div class="post-title"><a class="post-title-link" href="insights/itil-4-in-practice-why-most-governance-frameworks-fail-at-2am.html">ITIL 4 in Practice: Why Most Governance Frameworks Fail at 2am</a></div>
-    </div>
-    <div class="post-card-body">
-      <p class="post-excerpt">A governance framework that only works during business hours, with the process owner available to clarify edge cases, isn't a governance framework — it's a documentation exercise waiting for its first real incident.</p>
-      <div class="post-meta">
-        <span class="post-date">Jun 2025 · 7 min read</span>
-        <a class="post-read" href="insights/itil-4-in-practice-why-most-governance-frameworks-fail-at-2am.html">Read →</a>
-      </div>
-    </div>
-  </article>
-
-  <article class="post-card" data-category="ai-itsm" data-post="14">
-    <div class="post-card-top" data-icon="🔄">
-      <div class="post-tag">ITIL 4 · Change Management</div>
-      <div class="post-title"><a class="post-title-link" href="insights/change-management-without-the-bottleneck-a-practical-itil-4-approach.html">Change Management Without the Bottleneck: A Practical ITIL 4 Approach</a></div>
-    </div>
-    <div class="post-card-body">
-      <p class="post-excerpt">Change management gets a bad reputation because most implementations treat every change like it carries equal risk. ITIL 4's risk-based approach fixes this — if anyone actually implements it that way.</p>
-      <div class="post-meta">
-        <span class="post-date">May 2025 · 6 min read</span>
-        <a class="post-read" href="insights/change-management-without-the-bottleneck-a-practical-itil-4-approach.html">Read →</a>
-      </div>
-    </div>
-  </article>
-
-  <article class="post-card" data-category="intelligent-it-operations" data-post="15">
-    <div class="post-card-top" data-icon="📊">
-      <div class="post-tag">Managed Services · SLA</div>
-      <div class="post-title"><a class="post-title-link" href="insights/running-a-global-managed-services-portfolio-lessons-in-sla-governance.html">Running a Global Managed Services Portfolio: Lessons in SLA Governance</a></div>
-    </div>
-    <div class="post-card-body">
-      <p class="post-excerpt">SLA governance at portfolio scale is a completely different discipline than SLA management for a single account. Here's what changes once you're responsible for fifteen accounts instead of one.</p>
-      <div class="post-meta">
-        <span class="post-date">Apr 2025 · 8 min read</span>
-        <a class="post-read" href="insights/running-a-global-managed-services-portfolio-lessons-in-sla-governance.html">Read →</a>
-      </div>
-    </div>
-  </article>
-
-  <article class="post-card" data-category="intelligent-it-operations" data-post="16">
-    <div class="post-card-top" data-icon="🚦">
-      <div class="post-tag">Managed Services · Transitions</div>
-      <div class="post-title"><a class="post-title-link" href="insights/the-hidden-cost-of-bad-service-transitions-and-how-to-avoid-sev-1s.html">The Hidden Cost of Bad Service Transitions (and How to Avoid Sev-1s)</a></div>
-    </div>
-    <div class="post-card-body">
-      <p class="post-excerpt">Most service transition failures aren't caused by the cutover itself — they're caused by hypercare planning that was treated as an afterthought rather than a core deliverable.</p>
-      <div class="post-meta">
-        <span class="post-date">Mar 2025 · 7 min read</span>
-        <a class="post-read" href="insights/the-hidden-cost-of-bad-service-transitions-and-how-to-avoid-sev-1s.html">Read →</a>
-      </div>
-    </div>
-  </article>
-
-  <!-- COMING SOON -->
-  <article class="post-card coming-soon">
-    <div class="post-card-top" data-icon="✦" style="background:var(--cream); min-height:120px;"></div>
-    <div class="post-card-body">
-      <div class="coming-label">✦ &nbsp; Next Article Coming Soon</div>
-      <p class="post-excerpt" style="text-align:center; font-size:0.78rem;">The AI-Native NOC — What IT Operations Looks Like When Agents, Twins, and Humans Share the Console</p>
-    </div>
-  </article>
-
-</main>
-
-<!-- NEWSLETTER -->
-<section class="sd-section" style="padding-top:2rem" aria-label="Newsletter">
+<section class="sd-section sd-soft" aria-label="Newsletter" style="padding-top:clamp(3rem,6vw,5rem);padding-bottom:clamp(3rem,6vw,5rem)">
   <div class="sd-wrap">
-    <div class="brief">
-      <div><h2 style="font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:1.8rem;line-height:1.15;margin:0 0 .6rem">The AI Operations Brief</h2><p>One practical idea every week for making enterprise IT operations more intelligent, resilient and autonomous.</p></div>
+    <div class="brief net-bg">
+      <div><h2>The AI Operations Brief</h2><p>One practical idea every week for making enterprise IT operations more intelligent, resilient and autonomous.</p></div>
       <div class="brief-form">
         <form action="https://formspree.io/f/mpqeeavn" method="POST" data-ajax-form>
           <label class="sr-only" for="brief-email">Email address</label>
@@ -952,8 +232,24 @@
     </div>
   </div>
 </section>
-
-<!-- FOOTER -->
+<script>
+(function () {
+  var btns = document.querySelectorAll('.filter-btn');
+  var cards = document.querySelectorAll('.ed-card:not(.soon)');
+  var soon = document.querySelectorAll('.ed-card.soon');
+  function apply(f) {
+    btns.forEach(function (b) { var on = b.dataset.filter === f; b.classList.toggle('active', on); b.setAttribute('aria-pressed', on ? 'true' : 'false'); });
+    cards.forEach(function (c) { c.style.display = (f === 'all' || (c.dataset.category || '').split(' ').indexOf(f) > -1) ? '' : 'none'; });
+    soon.forEach(function (c) { c.style.display = f === 'all' ? '' : 'none'; });
+    var first = Array.prototype.find.call(cards, function (c) { return c.style.display !== 'none'; });
+    cards.forEach(function (c) { c.classList.toggle('feature', c === first); });
+  }
+  btns.forEach(function (b) { b.addEventListener('click', function () { apply(b.dataset.filter); history.replaceState(null, '', b.dataset.filter === 'all' ? location.pathname : '#' + b.dataset.filter); }); });
+  var h = location.hash.slice(1);
+  if (h && document.querySelector('.filter-btn[data-filter="' + h + '"]')) apply(h);
+})();
+</script>
+</main>
 <footer class="sd-footer">
   <div class="sd-footer-grid">
     <div>
@@ -1000,32 +296,9 @@
     <span>ITIL Expert · PRINCE2 Practitioner · AWS Certified Solutions Architect</span>
   </div>
 </footer>
-
-<script>
-(function () {
-  var btns = document.querySelectorAll('.filter-btn');
-  var cards = document.querySelectorAll('.post-card:not(.coming-soon)');
-  var soon = document.querySelectorAll('.post-card.coming-soon');
-  function apply(f) {
-    btns.forEach(function (b) { var on = b.dataset.filter === f; b.classList.toggle('active', on); b.setAttribute('aria-pressed', on ? 'true' : 'false'); });
-    cards.forEach(function (c) { c.style.display = (f === 'all' || (c.dataset.category || '').split(' ').indexOf(f) > -1) ? '' : 'none'; });
-    soon.forEach(function (c) { c.style.display = f === 'all' ? '' : 'none'; });
-  }
-  btns.forEach(function (b) { b.addEventListener('click', function () { apply(b.dataset.filter); history.replaceState(null, '', b.dataset.filter === 'all' ? location.pathname : '#' + b.dataset.filter); }); });
-  var h = location.hash.slice(1);
-  if (h && document.querySelector('.filter-btn[data-filter="' + h + '"]')) apply(h);
-  // whole-card click goes to the article
-  cards.forEach(function (c) { c.addEventListener('click', function (e) { var a = c.querySelector('a.post-read'); if (a && !e.target.closest('a')) location.href = a.href; }); });
-  // reveal
-  var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) { es.forEach(function (en, i) { if (en.isIntersecting) { setTimeout(function () { en.target.classList.add('visible'); }, i * 60); io.unobserve(en.target); } }); }, { threshold: 0.08 }) : null;
-  cards.forEach(function (c) { if (io) io.observe(c); else c.classList.add('visible'); });
-})();
-</script>
+<script src="site.js?v=5" defer></script>
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
 <!-- End Cloudflare Web Analytics -->
-
-<script src="site.js?v=4" defer></script>
 </body>
 </html>
-
