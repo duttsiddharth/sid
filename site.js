@@ -20,7 +20,7 @@
     menu.addEventListener('click', function (e) {
       if (e.target.closest('a')) setOpen(false);
     });
-    window.addEventListener('resize', function () { if (window.innerWidth > 1060) setOpen(false); });
+    window.addEventListener('resize', function () { if (window.innerWidth > 1200) setOpen(false); });
   }
 
   /* ---- Reveal on scroll (content stays visible if JS or IntersectionObserver is unavailable) ---- */

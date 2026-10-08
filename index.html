@@ -43,8 +43,18 @@
       "founder": {
         "@id": "https://www.sdadvisory.in/#founder"
       },
-      "email": "sdutt@sdadvisory.in",
-      "telephone": "+91-96111-05276",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "url": "https://www.sdadvisory.in/contact.html",
+        "areaServed": [
+          "IN",
+          "SG",
+          "AE",
+          "GB"
+        ],
+        "availableLanguage": "English"
+      },
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "IN"
@@ -197,16 +207,20 @@
       <div class="cap-chips" aria-label="Capabilities">
         <span class="chip">ITSM / ITIL</span><span class="chip">Global transformation</span><span class="chip">Service transition</span><span class="chip">AIOps</span><span class="chip">Observability</span><span class="chip">GenAI</span><span class="chip">Enterprise automation</span><span class="chip">AI governance</span><span class="chip">Hands-on solution building</span>
       </div>
-      <div class="founder-id">
-        <img src="profile.jpg" width="64" height="80" alt="Siddharth Dutt" loading="lazy" decoding="async">
-        <div><b>Siddharth Dutt</b><span>Founder &amp; Principal Consultant · ITIL Expert · PRINCE2 Practitioner · AWS Solutions Architect</span></div>
-      </div>
     </div>
     <div class="reveal">
+      <div class="founder-card">
+        <img src="profile.jpg" width="112" height="140" alt="Siddharth Dutt" loading="lazy" decoding="async">
+        <div>
+          <b>Siddharth Dutt</b>
+          <span>Founder &amp; Principal Consultant</span>
+          <div class="ts-creds"><span>ITIL Expert</span><span>PRINCE2 Practitioner</span><span>AWS Solutions Architect</span><span>ISC2 Cyber Security</span></div>
+        </div>
+      </div>
       <div class="fact-grid">
         <div class="fact"><b>20+</b><span>Years of global IT service delivery</span></div>
         <div class="fact"><b>15+</b><span>Global service transitions</span></div>
-        <div class="fact"><b>$10M–$25M</b><span>Service portfolios owned</span></div>
+        <div class="fact"><b>50+</b><span>Team members led across regions</span></div>
         <div class="fact"><b>BFSI · Telecom</b><span>Regulated, high-volume estates</span></div>
       </div>
     </div>
@@ -248,10 +262,10 @@
       <p class="sd-lede">Every result is labelled for what it is — a prototype, an accelerator, a reference architecture or a delivery engagement.</p>
     </div>
     <div class="proof-grid reveal">
-      <a class="proof-card" href="case-study-smartdesk.html"><span class="status">Accelerator · Live prototype</span>
+      <a class="proof-card" href="case-study-smartdesk.html"><span class="status">Prototype accelerator</span>
         <div class="metric">42<small>%</small></div><div class="metric-label">Ticket auto-resolution</div>
         <h3>SmartDesk</h3><p class="flow">Manual triage → AI classification → routing → response</p><span class="more">Read case study →</span></a>
-      <a class="proof-card" href="case-study-ai-incident-copilot.html"><span class="status">Accelerator · Live prototype</span>
+      <a class="proof-card" href="case-study-ai-incident-copilot.html"><span class="status">Prototype accelerator</span>
         <div class="metric">20<small>%</small></div><div class="metric-label">MTTR reduction</div>
         <h3>AI Incident Co-Pilot</h3><p class="flow">Observability → AI analysis → remediation guidance → stakeholder communication</p><span class="more">Read case study →</span></a>
       <a class="proof-card" href="ai-resilience-by-design.html"><span class="status ref">Reference architecture</span>
@@ -265,7 +279,7 @@
       <div><b>20+</b><span>Years of IT service delivery</span></div>
       <div><b>15+</b><span>Global service transitions</span></div>
       <div><b>99.9%</b><span>Service availability on managed-services portfolios</span></div>
-      <div><b>$10M–$25M</b><span>Service portfolios owned</span></div>
+      <div><b>50+</b><span>Team members led across regions</span></div>
       <div><b>4.9/5</b><span>CSAT held across global operations</span></div>
     </div>
     <p class="evidence-note">Accelerator figures are prototype benchmarks, not claims about a named client. Delivery-record figures come from the founder’s enterprise service-delivery engagements; client names are not published.</p>
@@ -382,7 +396,7 @@
           <p class="fine">Free. No spam.</p>
         </form>
         <p class="ok" role="status">✓ Subscribed — thank you.</p>
-        <p class="err" role="alert">Something went wrong. Please email sdutt@sdadvisory.in to subscribe.</p>
+        <p class="err" role="alert">Something went wrong. Please try again, or use the <a href="contact.html">contact form</a>.</p>
       </div>
     </div>
   </div>
@@ -397,7 +411,7 @@
     <a class="btn btn-secondary" href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" rel="noopener">Book a 30-Minute Consultation</a>
     <a class="btn btn-secondary" href="case-studies.html">Explore Case Studies</a>
   </div>
-  <p class="contact-line">Not sure where to begin? <a href="start-here.html">Use the “Where should you start?” guide</a> · <a href="mailto:sdutt@sdadvisory.in">sdutt@sdadvisory.in</a> · <a href="tel:+919611105276">+91 96111 05276</a> · <a href="https://linkedin.com/in/siddharth-dutt-csm" target="_blank" rel="noopener">LinkedIn</a></p>
+  <p class="contact-line"><span>Not sure where to begin?</span> <a href="start-here.html">Use the “Where should you start?” guide</a> <a href="contact.html">Send us a message</a> <a href="https://linkedin.com/in/siddharth-dutt-csm" target="_blank" rel="noopener">LinkedIn</a></p>
 </section>
 
 </main>
@@ -407,8 +421,7 @@
       <div class="f-brand">SD ADVISORY</div>
       <p class="f-tag">Enterprise AI transformation for IT operations. From reactive IT operations to intelligent, resilient and AI-enabled operations.</p>
       <ul>
-        <li><a href="mailto:sdutt@sdadvisory.in">sdutt@sdadvisory.in</a></li>
-        <li><a href="tel:+919611105276">+91 96111 05276</a></li>
+        <li><a href="contact.html">Contact us</a></li>
         <li><a href="https://linkedin.com/in/siddharth-dutt-csm" rel="noopener" target="_blank">LinkedIn</a></li>
       </ul>
     </div>
@@ -435,6 +448,7 @@
       <h2>Company</h2>
       <ul>
         <li><a href="index.html#about">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
         <li><a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" rel="noopener" target="_blank">Book a Consultation</a></li>
         <li><a href="experiments.html">Built in Public</a></li>
         <li><a href="privacy.html">Privacy</a></li>

@@ -199,7 +199,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.sdadvisory.in/insights/running-a-25m-managed-services-portfolio-lessons-in-sla-governance.html</loc>
+    <loc>https://www.sdadvisory.in/insights/running-a-global-managed-services-portfolio-lessons-in-sla-governance.html</loc>
     <lastmod>2026-10-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
@@ -227,6 +227,12 @@
     <lastmod>2026-10-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.sdadvisory.in/contact.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.sdadvisory.in/privacy.html</loc>
