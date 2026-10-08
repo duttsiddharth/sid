@@ -83,8 +83,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../service-pages.css">
-<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../service-pages.css?v=4">
+<link rel="stylesheet" href="../site.css?v=4">
 </head>
 <body class="sd-page">
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -104,6 +104,7 @@
     <a href="../case-studies.html">Case Studies</a>
     <a href="../blog.html" aria-current="page">Insights</a>
     <a href="../start-here.html">Start Here</a>
+    <a href="../contact.html">Contact</a>
     <a href="../assessment.html" class="nav-cta">Assess Your AI Readiness</a>
   </div>
 </nav>
@@ -116,13 +117,15 @@
     <div class="byline"><span>Siddharth Dutt</span><span>May 2026</span><span>6 min read</span></div>
   </div>
 </header>
+<div class="article-layout">
+<details class="toc-box" open><summary>In this article</summary><ol><li><a href="#the-three-prompt-layers">The Three Prompt Layers</a></li><li><a href="#common-mistakes-i-ve-seen">Common Mistakes I&#x27;ve Seen</a></li><li><a href="#starting-small">Starting Small</a></li></ol></details><script>if(window.innerWidth<960){var t=document.querySelector("details.toc-box");if(t)t.removeAttribute("open")}</script>
 <article class="article-body">
 
       <p>The service desk is one of the highest-volume, highest-repetition environments in IT. Thousands of tickets per month. Dozens of agents fielding the same questions. Manual triage. Copy-pasted RCA templates. This is exactly the environment where well-designed prompts deliver outsized value.</p>
 
       <p>I've spent the past year embedding GenAI into ITSM workflows — using Claude, ChatGPT, and Gemini in different configurations. What follows is the practical prompt architecture that actually works in production, not in demos.</p>
 
-      <h2>The Three Prompt Layers</h2>
+      <h2 id="the-three-prompt-layers">The Three Prompt Layers</h2>
       <p>Effective ITSM prompt engineering operates across three layers, each building on the last:</p>
 
       <h3>Layer 1: Classification Prompts</h3>
@@ -151,7 +154,7 @@
 
       <blockquote>"The best ITSM prompt is the one your agents never have to rewrite."</blockquote>
 
-      <h2>Common Mistakes I've Seen</h2>
+      <h2 id="common-mistakes-i-ve-seen">Common Mistakes I've Seen</h2>
 
       <h3>Vague Instructions</h3>
       <p>Prompts like "summarise this ticket" produce inconsistent output. Always specify format, length, audience, and constraints. The more specific your prompt, the more reliable your output.</p>
@@ -168,12 +171,13 @@
         <div class="stat-box"><div class="num">2.5h</div><div class="lbl">Agent Time Saved/Day</div></div>
       </div>
 
-      <h2>Starting Small</h2>
+      <h2 id="starting-small">Starting Small</h2>
       <p>You don't need a platform overhaul to start. The fastest path to production value is a single, well-defined use case: auto-generating the first response to password reset tickets, or summarising incident timelines for post-incident reviews.</p>
 
       <p>Pick one high-volume, low-risk ticket type. Design a prompt. Test it on 100 historical tickets. Measure accuracy against human-labelled outcomes. Iterate. That's the prompt engineering loop that scales.</p>
     
 </article>
+</div>
 <section class="article-next" aria-labelledby="where-next">
   <div class="box">
     <h2 id="where-next">Where to go from here</h2>
@@ -235,7 +239,7 @@
     <span>ITIL Expert · PRINCE2 Practitioner · AWS Certified Solutions Architect</span>
   </div>
 </footer>
-<script src="../site.js" defer></script>
+<script src="../site.js?v=4" defer></script>
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
 <!-- End Cloudflare Web Analytics -->

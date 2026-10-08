@@ -83,8 +83,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../service-pages.css">
-<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../service-pages.css?v=4">
+<link rel="stylesheet" href="../site.css?v=4">
 </head>
 <body class="sd-page">
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -104,6 +104,7 @@
     <a href="../case-studies.html">Case Studies</a>
     <a href="../blog.html" aria-current="page">Insights</a>
     <a href="../start-here.html">Start Here</a>
+    <a href="../contact.html">Contact</a>
     <a href="../assessment.html" class="nav-cta">Assess Your AI Readiness</a>
   </div>
 </nav>
@@ -116,16 +117,18 @@
     <div class="byline"><span>Siddharth Dutt</span><span>Feb 2026</span><span>5 min read</span></div>
   </div>
 </header>
+<div class="article-layout">
+<details class="toc-box" open><summary>In this article</summary><ol><li><a href="#why-itil-4-and-genai-fit">Why ITIL 4 and GenAI Fit</a></li><li><a href="#high-impact-integration-points">High-Impact Integration Points</a></li><li><a href="#governance-considerations">Governance Considerations</a></li><li><a href="#where-to-start">Where to Start</a></li></ol></details><script>if(window.innerWidth<960){var t=document.querySelector("details.toc-box");if(t)t.removeAttribute("open")}</script>
 <article class="article-body">
 
       <p>ITIL 4 was published in 2019. Large language models became practically useful in 2023. The four-year gap means the framework wasn't designed with GenAI in mind — but that doesn't mean they're incompatible. In fact, ITIL 4's architecture is unusually well-suited for AI augmentation.</p>
 
       <p>Here's my practical guide to overlaying GenAI on your existing ITIL framework, practice by practice.</p>
 
-      <h2>Why ITIL 4 and GenAI Fit</h2>
+      <h2 id="why-itil-4-and-genai-fit">Why ITIL 4 and GenAI Fit</h2>
       <p>ITIL 4's Service Value System is built around flexible, outcome-oriented practices rather than prescriptive procedures. This flexibility is precisely what allows AI to be introduced incrementally without breaking existing workflows. The guiding principle of "progress iteratively with feedback" could have been written for AI deployment.</p>
 
-      <h2>High-Impact Integration Points</h2>
+      <h2 id="high-impact-integration-points">High-Impact Integration Points</h2>
 
       <h3>Incident Management</h3>
       <p>This is the highest-volume ITIL practice and the most obvious starting point for GenAI. Specific augmentation opportunities:</p>
@@ -157,7 +160,7 @@
 
       <p>A properly configured knowledge automation pipeline can: extract resolution steps from closed tickets, draft a knowledge article, have it reviewed and approved by the resolving engineer in a single click, and publish it to your service portal. Knowledge capture rates in organisations using this approach typically increase by 200–400%.</p>
 
-      <h2>Governance Considerations</h2>
+      <h2 id="governance-considerations">Governance Considerations</h2>
       <p>ITIL 4 emphasises risk management and governance throughout its practices. When introducing GenAI, three governance controls are essential:</p>
       <ul>
         <li><strong>Audit trails:</strong> Every AI-generated action must be logged with the model version, prompt used, and human review outcome</li>
@@ -167,10 +170,11 @@
 
       <p>ITIL 4's Continual Improvement practice provides the perfect governance wrapper for AI performance management. Treat your GenAI deployment the same way you'd treat any other service: measure it, review it, improve it.</p>
 
-      <h2>Where to Start</h2>
+      <h2 id="where-to-start">Where to Start</h2>
       <p>If you're an ITIL practitioner wondering where to begin, my recommendation is Incident Classification. It's high-volume, well-defined, measurable, and low-risk for a proof-of-concept. A 30-day pilot on a single incident category will give you the accuracy data and ROI story you need to expand.</p>
     
 </article>
+</div>
 <section class="article-next" aria-labelledby="where-next">
   <div class="box">
     <h2 id="where-next">Where to go from here</h2>
@@ -232,7 +236,7 @@
     <span>ITIL Expert · PRINCE2 Practitioner · AWS Certified Solutions Architect</span>
   </div>
 </footer>
-<script src="../site.js" defer></script>
+<script src="../site.js?v=4" defer></script>
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
 <!-- End Cloudflare Web Analytics -->

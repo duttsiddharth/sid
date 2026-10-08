@@ -83,8 +83,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../service-pages.css">
-<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../service-pages.css?v=4">
+<link rel="stylesheet" href="../site.css?v=4">
 </head>
 <body class="sd-page">
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -104,6 +104,7 @@
     <a href="../case-studies.html">Case Studies</a>
     <a href="../blog.html" aria-current="page">Insights</a>
     <a href="../start-here.html">Start Here</a>
+    <a href="../contact.html">Contact</a>
     <a href="../assessment.html" class="nav-cta">Assess Your AI Readiness</a>
   </div>
 </nav>
@@ -116,13 +117,15 @@
     <div class="byline"><span>Siddharth Dutt</span><span>Jun 2026</span><span>8 min read</span></div>
   </div>
 </header>
+<div class="article-layout">
+<details class="toc-box" open><summary>In this article</summary><ol><li><a href="#what-aiops-actually-is">What AIOps Actually Is</a></li><li><a href="#the-three-failure-modes-i-ve-seen">The Three Failure Modes I&#x27;ve Seen</a></li><li><a href="#what-good-looks-like">What Good Looks Like</a></li><li><a href="#where-genai-changes-the-equation">Where GenAI Changes the Equation</a></li><li><a href="#the-honest-assessment">The Honest Assessment</a></li></ol></details><script>if(window.innerWidth<960){var t=document.querySelector("details.toc-box");if(t)t.removeAttribute("open")}</script>
 <article class="article-body">
 
       <p>After twenty years in IT operations — managing enterprise infrastructure across APAC, EMEA, and the Americas — I've developed a finely tuned radar for industry hype. I've watched ITIL get over-complicated, cloud get over-promised, and DevOps get over-simplified. So when AIOps started appearing in every vendor deck around 2022, my instinct was healthy scepticism.</p>
 
       <p>That scepticism has since been replaced by something more useful: a framework for separating genuine AIOps maturity from expensive dashboards with a machine learning veneer.</p>
 
-      <h2>What AIOps Actually Is</h2>
+      <h2 id="what-aiops-actually-is">What AIOps Actually Is</h2>
       <p>The term was coined by Gartner in 2017 to describe platforms that combine big data and machine learning to enhance and partially replace IT operations processes. The operative word is <em>enhance</em>. AIOps is not a replacement for ITIL, not a substitute for skilled engineers, and definitely not a magic box that eliminates on-call rotations.</p>
 
       <p>At its core, genuine AIOps does three things well:</p>
@@ -134,7 +137,7 @@
 
       <blockquote>"The measure of AIOps maturity isn't how many alerts it suppresses. It's how many incidents it prevents."</blockquote>
 
-      <h2>The Three Failure Modes I've Seen</h2>
+      <h2 id="the-three-failure-modes-i-ve-seen">The Three Failure Modes I've Seen</h2>
 
       <h3>1. Telemetry Poverty</h3>
       <p>AIOps is only as intelligent as the data it ingests. Organisations that deploy AIOps on top of fragmented, inconsistent monitoring data end up with highly confident predictions about the wrong things. Before any AI layer, you need unified observability: metrics, logs, traces, and events in a single data fabric. Dynatrace and Splunk are excellent — but only when properly instrumented.</p>
@@ -150,7 +153,7 @@
         <p>True AIOps maturity requires three prerequisites: high-quality telemetry across all infrastructure layers, bidirectional integration with ITSM workflows, and an active feedback loop that continuously trains the model on real operational decisions.</p>
       </div>
 
-      <h2>What Good Looks Like</h2>
+      <h2 id="what-good-looks-like">What Good Looks Like</h2>
       <p>In my work at AVAYA, we achieved 99.9%+ availability across enterprise managed services accounts by combining Dynatrace observability with structured incident workflows. The shift from reactive monitoring to predictive operations reduced mean-time-to-detect by over 60% on our highest-complexity accounts.</p>
 
       <div class="stat-row">
@@ -161,7 +164,7 @@
 
       <p>The difference wasn't the tool — it was the architecture. Telemetry was standardised across all accounts. Alerts fed directly into ServiceNow with auto-populated CMDB context. Every incident closure included a structured outcome tag that the system learned from.</p>
 
-      <h2>Where GenAI Changes the Equation</h2>
+      <h2 id="where-genai-changes-the-equation">Where GenAI Changes the Equation</h2>
       <p>The arrival of large language models has added a new layer to AIOps that deserves separate attention. LLMs don't replace the pattern-recognition and anomaly-detection functions of traditional AIOps platforms. But they dramatically improve the human interface.</p>
 
       <p>Specifically, GenAI excels at:</p>
@@ -174,7 +177,7 @@
 
       <p>The combination of traditional AIOps (pattern detection, correlation, prediction) with GenAI (language, synthesis, communication) is where the real productivity multiplier lives. Neither alone is sufficient.</p>
 
-      <h2>The Honest Assessment</h2>
+      <h2 id="the-honest-assessment">The Honest Assessment</h2>
       <p>AIOps is not a buzzword — but it is frequently sold as something it isn't. The technology is real. The value is provable. The failure rates in enterprise deployments are high because organisations skip the foundational work: clean telemetry, integrated workflows, and disciplined model governance.</p>
 
       <p>If you're evaluating AIOps investments, my recommendation is to spend 60% of your budget on data infrastructure and integration — and 40% on the AI platform. The inverse ratio is what most organisations get wrong.</p>
@@ -183,6 +186,7 @@
       <p>In the next article, I'll cover how to structure an AIOps proof-of-concept that generates board-ready ROI data within 90 days — without disrupting your production environment.</p>
     
 </article>
+</div>
 <section class="article-next" aria-labelledby="where-next">
   <div class="box">
     <h2 id="where-next">Where to go from here</h2>
@@ -244,7 +248,7 @@
     <span>ITIL Expert · PRINCE2 Practitioner · AWS Certified Solutions Architect</span>
   </div>
 </footer>
-<script src="../site.js" defer></script>
+<script src="../site.js?v=4" defer></script>
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
 <!-- End Cloudflare Web Analytics -->

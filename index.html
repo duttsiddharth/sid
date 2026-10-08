@@ -134,7 +134,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="site.css?v=4">
 </head>
 <body class="home">
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -154,6 +154,7 @@
     <a href="case-studies.html">Case Studies</a>
     <a href="blog.html">Insights</a>
     <a href="start-here.html">Start Here</a>
+    <a href="contact.html">Contact</a>
     <a href="assessment.html" class="nav-cta">Assess Your AI Readiness</a>
   </div>
 </nav>
@@ -235,7 +236,8 @@
       <div class="sd-eyebrow">What we do</div>
       <h2 class="sd-h2 wide" id="services-h2">Four pillars. One path from experiment to operational value.</h2>
     </div>
-    <div class="pillars reveal">
+    <p class="swipe-hint" aria-hidden="true">Swipe →</p>
+    <div class="pillars swipe reveal" tabindex="0" role="region" aria-label="Service pillars">
       <article class="pillar"><div class="num">01</div><h3>AI Transformation Advisory</h3><p class="for">For CIOs, CTOs and IT Directors</p>
         <ul><li>AI strategy, readiness and roadmap</li><li>Use-case prioritisation</li><li>AI operating model and governance</li><li>Enterprise AI architecture</li></ul>
         <a class="link-arrow" href="ai-transformation-advisory.html">Explore advisory</a></article>
@@ -261,17 +263,18 @@
       <h2 class="sd-h2" id="proof-h2">Proof, Not Promises</h2>
       <p class="sd-lede">Every result is labelled for what it is — a prototype, an accelerator, a reference architecture or a delivery engagement.</p>
     </div>
-    <div class="proof-grid reveal">
-      <a class="proof-card" href="case-study-smartdesk.html"><span class="status">Prototype accelerator</span>
+    <p class="swipe-hint" aria-hidden="true">Swipe →</p>
+    <div class="proof-grid swipe reveal" tabindex="0" role="region" aria-label="Proof points">
+      <a class="proof-card p-amber" href="case-study-smartdesk.html"><span class="status">Prototype accelerator</span>
         <div class="metric">42<small>%</small></div><div class="metric-label">Ticket auto-resolution</div>
         <h3>SmartDesk</h3><p class="flow">Manual triage → AI classification → routing → response</p><span class="more">Read case study →</span></a>
-      <a class="proof-card" href="case-study-ai-incident-copilot.html"><span class="status">Prototype accelerator</span>
+      <a class="proof-card p-amber" href="case-study-ai-incident-copilot.html"><span class="status">Prototype accelerator</span>
         <div class="metric">20<small>%</small></div><div class="metric-label">MTTR reduction</div>
         <h3>AI Incident Co-Pilot</h3><p class="flow">Observability → AI analysis → remediation guidance → stakeholder communication</p><span class="more">Read case study →</span></a>
-      <a class="proof-card" href="ai-resilience-by-design.html"><span class="status ref">Reference architecture</span>
+      <a class="proof-card p-blue" href="ai-resilience-by-design.html"><span class="status ref">Reference architecture</span>
         <div class="metric">10</div><div class="metric-label">Layers · 8 failure simulations</div>
         <h3>AI Resilience by Design</h3><p class="flow">AI ON → AI DEGRADED → AI OFF. An enterprise AI resilience framework you can explore interactively.</p><span class="more">Explore the model →</span></a>
-      <a class="proof-card" href="case-study-sla-transformation.html"><span class="status delivery">Delivery engagement</span>
+      <a class="proof-card p-teal" href="case-study-sla-transformation.html"><span class="status delivery">Delivery engagement</span>
         <div class="metric">99.8<small>%</small></div><div class="metric-label">SLA adherence, from 96%</div>
         <h3>SLA Transformation</h3><p class="flow">Escalation matrix → AI-driven monitoring → vendor governance → executive reporting</p><span class="more">Read case study →</span></a>
     </div>
@@ -316,7 +319,7 @@
 </section>
 
 <!-- 7. READINESS FUNNEL -->
-<section class="sd-section sd-defer" id="readiness" aria-labelledby="ready-h2">
+<section class="sd-section sd-mist sd-defer" id="readiness" aria-labelledby="ready-h2">
   <div class="sd-wrap">
     <div class="sd-eyebrow">Free assessment</div>
     <h2 class="sd-h2 wide" id="ready-h2">Is Your IT Operation Ready for AI?</h2>
@@ -332,56 +335,41 @@
   </div>
 </section>
 
-<!-- 8. WHO WE HELP -->
+<!-- 8. WHO WE HELP + WHERE IT APPLIES (tabs) -->
 <section class="sd-section sd-alt sd-defer" id="who" aria-labelledby="who-h2">
+  <span id="sectors"></span><span id="industries"></span>
   <div class="sd-wrap">
     <div class="sd-head"><div class="sd-eyebrow">Who we help</div><h2 class="sd-h2 wide" id="who-h2">Built for Enterprise Technology Leaders</h2></div>
-    <div class="personas reveal">
-      <a class="persona" href="ai-transformation-advisory.html"><h3>CIO / CTO</h3><p>AI transformation strategy, governance and operating model.</p><span class="more">Advisory →</span></a>
+    <div class="sd-tabs inline" data-tabs data-label="Who we help">
+      <div class="tab-panel" id="who-roles" data-tab-title="By role">
+        <p class="swipe-hint" aria-hidden="true">Swipe →</p>
+        <div class="personas swipe" tabindex="0" role="region" aria-label="Roles we help">
+<a class="persona" href="ai-transformation-advisory.html"><h3>CIO / CTO</h3><p>AI transformation strategy, governance and operating model.</p><span class="more">Advisory →</span></a>
       <a class="persona" href="intelligent-it-operations.html"><h3>IT Operations Leader</h3><p>AIOps, observability and intelligent operations.</p><span class="more">Operations →</span></a>
       <a class="persona" href="ai-for-itsm.html"><h3>Service Delivery Leader</h3><p>ITSM optimisation, automation and SLA improvement.</p><span class="more">AI for ITSM →</span></a>
       <a class="persona" href="transformation-delivery.html#gcc"><h3>GCC Leader</h3><p>Operating model, governance and AI-enabled delivery.</p><span class="more">GCC →</span></a>
       <a class="persona" href="ai-resilience-by-design.html"><h3>Enterprise Architect</h3><p>AI architecture, resilience and technology strategy.</p><span class="more">Resilience →</span></a>
     </div>
-  </div>
-</section>
-
-<!-- 9. METHOD -->
-<section class="sd-section sd-defer" id="method" aria-labelledby="method-h2">
-  <div class="sd-wrap">
-    <div class="sd-head"><div class="sd-eyebrow">How we work</div><h2 class="sd-h2 wide" id="method-h2">The SD Advisory AI Transformation Method</h2></div>
-    <ol class="method-flow reveal">
-      <li data-n="01"><h3>Discover</h3><p>Understand business and operational context.</p></li>
-      <li data-n="02"><h3>Assess</h3><p>Evaluate AI readiness, process maturity and governance.</p></li>
-      <li data-n="03"><h3>Prioritise</h3><p>Identify high-value, low-risk opportunities.</p></li>
-      <li data-n="04"><h3>Pilot</h3><p>Build and validate a focused use case.</p></li>
-      <li data-n="05"><h3>Prove</h3><p>Measure ROI, operational impact and risk.</p></li>
-      <li data-n="06"><h3>Scale</h3><p>Industrialise architecture, governance and automation.</p></li>
-    </ol>
-    <p class="method-motto">We don’t sell AI first. We identify the right problem first.</p>
-    <div class="sd-cta-row"><a class="btn btn-secondary" href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" rel="noopener">Book a 30-Minute Consultation</a></div>
-  </div>
-</section>
-
-<!-- 10. SECTORS -->
-<section class="sd-section sd-alt sd-defer" id="sectors" aria-labelledby="sectors-h2">
-  <span id="industries"></span>
-  <div class="sd-wrap">
-    <div class="sd-head"><div class="sd-eyebrow">Where it applies</div><h2 class="sd-h2 wide" id="sectors-h2">Regulated, high-volume operations</h2></div>
-    <div class="sectors reveal">
-      <div class="sector"><h3>Banking &amp; Financial Services</h3><p>ITIL governance and AIOps monitoring for regulated environments, backed by delivery experience holding 100% contractual SLA compliance on major banking accounts.</p></div>
+      </div>
+      <div class="tab-panel" id="who-sectors" data-tab-title="By sector">
+        <h3 class="sd-sub">Regulated, high-volume operations</h3>
+        <p class="swipe-hint" aria-hidden="true">Swipe →</p>
+        <div class="sectors swipe" tabindex="0" role="region" aria-label="Sectors">
+<div class="sector"><h3>Banking &amp; Financial Services</h3><p>ITIL governance and AIOps monitoring for regulated environments, backed by delivery experience holding 100% contractual SLA compliance on major banking accounts.</p></div>
       <div class="sector"><h3>Telecom</h3><p>Service delivery for multi-region vendor ecosystems, drawing on 15+ global service transitions delivered with zero critical failures.</p></div>
       <div class="sector"><h3>Managed Services &amp; GCCs</h3><p>One governance and escalation playbook across accounts, and operating-model blueprints for Captive, Managed and BOT capability centres.</p></div>
       <div class="sector"><h3>Enterprise IT</h3><p>AI and automation layered onto live ServiceNow environments without replacing the workflows the business depends on.</p></div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- 11. INSIGHTS + NEWSLETTER -->
-<section class="sd-section sd-defer" id="insights" aria-labelledby="ins-h2">
+<section class="sd-section sd-mist sd-defer" id="insights" aria-labelledby="ins-h2">
   <div class="sd-wrap">
     <div class="sd-head"><div class="sd-eyebrow">Insights</div><h2 class="sd-h2 wide" id="ins-h2">Practical thinking on intelligent IT operations</h2></div>
-    <div class="insight-pillars reveal">
+    <p class="swipe-hint" aria-hidden="true">Swipe →</p>
+    <div class="insight-pillars swipe reveal" tabindex="0" role="region" aria-label="Insight topics">
       <a class="i-pillar" href="blog.html#ai-transformation"><b>AI Transformation</b><span>CIO-level strategy, readiness and operating models</span><em>3 articles</em></a><a class="i-pillar" href="blog.html#intelligent-it-operations"><b>Intelligent IT Operations</b><span>AIOps, observability and autonomous operations</span><em>6 articles</em></a><a class="i-pillar" href="blog.html#ai-itsm"><b>AI + ITSM</b><span>ITSM, ServiceNow and GenAI for service desks</span><em>8 articles</em></a><a class="i-pillar" href="blog.html#ai-resilience-governance"><b>AI Resilience & Governance</b><span>Resilience, risk, security and control for AI-enabled operations</span><em>5 articles</em></a><a class="i-pillar" href="blog.html#enterprise-ai-architecture"><b>Enterprise AI Architecture</b><span>Agents, RAG, security and reference architecture</span><em>6 articles</em></a>
     </div>
     <div class="brief">
@@ -411,7 +399,7 @@
     <a class="btn btn-secondary" href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" rel="noopener">Book a 30-Minute Consultation</a>
     <a class="btn btn-secondary" href="case-studies.html">Explore Case Studies</a>
   </div>
-  <p class="contact-line"><span>Not sure where to begin?</span> <a href="start-here.html">Use the “Where should you start?” guide</a> <a href="contact.html">Send us a message</a> <a href="https://linkedin.com/in/siddharth-dutt-csm" target="_blank" rel="noopener">LinkedIn</a></p>
+  <p class="contact-line"><span>Not sure where to begin?</span> <a href="start-here.html">Use the “Where should you start?” guide</a> <a href="contact.html#send">Send us a message</a> <a href="https://linkedin.com/in/siddharth-dutt-csm" target="_blank" rel="noopener">LinkedIn</a></p>
 </section>
 
 </main>
@@ -461,7 +449,7 @@
     <span>ITIL Expert · PRINCE2 Practitioner · AWS Certified Solutions Architect</span>
   </div>
 </footer>
-<script src="site.js" defer></script>
+<script src="site.js?v=4" defer></script>
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
 <!-- End Cloudflare Web Analytics -->

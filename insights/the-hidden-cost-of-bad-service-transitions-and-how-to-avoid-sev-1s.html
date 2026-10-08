@@ -83,8 +83,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../service-pages.css">
-<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../service-pages.css?v=4">
+<link rel="stylesheet" href="../site.css?v=4">
 </head>
 <body class="sd-page">
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -104,6 +104,7 @@
     <a href="../case-studies.html">Case Studies</a>
     <a href="../blog.html" aria-current="page">Insights</a>
     <a href="../start-here.html">Start Here</a>
+    <a href="../contact.html">Contact</a>
     <a href="../assessment.html" class="nav-cta">Assess Your AI Readiness</a>
   </div>
 </nav>
@@ -116,16 +117,18 @@
     <div class="byline"><span>Siddharth Dutt</span><span>Mar 2025</span><span>7 min read</span></div>
   </div>
 </header>
+<div class="article-layout">
+<details class="toc-box" open><summary>In this article</summary><ol><li><a href="#why-hypercare-gets-shortchanged">Why Hypercare Gets Shortchanged</a></li><li><a href="#what-a-real-hypercare-plan-includes">What a Real Hypercare Plan Includes</a></li><li><a href="#the-track-record-this-produces">The Track Record This Produces</a></li></ol></details><script>if(window.innerWidth<960){var t=document.querySelector("details.toc-box");if(t)t.removeAttribute("open")}</script>
 <article class="article-body">
 
       <p>I've reviewed enough failed service transitions to notice a pattern: the cutover plan is almost always solid. Detailed runbooks, clear timelines, defined rollback criteria. What's missing, almost every time, is an equally rigorous hypercare plan — the days and weeks immediately after go-live, when the new operating model is being stress-tested by real production load for the first time.</p>
 
-      <h2>Why Hypercare Gets Shortchanged</h2>
+      <h2 id="why-hypercare-gets-shortchanged">Why Hypercare Gets Shortchanged</h2>
       <p>By the time go-live arrives, the team has usually spent months on the transition itself and is mentally ready to move on. Hypercare gets a generic "monitor closely for two weeks" line in the plan instead of the same structured rigor the cutover received — and that's exactly when unexpected issues surface, with the least amount of structure available to catch them.</p>
 
       <blockquote>"The cutover is the easy part. Hypercare is where you find out what the runbook didn't anticipate."</blockquote>
 
-      <h2>What a Real Hypercare Plan Includes</h2>
+      <h2 id="what-a-real-hypercare-plan-includes">What a Real Hypercare Plan Includes</h2>
       <ul>
         <li><strong>Named, dedicated coverage</strong> for the hypercare window — not the standard on-call rotation stretched thinner</li>
         <li><strong>Pre-defined escalation thresholds</strong> specific to the new environment, since "normal" hasn't been established yet</li>
@@ -133,7 +136,7 @@
         <li><strong>Daily structured reviews</strong> during the window, not just incident-driven check-ins</li>
       </ul>
 
-      <h2>The Track Record This Produces</h2>
+      <h2 id="the-track-record-this-produces">The Track Record This Produces</h2>
       <p>Treating hypercare with the same discipline as the cutover itself is what let me deliver 15+ complex global service transitions with zero critical post-go-live failures, and earlier in my career 20+ transitions with zero Sev-1 incidents post go-live. Reducing hypercare duration by 25% through structured incident, problem, and change management came directly from this approach — tighter structure during hypercare meant issues got caught and resolved faster, which shortened the window needed before declaring stability.</p>
 
       <div class="stat-row">
@@ -149,6 +152,7 @@
       <p>The transitions that go well aren't the ones with the most impressive cutover plans. They're the ones where someone treated the first month after go-live as seriously as the migration itself.</p>
     
 </article>
+</div>
 <section class="article-next" aria-labelledby="where-next">
   <div class="box">
     <h2 id="where-next">Where to go from here</h2>
@@ -210,7 +214,7 @@
     <span>ITIL Expert · PRINCE2 Practitioner · AWS Certified Solutions Architect</span>
   </div>
 </footer>
-<script src="../site.js" defer></script>
+<script src="../site.js?v=4" defer></script>
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
 <!-- End Cloudflare Web Analytics -->

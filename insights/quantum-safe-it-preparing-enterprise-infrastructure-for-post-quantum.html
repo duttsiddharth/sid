@@ -83,8 +83,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../service-pages.css">
-<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../service-pages.css?v=4">
+<link rel="stylesheet" href="../site.css?v=4">
 </head>
 <body class="sd-page">
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -104,6 +104,7 @@
     <a href="../case-studies.html">Case Studies</a>
     <a href="../blog.html" aria-current="page">Insights</a>
     <a href="../start-here.html">Start Here</a>
+    <a href="../contact.html">Contact</a>
     <a href="../assessment.html" class="nav-cta">Assess Your AI Readiness</a>
   </div>
 </nav>
@@ -116,21 +117,23 @@
     <div class="byline"><span>Siddharth Dutt</span><span>Jul 2026</span><span>8 min read</span></div>
   </div>
 </header>
+<div class="article-layout">
+<details class="toc-box" open><summary>In this article</summary><ol><li><a href="#why-this-is-a-delivery-problem-not-a-crypto-problem">Why This Is a Delivery Problem, Not a Crypto Problem</a></li><li><a href="#the-data-that-s-already-at-risk">The Data That&#x27;s Already at Risk</a></li><li><a href="#a-practical-pqc-migration-roadmap">A Practical PQC Migration Roadmap</a></li><li><a href="#what-leadership-should-ask-this-quarter">What Leadership Should Ask This Quarter</a></li></ol></details><script>if(window.innerWidth<960){var t=document.querySelector("details.toc-box");if(t)t.removeAttribute("open")}</script>
 <article class="article-body">
 
       <p>There's a security threat sitting in your infrastructure right now that no patch will fix, no firewall will block, and no SOC will detect — because the attack has already happened. Adversaries with long-term ambitions are capturing encrypted traffic today and archiving it, waiting for the day a sufficiently capable quantum computer can break the public-key cryptography protecting it. The industry calls it "harvest now, decrypt later," and it means the migration clock started before most organisations noticed.</p>
 
       <p>This isn't speculative anymore. NIST finalised its first post-quantum cryptography standards in 2024 — ML-KEM for key encapsulation, ML-DSA and SLH-DSA for digital signatures — and guidance points toward deprecating today's classical public-key algorithms by 2030 and disallowing them by 2035. Major browsers and cloud providers have already deployed hybrid post-quantum key exchange in TLS. The question for enterprise IT leaders is no longer <em>whether</em> to migrate, but how to run the migration as a structured programme rather than a panic.</p>
 
-      <h2>Why This Is a Delivery Problem, Not a Crypto Problem</h2>
+      <h2 id="why-this-is-a-delivery-problem-not-a-crypto-problem">Why This Is a Delivery Problem, Not a Crypto Problem</h2>
       <p>The mathematics is settled — standards bodies did that work. What remains is the least glamorous, most familiar kind of work in enterprise IT: a multi-year, cross-domain transformation touching every system that uses cryptography. Which is to say: nearly every system you have. TLS endpoints, VPNs, code signing, PKI, email, storage encryption, IoT firmware, payment flows, identity infrastructure, and thousands of embedded certificates nobody has inventoried since they were issued.</p>
 
       <blockquote>"PQC migration will look less like a security project and more like the Y2K programme — except the deadline is fuzzy, the scope is larger, and the systems are more interconnected."</blockquote>
 
-      <h2>The Data That's Already at Risk</h2>
+      <h2 id="the-data-that-s-already-at-risk">The Data That's Already at Risk</h2>
       <p>Prioritisation starts with a simple question: which of your data must remain confidential beyond the early 2030s? Health records, financial data, intellectual property, government contracts, M&amp;A material, and anything with a decade-plus confidentiality requirement is already exposed to harvest-now-decrypt-later — every day it transits classically encrypted channels. That data class defines your migration front line.</p>
 
-      <h2>A Practical PQC Migration Roadmap</h2>
+      <h2 id="a-practical-pqc-migration-roadmap">A Practical PQC Migration Roadmap</h2>
       <h3>Phase 1 — Cryptographic Discovery (start now)</h3>
       <ul>
         <li>Build a cryptographic bill of materials (CBOM): every algorithm, key length, certificate, and library across the estate</li>
@@ -152,7 +155,7 @@
         <li>Run PQC in parallel with classical crypto until interoperability is proven, then cut over domain by domain</li>
       </ul>
 
-      <h2>What Leadership Should Ask This Quarter</h2>
+      <h2 id="what-leadership-should-ask-this-quarter">What Leadership Should Ask This Quarter</h2>
       <p>Three questions expose an organisation's real readiness: Do we have a cryptographic inventory, or just a certificate spreadsheet? Which of our data must still be secret in 2035, and how is it protected in transit today? And which of our critical vendors have published a PQC roadmap? If the answers are "no," "unknown," and "none," the programme business case writes itself.</p>
 
       <div class="callout">
@@ -163,6 +166,7 @@
       <p>The organisations that treat PQC as a governed transformation programme — with an inventory, a roadmap, and executive sponsorship — will make the transition without drama. The ones that treat it as next year's problem will eventually run it as an emergency, at emergency prices.</p>
     
 </article>
+</div>
 <section class="article-next" aria-labelledby="where-next">
   <div class="box">
     <h2 id="where-next">Where to go from here</h2>
@@ -224,7 +228,7 @@
     <span>ITIL Expert · PRINCE2 Practitioner · AWS Certified Solutions Architect</span>
   </div>
 </footer>
-<script src="../site.js" defer></script>
+<script src="../site.js?v=4" defer></script>
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
 <!-- End Cloudflare Web Analytics -->

@@ -74,8 +74,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="service-pages.css">
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="service-pages.css?v=4">
+<link rel="stylesheet" href="site.css?v=4">
 </head>
 <body class="sd-page">
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -95,6 +95,7 @@
     <a href="case-studies.html">Case Studies</a>
     <a href="blog.html">Insights</a>
     <a href="start-here.html">Start Here</a>
+    <a href="contact.html">Contact</a>
     <a href="assessment.html" class="nav-cta">Assess Your AI Readiness</a>
   </div>
 </nav>
@@ -105,20 +106,21 @@
   <h1>AI Transformation Advisory for CIOs, CTOs and IT Directors</h1>
   <p class="lede">Turn AI from experimentation into measurable operational outcomes — with a clear strategy, a governed operating model, and a sequence of pilots that prove value before you scale.</p>
   <div class="hero-cta"><a href="assessment.html" class="btn btn-primary">Assess Your AI Readiness →</a><a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" rel="noopener" class="btn btn-secondary">Book a 30-Minute Consultation</a></div>
-</section>
+</section><div class="sd-tabs" data-tabs data-label="AI Transformation Advisory sections">
+<div class="tab-panel" id="scope" data-tab-title="Scope">
 <section class="content">
   <div class="section-label">// The enterprise problem</div>
   <h2>GenAI experiments are easy to start and hard to scale</h2>
   <p>Most technology leaders now have several AI experiments running: a chatbot here, a copilot there. The harder questions sit above the tooling. Which use cases are worth industrialising? Who owns the risk? What is the operating model once a pilot works? What happens to operations on the day a model, a provider or a price changes?</p>
   <p>AI transformation advisory answers those questions before they become incidents — in the order a CIO needs them answered.</p>
 </section>
-
-<section class="content alt-bg wide">
+<section class="content wide">
   <div class="section-label">// What the advisory covers</div>
   <h2>Seven decisions, made deliberately</h2>
   <div class="sd-card-grid c3"><div class="sd-card"><h3>AI strategy</h3><p>Where AI fits in your technology and operations strategy, and where it deliberately does not.</p></div><div class="sd-card"><h3>AI readiness</h3><p>An honest read of process maturity, data, tooling and governance. Start with the <a href="assessment.html">free AI Readiness Assessment</a>.</p></div><div class="sd-card"><h3>AI roadmap</h3><p>A sequenced plan of pilots and platform decisions, tied to operational outcomes rather than technology milestones.</p></div><div class="sd-card"><h3>AI operating model</h3><p>Roles, decision rights, funding and support model for AI-enabled operations after the pilot phase.</p></div><div class="sd-card"><h3>AI governance</h3><p>Risk tiers, human-in-the-loop checkpoints, auditability and policy that engineers can actually follow.</p></div><div class="sd-card"><h3>Use-case prioritisation</h3><p>High-value, low-risk opportunities first — scored on value, feasibility, risk and operational fit.</p></div><div class="sd-card"><h3>Enterprise AI architecture</h3><p>Model abstraction, retrieval, agents and integration patterns designed for provider independence. See <a href="ai-resilience-by-design.html">AI Resilience by Design</a>.</p></div></div>
 </section>
-
+</div>
+<div class="tab-panel" id="method" data-tab-title="How we work">
 <section class="content">
   <div class="section-label">// How we work</div>
   <h2>We don’t sell AI first. We identify the right problem first.</h2>
@@ -129,8 +131,9 @@
     <li><strong>Prove and scale</strong> — measure ROI, impact and risk; then industrialise architecture, governance and automation.</li>
   </ul>
 </section>
-
-<section class="content alt-bg">
+</div>
+<div class="tab-panel" id="why" data-tab-title="Why SD Advisory">
+<section class="content">
   <div class="section-label">// Why SD Advisory</div>
   <h2>Advice from someone who has run the operation</h2>
   <p>SD Advisory is led by a practitioner with 20+ years of enterprise IT service delivery across BFSI and telecom, who also builds working AI accelerators. That combination keeps strategy grounded in what operations teams can absorb — and keeps risk and resilience in the room from day one.</p>
@@ -141,27 +144,25 @@
     <div>Technology leaders who need a defensible AI roadmap</div>
   </div>
 </section>
-
-<section class="content narrow">
+</div>
+<div class="tab-panel" id="faq" data-tab-title="FAQ">
+<section class="content">
   <div class="section-label">// Common questions</div>
   <h2>Frequently asked questions</h2>
-  <h3>Do you recommend specific AI vendors or platforms?</h3>
-  <p>SD Advisory is technology-agnostic. Recommendations follow your operating context, governance requirements and existing platforms such as ServiceNow, not a vendor relationship.</p>
-  <h3>Where should we start?</h3>
-  <p>With the <a href="assessment.html">three-minute AI Readiness Assessment</a>. It gives you a readiness score, the priority gaps and recommended actions, and a clear basis for a 30-minute consultation.</p>
-  <h3>Is AI safe to put in front of production operations?</h3>
-  <p>It can be, if the design assumes AI will sometimes be unavailable or wrong. That is the premise of <a href="ai-resilience-by-design.html">AI Resilience by Design</a>: fallbacks, human approval for higher-risk actions and a defined non-AI path for critical capabilities.</p>
+  <div class="faq"><details class="faq-item" open><summary>Do you recommend specific AI vendors or platforms?</summary><div class="faq-a"><p>SD Advisory is technology-agnostic. Recommendations follow your operating context, governance requirements and existing platforms such as ServiceNow, not a vendor relationship.</p></div></details><details class="faq-item"><summary>Where should we start?</summary><div class="faq-a"><p>With the <a href="assessment.html">three-minute AI Readiness Assessment</a>. It gives you a readiness score, the priority gaps and recommended actions, and a clear basis for a 30-minute consultation.</p></div></details><details class="faq-item"><summary>Is AI safe to put in front of production operations?</summary><div class="faq-a"><p>It can be, if the design assumes AI will sometimes be unavailable or wrong. That is the premise of <a href="ai-resilience-by-design.html">AI Resilience by Design</a>: fallbacks, human approval for higher-risk actions and a defined non-AI path for critical capabilities.</p></div></details></div>
 </section>
-
+</div>
+</div>
 <section class="funnel-links" aria-labelledby="keep-going">
   <div class="sd-wrap">
     <h2 id="keep-going">Keep going</h2>
     <div class="sd-card-grid c4" style="max-width:none;margin:0">
       <a class="sd-card" href="case-studies.html"><h3>Evidence</h3><p>Prototype benchmarks and delivery engagements, clearly labelled.</p><span class="more">Read →</span></a>
-      <a class="sd-card" href="blog.html#ai-transformation"><h3>Insights</h3><p>Articles on ai transformation.</p><span class="more">Read →</span></a>
+      <a class="sd-card" href="blog.html#ai-transformation"><h3>Insights</h3><p>Articles on AI Transformation.</p><span class="more">Read →</span></a>
       <a class="sd-card" href="assessment.html"><h3>Assess</h3><p>Your three-minute AI Readiness Score.</p><span class="more">Start →</span></a>
       <a class="sd-card" href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" rel="noopener"><h3>Talk</h3><p>A 30-minute consultation about your operations.</p><span class="more">Book →</span></a>
     </div>
+    
   </div>
 </section>
 <div class="cta-band">
@@ -218,7 +219,7 @@
     <span>ITIL Expert · PRINCE2 Practitioner · AWS Certified Solutions Architect</span>
   </div>
 </footer>
-<script src="site.js" defer></script>
+<script src="site.js?v=4" defer></script>
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
 <!-- End Cloudflare Web Analytics -->

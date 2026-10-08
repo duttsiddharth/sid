@@ -83,8 +83,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../service-pages.css">
-<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../service-pages.css?v=4">
+<link rel="stylesheet" href="../site.css?v=4">
 </head>
 <body class="sd-page">
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -104,6 +104,7 @@
     <a href="../case-studies.html">Case Studies</a>
     <a href="../blog.html" aria-current="page">Insights</a>
     <a href="../start-here.html">Start Here</a>
+    <a href="../contact.html">Contact</a>
     <a href="../assessment.html" class="nav-cta">Assess Your AI Readiness</a>
   </div>
 </nav>
@@ -116,13 +117,15 @@
     <div class="byline"><span>Siddharth Dutt</span><span>Jan 2026</span><span>9 min read</span></div>
   </div>
 </header>
+<div class="article-layout">
+<details class="toc-box" open><summary>In this article</summary><ol><li><a href="#what-rag-actually-is">What RAG Actually Is</a></li><li><a href="#the-itsm-rag-architecture-i-recommend">The ITSM RAG Architecture I Recommend</a></li><li><a href="#knowledge-capture-automation">Knowledge Capture Automation</a></li><li><a href="#implementation-pitfalls">Implementation Pitfalls</a></li><li><a href="#the-business-case">The Business Case</a></li></ol></details><script>if(window.innerWidth<960){var t=document.querySelector("details.toc-box");if(t)t.removeAttribute("open")}</script>
 <article class="article-body">
 
       <p>Every enterprise ITSM deployment I've encountered has the same problem: a knowledge base full of articles that agents rarely use, users can't find, and no one has time to keep current. The articles that exist are often out of date. The resolutions that happen daily never get captured. It's institutional knowledge that evaporates.</p>
 
       <p>Retrieval-Augmented Generation changes this equation fundamentally. RAG doesn't just make your knowledge base searchable — it makes it intelligent, current, and conversational.</p>
 
-      <h2>What RAG Actually Is</h2>
+      <h2 id="what-rag-actually-is">What RAG Actually Is</h2>
       <p>RAG is an architecture pattern, not a product. It combines two components:</p>
       <ul>
         <li><strong>Retrieval:</strong> A semantic search system that finds relevant documents from your knowledge base based on meaning, not just keywords</li>
@@ -131,7 +134,7 @@
 
       <p>The result is a system that answers questions like "how do I resolve VPN connectivity issues for remote users in Singapore?" by finding the three most relevant knowledge articles and synthesising a response tailored to that specific query — not returning a list of links.</p>
 
-      <h2>The ITSM RAG Architecture I Recommend</h2>
+      <h2 id="the-itsm-rag-architecture-i-recommend">The ITSM RAG Architecture I Recommend</h2>
 
       <h3>Layer 1: Document Processing Pipeline</h3>
       <p>Your source documents — ServiceNow knowledge articles, SharePoint wikis, resolved ticket notes, runbooks — are chunked, cleaned, and converted into vector embeddings using an embedding model (OpenAI's text-embedding-3-small or similar). These embeddings are stored in a vector database (Pinecone, Weaviate, or pgvector if you're already on PostgreSQL).</p>
@@ -158,7 +161,7 @@
         <li>Format constraint: structured response with resolution steps and sources cited</li>
       </ul>
 
-      <h2>Knowledge Capture Automation</h2>
+      <h2 id="knowledge-capture-automation">Knowledge Capture Automation</h2>
       <p>The second major RAG use case in ITSM is automatic knowledge article generation. Every resolved ticket is a knowledge asset waiting to be captured. The problem is friction: agents don't write articles because it takes 20–30 minutes to document a resolution properly.</p>
 
       <p>A RAG-powered knowledge capture pipeline reduces this to under 2 minutes:</p>
@@ -175,7 +178,7 @@
         <div class="stat-box"><div class="num">85%+</div><div class="lbl">Self-Service Deflection Rate</div></div>
       </div>
 
-      <h2>Implementation Pitfalls</h2>
+      <h2 id="implementation-pitfalls">Implementation Pitfalls</h2>
 
       <h3>Stale Embeddings</h3>
       <p>Your knowledge base is only as current as the last embedding run. Implement an incremental embedding pipeline that processes new and updated documents within hours of publication — not in weekly batch jobs.</p>
@@ -186,12 +189,13 @@
       <h3>Governance and Auditability</h3>
       <p>For regulated environments, every RAG response should log the source documents used, their versions, and the retrieval scores. This creates an audit trail for AI-assisted resolutions and supports continuous accuracy measurement.</p>
 
-      <h2>The Business Case</h2>
+      <h2 id="the-business-case">The Business Case</h2>
       <p>The ROI case for ITSM RAG is straightforward. A self-service resolution rate increase of 15–20 percentage points translates directly to ticket deflection. At an average L1 handling cost of £15–25 per ticket, the economics are compelling even for mid-size operations.</p>
 
       <p>Start with your highest-volume, most-documented ticket category. Build the RAG pipeline. Measure deflection rate for 60 days. That pilot data is your business case for enterprise rollout.</p>
     
 </article>
+</div>
 <section class="article-next" aria-labelledby="where-next">
   <div class="box">
     <h2 id="where-next">Where to go from here</h2>
@@ -253,7 +257,7 @@
     <span>ITIL Expert · PRINCE2 Practitioner · AWS Certified Solutions Architect</span>
   </div>
 </footer>
-<script src="../site.js" defer></script>
+<script src="../site.js?v=4" defer></script>
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
 <!-- End Cloudflare Web Analytics -->

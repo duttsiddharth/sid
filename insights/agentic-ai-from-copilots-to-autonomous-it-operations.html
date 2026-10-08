@@ -83,8 +83,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../service-pages.css">
-<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../service-pages.css?v=4">
+<link rel="stylesheet" href="../site.css?v=4">
 </head>
 <body class="sd-page">
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -104,6 +104,7 @@
     <a href="../case-studies.html">Case Studies</a>
     <a href="../blog.html" aria-current="page">Insights</a>
     <a href="../start-here.html">Start Here</a>
+    <a href="../contact.html">Contact</a>
     <a href="../assessment.html" class="nav-cta">Assess Your AI Readiness</a>
   </div>
 </nav>
@@ -116,13 +117,15 @@
     <div class="byline"><span>Siddharth Dutt</span><span>Jul 2026</span><span>9 min read</span></div>
   </div>
 </header>
+<div class="article-layout">
+<details class="toc-box" open><summary>In this article</summary><ol><li><a href="#what-makes-an-agent-different-from-a-copilot">What Makes an Agent Different From a Copilot</a></li><li><a href="#where-agents-genuinely-help-today">Where Agents Genuinely Help Today</a></li><li><a href="#where-autonomy-is-still-an-outage-waiting-to-happen">Where Autonomy Is Still an Outage Waiting to Happen</a></li><li><a href="#the-governance-layer-nobody-budgets-for">The Governance Layer Nobody Budgets For</a></li></ol></details><script>if(window.innerWidth<960){var t=document.querySelector("details.toc-box");if(t)t.removeAttribute("open")}</script>
 <article class="article-body">
 
       <p>For the past three years, AI in IT operations has been a suggestion engine. Copilots drafted incident summaries, recommended runbooks, and pre-filled ticket fields — but a human always pressed the button. In 2026, that boundary is dissolving. Agentic AI systems now plan a sequence of actions, execute them across your toolchain, verify the outcome, and adjust when reality doesn't match the plan.</p>
 
       <p>Having built AI triage and incident co-pilot systems myself, I've watched this shift from the inside. The technology is genuinely ready for a specific class of work. It is genuinely dangerous for another class. The organisations getting this right are the ones who can tell the difference.</p>
 
-      <h2>What Makes an Agent Different From a Copilot</h2>
+      <h2 id="what-makes-an-agent-different-from-a-copilot">What Makes an Agent Different From a Copilot</h2>
       <p>A copilot responds to a prompt with a suggestion. An agent receives a goal and independently decomposes it into steps: query the CMDB, check recent changes, correlate alerts, restart the service, validate health checks, update the ticket, notify stakeholders. The defining capabilities are:</p>
       <ul>
         <li><strong>Planning</strong> — breaking a goal into an executable sequence, and re-planning when a step fails</li>
@@ -133,7 +136,7 @@
 
       <blockquote>"A copilot makes your engineers faster. An agent makes decisions while your engineers are asleep. Those require very different governance."</blockquote>
 
-      <h2>Where Agents Genuinely Help Today</h2>
+      <h2 id="where-agents-genuinely-help-today">Where Agents Genuinely Help Today</h2>
       <p>In my own deployments and in the patterns I see across the industry, agentic AI is delivering reliable value in bounded, reversible, well-instrumented tasks:</p>
       <ul>
         <li><strong>L1 auto-resolution</strong> — password resets, access provisioning, disk cleanup, service restarts with health validation. My SmartDesk prototype auto-resolves ~42% of tickets in exactly this category.</li>
@@ -142,10 +145,10 @@
         <li><strong>Report and comms drafting</strong> — stakeholder updates, post-incident reviews, and weekly digests generated from live data, reviewed by a human.</li>
       </ul>
 
-      <h2>Where Autonomy Is Still an Outage Waiting to Happen</h2>
+      <h2 id="where-autonomy-is-still-an-outage-waiting-to-happen">Where Autonomy Is Still an Outage Waiting to Happen</h2>
       <p>Agents should not yet own irreversible, high-blast-radius, or ambiguous-context actions: production database changes, network-wide configuration pushes, security policy modifications, or anything touching identity infrastructure at scale. The failure mode isn't that the agent is stupid — it's that it is confidently wrong at machine speed, and a bad decision propagates before a human can intervene.</p>
 
-      <h2>The Governance Layer Nobody Budgets For</h2>
+      <h2 id="the-governance-layer-nobody-budgets-for">The Governance Layer Nobody Budgets For</h2>
       <p>Every successful agentic deployment I've seen shares the same architecture: a permission tier model. Tier 1 actions run fully autonomously. Tier 2 actions execute but page a human with a rollback window. Tier 3 actions require explicit approval before execution. The tiers are defined by blast radius and reversibility, not by how impressive the demo looks.</p>
       <ul>
         <li>Every agent action logged with full reasoning traces — auditable like any privileged account</li>
@@ -162,6 +165,7 @@
       <p>The organisations winning with agentic AI in 2026 aren't the ones with the most autonomous systems. They're the ones with the clearest line between what agents own and what humans own — and the discipline to move that line based on evidence, not enthusiasm.</p>
     
 </article>
+</div>
 <section class="article-next" aria-labelledby="where-next">
   <div class="box">
     <h2 id="where-next">Where to go from here</h2>
@@ -223,7 +227,7 @@
     <span>ITIL Expert · PRINCE2 Practitioner · AWS Certified Solutions Architect</span>
   </div>
 </footer>
-<script src="../site.js" defer></script>
+<script src="../site.js?v=4" defer></script>
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
 <!-- End Cloudflare Web Analytics -->

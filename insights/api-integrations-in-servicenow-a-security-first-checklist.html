@@ -83,8 +83,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../service-pages.css">
-<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../service-pages.css?v=4">
+<link rel="stylesheet" href="../site.css?v=4">
 </head>
 <body class="sd-page">
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -104,6 +104,7 @@
     <a href="../case-studies.html">Case Studies</a>
     <a href="../blog.html" aria-current="page">Insights</a>
     <a href="../start-here.html">Start Here</a>
+    <a href="../contact.html">Contact</a>
     <a href="../assessment.html" class="nav-cta">Assess Your AI Readiness</a>
   </div>
 </nav>
@@ -116,11 +117,13 @@
     <div class="byline"><span>Siddharth Dutt</span><span>Jul 2025</span><span>6 min read</span></div>
   </div>
 </header>
+<div class="article-layout">
+
 <article class="article-body">
 
       <p>ServiceNow's API is powerful enough that almost anything is possible — which is exactly why almost anything ends up getting built, often without the same security scrutiny that a new external-facing application would automatically receive. The platform's strong native governance can create a false sense that everything built on top of it inherits that same rigor. It doesn't, automatically.</p>
 
-      <h2>The Checklist</h2>
+      <h2 id="the-checklist">The Checklist</h2>
       <h3>1. Scope of Access</h3>
       <p>What does this integration's service account actually have access to — and is that the minimum required, or just whatever was convenient to grant during initial setup? I've seen integrations built for one table given instance-wide read access because it was faster to configure.</p>
 
@@ -138,7 +141,7 @@
         <p>Every API integration deserves the same security review as a new application, even though ServiceNow makes it easy to skip that step. The platform's governance strength is not automatically inherited by what you build on top of it.</p>
       </div>
 
-      <h2>Where AI Integrations Need Extra Scrutiny</h2>
+      <h2 id="where-ai-integrations-need-extra-scrutiny">Where AI Integrations Need Extra Scrutiny</h2>
       <p>When I integrated Claude API into Smart Desk's ServiceNow workflow, this checklist mattered more than usual — not because the AI introduced new risk categories, but because it was tempting to grant broad access "to be safe" rather than scoping tightly to exactly what the classification workflow needed. Tight scoping took slightly longer to configure and made the eventual compliance review considerably faster.</p>
 
       <div class="stat-row">
@@ -148,6 +151,7 @@
       <p>None of this is about slowing innovation down. It's about making sure the audit trail and access scope are clean enough that nobody has to choose between moving fast and staying compliant — because the integration was built to satisfy both from day one.</p>
     
 </article>
+</div>
 <section class="article-next" aria-labelledby="where-next">
   <div class="box">
     <h2 id="where-next">Where to go from here</h2>
@@ -209,7 +213,7 @@
     <span>ITIL Expert · PRINCE2 Practitioner · AWS Certified Solutions Architect</span>
   </div>
 </footer>
-<script src="../site.js" defer></script>
+<script src="../site.js?v=4" defer></script>
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
 <!-- End Cloudflare Web Analytics -->

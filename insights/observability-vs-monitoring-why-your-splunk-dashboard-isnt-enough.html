@@ -83,8 +83,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../service-pages.css">
-<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../service-pages.css?v=4">
+<link rel="stylesheet" href="../site.css?v=4">
 </head>
 <body class="sd-page">
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -104,6 +104,7 @@
     <a href="../case-studies.html">Case Studies</a>
     <a href="../blog.html" aria-current="page">Insights</a>
     <a href="../start-here.html">Start Here</a>
+    <a href="../contact.html">Contact</a>
     <a href="../assessment.html" class="nav-cta">Assess Your AI Readiness</a>
   </div>
 </nav>
@@ -116,18 +117,20 @@
     <div class="byline"><span>Siddharth Dutt</span><span>Dec 2025</span><span>7 min read</span></div>
   </div>
 </header>
+<div class="article-layout">
+<details class="toc-box" open><summary>In this article</summary><ol><li><a href="#the-three-pillars-briefly">The Three Pillars, Briefly</a></li><li><a href="#where-this-bit-us-and-how-we-fixed-it">Where This Bit Us — and How We Fixed It</a></li><li><a href="#a-practical-maturity-checklist">A Practical Maturity Checklist</a></li></ol></details><script>if(window.innerWidth<960){var t=document.querySelector("details.toc-box");if(t)t.removeAttribute("open")}</script>
 <article class="article-body">
 
       <p>I've sat through more monitoring tool demos than I can count, and almost all of them get pitched as "observability." They're not the same thing, and the difference isn't academic — it's the gap between an operations team that reacts and one that actually understands its own systems.</p>
 
       <p>Monitoring answers questions you defined in advance: is CPU above 80%? Did the health check fail? Is the queue depth over threshold? Observability answers questions you didn't know you'd need to ask: why did latency spike for this specific customer segment during this specific deployment window, three services downstream from where the alert fired?</p>
 
-      <h2>The Three Pillars, Briefly</h2>
+      <h2 id="the-three-pillars-briefly">The Three Pillars, Briefly</h2>
       <p>Metrics tell you something is wrong. Logs tell you what happened. Traces tell you where, across a distributed system, it actually happened. Most Splunk deployments I've reviewed are metrics-and-logs heavy and trace-poor — which is exactly why root cause analysis on distributed, microservice-heavy environments takes hours instead of minutes.</p>
 
       <blockquote>"A dashboard full of green checkmarks tells you nothing about the failure mode you haven't seen yet."</blockquote>
 
-      <h2>Where This Bit Us — and How We Fixed It</h2>
+      <h2 id="where-this-bit-us-and-how-we-fixed-it">Where This Bit Us — and How We Fixed It</h2>
       <p>On one enterprise managed services account, we had textbook monitoring: clean dashboards, sensible thresholds, solid alerting. And we still missed a slow-burning degradation that didn't trip any single threshold but was visible the moment we correlated trace data across three services. Once we instrumented proper distributed tracing alongside the existing Splunk metrics and logs, mean-time-to-detect on that class of issue dropped sharply.</p>
 
       <div class="stat-row">
@@ -135,7 +138,7 @@
         <div class="stat-box"><div class="num">60%</div><div class="lbl">MTTD Reduction</div></div>
       </div>
 
-      <h2>A Practical Maturity Checklist</h2>
+      <h2 id="a-practical-maturity-checklist">A Practical Maturity Checklist</h2>
       <ul>
         <li>Can you trace a single request across every service it touches, not just see logs from each service in isolation?</li>
         <li>Can a new engineer answer "why is this slow" without paging someone who's been here five years?</li>
@@ -150,6 +153,7 @@
       <p>This is also exactly the foundation that any real AIOps initiative depends on — you can't correlate or predict on top of data that was never structured to be correlated in the first place. More on building that maturity model in the next article.</p>
     
 </article>
+</div>
 <section class="article-next" aria-labelledby="where-next">
   <div class="box">
     <h2 id="where-next">Where to go from here</h2>
@@ -211,7 +215,7 @@
     <span>ITIL Expert · PRINCE2 Practitioner · AWS Certified Solutions Architect</span>
   </div>
 </footer>
-<script src="../site.js" defer></script>
+<script src="../site.js?v=4" defer></script>
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
 <!-- End Cloudflare Web Analytics -->

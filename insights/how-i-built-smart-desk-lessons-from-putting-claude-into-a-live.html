@@ -83,8 +83,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../service-pages.css">
-<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../service-pages.css?v=4">
+<link rel="stylesheet" href="../site.css?v=4">
 </head>
 <body class="sd-page">
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -104,6 +104,7 @@
     <a href="../case-studies.html">Case Studies</a>
     <a href="../blog.html" aria-current="page">Insights</a>
     <a href="../start-here.html">Start Here</a>
+    <a href="../contact.html">Contact</a>
     <a href="../assessment.html" class="nav-cta">Assess Your AI Readiness</a>
   </div>
 </nav>
@@ -116,14 +117,16 @@
     <div class="byline"><span>Siddharth Dutt</span><span>Sep 2025</span><span>9 min read</span></div>
   </div>
 </header>
+<div class="article-layout">
+<details class="toc-box" open><summary>In this article</summary><ol><li><a href="#the-starting-point">The Starting Point</a></li><li><a href="#architecture-where-the-ai-actually-sits">Architecture: Where the AI Actually Sits</a></li><li><a href="#the-first-failure-mode-overconfidence">The First Failure Mode: Overconfidence</a></li><li><a href="#the-second-failure-mode-silent-drift">The Second Failure Mode: Silent Drift</a></li><li><a href="#what-i-d-do-differently">What I&#x27;d Do Differently</a></li></ol></details><script>if(window.innerWidth<960){var t=document.querySelector("details.toc-box");if(t)t.removeAttribute("open")}</script>
 <article class="article-body">
 
       <p>When people ask about Smart Desk, they usually want to talk about the AI model. That's the least interesting part of the build. The architecture decisions around it — how tickets flow in, what happens when the model is wrong, how escalation actually gets triggered — are what determined whether this became a production tool or another abandoned pilot.</p>
 
-      <h2>The Starting Point</h2>
+      <h2 id="the-starting-point">The Starting Point</h2>
       <p>The brief was simple: reduce manual ticket triage effort without disrupting the existing ServiceNow workflow or asking analysts to learn a new tool. That constraint shaped almost every decision that followed.</p>
 
-      <h2>Architecture: Where the AI Actually Sits</h2>
+      <h2 id="architecture-where-the-ai-actually-sits">Architecture: Where the AI Actually Sits</h2>
       <p>Smart Desk uses n8n as the orchestration layer between ServiceNow and Claude API. Tickets land in ServiceNow exactly as they always did. An n8n workflow trigger picks up new tickets, sends the relevant content to Claude for classification, and routes the result back into ServiceNow's existing assignment and priority fields — so from an analyst's point of view, tickets just arrive better-classified, with no new tool to open.</p>
 
       <div class="callout">
@@ -131,10 +134,10 @@
         <p>If your AI layer requires the end user to change their workflow, you've added a tool, not an improvement. Smart Desk's biggest design win was being invisible to the people it helped most.</p>
       </div>
 
-      <h2>The First Failure Mode: Overconfidence</h2>
+      <h2 id="the-first-failure-mode-overconfidence">The First Failure Mode: Overconfidence</h2>
       <p>Early versions auto-resolved too aggressively. A handful of edge cases got incorrectly closed before a human could catch the misclassification — not a disaster, but exactly the kind of trust-eroding mistake that gets a tool shut off. The fix wasn't a better prompt; it was a stricter confidence threshold and a much narrower initial scope, limited to ticket categories with very clear, low-ambiguity patterns.</p>
 
-      <h2>The Second Failure Mode: Silent Drift</h2>
+      <h2 id="the-second-failure-mode-silent-drift">The Second Failure Mode: Silent Drift</h2>
       <p>Classification accuracy that looks great in week one can quietly degrade as ticket patterns shift — new product launches, seasonal spikes, org changes. Smart Desk now includes a lightweight accuracy-tracking loop that flags when auto-resolution rates or override frequency move outside expected ranges, so drift gets caught before it becomes a trend.</p>
 
       <div class="stat-row">
@@ -143,12 +146,13 @@
         <div class="stat-box"><div class="num">Live</div><div class="lbl">In Production</div></div>
       </div>
 
-      <h2>What I'd Do Differently</h2>
+      <h2 id="what-i-d-do-differently">What I'd Do Differently</h2>
       <p>I'd build the accuracy-tracking and drift-detection loop from day one rather than retrofitting it after the fact. Everything else — the narrow initial scope, the confidence thresholds, the invisible integration — I'd keep exactly as it was.</p>
 
       <p>If you want the deeper operational case study with full before/after metrics, <a href="../case-study-smartdesk.html" style="color:var(--rust);">it's written up in detail here</a>.</p>
     
 </article>
+</div>
 <section class="article-next" aria-labelledby="where-next">
   <div class="box">
     <h2 id="where-next">Where to go from here</h2>
@@ -210,7 +214,7 @@
     <span>ITIL Expert · PRINCE2 Practitioner · AWS Certified Solutions Architect</span>
   </div>
 </footer>
-<script src="../site.js" defer></script>
+<script src="../site.js?v=4" defer></script>
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
 <!-- End Cloudflare Web Analytics -->

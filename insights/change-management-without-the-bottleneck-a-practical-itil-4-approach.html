@@ -83,8 +83,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../service-pages.css">
-<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../service-pages.css?v=4">
+<link rel="stylesheet" href="../site.css?v=4">
 </head>
 <body class="sd-page">
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -104,6 +104,7 @@
     <a href="../case-studies.html">Case Studies</a>
     <a href="../blog.html" aria-current="page">Insights</a>
     <a href="../start-here.html">Start Here</a>
+    <a href="../contact.html">Contact</a>
     <a href="../assessment.html" class="nav-cta">Assess Your AI Readiness</a>
   </div>
 </nav>
@@ -116,14 +117,16 @@
     <div class="byline"><span>Siddharth Dutt</span><span>May 2025</span><span>6 min read</span></div>
   </div>
 </header>
+<div class="article-layout">
+<details class="toc-box" open><summary>In this article</summary><ol><li><a href="#the-core-problem-flat-risk-treatment">The Core Problem: Flat Risk Treatment</a></li><li><a href="#the-fix-genuine-risk-based-tiers">The Fix: Genuine Risk-Based Tiers</a></li><li><a href="#what-this-looked-like-in-practice">What This Looked Like in Practice</a></li></ol></details><script>if(window.innerWidth<960){var t=document.querySelector("details.toc-box");if(t)t.removeAttribute("open")}</script>
 <article class="article-body">
 
       <p>"Change management is slowing us down" is something I hear from almost every engineering team I work with, and they're usually right — not because change management itself is wrong, but because most implementations route every change through the same heavyweight approval process regardless of actual risk.</p>
 
-      <h2>The Core Problem: Flat Risk Treatment</h2>
+      <h2 id="the-core-problem-flat-risk-treatment">The Core Problem: Flat Risk Treatment</h2>
       <p>A configuration tweak with a trivial rollback and a database schema migration with no rollback path are different categories of risk. When both go through the same CAB approval cycle, the low-risk change waits unnecessarily, and reviewers spend their limited attention spread thin instead of focused where it actually matters.</p>
 
-      <h2>The Fix: Genuine Risk-Based Tiers</h2>
+      <h2 id="the-fix-genuine-risk-based-tiers">The Fix: Genuine Risk-Based Tiers</h2>
       <h3>Standard Changes</h3>
       <p>Pre-approved, well-understood, low-risk changes that don't need case-by-case approval at all — just logging. If a change has been executed successfully dozens of times with no incident, it shouldn't need a fresh approval every time.</p>
 
@@ -138,7 +141,7 @@
         <p>The goal of change management isn't to slow everything down equally — it's to put scrutiny where risk actually lives and get out of the way everywhere else.</p>
       </div>
 
-      <h2>What This Looked Like in Practice</h2>
+      <h2 id="what-this-looked-like-in-practice">What This Looked Like in Practice</h2>
       <p>On programs I've run involving full project lifecycle management for transitions valued up to $5M, properly tiered change management was consistently what let teams move fast on routine changes while still protecting the genuinely risky ones — which is also a major contributor to delivering 20+ transitions with zero Sev-1 incidents post go-live.</p>
 
       <div class="stat-row">
@@ -149,6 +152,7 @@
       <p>If your engineering team thinks change management exists to slow them down, that's a signal your tiers aren't calibrated to actual risk — not a signal that change management itself is the wrong idea.</p>
     
 </article>
+</div>
 <section class="article-next" aria-labelledby="where-next">
   <div class="box">
     <h2 id="where-next">Where to go from here</h2>
@@ -210,7 +214,7 @@
     <span>ITIL Expert · PRINCE2 Practitioner · AWS Certified Solutions Architect</span>
   </div>
 </footer>
-<script src="../site.js" defer></script>
+<script src="../site.js?v=4" defer></script>
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
 <!-- End Cloudflare Web Analytics -->

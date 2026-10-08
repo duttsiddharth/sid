@@ -7,6 +7,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js')</script>
 
 <title>SmartDesk Case Study: AI Ticket Triage (Prototype) | SD Advisory</title>
 <meta name="description" content="How the SmartDesk accelerator uses Claude API, n8n and ServiceNow to classify, route and auto-resolve IT tickets: ~42% auto-resolution in the live prototype.">
@@ -47,8 +48,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="service-pages.css">
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="service-pages.css?v=4">
+<link rel="stylesheet" href="site.css?v=4">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -95,6 +96,7 @@
     <a href="case-studies.html" aria-current="page">Case Studies</a>
     <a href="blog.html">Insights</a>
     <a href="start-here.html">Start Here</a>
+    <a href="contact.html">Contact</a>
     <a href="assessment.html" class="nav-cta">Assess Your AI Readiness</a>
   </div>
 </nav>
@@ -116,6 +118,8 @@
   </div>
 </section>
 
+<div class="sd-tabs" data-tabs data-label="SmartDesk case study sections">
+<div class="tab-panel" id="challenge" data-tab-title="Challenge">
 <section class="content">
   <div class="section-label">// Business problem</div>
   <h2>The Challenge</h2>
@@ -123,37 +127,38 @@
   <p>In a typical enterprise IT operations environment, a high volume of inbound support tickets arrives through ServiceNow, with classification, prioritisation and routing done manually by Tier-1 analysts. This creates two compounding problems: triage consumes a significant share of analyst time that could go toward resolving issues, and the manual process introduces inconsistency — similar tickets can be prioritised differently depending on which analyst picks them up.</p>
   <p>The operational cost shows up in two ways: slower time-to-first-response on tickets that should be fast-tracked, and analyst fatigue from repetitive classification work that does not need human judgment in the majority of cases. The design goal was to reduce this overhead without compromising accuracy or introducing a new, disconnected tool that analysts must learn alongside ServiceNow.</p>
 </section>
-
-<section class="content alt-bg">
+</div>
+<div class="tab-panel" id="approach" data-tab-title="Approach &amp; architecture">
+<section class="content">
   <div class="section-label">// Approach</div>
   <h2>The Approach</h2>
   <p>Smart Desk is designed as an AI layer on top of the existing ServiceNow workflow, not a replacement for it. Using Claude API for natural-language ticket classification and n8n for workflow orchestration, incoming tickets are analysed, categorised and prioritised the moment they are created — then routed through existing ServiceNow assignment rules or, where confidence is high enough, resolved automatically with a documented resolution path.</p>
   <p>P1/P0 tickets are flagged for immediate human escalation rather than auto-resolution, with Slack automation notifying the right stakeholders. Well-understood, lower-priority categories — password resets, access requests, common how-to queries — are the initial focus for auto-resolution because they carry the clearest classification patterns and the lowest risk if something needs correction.</p>
 </section>
-
 <section class="content">
   <div class="section-label">// Architecture</div>
   <h2>The Architecture</h2>
   <p>Smart Desk sits between ticket intake and ServiceNow's existing workflow engine, adding an AI classification and decision layer without replacing any of the platform's native governance.</p>
   <div class="arch-flow"><div class="arch-step">Ticket Intake (ServiceNow)</div><div class="arch-arrow">→</div><div class="arch-step">n8n Workflow Trigger</div><div class="arch-arrow">→</div><div class="arch-step">Claude API Classification</div><div class="arch-arrow">→</div><div class="arch-step">Priority & Routing Decision</div><div class="arch-arrow">→</div><div class="arch-step">Auto-Resolution or Human Escalation</div><div class="arch-arrow">→</div><div class="arch-step">Slack Notification (P1/P0)</div></div>
 </section>
-
-<section class="content alt-bg">
+</div>
+<div class="tab-panel" id="outcomes" data-tab-title="Outcomes &amp; impact">
+<section class="content">
   <div class="section-label">// Outcomes</div>
   <h2>The Outcomes</h2>
   <div class="stat-row"><div class="stat-pill"><div class="num">42%</div><div class="lbl">Ticket Auto-Resolution</div></div><div class="stat-pill"><div class="num">~2.5 hrs</div><div class="lbl">Saved Per Day in Triage</div></div><div class="stat-pill"><div class="num">Prototype</div><div class="lbl">Live Demo Available</div></div></div>
   <p>In the live prototype, Smart Desk reached approximately 42% ticket auto-resolution across the categories it was configured for, meaning roughly four in ten in-scope tickets were classified, prioritised and resolved without analyst intervention. This is a prototype benchmark, not a named-client result.</p>
   <p>In the prototype, automated triage saved approximately 2.5 hours per day of manual effort — time that, in a live service desk, can be redirected toward higher-complexity tickets and proactive operational work rather than repetitive classification.</p>
 </section>
-
-<section class="content narrow">
+<section class="content">
   <div class="section-label">// Business Impact</div>
   <h2>Business Impact</h2>
   <p>Beyond the time savings, the prototype shows that GenAI tooling can be layered onto an existing ServiceNow-based ITSM workflow without disrupting governance or escalation paths — a useful proof point for any enterprise hesitant about AI adoption in IT operations. Analyst trust and adoption would still need to be validated in your own environment.</p>
   <p>The architecture is designed to extend to additional ticket categories over time, with each new category following the same pattern: start with auto-resolution on well-understood, low-risk tickets, then expand scope as confidence and historical accuracy data accumulate.</p>
 </section>
-
-<section class="content alt-bg">
+</div>
+<div class="tab-panel" id="technology" data-tab-title="Technology &amp; lessons">
+<section class="content">
   <div class="section-label">// Technology</div>
   <h2>What it is built with</h2>
   <div class="tool-tags"><span>Claude API</span><span>n8n</span><span>ServiceNow</span><span>Slack</span><span>Email automation</span><span>Prompt engineering</span></div>
@@ -162,6 +167,18 @@
   <h2>What other enterprises can learn</h2>
   <ul><li>Start with low-risk, well-understood ticket categories (password resets, access requests, how-to queries) and widen scope as accuracy data accumulates.</li><li>Keep P1/P0 tickets on a human escalation path; auto-resolve only where classification confidence is high.</li><li>Layer AI over the existing workflow engine so governance, escalation paths and analyst trust stay intact.</li><li>Treat prototype benchmarks as a starting hypothesis and re-baseline in your own environment before committing.</li></ul>
 </section>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
 
 <div class="cta-band">
   <div class="section-label" style="color:var(--rust);">// Let's Talk</div>
@@ -178,17 +195,13 @@
     <h2 id="keep-going">Keep going</h2>
     <div class="sd-card-grid c4" style="max-width:none;margin:0">
       <a class="sd-card" href="case-study-ai-incident-copilot.html"><h3>Evidence</h3><p>AI Incident Co-Pilot: guided incident response (prototype).</p><span class="more">Read →</span></a>
-      <a class="sd-card" href="blog.html#ai-itsm"><h3>Insights</h3><p>Articles on ai + itsm.</p><span class="more">Read →</span></a>
+      <a class="sd-card" href="blog.html#ai-itsm"><h3>Insights</h3><p>Articles on AI + ITSM.</p><span class="more">Read →</span></a>
       <a class="sd-card" href="assessment.html"><h3>Assess</h3><p>Your three-minute AI Readiness Score.</p><span class="more">Start →</span></a>
       <a class="sd-card" href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" rel="noopener"><h3>Talk</h3><p>A 30-minute consultation about your operations.</p><span class="more">Book →</span></a>
     </div>
+    <h3 class="related-h">Related Services &amp; Case Studies</h3>
+    <div class="related-grid"><a class="related-card" href="ai-for-itsm.html"><div class="rc-label">Service</div><div class="rc-title">AI for ITSM</div></a><a class="related-card" href="servicenow-automation.html"><div class="rc-label">Service</div><div class="rc-title">ServiceNow Automation</div></a><a class="related-card" href="case-study-ai-incident-copilot.html"><div class="rc-label">Case Study</div><div class="rc-title">AI Incident Co-Pilot</div></a><a class="related-card" href="case-study-sla-transformation.html"><div class="rc-label">Case Study</div><div class="rc-title">SLA Transformation</div></a></div>
   </div>
-</section>
-
-<section class="content">
-  <div class="section-label">// Related</div>
-  <h2>Related Services &amp; Case Studies</h2>
-  <div class="related-grid"><a class="related-card" href="ai-for-itsm.html"><div class="rc-label">Service</div><div class="rc-title">AI for ITSM</div></a><a class="related-card" href="servicenow-automation.html"><div class="rc-label">Service</div><div class="rc-title">ServiceNow Automation</div></a><a class="related-card" href="case-study-ai-incident-copilot.html"><div class="rc-label">Case Study</div><div class="rc-title">AI Incident Co-Pilot</div></a><a class="related-card" href="case-study-sla-transformation.html"><div class="rc-label">Case Study</div><div class="rc-title">SLA Transformation</div></a></div>
 </section>
 
 </main>
@@ -242,6 +255,6 @@
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
 <!-- End Cloudflare Web Analytics -->
-<script src="site.js" defer></script>
+<script src="site.js?v=4" defer></script>
 </body>
 </html>

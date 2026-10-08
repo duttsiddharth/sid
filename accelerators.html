@@ -79,8 +79,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="service-pages.css">
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="service-pages.css?v=4">
+<link rel="stylesheet" href="site.css?v=4">
 </head>
 <body class="sd-page">
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -100,6 +100,7 @@
     <a href="case-studies.html">Case Studies</a>
     <a href="blog.html">Insights</a>
     <a href="start-here.html">Start Here</a>
+    <a href="contact.html">Contact</a>
     <a href="assessment.html" class="nav-cta">Assess Your AI Readiness</a>
   </div>
 </nav>
@@ -110,12 +111,13 @@
   <h1>AI &amp; ITSM Accelerators: see it working before you commit</h1>
   <p class="lede">Reusable, working accelerators built from real service-delivery problems. Each one follows the same structure — problem, approach, technology, outcome, evidence — and is labelled honestly for what it is.</p>
   <div class="hero-cta"><a href="assessment.html" class="btn btn-primary">Assess Your AI Readiness →</a><a href="case-studies.html" class="btn btn-secondary">Explore Case Studies</a></div>
-</section>
-<section class="content wide">
+</section><section class="content wide">
   <div class="section-label">// The accelerators</div>
   <h2>Four accelerators, labelled honestly</h2>
   <p class="muted">Status labels used across this site: <strong>Production deployment</strong> (live in a client environment), <strong>Pilot</strong> (scoped trial with a client), <strong>Prototype accelerator</strong> (a working build or live demo used to demonstrate the approach), and <strong>Reference architecture</strong> (a design model, not a deployment). None of the accelerators below is presented as a client production deployment.</p>
-  <article class="accel">
+</section><div class="sd-tabs" data-tabs data-label="Accelerators">
+<div class="tab-panel" id="smartdesk" data-tab-title="SmartDesk">
+<section class="content wide"><article class="accel">
   <div class="accel-head"><h3>SmartDesk — AI IT support triage</h3><span class="status ">Prototype accelerator</span></div>
   <dl>
     <dt>Problem</dt><dd>L1 and L2 service desks spend hours each day classifying, prioritising and routing tickets by hand.</dd>
@@ -125,7 +127,10 @@
     <dt>Evidence</dt><dd>Interactive prototype and written case study. Figures are prototype benchmarks, not a named-client result.</dd>
   </dl>
   <div class="accel-actions"><a class="btn btn-secondary" href="case-study-smartdesk.html">Read case study</a><a class="btn btn-secondary" href="smartdesk.html">View demo</a></div>
-</article><article class="accel">
+</article></section>
+</div>
+<div class="tab-panel" id="ai-incident-copilot" data-tab-title="AI Incident Co-Pilot">
+<section class="content wide"><article class="accel">
   <div class="accel-head"><h3>AI Incident Co-Pilot — intelligent incident response</h3><span class="status ">Prototype accelerator</span></div>
   <dl>
     <dt>Problem</dt><dd>During a P1, responders must correlate observability signals and draft stakeholder updates at the same time — and both slow resolution.</dd>
@@ -135,7 +140,10 @@
     <dt>Evidence</dt><dd>Live prototype and written case study. Treat the figure as an accelerator benchmark, not a client claim.</dd>
   </dl>
   <div class="accel-actions"><a class="btn btn-secondary" href="case-study-ai-incident-copilot.html">Read case study</a><a class="btn btn-secondary" href="https://ai-incident-co-pilot-1.onrender.com/" target="_blank" rel="noopener">View demo</a></div>
-</article><article class="accel">
+</article></section>
+</div>
+<div class="tab-panel" id="enterprise-ai-assistant" data-tab-title="Enterprise AI Assistant">
+<section class="content wide"><article class="accel">
   <div class="accel-head"><h3>Enterprise AI Assistant — conversational AI for IT operations</h3><span class="status ">Prototype accelerator</span></div>
   <dl>
     <dt>Problem</dt><dd>Operations teams lose time searching runbooks, knowledge bases and operational documentation for answers.</dd>
@@ -145,7 +153,10 @@
     <dt>Evidence</dt><dd>Public live demo on Hugging Face Spaces.</dd>
   </dl>
   <div class="accel-actions"><a class="btn btn-secondary" href="https://duttsiddharth-enterprise-ai-assistant.hf.space/" target="_blank" rel="noopener">View demo</a></div>
-</article><article class="accel">
+</article></section>
+</div>
+<div class="tab-panel" id="ai-resilience" data-tab-title="AI Resilience by Design">
+<section class="content wide"><article class="accel">
   <div class="accel-head"><h3>AI Resilience by Design — interactive reference architecture</h3><span class="status ref">Reference architecture</span></div>
   <dl>
     <dt>Problem</dt><dd>AI becomes a single point of failure: if it is unavailable, wrong, replaced or more autonomous than intended, operations suffer.</dd>
@@ -155,17 +166,19 @@
     <dt>Evidence</dt><dd>Interactive model and overview page.</dd>
   </dl>
   <div class="accel-actions"><a class="btn btn-secondary" href="ai-resilience-by-design.html">Read overview</a><a class="btn btn-secondary" href="ai-resilience/">Launch model</a></div>
-</article>
-</section>
+</article></section>
+</div>
+</div>
 <section class="funnel-links" aria-labelledby="keep-going">
   <div class="sd-wrap">
     <h2 id="keep-going">Keep going</h2>
     <div class="sd-card-grid c4" style="max-width:none;margin:0">
       <a class="sd-card" href="case-studies.html"><h3>Evidence</h3><p>All case studies, with status labels and architecture.</p><span class="more">Read →</span></a>
-      <a class="sd-card" href="blog.html#ai-itsm"><h3>Insights</h3><p>Articles on ai + itsm.</p><span class="more">Read →</span></a>
+      <a class="sd-card" href="blog.html#ai-itsm"><h3>Insights</h3><p>Articles on AI + ITSM.</p><span class="more">Read →</span></a>
       <a class="sd-card" href="assessment.html"><h3>Assess</h3><p>Your three-minute AI Readiness Score.</p><span class="more">Start →</span></a>
       <a class="sd-card" href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" rel="noopener"><h3>Talk</h3><p>A 30-minute consultation about your operations.</p><span class="more">Book →</span></a>
     </div>
+    
   </div>
 </section>
 <div class="cta-band">
@@ -222,7 +235,7 @@
     <span>ITIL Expert · PRINCE2 Practitioner · AWS Certified Solutions Architect</span>
   </div>
 </footer>
-<script src="site.js" defer></script>
+<script src="site.js?v=4" defer></script>
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
 <!-- End Cloudflare Web Analytics -->

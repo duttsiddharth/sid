@@ -7,6 +7,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js')</script>
 
 <title>AI for ITSM: GenAI Service Desk Automation | SD Advisory</title>
 <meta name="description" content="GenAI for ITSM: AI ticket triage, incident co-pilots and RAG knowledge assistants on ServiceNow. Pilot-first, human-in-the-loop and measured against your baseline.">
@@ -54,8 +55,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="service-pages.css">
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="service-pages.css?v=4">
+<link rel="stylesheet" href="site.css?v=4">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -96,6 +97,7 @@
     <a href="case-studies.html">Case Studies</a>
     <a href="blog.html">Insights</a>
     <a href="start-here.html">Start Here</a>
+    <a href="contact.html">Contact</a>
     <a href="assessment.html" class="nav-cta">Assess Your AI Readiness</a>
   </div>
 </nav>
@@ -112,6 +114,8 @@
   </div>
 </section>
 
+<div class="sd-tabs" data-tabs data-label="AI for ITSM sections">
+<div class="tab-panel" id="overview" data-tab-title="Challenge &amp; approach">
 <section class="content">
   <div class="section-label">// The Challenge</div>
   <h2>The Challenge: GenAI Pilots That Never Reach Production</h2>
@@ -119,8 +123,7 @@
   <p>Ticket classification needs to integrate with real ServiceNow workflows. Incident co-pilots need to respect existing escalation paths and stakeholder communication norms. Knowledge assistants need to be grounded in actual runbooks, not generic training data. Without that operational grounding, GenAI for ITSM stays a pilot indefinitely.</p>
   <p>There's also a trust problem. Operations teams have seen enough hype cycles to be skeptical of AI tools that promise to 'automate everything.' Adoption only happens when the AI is positioned correctly — as something that removes the repetitive 80% of triage work so people can focus on the 20% that genuinely needs human judgment, with a clear, auditable trail of what the AI did and why.</p>
 </section>
-
-<section class="content alt-bg">
+<section class="content">
   <div class="section-label">// My Approach</div>
   <h2>My Approach: Production AI, Not Just Prototypes</h2>
   <p>I build GenAI tools for ITSM the same way I've run service delivery for two decades — with a bias toward measurable operational outcomes over technical novelty. My flagship implementation, Smart Desk, is an AI-powered IT support triage system built on Claude API, n8n, and ServiceNow that classifies, prioritizes, and routes tickets automatically — achieving roughly 42% ticket auto-resolution and saving approximately 2.5 hours per day in manual triage effort in the live prototype (a benchmark, not a named-client result).</p>
@@ -129,37 +132,51 @@
   <h3>Tools &amp; Technologies</h3>
   <div class="tool-tags"><span>Claude API</span><span>RAG / Vector Search</span><span>n8n</span><span>ServiceNow</span><span>Slack Automation</span><span>Prompt Engineering</span><span>AI Agents</span></div>
 </section>
-
+</div>
+<div class="tab-panel" id="how-it-works" data-tab-title="How it works">
 <section class="content">
   <div class="section-label">// How It Works</div>
   <h2>Engagement Process</h2>
   <h3>1. Workflow Audit</h3><p>Identify which ITSM workflows — ticket triage, incident response, knowledge lookup — have the highest manual effort and the clearest definition of 'correct' for an AI to learn from.</p><h3>2. AI Tool Design</h3><p>Design the specific GenAI implementation (triage classifier, incident co-pilot, RAG knowledge assistant) around your existing ServiceNow data and escalation structure.</p><h3>3. Build & Integrate</h3><p>Implement using Claude API, n8n, and direct ServiceNow integration, with human-in-the-loop checkpoints for anything the AI isn't confident about.</p><h3>4. Pilot, Measure, Scale</h3><p>Run a scoped pilot, measure auto-resolution rate and time saved against baseline, then expand scope once the model and workflow are proven.</p>
 </section>
-
-<section class="content alt-bg">
+<section class="content">
+  <div class="section-label">// Who This Is For</div>
+  <h2>Built For Enterprise Decision-Makers</h2>
+  <div class="who-grid"><div>ITSM Directors looking to move past chatbot pilots</div><div>CIOs evaluating where GenAI actually fits in service management</div><div>Service Delivery leaders wanting AI-assisted triage without a platform replacement</div><div>Teams that already have ServiceNow and want to extend it with AI</div></div>
+</section>
+</div>
+<div class="tab-panel" id="results" data-tab-title="Results &amp; fit">
+<section class="content">
   <div class="section-label">// Results &amp; evidence</div>
   <h2>Operational outcomes</h2>
   <div class="stat-row"><div class="stat-pill"><div class="num">42%</div><div class="lbl">Ticket Auto-Resolution</div></div><div class="stat-pill"><div class="num">~2.5 hrs</div><div class="lbl">Saved Per Day in Triage</div></div><div class="stat-pill"><div class="num">96% → 99.8%</div><div class="lbl">SLA Adherence</div></div><div class="stat-pill"><div class="num">20%</div><div class="lbl">MTTR Reduction</div></div></div>
   <p class="muted">These aren't slideware projections — Smart Desk and AI Incident Co-Pilot are working, live-demo accelerators with measured prototype benchmarks, designed to integrate with ServiceNow-based service delivery workflows. The 96% → 99.8% SLA figure comes from an enterprise delivery engagement.</p>
 </section>
-
 <section class="content">
-  <div class="section-label">// Common Questions</div>
-  <h2>Frequently Asked Questions</h2>
-  <h3>Will this replace our IT support staff?</h3><p>No — the goal is to automate the repetitive, well-defined portion of triage and knowledge lookup so your team spends more time on complex issues that genuinely need human judgment.</p><h3>Does this require migrating off ServiceNow?</h3><p>No. Every implementation I've built integrates directly with ServiceNow rather than replacing it — the AI layer sits on top of your existing platform.</p><h3>How is accuracy and trust handled?</h3><p>Low-confidence tickets route to a human by design, and AI-drafted communications are reviewed before sending in most configurations — the system is built to fail safely, not silently.</p><h3>Can we start with a small pilot?</h3><p>Yes — most engagements start with a scoped pilot on one ticket category or workflow, with clear before/after metrics, before expanding further.</p><h3>What happens to tickets the AI gets wrong?</h3><p>Misclassifications or incorrect resolutions get tracked back into the system as a feedback loop, so the model's prioritization and routing logic improve over time rather than repeating the same mistake silently.</p>
-</section>
-
-<section class="content alt-bg narrow">
-  <div class="section-label">// Who This Is For</div>
-  <h2>Built For Enterprise Decision-Makers</h2>
-  <div class="who-grid"><div>ITSM Directors looking to move past chatbot pilots</div><div>CIOs evaluating where GenAI actually fits in service management</div><div>Service Delivery leaders wanting AI-assisted triage without a platform replacement</div><div>Teams that already have ServiceNow and want to extend it with AI</div></div>
-</section>
-
-<section class="content narrow">
   <div class="section-label">// Why This Approach</div>
   <h2>Why This Works</h2>
   <p>GenAI for ITSM is a crowded market right now, but much of what's on offer is built by AI specialists who've never run a service desk, or by ITSM specialists with no hands-on AI implementation experience. Smart Desk, AI Incident Co-Pilot, and the Enterprise AI Knowledge Assistant were all built by someone who has done both — which tends to be the difference between a working production tool and another pilot that quietly disappears after the demo.</p>
 </section>
+</div>
+<div class="tab-panel" id="faq" data-tab-title="FAQ">
+<section class="content">
+  <div class="section-label">// Common Questions</div>
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq"><details class="faq-item" open><summary>Will this replace our IT support staff?</summary><div class="faq-a"><p>No — the goal is to automate the repetitive, well-defined portion of triage and knowledge lookup so your team spends more time on complex issues that genuinely need human judgment.</p></div></details><details class="faq-item"><summary>Does this require migrating off ServiceNow?</summary><div class="faq-a"><p>No. Every implementation I've built integrates directly with ServiceNow rather than replacing it — the AI layer sits on top of your existing platform.</p></div></details><details class="faq-item"><summary>How is accuracy and trust handled?</summary><div class="faq-a"><p>Low-confidence tickets route to a human by design, and AI-drafted communications are reviewed before sending in most configurations — the system is built to fail safely, not silently.</p></div></details><details class="faq-item"><summary>Can we start with a small pilot?</summary><div class="faq-a"><p>Yes — most engagements start with a scoped pilot on one ticket category or workflow, with clear before/after metrics, before expanding further.</p></div></details><details class="faq-item"><summary>What happens to tickets the AI gets wrong?</summary><div class="faq-a"><p>Misclassifications or incorrect resolutions get tracked back into the system as a feedback loop, so the model's prioritization and routing logic improve over time rather than repeating the same mistake silently.</p></div></details></div></section>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div class="cta-band">
   <div class="section-label" style="color:var(--rust);">// Let's Talk</div>
@@ -176,17 +193,13 @@
     <h2 id="keep-going">Keep going</h2>
     <div class="sd-card-grid c4" style="max-width:none;margin:0">
       <a class="sd-card" href="case-study-smartdesk.html"><h3>Evidence</h3><p>SmartDesk: AI ticket triage and routing (prototype).</p><span class="more">Read →</span></a>
-      <a class="sd-card" href="blog.html#ai-itsm"><h3>Insights</h3><p>Articles on ai + itsm.</p><span class="more">Read →</span></a>
+      <a class="sd-card" href="blog.html#ai-itsm"><h3>Insights</h3><p>Articles on AI + ITSM.</p><span class="more">Read →</span></a>
       <a class="sd-card" href="assessment.html"><h3>Assess</h3><p>Your three-minute AI Readiness Score.</p><span class="more">Start →</span></a>
       <a class="sd-card" href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" rel="noopener"><h3>Talk</h3><p>A 30-minute consultation about your operations.</p><span class="more">Book →</span></a>
     </div>
+    <h3 class="related-h">Explore Other Services</h3>
+    <div class="related-grid"><a class="related-card" href="aiops-consulting.html"><div class="rc-label">Service</div><div class="rc-title">AIOps Consulting</div></a><a class="related-card" href="servicenow-automation.html"><div class="rc-label">Service</div><div class="rc-title">ServiceNow Automation</div></a><a class="related-card" href="managed-services-transformation.html"><div class="rc-label">Service</div><div class="rc-title">Managed Services Transformation</div></a><a class="related-card" href="itil-governance.html"><div class="rc-label">Service</div><div class="rc-title">ITIL 4 Governance</div></a><a class="related-card" href="ai-resilience-by-design.html"><div class="rc-label">Solution</div><div class="rc-title">AI Resilience by Design</div></a></div>
   </div>
-</section>
-
-<section class="content">
-  <div class="section-label">// Related Services</div>
-  <h2>Explore Other Services</h2>
-  <div class="related-grid"><a class="related-card" href="aiops-consulting.html"><div class="rc-label">Service</div><div class="rc-title">AIOps Consulting</div></a><a class="related-card" href="servicenow-automation.html"><div class="rc-label">Service</div><div class="rc-title">ServiceNow Automation</div></a><a class="related-card" href="managed-services-transformation.html"><div class="rc-label">Service</div><div class="rc-title">Managed Services Transformation</div></a><a class="related-card" href="itil-governance.html"><div class="rc-label">Service</div><div class="rc-title">ITIL 4 Governance</div></a><a class="related-card" href="ai-resilience-by-design.html"><div class="rc-label">Solution</div><div class="rc-title">AI Resilience by Design</div></a></div>
 </section>
 
 </main>
@@ -240,6 +253,6 @@
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
 <!-- End Cloudflare Web Analytics -->
-<script src="site.js" defer></script>
+<script src="site.js?v=4" defer></script>
 </body>
 </html>

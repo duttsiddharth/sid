@@ -83,8 +83,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../service-pages.css">
-<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../service-pages.css?v=4">
+<link rel="stylesheet" href="../site.css?v=4">
 </head>
 <body class="sd-page">
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -104,6 +104,7 @@
     <a href="../case-studies.html">Case Studies</a>
     <a href="../blog.html" aria-current="page">Insights</a>
     <a href="../start-here.html">Start Here</a>
+    <a href="../contact.html">Contact</a>
     <a href="../assessment.html" class="nav-cta">Assess Your AI Readiness</a>
   </div>
 </nav>
@@ -116,11 +117,13 @@
     <div class="byline"><span>Siddharth Dutt</span><span>Aug 2025</span><span>6 min read</span></div>
   </div>
 </header>
+<div class="article-layout">
+<details class="toc-box" open><summary>In this article</summary><ol><li><a href="#what-governance-debt-looks-like-in-practice">What Governance Debt Looks Like in Practice</a></li><li><a href="#where-i-start-when-cleaning-this-up">Where I Start When Cleaning This Up</a></li><li><a href="#the-automation-connection">The Automation Connection</a></li></ol></details><script>if(window.innerWidth<960){var t=document.querySelector("details.toc-box");if(t)t.removeAttribute("open")}</script>
 <article class="article-body">
 
       <p>I've inherited more ServiceNow instances than I can count, and the pattern is almost always the same: nobody set out to create a governance mess. It happened one reasonable exception at a time — a one-off RBAC override here, an undocumented integration there — until the instance became something nobody fully understands anymore.</p>
 
-      <h2>What Governance Debt Looks Like in Practice</h2>
+      <h2 id="what-governance-debt-looks-like-in-practice">What Governance Debt Looks Like in Practice</h2>
       <ul>
         <li>Access roles that were granted for a project that ended two years ago and never revoked</li>
         <li>SSO configurations with quiet exceptions carved out for "just this one team"</li>
@@ -132,7 +135,7 @@
 
       <blockquote>"Governance debt doesn't send an invoice until the worst possible moment — an audit, a breach, or a project that needs to move fast."</blockquote>
 
-      <h2>Where I Start When Cleaning This Up</h2>
+      <h2 id="where-i-start-when-cleaning-this-up">Where I Start When Cleaning This Up</h2>
       <p>Across managing enterprise SaaS portfolios including ServiceNow for 15+ global clients with zero compliance breaches, the pattern that works is starting with an access and integration inventory before touching anything else — not a redesign, just an honest map of what currently exists, who has access to what, and which integrations are actually load-bearing versus vestigial.</p>
 
       <div class="stat-row">
@@ -140,7 +143,7 @@
         <div class="stat-box"><div class="num">~12%</div><div class="lbl">Licensing Cost Cut</div></div>
       </div>
 
-      <h2>The Automation Connection</h2>
+      <h2 id="the-automation-connection">The Automation Connection</h2>
       <p>This matters enormously for AI and automation projects specifically. Every AI-powered ticket triage or workflow automation I've built sits on top of existing ServiceNow governance, not around it — and that's only possible because the governance foundation was solid enough to build on. Skipping this step doesn't make automation faster; it makes the eventual compliance finding bigger.</p>
 
       <div class="callout">
@@ -151,6 +154,7 @@
       <p>The teams that get the most value out of ServiceNow AI initiatives are, without exception, the ones that treated governance as a prerequisite rather than an afterthought.</p>
     
 </article>
+</div>
 <section class="article-next" aria-labelledby="where-next">
   <div class="box">
     <h2 id="where-next">Where to go from here</h2>
@@ -212,7 +216,7 @@
     <span>ITIL Expert · PRINCE2 Practitioner · AWS Certified Solutions Architect</span>
   </div>
 </footer>
-<script src="../site.js" defer></script>
+<script src="../site.js?v=4" defer></script>
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
 <!-- End Cloudflare Web Analytics -->

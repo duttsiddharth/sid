@@ -83,8 +83,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../service-pages.css">
-<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../service-pages.css?v=4">
+<link rel="stylesheet" href="../site.css?v=4">
 </head>
 <body class="sd-page">
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -104,6 +104,7 @@
     <a href="../case-studies.html">Case Studies</a>
     <a href="../blog.html" aria-current="page">Insights</a>
     <a href="../start-here.html">Start Here</a>
+    <a href="../contact.html">Contact</a>
     <a href="../assessment.html" class="nav-cta">Assess Your AI Readiness</a>
   </div>
 </nav>
@@ -116,25 +117,27 @@
     <div class="byline"><span>Siddharth Dutt</span><span>Jun 2025</span><span>7 min read</span></div>
   </div>
 </header>
+<div class="article-layout">
+<details class="toc-box" open><summary>In this article</summary><ol><li><a href="#the-2am-test">The 2am Test</a></li><li><a href="#what-passes-the-test">What Passes the Test</a></li><li><a href="#how-i-build-governance-that-passes">How I Build Governance That Passes</a></li></ol></details><script>if(window.innerWidth<960){var t=document.querySelector("details.toc-box");if(t)t.removeAttribute("open")}</script>
 <article class="article-body">
 
       <p>I can tell within the first five minutes of a P1 bridge call whether an organization's ITIL governance is real or theoretical. Real governance means the on-call engineer at 2am knows exactly what to do, who to escalate to, and what "resolved" means for this specific incident — without needing to track down the person who wrote the runbook.</p>
 
-      <h2>The 2am Test</h2>
+      <h2 id="the-2am-test">The 2am Test</h2>
       <p>Ask yourself: if your most junior on-call engineer hit a P1 incident at 2am with nobody senior immediately reachable, does your documented process actually tell them what to do — or does it describe an idealized process that assumes someone experienced is already on the call?</p>
 
       <p>Most ITIL documentation I've reviewed fails this test. It's written by a process team, reviewed by other process people, and never stress-tested against the actual worst-case scenario it's supposed to govern.</p>
 
       <blockquote>"A runbook nobody trusts at 2am isn't a runbook. It's a document with good intentions."</blockquote>
 
-      <h2>What Passes the Test</h2>
+      <h2 id="what-passes-the-test">What Passes the Test</h2>
       <ul>
         <li>Escalation paths with names and backup names, not just role titles that might be unfilled at 2am</li>
         <li>Clear, binary criteria for severity classification — not judgment calls that require experience nobody on-call yet has</li>
         <li>Pre-approved standard changes for the most common P1 remediation actions, so the on-call engineer doesn't need emergency change approval mid-incident</li>
       </ul>
 
-      <h2>How I Build Governance That Passes</h2>
+      <h2 id="how-i-build-governance-that-passes">How I Build Governance That Passes</h2>
       <p>Across 20+ global transitions delivered with zero Sev-1 incidents post go-live, the consistent factor wasn't more documentation — it was governance built directly from operating the service, with the people who'd actually be on-call involved in writing the runbook, not just receiving it afterward.</p>
 
       <div class="stat-row">
@@ -150,6 +153,7 @@
       <p>ITIL 4 gives you the structure. Whether that structure survives a real 2am incident depends entirely on whether it was built with the people who'll actually be holding it together when it matters.</p>
     
 </article>
+</div>
 <section class="article-next" aria-labelledby="where-next">
   <div class="box">
     <h2 id="where-next">Where to go from here</h2>
@@ -211,7 +215,7 @@
     <span>ITIL Expert · PRINCE2 Practitioner · AWS Certified Solutions Architect</span>
   </div>
 </footer>
-<script src="../site.js" defer></script>
+<script src="../site.js?v=4" defer></script>
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
 <!-- End Cloudflare Web Analytics -->

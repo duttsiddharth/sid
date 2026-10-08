@@ -83,8 +83,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../service-pages.css">
-<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../service-pages.css?v=4">
+<link rel="stylesheet" href="../site.css?v=4">
 </head>
 <body class="sd-page">
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -104,6 +104,7 @@
     <a href="../case-studies.html">Case Studies</a>
     <a href="../blog.html" aria-current="page">Insights</a>
     <a href="../start-here.html">Start Here</a>
+    <a href="../contact.html">Contact</a>
     <a href="../assessment.html" class="nav-cta">Assess Your AI Readiness</a>
   </div>
 </nav>
@@ -116,14 +117,16 @@
     <div class="byline"><span>Siddharth Dutt</span><span>Oct 2025</span><span>7 min read</span></div>
   </div>
 </header>
+<div class="article-layout">
+<details class="toc-box" open><summary>In this article</summary><ol><li><a href="#decision-1-classification-not-conversation">Decision 1: Classification, Not Conversation</a></li><li><a href="#decision-2-confidence-thresholds-not-auto-everything">Decision 2: Confidence Thresholds, Not Auto-Everything</a></li><li><a href="#decision-3-draft-don-t-send">Decision 3: Draft, Don&#x27;t Send</a></li><li><a href="#decision-4-integrate-don-t-replace">Decision 4: Integrate, Don&#x27;t Replace</a></li></ol></details><script>if(window.innerWidth<960){var t=document.querySelector("details.toc-box");if(t)t.removeAttribute("open")}</script>
 <article class="article-body">
 
       <p>Almost every enterprise I talk to has run a GenAI chatbot pilot for IT support. Almost none of them are still running it a year later. The pattern is consistent enough that I can usually predict, within the first ten minutes of a conversation, whether a GenAI-for-ITSM initiative will survive contact with production.</p>
 
-      <h2>Decision 1: Classification, Not Conversation</h2>
+      <h2 id="decision-1-classification-not-conversation">Decision 1: Classification, Not Conversation</h2>
       <p>The highest-value, lowest-risk GenAI use case in ITSM isn't a chatbot users talk to — it's a classifier that runs silently on every incoming ticket. Accurate classification and prioritization compounds across thousands of tickets without ever exposing an end user to an AI interaction that might go wrong.</p>
 
-      <h2>Decision 2: Confidence Thresholds, Not Auto-Everything</h2>
+      <h2 id="decision-2-confidence-thresholds-not-auto-everything">Decision 2: Confidence Thresholds, Not Auto-Everything</h2>
       <p>Production systems route low-confidence classifications to a human, full stop. The temptation to auto-resolve everything the model touches is exactly how pilots become incidents. On Smart Desk, the AI ticket triage system I built using Claude API and n8n, only well-understood, low-risk categories were enabled for auto-resolution initially — everything else routed through normal human-reviewed paths.</p>
 
       <div class="stat-row">
@@ -131,12 +134,12 @@
         <div class="stat-box"><div class="num">~2.5 hrs</div><div class="lbl">Saved Per Day</div></div>
       </div>
 
-      <h2>Decision 3: Draft, Don't Send</h2>
+      <h2 id="decision-3-draft-don-t-send">Decision 3: Draft, Don't Send</h2>
       <p>For anything customer- or stakeholder-facing — incident updates, resolution summaries, RCA drafts — the AI should produce a draft a human reviews and sends, not an autonomous message. This single design choice is the difference between a tool operations teams trust and one they quietly route around.</p>
 
       <blockquote>"The fastest way to kill trust in an AI tool is one bad autonomous action nobody approved."</blockquote>
 
-      <h2>Decision 4: Integrate, Don't Replace</h2>
+      <h2 id="decision-4-integrate-don-t-replace">Decision 4: Integrate, Don't Replace</h2>
       <p>Every successful implementation I've built sits inside the existing ServiceNow workflow rather than next to it. Tickets still live in ServiceNow. Escalations still follow the existing matrix. The AI is a layer that makes the existing system faster, not a parallel system competing for the team's attention.</p>
 
       <div class="callout">
@@ -147,6 +150,7 @@
       <p>None of this is exotic engineering. It's mostly discipline about scope and a refusal to let the AI take actions that haven't earned trust yet. That discipline is also exactly what turns a pilot into something that's still running — and still saving real hours — a year later.</p>
     
 </article>
+</div>
 <section class="article-next" aria-labelledby="where-next">
   <div class="box">
     <h2 id="where-next">Where to go from here</h2>
@@ -208,7 +212,7 @@
     <span>ITIL Expert · PRINCE2 Practitioner · AWS Certified Solutions Architect</span>
   </div>
 </footer>
-<script src="../site.js" defer></script>
+<script src="../site.js?v=4" defer></script>
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
 <!-- End Cloudflare Web Analytics -->

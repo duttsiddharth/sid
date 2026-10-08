@@ -7,6 +7,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js')</script>
 
 <title>SLA Transformation Case Study: 96% to 99.8% | SD Advisory</title>
 <meta name="description" content="How ITIL 4-aligned governance redesign, vendor accountability and AI-driven monitoring lifted SLA adherence from 96% to 99.8% on an enterprise IT operations engagement.">
@@ -47,8 +48,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="service-pages.css">
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="service-pages.css?v=4">
+<link rel="stylesheet" href="site.css?v=4">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -95,6 +96,7 @@
     <a href="case-studies.html" aria-current="page">Case Studies</a>
     <a href="blog.html">Insights</a>
     <a href="start-here.html">Start Here</a>
+    <a href="contact.html">Contact</a>
     <a href="assessment.html" class="nav-cta">Assess Your AI Readiness</a>
   </div>
 </nav>
@@ -116,43 +118,46 @@
   </div>
 </section>
 
+<div class="sd-tabs" data-tabs data-label="SLA Transformation case study sections">
+<div class="tab-panel" id="challenge" data-tab-title="Challenge">
 <section class="content">
   <div class="section-label">// Challenge</div>
   <h2>The Challenge</h2>
   <p>An enterprise IT operations engagement was running at 96% SLA adherence — a respectable number on paper, but one that still translated into regular contractual breaches and escalations that consumed disproportionate leadership attention. The gap wasn't a single root cause; it was a combination of inconsistent escalation handling, third-party vendor performance that wasn't tightly governed, and monitoring that flagged issues after they were already affecting service rather than before.</p>
   <p>Closing the remaining gap required treating SLA performance as a governance problem as much as a technical one — addressing how incidents were detected and escalated, how vendors were held accountable, and how leadership got visibility into performance before it became a customer-facing issue.</p>
 </section>
-
-<section class="content alt-bg">
+</div>
+<div class="tab-panel" id="approach" data-tab-title="Approach &amp; architecture">
+<section class="content">
   <div class="section-label">// Approach</div>
   <h2>The Approach</h2>
   <p>The transformation combined two tracks running in parallel. On the governance side, ITIL 4-aligned incident, problem, and change management processes were tightened, with clearer escalation matrices and a more structured approach to root cause analysis — so the same issue was handled the same way regardless of which analyst or region was on point. Vendor governance was strengthened in parallel, with clearer SLA accountability built into third-party relationships.</p>
   <p>On the monitoring side, Dynatrace and Splunk were integrated into AI-driven workflow automation that surfaced anomalies earlier and routed them through the newly tightened escalation process automatically, rather than relying on manual detection and triage to catch issues before they breached SLA thresholds.</p>
 </section>
-
 <section class="content">
   <div class="section-label">// Architecture</div>
   <h2>The Governance Architecture</h2>
   <p>Rather than a technical architecture, this engagement centered on a governance and escalation model — where monitoring, escalation, vendor accountability, and executive reporting were redesigned to work as a single connected system instead of four disconnected processes.</p>
   <div class="arch-flow"><div class="arch-step">AI-Driven Monitoring Layer</div><div class="arch-arrow">→</div><div class="arch-step">Early Anomaly Detection</div><div class="arch-arrow">→</div><div class="arch-step">Structured Escalation Matrix</div><div class="arch-arrow">→</div><div class="arch-step">Vendor SLA Governance</div><div class="arch-arrow">→</div><div class="arch-step">Root Cause & Change Review</div><div class="arch-arrow">→</div><div class="arch-step">Executive SLA Reporting</div></div>
 </section>
-
-<section class="content alt-bg">
+</div>
+<div class="tab-panel" id="outcomes" data-tab-title="Outcomes &amp; impact">
+<section class="content">
   <div class="section-label">// Outcomes</div>
   <h2>The Outcomes</h2>
   <div class="stat-row"><div class="stat-pill"><div class="num">96% → 99.8%</div><div class="lbl">SLA Adherence</div></div><div class="stat-pill"><div class="num">+18%</div><div class="lbl">Third-Party SLA Compliance</div></div><div class="stat-pill"><div class="num">15+</div><div class="lbl">Zero-Failure Transitions</div></div></div>
   <p>SLA adherence improved from 96% to 99.8% through the combination of intelligent monitoring, AI-driven workflow automation, and tightened governance — closing a gap that had persisted despite reasonably strong baseline performance.</p>
   <p>Strengthened vendor governance improved third-party SLA compliance by 18%, addressing one of the root causes that manual escalation alone hadn't been able to fix.</p>
 </section>
-
-<section class="content narrow">
+<section class="content">
   <div class="section-label">// Business Impact</div>
   <h2>Business Impact</h2>
   <p>Consistent SLA performance at this level directly supports renewal and expansion conversations — clients are far more willing to expand a relationship with a provider whose delivery is demonstrably reliable than one that's merely well-positioned commercially.</p>
   <p>The governance model proved durable enough to support 15+ complex global service transitions with zero critical post-go-live failures, suggesting the underlying framework — not just the specific monitoring tools — was what drove the improvement, making it transferable across other accounts in the portfolio.</p>
 </section>
-
-<section class="content alt-bg">
+</div>
+<div class="tab-panel" id="technology" data-tab-title="Technology &amp; lessons">
+<section class="content">
   <div class="section-label">// Technology</div>
   <h2>What it is built with</h2>
   <div class="tool-tags"><span>ITIL 4</span><span>Dynatrace</span><span>Splunk</span><span>Vendor governance model</span><span>Executive SLA reporting</span></div>
@@ -161,6 +166,18 @@
   <h2>What other enterprises can learn</h2>
   <ul><li>Treat SLA performance as a governance problem as much as a technical one.</li><li>Connect monitoring, escalation, vendor accountability and executive reporting as one system, not four processes.</li><li>Handle the same issue the same way regardless of which analyst or region is on point.</li><li>A framework that does not depend on specific tools transfers across accounts.</li></ul>
 </section>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
 
 <div class="cta-band">
   <div class="section-label" style="color:var(--rust);">// Let's Talk</div>
@@ -177,17 +194,13 @@
     <h2 id="keep-going">Keep going</h2>
     <div class="sd-card-grid c4" style="max-width:none;margin:0">
       <a class="sd-card" href="case-study-ai-incident-copilot.html"><h3>Evidence</h3><p>AI Incident Co-Pilot: guided incident response (prototype).</p><span class="more">Read →</span></a>
-      <a class="sd-card" href="blog.html#ai-resilience-governance"><h3>Insights</h3><p>Articles on ai resilience & governance.</p><span class="more">Read →</span></a>
+      <a class="sd-card" href="blog.html#ai-resilience-governance"><h3>Insights</h3><p>Articles on AI Resilience & Governance.</p><span class="more">Read →</span></a>
       <a class="sd-card" href="assessment.html"><h3>Assess</h3><p>Your three-minute AI Readiness Score.</p><span class="more">Start →</span></a>
       <a class="sd-card" href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" rel="noopener"><h3>Talk</h3><p>A 30-minute consultation about your operations.</p><span class="more">Book →</span></a>
     </div>
+    <h3 class="related-h">Related Services &amp; Case Studies</h3>
+    <div class="related-grid"><a class="related-card" href="managed-services-transformation.html"><div class="rc-label">Service</div><div class="rc-title">Managed Services Transformation</div></a><a class="related-card" href="itil-governance.html"><div class="rc-label">Service</div><div class="rc-title">ITIL 4 Governance</div></a><a class="related-card" href="case-study-smartdesk.html"><div class="rc-label">Case Study</div><div class="rc-title">Smart Desk</div></a><a class="related-card" href="case-study-ai-incident-copilot.html"><div class="rc-label">Case Study</div><div class="rc-title">AI Incident Co-Pilot</div></a></div>
   </div>
-</section>
-
-<section class="content">
-  <div class="section-label">// Related</div>
-  <h2>Related Services &amp; Case Studies</h2>
-  <div class="related-grid"><a class="related-card" href="managed-services-transformation.html"><div class="rc-label">Service</div><div class="rc-title">Managed Services Transformation</div></a><a class="related-card" href="itil-governance.html"><div class="rc-label">Service</div><div class="rc-title">ITIL 4 Governance</div></a><a class="related-card" href="case-study-smartdesk.html"><div class="rc-label">Case Study</div><div class="rc-title">Smart Desk</div></a><a class="related-card" href="case-study-ai-incident-copilot.html"><div class="rc-label">Case Study</div><div class="rc-title">AI Incident Co-Pilot</div></a></div>
 </section>
 
 </main>
@@ -241,6 +254,6 @@
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
 <!-- End Cloudflare Web Analytics -->
-<script src="site.js" defer></script>
+<script src="site.js?v=4" defer></script>
 </body>
 </html>
