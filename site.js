@@ -40,12 +40,14 @@
       var target = parseFloat(el.getAttribute('data-count'));
       var node = el.firstChild;
       if (!node || node.nodeType !== 3 || isNaN(target)) return;
+      var orig = node.nodeValue;
+      var suffix = orig.replace(/^\s*[0-9.]+/, '');   // keep any text after the number in the same node (e.g. "+")
       var dec = (String(target).split('.')[1] || '').length, t0 = null, dur = 1100;
       var step = function (ts) {
         if (!t0) t0 = ts;
         var k = Math.min(1, (ts - t0) / dur), e = 1 - Math.pow(1 - k, 3);
-        node.nodeValue = (target * e).toFixed(dec);
-        if (k < 1) requestAnimationFrame(step); else node.nodeValue = target.toFixed(dec);
+        node.nodeValue = (target * e).toFixed(dec) + suffix;
+        if (k < 1) requestAnimationFrame(step); else node.nodeValue = orig;   // always end on the exact original text
       };
       requestAnimationFrame(step);
     };
