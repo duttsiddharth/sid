@@ -180,7 +180,7 @@
   <span>🔑</span>
   <span class="banner-text">
     Get your <strong>free</strong> Google Gemini API key →
-    <a href="https://aistudio.google.com/app/apikey" target="_blank">aistudio.google.com</a>
+    <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer">aistudio.google.com</a>
     <span class="banner-steps">&nbsp;(Sign in with Google → "Get API Key" → Create → Copy)</span>
   </span>
   <input id="api-key-input" type="password" placeholder="Paste your AIzaSy... key here" />
@@ -317,7 +317,7 @@
 </div>
 
 <script>
-let apiKey = 'AIzaSyC39W0AuAk5ZEcGq0VRZ1xnqEcVuEAnKOI';
+let apiKey = (function(){ try { return localStorage.getItem('nyay_gemini_key') || ''; } catch (e) { return ''; } })();
 let currentTopic = null;
 let currentLang = 'en';
 let messages = [];
@@ -533,7 +533,7 @@ Instructions:
     addBotMessage(reply);
   } catch (e) {
     document.getElementById('typing')?.remove();
-    addBotMessage(`**Error:** ${escHtml(e.message)}<br><br>Please check your Gemini API key. Get a free key at <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color:var(--teal)">aistudio.google.com</a>`);
+    addBotMessage(`**Error:** ${escHtml(e.message)}<br><br>Please check your Gemini API key. Get a free key at <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" style="color:var(--teal)">aistudio.google.com</a>`);
   }
   isLoading = false;
   document.getElementById('send-btn').disabled = false;
