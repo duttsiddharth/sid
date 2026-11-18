@@ -7,6 +7,22 @@
   "language": "en",
   "items": [
     {
+      "id": "https://www.sdadvisory.in/insights/the-ai-native-noc-agents-twins-and-humans-share-the-console.html",
+      "url": "https://www.sdadvisory.in/insights/the-ai-native-noc-agents-twins-and-humans-share-the-console.html",
+      "title": "The AI-Native NOC: Agents, Twins and Humans Share the Console",
+      "summary": "The NOC stops being a place you watch and becomes a place you supervise. Autonomous agents handle the routine, digital twins rehearse the risky, and humans own the novel — here's how to design the operating model so it stays resilient.",
+      "content_text": "The NOC stops being a place you watch and becomes a place you supervise. Autonomous agents handle the routine, digital twins rehearse the risky, and humans own the novel — here's how to design the operating model so it stays resilient.",
+      "date_published": "2026-11-01T09:00:00Z",
+      "tags": [
+        "Intelligent IT Operations"
+      ],
+      "authors": [
+        {
+          "name": "Siddharth Dutt"
+        }
+      ]
+    },
+    {
       "id": "https://www.sdadvisory.in/insights/genai-finops-controlling-token-and-inference-spend-in-production.html",
       "url": "https://www.sdadvisory.in/insights/genai-finops-controlling-token-and-inference-spend-in-production.html",
       "title": "GenAI FinOps: Controlling Token and Inference Spend in Production",

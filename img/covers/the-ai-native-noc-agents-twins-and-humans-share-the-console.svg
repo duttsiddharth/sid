@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" preserveAspectRatio="xMidYMid slice">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#091221"/><stop offset="1" stop-color="#0E1B34"/></linearGradient>
+<radialGradient id="gl" cx="608" cy="28" r="440" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#38BDF8" stop-opacity=".38"/><stop offset="1" stop-color="#38BDF8" stop-opacity="0"/></radialGradient>
+<linearGradient id="ga" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#38BDF8"/><stop offset="1" stop-color="#2DD4BF"/></linearGradient>
+<filter id="blur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="6"/></filter>
+<pattern id="gr" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#fff" stroke-opacity=".04"/></pattern>
+<linearGradient id="sw"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".1"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<style>
+.halo{transform-box:fill-box;transform-origin:center;animation:halo 3s ease-in-out infinite}
+.core{animation:core 3s ease-in-out infinite}
+.swp{animation:swp 6.5s linear infinite}
+.trav{animation:trav var(--d,6s) linear infinite;offset-rotate:0deg}
+.bob{transform-box:fill-box;transform-origin:center bottom;animation:bob var(--bd,2.6s) ease-in-out infinite}
+.spin{transform-box:fill-box;transform-origin:center;animation:spin var(--sd,42s) linear infinite}
+.blink{animation:blink 1.1s steps(1) infinite}
+.typ{animation:typ 1.5s ease-in-out infinite}
+.pz{transform-box:fill-box;transform-origin:center;animation:pz 2.2s ease-in-out infinite}
+.bobf{animation:bobf 3.4s ease-in-out infinite}
+@keyframes halo{0%,100%{opacity:.12;transform:scale(.72)}50%{opacity:.6;transform:scale(1.4)}}
+@keyframes core{0%,100%{opacity:.7}50%{opacity:1}}
+@keyframes swp{from{transform:translateX(-260px)}to{transform:translateX(920px)}}
+@keyframes trav{0%{offset-distance:0%;opacity:0}10%{opacity:1}90%{opacity:1}100%{offset-distance:100%;opacity:0}}
+@keyframes bob{0%,100%{transform:scaleY(1)}50%{transform:scaleY(var(--s,1.3))}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes typ{0%,70%,100%{opacity:.25}35%{opacity:1}}
+@keyframes pz{0%,100%{opacity:.22;transform:scale(.9)}50%{opacity:1;transform:scale(1.12)}}
+@keyframes bobf{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style></defs>
+<rect width="800" height="360" fill="url(#bg)"/><rect width="800" height="360" fill="url(#gr)"/><rect width="800" height="360" fill="url(#gl)"/>
+<rect x="260" y="102" width="300" height="156" rx="14" fill="#0E1C33" stroke="#38BDF8" stroke-opacity=".55" stroke-width="1.6"/><rect x="260" y="102" width="300" height="26" rx="13" fill="#38BDF8" fill-opacity=".16"/><circle cx="278" cy="115" r="3.3" fill="#2DD4BF" fill-opacity="0.95"/><circle cx="291" cy="115" r="3.3" fill="#94A3B8" fill-opacity="0.5"/><circle cx="304" cy="115" r="3.3" fill="#94A3B8" fill-opacity="0.5"/><polyline points="278,190 286,197 294,205 302,208 310,201 318,198 326,187 334,179 342,180 350,171 358,183 366,185 374,196 382,202 390,207 398,200 406,201 414,191 422,182 430,172 438,172 446,170 454,180 462,191 470,199 478,205 486,200 494,198 502,193 510,187 518,179 526,169 534,173 542,181" fill="none" stroke="#2DD4BF" stroke-opacity=".75" stroke-width="2"/><rect x="280" y="218" width="6" height="24" rx="2" fill="#38BDF8" fill-opacity=".4"/><rect x="304" y="233" width="6" height="9" rx="2" fill="#38BDF8" fill-opacity=".4"/><rect x="327" y="232" width="6" height="10" rx="2" fill="#38BDF8" fill-opacity=".4"/><rect x="351" y="219" width="6" height="23" rx="2" fill="#38BDF8" fill-opacity=".4"/><rect x="375" y="222" width="6" height="20" rx="2" fill="#38BDF8" fill-opacity=".4"/><rect x="398" y="225" width="6" height="17" rx="2" fill="#38BDF8" fill-opacity=".4"/><rect x="422" y="217" width="6" height="25" rx="2" fill="#38BDF8" fill-opacity=".4"/><rect x="445" y="228" width="6" height="14" rx="2" fill="#38BDF8" fill-opacity=".4"/><rect x="469" y="231" width="6" height="11" rx="2" fill="#38BDF8" fill-opacity=".4"/><rect x="493" y="225" width="6" height="17" rx="2" fill="#38BDF8" fill-opacity=".4"/><rect x="516" y="233" width="6" height="9" rx="2" fill="#38BDF8" fill-opacity=".4"/><path d="M126 66 C193 66 193 124 260 124" fill="none" stroke="#38BDF8" stroke-opacity=".5" stroke-width="1.6"/><g class="trav" style="offset-path:path('M126 66 C193 66 193 124 260 124');--d:3.0s;animation-delay:1.9856499465188324s"><circle r="14" fill="#2DD4BF" opacity=".4" filter="url(#blur)"/><circle r="6" fill="#2DD4BF"/></g><polygon points="149,66 138,86 114,86 103,66 114,46 137,46" fill="#0E1C33" stroke="#2DD4BF" stroke-width="2"/><circle class="halo" cx="126" cy="66" r="13" fill="#2DD4BF" opacity=".35" filter="url(#blur)"/><circle class="core" cx="126" cy="66" r="5" fill="#2DD4BF"/><path d="M126 300 C193 300 193 236 260 236" fill="none" stroke="#38BDF8" stroke-opacity=".5" stroke-width="1.6"/><g class="trav" style="offset-path:path('M126 300 C193 300 193 236 260 236');--d:3.0s;animation-delay:0.4648189684342423s"><circle r="14" fill="#2DD4BF" opacity=".4" filter="url(#blur)"/><circle r="6" fill="#2DD4BF"/></g><circle cx="126" cy="300" r="23" fill="#0E1C33" stroke="#2DD4BF" stroke-width="2"/><circle class="halo" cx="126" cy="300" r="13" fill="#2DD4BF" opacity=".35" filter="url(#blur)"/><circle class="core" cx="126" cy="300" r="5" fill="#2DD4BF"/><path d="M704 182 C632 182 632 182 560 182" fill="none" stroke="#38BDF8" stroke-opacity=".5" stroke-width="1.6"/><g class="trav" style="offset-path:path('M704 182 C632 182 632 182 560 182');--d:3.0s;animation-delay:0.9301463024808396s"><circle r="14" fill="#2DD4BF" opacity=".4" filter="url(#blur)"/><circle r="6" fill="#2DD4BF"/></g><polygon points="704,159 727,182 704,205 681,182" fill="#0E1C33" stroke="#2DD4BF" stroke-width="2"/><circle class="halo" cx="704" cy="182" r="13" fill="#2DD4BF" opacity=".35" filter="url(#blur)"/><circle class="core" cx="704" cy="182" r="5" fill="#2DD4BF"/>
+<g transform="skewX(-12)"><rect class="swp" x="-240" y="-20" width="200" height="400" fill="url(#sw)"/></g></svg>

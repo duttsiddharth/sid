@@ -6,7 +6,15 @@
     <atom:link href="https://www.sdadvisory.in/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Practical insights on AI transformation, intelligent IT operations, AI + ITSM, AI resilience and enterprise AI architecture — from 20+ years of running enterprise IT service delivery.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 18 Nov 2026 19:25:45 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Nov 2026 19:37:08 +0000</lastBuildDate>
+    <item>
+      <title>The AI-Native NOC: Agents, Twins and Humans Share the Console</title>
+      <link>https://www.sdadvisory.in/insights/the-ai-native-noc-agents-twins-and-humans-share-the-console.html</link>
+      <guid isPermaLink="true">https://www.sdadvisory.in/insights/the-ai-native-noc-agents-twins-and-humans-share-the-console.html</guid>
+      <category>Intelligent IT Operations</category>
+      <pubDate>Sun, 01 Nov 2026 09:00:00 +0000</pubDate>
+      <description>The NOC stops being a place you watch and becomes a place you supervise. Autonomous agents handle the routine, digital twins rehearse the risky, and humans own the novel — here&#x27;s how to design the operating model so it stays resilient.</description>
+    </item>
     <item>
       <title>GenAI FinOps: Controlling Token and Inference Spend in Production</title>
       <link>https://www.sdadvisory.in/insights/genai-finops-controlling-token-and-inference-spend-in-production.html</link>
