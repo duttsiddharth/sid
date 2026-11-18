@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SD Advisory — Insights</title>
+    <link>https://www.sdadvisory.in/blog.html</link>
+    <atom:link href="https://www.sdadvisory.in/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>Practical insights on AI transformation, intelligent IT operations, AI + ITSM, AI resilience and enterprise AI architecture — from 20+ years of running enterprise IT service delivery.</description>
+    <language>en</language>
+    <lastBuildDate>Wed, 18 Nov 2026 19:25:45 +0000</lastBuildDate>
+    <item>
+      <title>GenAI FinOps: Controlling Token and Inference Spend in Production</title>
+      <link>https://www.sdadvisory.in/insights/genai-finops-controlling-token-and-inference-spend-in-production.html</link>
+      <guid isPermaLink="true">https://www.sdadvisory.in/insights/genai-finops-controlling-token-and-inference-spend-in-production.html</guid>
+      <category>AI Resilience &amp; Governance</category>
+      <pubDate>Sun, 01 Nov 2026 09:00:00 +0000</pubDate>
+      <description>GenAI moved from pilot to production in 2026, and the invoice came with it. Token and inference spend is now a governance problem — here&#x27;s how I put cost ownership, visibility and controls in place before the bill starts writing the strategy.</description>
+    </item>
+    <item>
+      <title>Why AIOps is Not Just Another Buzzword</title>
+      <link>https://www.sdadvisory.in/insights/why-aiops-is-not-just-another-buzzword.html</link>
+      <guid isPermaLink="true">https://www.sdadvisory.in/insights/why-aiops-is-not-just-another-buzzword.html</guid>
+      <category>Intelligent IT Operations</category>
+      <pubDate>Mon, 01 Jun 2026 09:00:00 +0000</pubDate>
+      <description>After two decades in IT operations, I&#x27;ve watched trends come and go. AIOps is different. When implemented correctly — with real telemetry, real workflows, and real ITIL alignment — it doesn&#x27;t just monitor your infrastructure. It anticipates failure, auto-routes incidents, and learns from every resolution.</description>
+    </item>
+    <item>
+      <title>Agentic AI: From Copilots to Autonomous IT Operations</title>
+      <link>https://www.sdadvisory.in/insights/agentic-ai-from-copilots-to-autonomous-it-operations.html</link>
+      <guid isPermaLink="true">https://www.sdadvisory.in/insights/agentic-ai-from-copilots-to-autonomous-it-operations.html</guid>
+      <category>Enterprise AI Architecture</category>
+      <pubDate>Wed, 01 Jul 2026 09:00:00 +0000</pubDate>
+      <description>2026 is the year AI stopped suggesting and started doing. Agentic AI systems now plan, execute, and verify multi-step IT operations tasks — but autonomy without guardrails is an outage waiting to happen. Here&#x27;s where agents genuinely help, and where humans must stay in the loop.</description>
+    </item>
+    <item>
+      <title>Digital Twins &amp; Spatial Computing for Enterprise IT</title>
+      <link>https://www.sdadvisory.in/insights/digital-twins-spatial-computing-for-enterprise-it.html</link>
+      <guid isPermaLink="true">https://www.sdadvisory.in/insights/digital-twins-spatial-computing-for-enterprise-it.html</guid>
+      <category>Enterprise AI Architecture</category>
+      <pubDate>Wed, 01 Jul 2026 09:00:00 +0000</pubDate>
+      <description>Digital twins have moved beyond manufacturing floors into the data centre and the NOC. Combined with spatial computing interfaces, they&#x27;re changing how operations teams visualise infrastructure, rehearse changes, and predict failures before they happen.</description>
+    </item>
+    <item>
+      <title>Quantum-Safe IT: Preparing Enterprise Infrastructure for Post-Quantum Cryptography</title>
+      <link>https://www.sdadvisory.in/insights/quantum-safe-it-preparing-enterprise-infrastructure-for-post-quantum.html</link>
+      <guid isPermaLink="true">https://www.sdadvisory.in/insights/quantum-safe-it-preparing-enterprise-infrastructure-for-post-quantum.html</guid>
+      <category>AI Resilience &amp; Governance</category>
+      <pubDate>Wed, 01 Jul 2026 09:00:00 +0000</pubDate>
+      <description>Attackers are harvesting your encrypted traffic today to decrypt it when quantum computers mature. With NIST&#x27;s post-quantum standards finalised and regulatory deadlines approaching, PQC migration has become an IT delivery programme — not a research topic. Here&#x27;s the practical roadmap.</description>
+    </item>
+    <item>
+      <title>Prompt Engineering for ITSM Teams</title>
+      <link>https://www.sdadvisory.in/insights/prompt-engineering-for-itsm-teams.html</link>
+      <guid isPermaLink="true">https://www.sdadvisory.in/insights/prompt-engineering-for-itsm-teams.html</guid>
+      <category>AI + ITSM</category>
+      <pubDate>Fri, 01 May 2026 09:00:00 +0000</pubDate>
+      <description>Most service desk teams are sitting on untapped potential. With the right prompt architecture, Claude or ChatGPT can triage tickets, generate incident summaries, draft RCA reports, and coach L1 agents — all without replacing your team.</description>
+    </item>
+    <item>
+      <title>n8n + Claude: The ITSM Power Combo</title>
+      <link>https://www.sdadvisory.in/insights/n8n-claude-the-itsm-power-combo.html</link>
+      <guid isPermaLink="true">https://www.sdadvisory.in/insights/n8n-claude-the-itsm-power-combo.html</guid>
+      <category>AI + ITSM</category>
+      <pubDate>Wed, 01 Apr 2026 09:00:00 +0000</pubDate>
+      <description>How I built SmartDesk — an AI triage system that auto-classifies 42% of tickets — using n8n workflows and Claude API. A complete walkthrough of the architecture, prompt design, and lessons learned.</description>
+    </item>
+    <item>
+      <title>The AI Adoption Maturity Model for IT</title>
+      <link>https://www.sdadvisory.in/insights/the-ai-adoption-maturity-model-for-it.html</link>
+      <guid isPermaLink="true">https://www.sdadvisory.in/insights/the-ai-adoption-maturity-model-for-it.html</guid>
+      <category>AI Transformation</category>
+      <pubDate>Sun, 01 Mar 2026 09:00:00 +0000</pubDate>
+      <description>Not all organisations are ready for the same AI interventions. This maturity framework helps CIOs and service delivery leaders identify where they are — and what their next AI investment should be.</description>
+    </item>
+    <item>
+      <title>ITIL 4 Meets Generative AI</title>
+      <link>https://www.sdadvisory.in/insights/itil-4-meets-generative-ai.html</link>
+      <guid isPermaLink="true">https://www.sdadvisory.in/insights/itil-4-meets-generative-ai.html</guid>
+      <category>AI + ITSM</category>
+      <pubDate>Sun, 01 Feb 2026 09:00:00 +0000</pubDate>
+      <description>ITIL 4&#x27;s Service Value System wasn&#x27;t designed with LLMs in mind — but its flexibility makes it ideal for AI augmentation. A practical guide to overlaying GenAI capabilities on your existing ITIL framework.</description>
+    </item>
+    <item>
+      <title>RAG for Knowledge Base Automation</title>
+      <link>https://www.sdadvisory.in/insights/rag-for-knowledge-base-automation.html</link>
+      <guid isPermaLink="true">https://www.sdadvisory.in/insights/rag-for-knowledge-base-automation.html</guid>
+      <category>Enterprise AI Architecture</category>
+      <pubDate>Thu, 01 Jan 2026 09:00:00 +0000</pubDate>
+      <description>Retrieval-Augmented Generation can turn your ServiceNow knowledge base into an intelligent self-service engine. Here&#x27;s the architecture I recommend for enterprise ITSM knowledge automation.</description>
+    </item>
+    <item>
+      <title>Observability vs. Monitoring — Why Your Splunk Dashboard Isn&#x27;t Enough</title>
+      <link>https://www.sdadvisory.in/insights/observability-vs-monitoring-why-your-splunk-dashboard-isnt-enough.html</link>
+      <guid isPermaLink="true">https://www.sdadvisory.in/insights/observability-vs-monitoring-why-your-splunk-dashboard-isnt-enough.html</guid>
+      <category>Intelligent IT Operations</category>
+      <pubDate>Mon, 01 Dec 2025 09:00:00 +0000</pubDate>
+      <description>Monitoring tells you when something you already anticipated breaks. Observability lets you ask questions you never thought to ask in advance. Most enterprise Splunk deployments are still doing the former.</description>
+    </item>
+    <item>
+      <title>Building an AIOps Maturity Model: A Practical Framework</title>
+      <link>https://www.sdadvisory.in/insights/building-an-aiops-maturity-model-a-practical-framework.html</link>
+      <guid isPermaLink="true">https://www.sdadvisory.in/insights/building-an-aiops-maturity-model-a-practical-framework.html</guid>
+      <category>Intelligent IT Operations</category>
+      <pubDate>Sat, 01 Nov 2025 09:00:00 +0000</pubDate>
+      <description>Most organizations buy an AIOps platform before they know what maturity stage they&#x27;re actually at. Here&#x27;s the four-stage framework I use to diagnose where a team really stands before recommending anything.</description>
+    </item>
+    <item>
+      <title>Beyond Chatbots: What Production-Grade GenAI for ITSM Actually Looks Like</title>
+      <link>https://www.sdadvisory.in/insights/beyond-chatbots-what-production-grade-genai-for-itsm-actually-looks.html</link>
+      <guid isPermaLink="true">https://www.sdadvisory.in/insights/beyond-chatbots-what-production-grade-genai-for-itsm-actually-looks.html</guid>
+      <category>AI + ITSM</category>
+      <pubDate>Wed, 01 Oct 2025 09:00:00 +0000</pubDate>
+      <description>Most enterprise GenAI-for-ITSM initiatives stall at a chatbot demo. Production-grade implementations look almost nothing like that — and the difference comes down to four specific design decisions.</description>
+    </item>
+    <item>
+      <title>How I Built Smart Desk: Lessons From Putting Claude Into a Live ServiceNow Workflow</title>
+      <link>https://www.sdadvisory.in/insights/how-i-built-smart-desk-lessons-from-putting-claude-into-a-live.html</link>
+      <guid isPermaLink="true">https://www.sdadvisory.in/insights/how-i-built-smart-desk-lessons-from-putting-claude-into-a-live.html</guid>
+      <category>AI + ITSM</category>
+      <pubDate>Mon, 01 Sep 2025 09:00:00 +0000</pubDate>
+      <description>A behind-the-scenes look at building Smart Desk — the architecture decisions, the failure modes I hit early, and why the boring parts of the build mattered more than the AI model choice.</description>
+    </item>
+    <item>
+      <title>ServiceNow Governance Debt: The Hidden Cost of &#x27;It Just Works&#x27;</title>
+      <link>https://www.sdadvisory.in/insights/servicenow-governance-debt-the-hidden-cost-of-it-just-works.html</link>
+      <guid isPermaLink="true">https://www.sdadvisory.in/insights/servicenow-governance-debt-the-hidden-cost-of-it-just-works.html</guid>
+      <category>AI Resilience &amp; Governance</category>
+      <pubDate>Fri, 01 Aug 2025 09:00:00 +0000</pubDate>
+      <description>Most ServiceNow instances accumulate governance debt the same way technical debt builds in codebases — quietly, through years of reasonable-seeming shortcuts, until an audit or an automation project hits the bill all at once.</description>
+    </item>
+    <item>
+      <title>API Integrations in ServiceNow: A Security-First Checklist</title>
+      <link>https://www.sdadvisory.in/insights/api-integrations-in-servicenow-a-security-first-checklist.html</link>
+      <guid isPermaLink="true">https://www.sdadvisory.in/insights/api-integrations-in-servicenow-a-security-first-checklist.html</guid>
+      <category>AI Resilience &amp; Governance</category>
+      <pubDate>Tue, 01 Jul 2025 09:00:00 +0000</pubDate>
+      <description>Every API integration you add to ServiceNow expands the platform&#x27;s attack surface, whether or not anyone treats it that way. Here&#x27;s the checklist I run before any integration goes live.</description>
+    </item>
+    <item>
+      <title>ITIL 4 in Practice: Why Most Governance Frameworks Fail at 2am</title>
+      <link>https://www.sdadvisory.in/insights/itil-4-in-practice-why-most-governance-frameworks-fail-at-2am.html</link>
+      <guid isPermaLink="true">https://www.sdadvisory.in/insights/itil-4-in-practice-why-most-governance-frameworks-fail-at-2am.html</guid>
+      <category>AI Resilience &amp; Governance</category>
+      <pubDate>Sun, 01 Jun 2025 09:00:00 +0000</pubDate>
+      <description>A governance framework that only works during business hours, with the process owner available to clarify edge cases, isn&#x27;t a governance framework — it&#x27;s a documentation exercise waiting for its first real incident.</description>
+    </item>
+    <item>
+      <title>Change Management Without the Bottleneck: A Practical ITIL 4 Approach</title>
+      <link>https://www.sdadvisory.in/insights/change-management-without-the-bottleneck-a-practical-itil-4-approach.html</link>
+      <guid isPermaLink="true">https://www.sdadvisory.in/insights/change-management-without-the-bottleneck-a-practical-itil-4-approach.html</guid>
+      <category>AI + ITSM</category>
+      <pubDate>Thu, 01 May 2025 09:00:00 +0000</pubDate>
+      <description>Change management gets a bad reputation because most implementations treat every change like it carries equal risk. ITIL 4&#x27;s risk-based approach fixes this — if anyone actually implements it that way.</description>
+    </item>
+    <item>
+      <title>Running a Global Managed Services Portfolio: Lessons in SLA Governance</title>
+      <link>https://www.sdadvisory.in/insights/running-a-global-managed-services-portfolio-lessons-in-sla-governance.html</link>
+      <guid isPermaLink="true">https://www.sdadvisory.in/insights/running-a-global-managed-services-portfolio-lessons-in-sla-governance.html</guid>
+      <category>Intelligent IT Operations</category>
+      <pubDate>Tue, 01 Apr 2025 09:00:00 +0000</pubDate>
+      <description>SLA governance at portfolio scale is a completely different discipline than SLA management for a single account. Here&#x27;s what changes once you&#x27;re responsible for fifteen accounts instead of one.</description>
+    </item>
+    <item>
+      <title>The Hidden Cost of Bad Service Transitions (and How to Avoid Sev-1s)</title>
+      <link>https://www.sdadvisory.in/insights/the-hidden-cost-of-bad-service-transitions-and-how-to-avoid-sev-1s.html</link>
+      <guid isPermaLink="true">https://www.sdadvisory.in/insights/the-hidden-cost-of-bad-service-transitions-and-how-to-avoid-sev-1s.html</guid>
+      <category>Intelligent IT Operations</category>
+      <pubDate>Sat, 01 Mar 2025 09:00:00 +0000</pubDate>
+      <description>Most service transition failures aren&#x27;t caused by the cutover itself — they&#x27;re caused by hypercare planning that was treated as an afterthought rather than a core deliverable.</description>
+    </item>
+  </channel>
+</rss>

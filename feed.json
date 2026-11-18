@@ -1,0 +1,330 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "SD Advisory — Insights",
+  "home_page_url": "https://www.sdadvisory.in/blog.html",
+  "feed_url": "https://www.sdadvisory.in/feed.json",
+  "description": "Practical insights on AI transformation, intelligent IT operations, AI + ITSM, AI resilience and enterprise AI architecture.",
+  "language": "en",
+  "items": [
+    {
+      "id": "https://www.sdadvisory.in/insights/genai-finops-controlling-token-and-inference-spend-in-production.html",
+      "url": "https://www.sdadvisory.in/insights/genai-finops-controlling-token-and-inference-spend-in-production.html",
+      "title": "GenAI FinOps: Controlling Token and Inference Spend in Production",
+      "summary": "GenAI moved from pilot to production in 2026, and the invoice came with it. Token and inference spend is now a governance problem — here's how I put cost ownership, visibility and controls in place before the bill starts writing the strategy.",
+      "content_text": "GenAI moved from pilot to production in 2026, and the invoice came with it. Token and inference spend is now a governance problem — here's how I put cost ownership, visibility and controls in place before the bill starts writing the strategy.",
+      "date_published": "2026-11-01T09:00:00Z",
+      "tags": [
+        "AI Resilience & Governance"
+      ],
+      "authors": [
+        {
+          "name": "Siddharth Dutt"
+        }
+      ]
+    },
+    {
+      "id": "https://www.sdadvisory.in/insights/why-aiops-is-not-just-another-buzzword.html",
+      "url": "https://www.sdadvisory.in/insights/why-aiops-is-not-just-another-buzzword.html",
+      "title": "Why AIOps is Not Just Another Buzzword",
+      "summary": "After two decades in IT operations, I've watched trends come and go. AIOps is different. When implemented correctly — with real telemetry, real workflows, and real ITIL alignment — it doesn't just monitor your infrastructure. It anticipates failure, auto-routes incidents, and learns from every resolution.",
+      "content_text": "After two decades in IT operations, I've watched trends come and go. AIOps is different. When implemented correctly — with real telemetry, real workflows, and real ITIL alignment — it doesn't just monitor your infrastructure. It anticipates failure, auto-routes incidents, and learns from every resolution.",
+      "date_published": "2026-06-01T09:00:00Z",
+      "tags": [
+        "Intelligent IT Operations"
+      ],
+      "authors": [
+        {
+          "name": "Siddharth Dutt"
+        }
+      ]
+    },
+    {
+      "id": "https://www.sdadvisory.in/insights/agentic-ai-from-copilots-to-autonomous-it-operations.html",
+      "url": "https://www.sdadvisory.in/insights/agentic-ai-from-copilots-to-autonomous-it-operations.html",
+      "title": "Agentic AI: From Copilots to Autonomous IT Operations",
+      "summary": "2026 is the year AI stopped suggesting and started doing. Agentic AI systems now plan, execute, and verify multi-step IT operations tasks — but autonomy without guardrails is an outage waiting to happen. Here's where agents genuinely help, and where humans must stay in the loop.",
+      "content_text": "2026 is the year AI stopped suggesting and started doing. Agentic AI systems now plan, execute, and verify multi-step IT operations tasks — but autonomy without guardrails is an outage waiting to happen. Here's where agents genuinely help, and where humans must stay in the loop.",
+      "date_published": "2026-07-01T09:00:00Z",
+      "tags": [
+        "Enterprise AI Architecture"
+      ],
+      "authors": [
+        {
+          "name": "Siddharth Dutt"
+        }
+      ]
+    },
+    {
+      "id": "https://www.sdadvisory.in/insights/digital-twins-spatial-computing-for-enterprise-it.html",
+      "url": "https://www.sdadvisory.in/insights/digital-twins-spatial-computing-for-enterprise-it.html",
+      "title": "Digital Twins & Spatial Computing for Enterprise IT",
+      "summary": "Digital twins have moved beyond manufacturing floors into the data centre and the NOC. Combined with spatial computing interfaces, they're changing how operations teams visualise infrastructure, rehearse changes, and predict failures before they happen.",
+      "content_text": "Digital twins have moved beyond manufacturing floors into the data centre and the NOC. Combined with spatial computing interfaces, they're changing how operations teams visualise infrastructure, rehearse changes, and predict failures before they happen.",
+      "date_published": "2026-07-01T09:00:00Z",
+      "tags": [
+        "Enterprise AI Architecture"
+      ],
+      "authors": [
+        {
+          "name": "Siddharth Dutt"
+        }
+      ]
+    },
+    {
+      "id": "https://www.sdadvisory.in/insights/quantum-safe-it-preparing-enterprise-infrastructure-for-post-quantum.html",
+      "url": "https://www.sdadvisory.in/insights/quantum-safe-it-preparing-enterprise-infrastructure-for-post-quantum.html",
+      "title": "Quantum-Safe IT: Preparing Enterprise Infrastructure for Post-Quantum Cryptography",
+      "summary": "Attackers are harvesting your encrypted traffic today to decrypt it when quantum computers mature. With NIST's post-quantum standards finalised and regulatory deadlines approaching, PQC migration has become an IT delivery programme — not a research topic. Here's the practical roadmap.",
+      "content_text": "Attackers are harvesting your encrypted traffic today to decrypt it when quantum computers mature. With NIST's post-quantum standards finalised and regulatory deadlines approaching, PQC migration has become an IT delivery programme — not a research topic. Here's the practical roadmap.",
+      "date_published": "2026-07-01T09:00:00Z",
+      "tags": [
+        "AI Resilience & Governance"
+      ],
+      "authors": [
+        {
+          "name": "Siddharth Dutt"
+        }
+      ]
+    },
+    {
+      "id": "https://www.sdadvisory.in/insights/prompt-engineering-for-itsm-teams.html",
+      "url": "https://www.sdadvisory.in/insights/prompt-engineering-for-itsm-teams.html",
+      "title": "Prompt Engineering for ITSM Teams",
+      "summary": "Most service desk teams are sitting on untapped potential. With the right prompt architecture, Claude or ChatGPT can triage tickets, generate incident summaries, draft RCA reports, and coach L1 agents — all without replacing your team.",
+      "content_text": "Most service desk teams are sitting on untapped potential. With the right prompt architecture, Claude or ChatGPT can triage tickets, generate incident summaries, draft RCA reports, and coach L1 agents — all without replacing your team.",
+      "date_published": "2026-05-01T09:00:00Z",
+      "tags": [
+        "AI + ITSM"
+      ],
+      "authors": [
+        {
+          "name": "Siddharth Dutt"
+        }
+      ]
+    },
+    {
+      "id": "https://www.sdadvisory.in/insights/n8n-claude-the-itsm-power-combo.html",
+      "url": "https://www.sdadvisory.in/insights/n8n-claude-the-itsm-power-combo.html",
+      "title": "n8n + Claude: The ITSM Power Combo",
+      "summary": "How I built SmartDesk — an AI triage system that auto-classifies 42% of tickets — using n8n workflows and Claude API. A complete walkthrough of the architecture, prompt design, and lessons learned.",
+      "content_text": "How I built SmartDesk — an AI triage system that auto-classifies 42% of tickets — using n8n workflows and Claude API. A complete walkthrough of the architecture, prompt design, and lessons learned.",
+      "date_published": "2026-04-01T09:00:00Z",
+      "tags": [
+        "AI + ITSM"
+      ],
+      "authors": [
+        {
+          "name": "Siddharth Dutt"
+        }
+      ]
+    },
+    {
+      "id": "https://www.sdadvisory.in/insights/the-ai-adoption-maturity-model-for-it.html",
+      "url": "https://www.sdadvisory.in/insights/the-ai-adoption-maturity-model-for-it.html",
+      "title": "The AI Adoption Maturity Model for IT",
+      "summary": "Not all organisations are ready for the same AI interventions. This maturity framework helps CIOs and service delivery leaders identify where they are — and what their next AI investment should be.",
+      "content_text": "Not all organisations are ready for the same AI interventions. This maturity framework helps CIOs and service delivery leaders identify where they are — and what their next AI investment should be.",
+      "date_published": "2026-03-01T09:00:00Z",
+      "tags": [
+        "AI Transformation"
+      ],
+      "authors": [
+        {
+          "name": "Siddharth Dutt"
+        }
+      ]
+    },
+    {
+      "id": "https://www.sdadvisory.in/insights/itil-4-meets-generative-ai.html",
+      "url": "https://www.sdadvisory.in/insights/itil-4-meets-generative-ai.html",
+      "title": "ITIL 4 Meets Generative AI",
+      "summary": "ITIL 4's Service Value System wasn't designed with LLMs in mind — but its flexibility makes it ideal for AI augmentation. A practical guide to overlaying GenAI capabilities on your existing ITIL framework.",
+      "content_text": "ITIL 4's Service Value System wasn't designed with LLMs in mind — but its flexibility makes it ideal for AI augmentation. A practical guide to overlaying GenAI capabilities on your existing ITIL framework.",
+      "date_published": "2026-02-01T09:00:00Z",
+      "tags": [
+        "AI + ITSM"
+      ],
+      "authors": [
+        {
+          "name": "Siddharth Dutt"
+        }
+      ]
+    },
+    {
+      "id": "https://www.sdadvisory.in/insights/rag-for-knowledge-base-automation.html",
+      "url": "https://www.sdadvisory.in/insights/rag-for-knowledge-base-automation.html",
+      "title": "RAG for Knowledge Base Automation",
+      "summary": "Retrieval-Augmented Generation can turn your ServiceNow knowledge base into an intelligent self-service engine. Here's the architecture I recommend for enterprise ITSM knowledge automation.",
+      "content_text": "Retrieval-Augmented Generation can turn your ServiceNow knowledge base into an intelligent self-service engine. Here's the architecture I recommend for enterprise ITSM knowledge automation.",
+      "date_published": "2026-01-01T09:00:00Z",
+      "tags": [
+        "Enterprise AI Architecture"
+      ],
+      "authors": [
+        {
+          "name": "Siddharth Dutt"
+        }
+      ]
+    },
+    {
+      "id": "https://www.sdadvisory.in/insights/observability-vs-monitoring-why-your-splunk-dashboard-isnt-enough.html",
+      "url": "https://www.sdadvisory.in/insights/observability-vs-monitoring-why-your-splunk-dashboard-isnt-enough.html",
+      "title": "Observability vs. Monitoring — Why Your Splunk Dashboard Isn't Enough",
+      "summary": "Monitoring tells you when something you already anticipated breaks. Observability lets you ask questions you never thought to ask in advance. Most enterprise Splunk deployments are still doing the former.",
+      "content_text": "Monitoring tells you when something you already anticipated breaks. Observability lets you ask questions you never thought to ask in advance. Most enterprise Splunk deployments are still doing the former.",
+      "date_published": "2025-12-01T09:00:00Z",
+      "tags": [
+        "Intelligent IT Operations"
+      ],
+      "authors": [
+        {
+          "name": "Siddharth Dutt"
+        }
+      ]
+    },
+    {
+      "id": "https://www.sdadvisory.in/insights/building-an-aiops-maturity-model-a-practical-framework.html",
+      "url": "https://www.sdadvisory.in/insights/building-an-aiops-maturity-model-a-practical-framework.html",
+      "title": "Building an AIOps Maturity Model: A Practical Framework",
+      "summary": "Most organizations buy an AIOps platform before they know what maturity stage they're actually at. Here's the four-stage framework I use to diagnose where a team really stands before recommending anything.",
+      "content_text": "Most organizations buy an AIOps platform before they know what maturity stage they're actually at. Here's the four-stage framework I use to diagnose where a team really stands before recommending anything.",
+      "date_published": "2025-11-01T09:00:00Z",
+      "tags": [
+        "Intelligent IT Operations"
+      ],
+      "authors": [
+        {
+          "name": "Siddharth Dutt"
+        }
+      ]
+    },
+    {
+      "id": "https://www.sdadvisory.in/insights/beyond-chatbots-what-production-grade-genai-for-itsm-actually-looks.html",
+      "url": "https://www.sdadvisory.in/insights/beyond-chatbots-what-production-grade-genai-for-itsm-actually-looks.html",
+      "title": "Beyond Chatbots: What Production-Grade GenAI for ITSM Actually Looks Like",
+      "summary": "Most enterprise GenAI-for-ITSM initiatives stall at a chatbot demo. Production-grade implementations look almost nothing like that — and the difference comes down to four specific design decisions.",
+      "content_text": "Most enterprise GenAI-for-ITSM initiatives stall at a chatbot demo. Production-grade implementations look almost nothing like that — and the difference comes down to four specific design decisions.",
+      "date_published": "2025-10-01T09:00:00Z",
+      "tags": [
+        "AI + ITSM"
+      ],
+      "authors": [
+        {
+          "name": "Siddharth Dutt"
+        }
+      ]
+    },
+    {
+      "id": "https://www.sdadvisory.in/insights/how-i-built-smart-desk-lessons-from-putting-claude-into-a-live.html",
+      "url": "https://www.sdadvisory.in/insights/how-i-built-smart-desk-lessons-from-putting-claude-into-a-live.html",
+      "title": "How I Built Smart Desk: Lessons From Putting Claude Into a Live ServiceNow Workflow",
+      "summary": "A behind-the-scenes look at building Smart Desk — the architecture decisions, the failure modes I hit early, and why the boring parts of the build mattered more than the AI model choice.",
+      "content_text": "A behind-the-scenes look at building Smart Desk — the architecture decisions, the failure modes I hit early, and why the boring parts of the build mattered more than the AI model choice.",
+      "date_published": "2025-09-01T09:00:00Z",
+      "tags": [
+        "AI + ITSM"
+      ],
+      "authors": [
+        {
+          "name": "Siddharth Dutt"
+        }
+      ]
+    },
+    {
+      "id": "https://www.sdadvisory.in/insights/servicenow-governance-debt-the-hidden-cost-of-it-just-works.html",
+      "url": "https://www.sdadvisory.in/insights/servicenow-governance-debt-the-hidden-cost-of-it-just-works.html",
+      "title": "ServiceNow Governance Debt: The Hidden Cost of 'It Just Works'",
+      "summary": "Most ServiceNow instances accumulate governance debt the same way technical debt builds in codebases — quietly, through years of reasonable-seeming shortcuts, until an audit or an automation project hits the bill all at once.",
+      "content_text": "Most ServiceNow instances accumulate governance debt the same way technical debt builds in codebases — quietly, through years of reasonable-seeming shortcuts, until an audit or an automation project hits the bill all at once.",
+      "date_published": "2025-08-01T09:00:00Z",
+      "tags": [
+        "AI Resilience & Governance"
+      ],
+      "authors": [
+        {
+          "name": "Siddharth Dutt"
+        }
+      ]
+    },
+    {
+      "id": "https://www.sdadvisory.in/insights/api-integrations-in-servicenow-a-security-first-checklist.html",
+      "url": "https://www.sdadvisory.in/insights/api-integrations-in-servicenow-a-security-first-checklist.html",
+      "title": "API Integrations in ServiceNow: A Security-First Checklist",
+      "summary": "Every API integration you add to ServiceNow expands the platform's attack surface, whether or not anyone treats it that way. Here's the checklist I run before any integration goes live.",
+      "content_text": "Every API integration you add to ServiceNow expands the platform's attack surface, whether or not anyone treats it that way. Here's the checklist I run before any integration goes live.",
+      "date_published": "2025-07-01T09:00:00Z",
+      "tags": [
+        "AI Resilience & Governance"
+      ],
+      "authors": [
+        {
+          "name": "Siddharth Dutt"
+        }
+      ]
+    },
+    {
+      "id": "https://www.sdadvisory.in/insights/itil-4-in-practice-why-most-governance-frameworks-fail-at-2am.html",
+      "url": "https://www.sdadvisory.in/insights/itil-4-in-practice-why-most-governance-frameworks-fail-at-2am.html",
+      "title": "ITIL 4 in Practice: Why Most Governance Frameworks Fail at 2am",
+      "summary": "A governance framework that only works during business hours, with the process owner available to clarify edge cases, isn't a governance framework — it's a documentation exercise waiting for its first real incident.",
+      "content_text": "A governance framework that only works during business hours, with the process owner available to clarify edge cases, isn't a governance framework — it's a documentation exercise waiting for its first real incident.",
+      "date_published": "2025-06-01T09:00:00Z",
+      "tags": [
+        "AI Resilience & Governance"
+      ],
+      "authors": [
+        {
+          "name": "Siddharth Dutt"
+        }
+      ]
+    },
+    {
+      "id": "https://www.sdadvisory.in/insights/change-management-without-the-bottleneck-a-practical-itil-4-approach.html",
+      "url": "https://www.sdadvisory.in/insights/change-management-without-the-bottleneck-a-practical-itil-4-approach.html",
+      "title": "Change Management Without the Bottleneck: A Practical ITIL 4 Approach",
+      "summary": "Change management gets a bad reputation because most implementations treat every change like it carries equal risk. ITIL 4's risk-based approach fixes this — if anyone actually implements it that way.",
+      "content_text": "Change management gets a bad reputation because most implementations treat every change like it carries equal risk. ITIL 4's risk-based approach fixes this — if anyone actually implements it that way.",
+      "date_published": "2025-05-01T09:00:00Z",
+      "tags": [
+        "AI + ITSM"
+      ],
+      "authors": [
+        {
+          "name": "Siddharth Dutt"
+        }
+      ]
+    },
+    {
+      "id": "https://www.sdadvisory.in/insights/running-a-global-managed-services-portfolio-lessons-in-sla-governance.html",
+      "url": "https://www.sdadvisory.in/insights/running-a-global-managed-services-portfolio-lessons-in-sla-governance.html",
+      "title": "Running a Global Managed Services Portfolio: Lessons in SLA Governance",
+      "summary": "SLA governance at portfolio scale is a completely different discipline than SLA management for a single account. Here's what changes once you're responsible for fifteen accounts instead of one.",
+      "content_text": "SLA governance at portfolio scale is a completely different discipline than SLA management for a single account. Here's what changes once you're responsible for fifteen accounts instead of one.",
+      "date_published": "2025-04-01T09:00:00Z",
+      "tags": [
+        "Intelligent IT Operations"
+      ],
+      "authors": [
+        {
+          "name": "Siddharth Dutt"
+        }
+      ]
+    },
+    {
+      "id": "https://www.sdadvisory.in/insights/the-hidden-cost-of-bad-service-transitions-and-how-to-avoid-sev-1s.html",
+      "url": "https://www.sdadvisory.in/insights/the-hidden-cost-of-bad-service-transitions-and-how-to-avoid-sev-1s.html",
+      "title": "The Hidden Cost of Bad Service Transitions (and How to Avoid Sev-1s)",
+      "summary": "Most service transition failures aren't caused by the cutover itself — they're caused by hypercare planning that was treated as an afterthought rather than a core deliverable.",
+      "content_text": "Most service transition failures aren't caused by the cutover itself — they're caused by hypercare planning that was treated as an afterthought rather than a core deliverable.",
+      "date_published": "2025-03-01T09:00:00Z",
+      "tags": [
+        "Intelligent IT Operations"
+      ],
+      "authors": [
+        {
+          "name": "Siddharth Dutt"
+        }
+      ]
+    }
+  ]
+}

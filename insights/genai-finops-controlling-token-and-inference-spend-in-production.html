@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js')</script>
+<title>GenAI FinOps: Controlling Token and Inference Spend | SD Advisory</title>
+<meta name="description" content="GenAI moved from pilot to production in 2026, and the invoice came with it. Token and inference spend is now a governance problem — here's how I put cost ownership, visibility and controls in place before the bill starts writing the strategy.">
+<meta name="author" content="Siddharth Dutt">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.sdadvisory.in/insights/genai-finops-controlling-token-and-inference-spend-in-production.html">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GenAI FinOps: Controlling Token and Inference Spend | SD Advisory">
+<meta property="og:description" content="Token and inference spend is now a governance problem. Here's how I put cost ownership, visibility and controls in place before the bill starts writing the strategy.">
+<meta property="og:url" content="https://www.sdadvisory.in/insights/genai-finops-controlling-token-and-inference-spend-in-production.html">
+<meta property="og:site_name" content="SD Advisory">
+<meta property="og:locale" content="en_IN">
+<meta property="og:image" content="https://www.sdadvisory.in/img/og/genai-finops-controlling-token-and-inference-spend-in-production.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="GenAI FinOps: Controlling Token and Inference Spend">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GenAI FinOps: Controlling Token and Inference Spend | SD Advisory">
+<meta name="twitter:description" content="Token and inference spend is now a governance problem. Here's how I put cost ownership, visibility and controls in place before the bill starts writing the strategy.">
+<meta name="twitter:image" content="https://www.sdadvisory.in/img/og/genai-finops-controlling-token-and-inference-spend-in-production.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "GenAI FinOps: Controlling Token and Inference Spend in Production",
+  "description": "GenAI moved from pilot to production in 2026, and the invoice came with it. Token and inference spend is now a governance problem — here's how I put cost ownership, visibility and controls in place before the bill starts writing the strategy.",
+  "author": {
+    "@type": "Person",
+    "name": "Siddharth Dutt",
+    "url": "https://www.sdadvisory.in/"
+  },
+  "publisher": {
+    "@type": "ProfessionalService",
+    "name": "SD Advisory",
+    "url": "https://www.sdadvisory.in/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.sdadvisory.in/logo-mark.png"
+    }
+  },
+  "datePublished": "2026-11",
+  "articleSection": "AI Resilience & Governance",
+  "image": "https://www.sdadvisory.in/img/og/genai-finops-controlling-token-and-inference-spend-in-production.jpg",
+  "mainEntityOfPage": "https://www.sdadvisory.in/insights/genai-finops-controlling-token-and-inference-spend-in-production.html",
+  "inLanguage": "en"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.sdadvisory.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Insights",
+      "item": "https://www.sdadvisory.in/blog.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "GenAI FinOps: Controlling Token and Inference Spend in Production",
+      "item": "https://www.sdadvisory.in/insights/genai-finops-controlling-token-and-inference-spend-in-production.html"
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../site.css?v=9">
+</head>
+<body class="sd-page">
+<a class="skip-link" href="#main">Skip to main content</a>
+<nav aria-label="Primary">
+  <a href="../index.html" class="nav-logo" aria-label="SD Advisory home">
+    <img src="../logo-mark-80.png" width="38" height="38" alt="">
+    <span class="nav-brand">
+      <span class="nav-brand-name">SD ADVISORY</span>
+      <span class="nav-brand-tag">Enterprise AI Transformation</span>
+    </span>
+  </a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <div class="nav-links" id="nav-menu">
+    <a href="../index.html#services">Services</a>
+    <a href="../accelerators.html">Solutions</a>
+    <a href="../case-studies.html">Case Studies</a>
+    <a href="../blog.html" aria-current="page">Insights</a>
+    <a href="../index.html#about">About</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../assessment.html" class="nav-cta">Assess Your AI Readiness</a>
+  </div>
+</nav>
+<main id="main">
+<header class="article-hero has-cover" style="--cover:url('../img/covers/genai-finops-controlling-token-and-inference-spend-in-production.svg')">
+  <div class="sd-wrap">
+    <div class="crumbs"><a href="../index.html">Home</a> / <a href="../blog.html">Insights</a> / <a href="../blog.html#ai-resilience-governance">AI Resilience &amp; Governance</a></div>
+    <div class="tag">AI Resilience &amp; Governance · FinOps · GenAI</div>
+    <h1>GenAI FinOps: Controlling Token and Inference Spend in <em>Production</em></h1>
+    <div class="byline"><span>Siddharth Dutt</span><span>Nov 2026</span><span>8 min read</span></div>
+  </div>
+</header>
+<div class="article-layout">
+<details class="toc-box" open><summary>In this article</summary><ol><li><a href="#where-the-genai-bill-comes-from">Where the GenAI Bill Actually Comes From</a></li><li><a href="#why-cost-is-a-governance-problem">Why Cost Is a Governance Problem, Not an Engineering One</a></li><li><a href="#the-controls-i-put-in-place">The Controls I Put in Place</a></li></ol></details><script>if(window.innerWidth<960){var t=document.querySelector("details.toc-box");if(t)t.removeAttribute("open")}</script>
+<article class="article-body">
+
+      <p>Through 2025, most enterprises I worked with were running GenAI in pilots — a contained proof of value, a budget line nobody scrutinised too hard because the numbers were small. In 2026 that changed. The pilots went to production, usage scaled with real users, and the first serious invoices landed on finance's desk. The question stopped being "does this work?" and became "why did this cost what it cost, and who signed off on that?"</p>
+
+      <p>That second question is the one most teams are unprepared for. The spend is real, it's variable, and — unlike a server you provisioned — it moves every time someone changes a prompt, adds a retrieval step, or lets an agent loop one more time. Treating that as purely an engineering optimisation misses the point. It's a governance gap.</p>
+
+      <h2 id="where-the-genai-bill-comes-from">Where the GenAI Bill Actually Comes From</h2>
+      <p>Before you can control GenAI spend, you have to know what actually drives it. In the production systems I've reviewed, the cost almost never comes from where people assume. It comes from a handful of repeatable patterns:</p>
+      <ul>
+        <li><strong>Context bloat.</strong> A prompt that started lean grows over time — more system instructions, more examples, a larger retrieved context window — and every token in that context is paid for on every single call.</li>
+        <li><strong>Model mismatch.</strong> A frontier-tier model doing work a smaller, cheaper model would handle just as well. The default is often "use the best model everywhere," which is the most expensive possible starting point.</li>
+        <li><strong>Unbounded retrieval.</strong> A single RAG call that pulls far more documents than the answer needs, quietly multiplying the token count on the way into the model.</li>
+        <li><strong>Retries and agent loops.</strong> Automatic retries, multi-step agents, and self-correction passes each re-pay for the full context. A loop with no ceiling is a cost incident waiting to happen.</li>
+        <li><strong>No attribution.</strong> Spend that can't be traced to a team, feature, or use case — so nobody owns it, and nobody can tell which part is actually earning its keep.</li>
+      </ul>
+
+      <p>The pattern underneath all of these is the same one I've seen with cloud spend for years: a small number of use cases typically account for most of the bill, and you can't fix what you can't see.</p>
+
+      <blockquote>"GenAI cost doesn't blow up with a bang. It creeps — one extra retrieval, one richer prompt, one more agent step at a time — until the monthly invoice is writing your roadmap for you."</blockquote>
+
+      <h2 id="why-cost-is-a-governance-problem">Why Cost Is a Governance Problem, Not an Engineering One</h2>
+      <p>Engineers can make any single call cheaper. What they can't do from inside the code is decide which use cases are worth running, who is accountable for a budget, or what happens when spend crosses a threshold. Those are governance decisions, and they belong in the same operating model as your other AI risk controls — not in a backlog ticket.</p>
+
+      <p>This is why I file cost under AI resilience and governance rather than pure FinOps. A system you can't afford to run at scale is just as unavailable as one that's technically down — the business outcome is identical. If an unexpected invoice forces you to throttle or switch off a GenAI feature mid-quarter, that's a resilience failure dressed up as a finance problem. Designing for cost is part of designing for operations that keep running.</p>
+
+      <div class="stat-row">
+        <div class="stat-box"><div class="num">5</div><div class="lbl">Cost Drivers to Watch</div></div>
+        <div class="stat-box"><div class="num">2</div><div class="lbl">Model Tiers Worth Running</div></div>
+      </div>
+
+      <h2 id="the-controls-i-put-in-place">The Controls I Put in Place</h2>
+      <p>The goal isn't to spend less for its own sake — it's to make spend visible, owned, and bounded, so the business can make deliberate trade-offs instead of discovering them on an invoice. The controls that consistently work:</p>
+      <ul>
+        <li><strong>Attribution first.</strong> Before optimising anything, tag every call with the team, feature, and use case behind it. Until you can see spend by use case, every optimisation is a guess.</li>
+        <li><strong>Budgets with teeth.</strong> Per-use-case budgets with alerts at a warning threshold and a hard behaviour — degrade, queue, or fall back — at the ceiling. A budget nobody enforces is just a hope.</li>
+        <li><strong>Model routing.</strong> Run at least two tiers and route by task: a small, cheap model for classification and routine work, a frontier model reserved for the cases that genuinely need it. This single decision moves the bill more than any prompt tweak.</li>
+        <li><strong>Context discipline.</strong> Treat the context window as a budget, not a bucket. Trim system prompts, cap retrieved documents, and measure tokens-per-call as a first-class metric.</li>
+        <li><strong>Caching and reuse.</strong> Cache repeated prompts and prompt prefixes so you stop paying full price for the same work twice.</li>
+        <li><strong>Loop ceilings.</strong> Every agent, retry, and self-correction path gets a hard maximum and a cost guardrail, so a misbehaving loop fails safe instead of failing expensive.</li>
+      </ul>
+
+      <div class="callout">
+        <strong>Key Takeaway</strong>
+        <p>Make GenAI spend visible and owned before you try to make it smaller. Attribution, budgets with real behaviour at the ceiling, and routing work to the cheapest model that can do the job will do more for your bill — and your resilience — than any amount of prompt micro-tuning.</p>
+      </div>
+
+      <p>The organisations getting durable value from GenAI in production aren't the ones spending the least. They're the ones who can say, with confidence, exactly what they're spending, on which use cases, and why — and who decided that on purpose rather than at the mercy of a monthly invoice.</p>
+
+</article>
+</div>
+<section class="article-next" aria-labelledby="where-next">
+  <div class="box">
+    <h2 id="where-next">Where to go from here</h2>
+    <ul>
+      <li>Service: <a href="../ai-resilience-by-design.html">AI Resilience by Design</a></li>
+      <li>Evidence: <a href="../case-study-ai-incident-copilot.html">AI Incident Co-Pilot case study</a></li>
+      <li>Check your own position: <a href="../assessment.html">the free three-minute AI Readiness Assessment</a></li>
+      <li>More on <a href="../blog.html#ai-resilience-governance">AI Resilience &amp; Governance</a></li>
+    </ul>
+    <h2 style="font-size:1.1rem">Keep reading</h2><ul><li><a href="../insights/itil-4-in-practice-why-most-governance-frameworks-fail-at-2am.html">ITIL 4 in Practice: Why Most Governance Frameworks Fail at 2am</a></li><li><a href="../insights/servicenow-governance-debt-the-hidden-cost-of-it-just-works.html">ServiceNow Governance Debt: The Hidden Cost of 'It Just Works'</a></li><li><a href="../insights/the-ai-adoption-maturity-model-for-it.html">The AI Adoption Maturity Model for IT</a></li></ul>
+    <div class="row"><a class="btn btn-primary" href="../assessment.html">Assess Your AI Readiness<span class="arr" aria-hidden="true">→</span></a>
+    <a class="btn btn-secondary" href="https://calendly.com/dutt-siddharth/free-30-min-consultation" target="_blank" rel="noopener">Book a Consultation</a></div>
+  </div>
+</section>
+</main>
+<footer class="sd-footer">
+  <div class="sd-footer-top">
+    <div>
+      <p class="f-kicker">SD Advisory · Enterprise AI Transformation Advisory</p>
+      <p class="f-statement">Enterprise IT, <span>Intelligently Run.</span></p>
+    </div>
+    <a href="../assessment.html" class="btn btn-primary">Assess Your AI Readiness<span class="arr" aria-hidden="true">→</span></a>
+  </div>
+  <div class="sd-footer-grid">
+    <div>
+      <div class="f-brand">SD ADVISORY</div>
+      <p class="f-tag">Enterprise AI transformation for IT operations. From reactive IT operations to intelligent, resilient and AI-enabled operations.</p>
+      <ul>
+        <li><a href="../contact.html">Contact us</a></li>
+        <li><a href="https://linkedin.com/in/siddharth-dutt-csm" rel="noopener" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Services</h2>
+      <ul>
+        <li><a href="../ai-transformation-advisory.html">AI Transformation Advisory</a></li>
+        <li><a href="../intelligent-it-operations.html">Intelligent IT Operations</a></li>
+        <li><a href="../accelerators.html">AI &amp; ITSM Accelerators</a></li>
+        <li><a href="../transformation-delivery.html">Transformation &amp; Delivery</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Explore</h2>
+      <ul>
+        <li><a href="../assessment.html">Free AI Readiness Assessment</a></li>
+        <li><a href="../ai-resilience-by-design.html">AI Resilience by Design</a></li>
+        <li><a href="../case-studies.html">Case Studies</a></li>
+        <li><a href="../blog.html">Insights</a></li>
+        <li><a href="../start-here.html">Where to Start</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Company</h2>
+      <ul>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="https://calendly.com/dutt-siddharth/free-30-min-consultation" rel="noopener" target="_blank">Book a Consultation</a></li>
+        <li><a href="../experiments.html">Built in Public</a></li>
+        <li><a href="../privacy.html">Privacy</a></li>
+        <li><a href="../terms.html">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="sd-footer-base">
+    <span>© 2026 SD Advisory. All rights reserved.</span>
+    <span>ITIL Expert · PRINCE2 Practitioner · AWS Certified Solutions Architect</span>
+  </div>
+</footer>
+<script src="../site.js?v=6" defer></script>
+<!-- Cloudflare Web Analytics -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c2af5f69b5e44c0199b711cf1d4ae370"}'></script>
+<!-- End Cloudflare Web Analytics -->
+  <script src="/ticker-banners.js" defer></script>
+</body>
+</html>
