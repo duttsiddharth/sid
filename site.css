@@ -100,3 +100,34 @@
 .ed-card.feature.has-cover .ed-cat{margin-top:auto}
 .ed-card.feature.has-cover .ed-meta{margin-top:1.8rem}
 .ed-card.feature.has-cover .ed-cover{height:56%}
+
+/* --- Four pillars: lively connector, continuously-glowing nodes, soft icon glow (reduced-motion safe) --- */
+@media (min-width:1101px) and (prefers-reduced-motion:no-preference){
+  .jp-list::before{
+    height:3px;top:6.5px;
+    background:
+      linear-gradient(90deg,rgba(34,211,238,0) 0,#67E8F9 45%,#22D3EE 55%,rgba(34,211,238,0) 100%) -200px 0/200px 100% no-repeat,
+      linear-gradient(90deg,var(--accent),rgba(37,99,235,.28)) 0 0/100% 100% no-repeat;
+    filter:drop-shadow(0 0 4px rgba(34,211,238,.6));
+    animation:jpFlow 3s linear infinite;
+  }
+  @keyframes jpFlow{from{background-position:-200px 0,0 0}to{background-position:calc(100% + 200px) 0,0 0}}
+}
+@media (prefers-reduced-motion:no-preference){
+  /* nodes always carry a soft cyan glow and breathe to bright — alive even in a still frame */
+  .jp-node{animation:jpNode 2.6s ease-in-out infinite}
+  .jp:nth-child(2) .jp-node{animation-delay:.5s}
+  .jp:nth-child(3) .jp-node{animation-delay:1s}
+  .jp:nth-child(4) .jp-node{animation-delay:1.5s}
+  @keyframes jpNode{0%,100%{background:var(--surface);box-shadow:0 0 0 2px rgba(34,211,238,.1),0 0 6px 0 rgba(34,211,238,.3)}50%{background:#22D3EE;box-shadow:0 0 0 6px rgba(34,211,238,.16),0 0 16px 3px rgba(34,211,238,.7)}}
+  .jp-node::after{content:'';position:absolute;inset:-2px;border-radius:50%;border:2.5px solid #22D3EE;opacity:0;animation:jpRing 2.6s ease-out infinite}
+  .jp:nth-child(2) .jp-node::after{animation-delay:.5s}
+  .jp:nth-child(3) .jp-node::after{animation-delay:1s}
+  .jp:nth-child(4) .jp-node::after{animation-delay:1.5s}
+  @keyframes jpRing{0%{transform:scale(1);opacity:.8}55%,100%{transform:scale(3);opacity:0}}
+  .jp-ico{animation:jpGlow 3s ease-in-out infinite}
+  .jp:nth-child(2) .jp-ico{animation-delay:.28s}
+  .jp:nth-child(3) .jp-ico{animation-delay:.56s}
+  .jp:nth-child(4) .jp-ico{animation-delay:.84s}
+  @keyframes jpGlow{0%,100%{background:var(--accent-soft);box-shadow:0 0 0 0 rgba(37,99,235,0)}50%{background:rgba(37,99,235,.24);box-shadow:0 0 24px 2px rgba(37,99,235,.55)}}
+}
