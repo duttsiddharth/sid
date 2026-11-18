@@ -131,3 +131,51 @@
   .jp:nth-child(4) .jp-ico{animation-delay:.84s}
   @keyframes jpGlow{0%,100%{background:var(--accent-soft);box-shadow:0 0 0 0 rgba(37,99,235,0)}50%{background:rgba(37,99,235,.24);box-shadow:0 0 24px 2px rgba(37,99,235,.55)}}
 }
+
+/* --- technology: evenly-aligned wordmark wall --- */
+.tech-wall{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.tech-wall .tw{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;min-height:86px;padding:1rem .7rem;text-align:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;transition:border-color var(--t),box-shadow var(--t),transform var(--t) var(--ease)}
+.tech-wall .tw em{font-style:normal;font-size:.6rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.tech-wall .tw b{font-size:1.02rem;font-weight:750;letter-spacing:-.015em;color:var(--ink);line-height:1.2}
+@media (hover:hover){.tech-wall .tw:hover{border-color:rgba(37,99,235,.4);box-shadow:0 0 0 4px var(--accent-soft),0 18px 34px -26px var(--accent-glow);transform:translateY(-2px)}}
+@media (max-width:1100px){.tech-wall{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:560px){.tech-wall{grid-template-columns:1fr 1fr}}
+
+/* === Why SD Advisory: RUN→SCALE timeline + OPERATOR→ADVISOR→BUILDER flow === */
+/* base (always on): a proper aligned timeline with rail + nodes */
+.story{position:relative;padding-left:1.7rem}
+.story::before{content:'';position:absolute;left:5px;top:1.1rem;bottom:1.1rem;width:2px;border-radius:2px;background:linear-gradient(180deg,var(--accent),rgba(37,99,235,.18))}
+.story li{padding-left:.2rem}
+.story li::before{content:'';position:absolute;left:-1.7rem;top:1.5rem;width:12px;height:12px;border-radius:50%;background:var(--surface);border:2.5px solid var(--accent);box-shadow:0 0 0 4px var(--accent-soft);transition:background var(--t),box-shadow var(--t)}
+.story li b{transition:color var(--t),text-shadow var(--t)}
+.story li:hover{background:linear-gradient(90deg,var(--accent-soft),transparent)}
+.story li:hover::before{background:var(--accent);box-shadow:0 0 0 5px var(--accent-soft)}
+.oab{display:inline-flex;align-items:center;gap:.1rem}
+.oab i{transition:transform var(--t) var(--ease)}
+
+@media (prefers-reduced-motion:no-preference){
+  /* travelling pulse down the rail */
+  .story::before{
+    background:
+      linear-gradient(180deg,rgba(34,211,238,0),#22D3EE,rgba(34,211,238,0)) 0 -70px/100% 70px no-repeat,
+      linear-gradient(180deg,var(--accent),rgba(37,99,235,.18)) 0 0/100% 100% no-repeat;
+    filter:drop-shadow(0 0 4px rgba(34,211,238,.55));
+    animation:storyRail 4.4s linear infinite;
+  }
+  @keyframes storyRail{from{background-position:0 -70px,0 0}to{background-position:0 calc(100% + 70px),0 0}}
+  /* each stage lights up in sequence: RUN → TRANSFORM → BUILD → SCALE */
+  .story li{animation:storyRow 4.4s ease-in-out infinite}
+  .story li b{animation:storyLab 4.4s ease-in-out infinite}
+  .story li::before{animation:storyDot 4.4s ease-in-out infinite}
+  .story li:nth-child(1),.story li:nth-child(1) b,.story li:nth-child(1)::before{animation-delay:0s}
+  .story li:nth-child(2),.story li:nth-child(2) b,.story li:nth-child(2)::before{animation-delay:1.1s}
+  .story li:nth-child(3),.story li:nth-child(3) b,.story li:nth-child(3)::before{animation-delay:2.2s}
+  .story li:nth-child(4),.story li:nth-child(4) b,.story li:nth-child(4)::before{animation-delay:3.3s}
+  @keyframes storyRow{0%,100%{background:transparent}8%{background:linear-gradient(90deg,var(--accent-soft),transparent)}26%{background:transparent}}
+  @keyframes storyLab{0%,100%{color:var(--accent);text-shadow:none}8%{color:var(--blue);text-shadow:0 0 16px rgba(37,99,235,.55)}26%{color:var(--accent);text-shadow:none}}
+  @keyframes storyDot{0%,100%{background:var(--surface);box-shadow:0 0 0 4px var(--accent-soft)}8%{background:#22D3EE;box-shadow:0 0 0 5px rgba(34,211,238,.25),0 0 16px 3px rgba(34,211,238,.6)}26%{background:var(--surface);box-shadow:0 0 0 4px var(--accent-soft)}}
+  /* OPERATOR → ADVISOR → BUILDER: flowing gradient sheen */
+  .oab{background:linear-gradient(90deg,var(--accent) 0,var(--accent) 35%,#22D3EE 50%,var(--accent) 65%,var(--accent) 100%);background-size:220% 100%;background-position:120% 0;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:oabSheen 3.2s linear infinite}
+  @keyframes oabSheen{to{background-position:-120% 0}}
+  .oab i{-webkit-text-fill-color:transparent}
+}
